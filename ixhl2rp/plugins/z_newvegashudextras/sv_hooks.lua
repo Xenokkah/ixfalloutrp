@@ -55,6 +55,7 @@ function PLUGIN:EntityFireBullets(entity, bulletInfo)
 
 		weaponItem:SetData("condition", math.Clamp(math.Round(condition - weaponConditionDrain, 2), 0, 100))
 		entity:SetLocalVar("activeWeaponCondition", math.Clamp(math.Round(condition - weaponConditionDrain, 2), 0, 100))
+		
 
 		if (weaponItem:GetData("condition") <= 0) then
 			weaponItem:OnBreak(entity)
