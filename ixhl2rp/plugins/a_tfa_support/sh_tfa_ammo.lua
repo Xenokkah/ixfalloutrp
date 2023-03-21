@@ -111,3 +111,69 @@ PLUGIN.AmmoData["5mmboxammo" ] = {
 	Width = 2,
 	Height = 2
 }
+
+PLUGIN.AmmoData["308ammo" ] = {
+	Name = ".308 Rounds",
+	Amount = 20,
+	Price = 2000,
+	Model = "models/mosi/fallout4/ammo/308.mdl",
+	Width = 2,
+	Height = 1
+}
+
+PLUGIN.AmmoData["50mgammo" ] = {
+	Name = ".50MG Rounds",
+	Amount = 10,
+	Price = 2000,
+	Model = "models/mosi/fallout4/ammo/50.mdl",
+	Width = 2,
+	Height = 1
+}
+
+PLUGIN.AmmoData["2mmecammo" ] = {
+	Name = "2mmEC Batteries",
+	Amount = 20,
+	Price = 2000,
+	Model = "models/mosi/fallout4/ammo/2mmec.mdl",
+	Width = 2,
+	Height = 1
+}
+
+PLUGIN.AmmoData["40mmammo" ] = {
+	Name = "40mm Grenades",
+	Amount = 10,
+	Price = 2000,
+	Model = "models/mosi/fallout4/props/junk/ammobag.mdl",
+	Width = 2,
+	Height = 1
+}
+
+PLUGIN.AmmoData["mfcammo" ] = {
+	Name = "Microfusion Cells",
+	Amount = 30,
+	Price = 2000,
+	Model = "models/mosi/fallout4/ammo/microfusioncell.mdl",
+	Width = 1,
+	Height = 1
+}
+
+PLUGIN.AmmoData["ecpammo" ] = {
+	Name = "Electron Charge Pack",
+	Amount = 50,
+	Price = 2000,
+	Model = "models/fallout new vegas/electron_charge_pack.mdl",
+	Width = 1,
+	Height = 1
+}
+
+PLUGIN.AmmoData["plasmaammo" ] = {
+	Name = "Plasma Cartridge",
+	Amount = 25,
+	Price = 2000,
+	Model = "models/mosi/fallout4/ammo/plasma.mdl",
+	Width = 1,
+	Height = 1
+}
+
+
+

@@ -952,3 +952,528 @@ PLUGIN.GunData["aus_w_minigun"] = {
 }
 
 --=== .308 ===--
+PLUGIN.GunData["aus_w_huntingrifle"] = {
+	BlackList = false,
+	Name = "Hunting Rifle",
+	conditionDrainFactor = 0.9,
+	Desc = "A bolt action hunting rifle used for taking down big game, but also employed by many militaries or gangs due to its ease of use and stopping power." ,
+	Slot = "primary",
+	Model = "models/illusion/fwp/w_huntingrifle.mdl",
+	Width = 4,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 1,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	Prim = {
+		Ammo = "308ammo",
+		Damage = 35,
+		KickUp = 0.4,
+		KickDown = 0.4,
+		KickHorizontal = 0.35,
+		Spread = .021,
+		IronAccuracy = .01,
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
+PLUGIN.GunData["aus_w_battle_rifle"] = {
+	BlackList = false,
+	Name = "Battle Rifle",
+	conditionDrainFactor = 0.9,
+	Desc = "An antique even by wasteland standards, the M1 Garand nonetheless has its fans by those looking for the power of the .308 but with a higher rate of fire and capacity compared to more common hunting rifles. " ,
+	Slot = "primary",
+	Model = "models/halokiller38/fallout/weapons/rifles/thismachine.mdl",
+	Width = 4,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 1,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	Prim = {
+		Ammo = "308ammo",
+		Damage = 35,
+		KickUp = 0.4,
+		KickDown = 0.4,
+		KickHorizontal = 0.35,
+		Spread = .021,
+		IronAccuracy = .01,
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
+PLUGIN.GunData["aus_w_sniperrifle"] = {
+	BlackList = false,
+	Name = "Sniper Rifle",
+	conditionDrainFactor = 0.9,
+	Desc = "The DKS-501 Sniper Rifle was the US Army's standard sniper rifle before the war, and enjoys success by more elite units or fortunate wastelanders due to its near unrivaled ability to land several accurate shots in short periods over long distances." ,
+	Slot = "primary",
+	Model = "models/illusion/fwp/w_sniperrifle.mdl",
+	Width = 4,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 1,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	Prim = {
+		Ammo = "308ammo",
+		Damage = 35,
+		KickUp = 0.4,
+		KickDown = 0.4,
+		KickHorizontal = 0.35,
+		Spread = .021,
+		IronAccuracy = .01,
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
+PLUGIN.GunData["aus_w_bar"] = {
+	BlackList = false,
+	Name = "Automatic Rifle",
+	conditionDrainFactor = 0.9,
+	Desc = "The Browning Automatic Rifle was developed during WW1 and used primarily during the second, intended to serve as a squad support weapon, its success in that measure is questionable due to its heft and low capacity. Now, a functional BAR is both a token of prestige and a horrifying sight in the right hands." ,
+	Slot = "primary",
+	Model = "models/halokiller38/fallout/weapons/heavy weapons/automaticrifle.mdl",
+	Width = 4,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 2,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	Prim = {
+		Ammo = "308ammo",
+		Damage = 35,
+		KickUp = 0.4,
+		KickDown = 0.4,
+		KickHorizontal = 0.35,
+		Spread = .021,
+		IronAccuracy = .01,
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
+
+--=== .50MG ===--
+PLUGIN.GunData["aus_w_amr"] = {
+	BlackList = false,
+	Name = "Anti-Materiel Rifle",
+	conditionDrainFactor = 0.9,
+	Desc = "The PGM Hecate rifle is a massive gun firing an equally massive round. Capable of putting down all but the heaviest infantry targets in a single shot, it's still liable to break your shoulder unless fired with bipod deployed from a seated or prone position. An icon of the NCR's Veteran Rangers." ,
+	Slot = "primary",
+	Model = "models/illusion/fwp/w_amr.mdl",
+	Width = 5,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 2,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	Prim = {
+		Ammo = "50mgammo",
+		Damage = 35,
+		KickUp = 0.4,
+		KickDown = 0.4,
+		KickHorizontal = 0.35,
+		Spread = .021,
+		IronAccuracy = .01,
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
+--=== 2mmEC ===--
+PLUGIN.GunData["aus_w_gauss"] = {
+	BlackList = false,
+	Name = "Gauss Rifle",
+	conditionDrainFactor = 1.2,
+	Desc = "The Gauss Rifle was something of a prototype before the war, and now is only found in the hands of elite units of the wasteland's most technologically advanced factions. It will drop any infantry targets in a single well-placed shot, and is a threat to many vehicles too. " ,
+	Slot = "primary",
+	Model = "models/halokiller38/fallout/weapons/energy weapons/gaussrifle.mdl",
+	Width = 5,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 2,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	Prim = {
+		Ammo = "2mmecammo",
+		Damage = 35,
+		KickUp = 0.4,
+		KickDown = 0.4,
+		KickHorizontal = 0.35,
+		Spread = .021,
+		IronAccuracy = .01,
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
+
+--=== 40mm Grenade ===--
+PLUGIN.GunData["aus_w_launcher_nade"] = {
+	BlackList = false,
+	Name = "Grenade Launcher",
+	conditionDrainFactor = 1,
+	Desc = "A single-shot 40mm grenade launcher, not that common outside of certain well-armed groups but prized by many for its indirect fire capability." ,
+	Slot = "primary",
+	Model = "models/halokiller38/fallout/weapons/explosives/grenaderifle.mdl",
+	Width = 4,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 2,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	Prim = {
+		Ammo = "40mmammo",
+		Damage = 35,
+		KickUp = 0.4,
+		KickDown = 0.4,
+		KickHorizontal = 0.35,
+		Spread = .021,
+		IronAccuracy = .01,
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
+--=== MFC ===--
+PLUGIN.GunData["aus_w_laserpistol"] = {
+	BlackList = false,
+	Name = "Laser Pistol",
+	conditionDrainFactor = 1.25,
+	Desc = "The AEP-7 laser pistol sports a smaller wattage than its larger siblings, but offers all the benefits of laser weaponry in a compact package." ,
+	Slot = "secondary",
+	Model = "models/halokiller38/fallout/weapons/energy weapons/laserpistol.mdl",
+	Width = 3,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 1,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	Prim = {
+		Ammo = "mfcammo",
+		Damage = 35,
+		KickUp = 0.4,
+		KickDown = 0.4,
+		KickHorizontal = 0.35,
+		Spread = .021,
+		IronAccuracy = .01,
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
+PLUGIN.GunData["aus_w_lasermusket"] = {
+	BlackList = false,
+	Name = "Homemade Laser Rifle",
+	conditionDrainFactor = 1.50,
+	Desc = "Made out of salvaged laser rifle parts and whatever could be found, this weapon allows the less fortunate to have roughly the same power of a laser rifle even if an intact origonal cannot be found, but at the cost of capacity and durability." ,
+	Slot = "primary",
+	Model = "models/illusion/fwp/w_lasermusket.mdl",
+	Width = 4,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 2,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	Prim = {
+		Ammo = "mfcammo",
+		Damage = 35,
+		KickUp = 0.4,
+		KickDown = 0.4,
+		KickHorizontal = 0.35,
+		Spread = .021,
+		IronAccuracy = .01,
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
+PLUGIN.GunData["aus_w_laserrifle"] = {
+	BlackList = false,
+	Name = "Laser Rifle",
+	conditionDrainFactor = 1.35,
+	Desc = "The gold standard of laser weaponry, the AER-9 is lightweight and hits hard and accurate - but tends to be a bit finicky, needing repairs often." ,
+	Slot = "primary",
+	Model = "models/illusion/fwp/w_laserrifle.mdl",
+	Width = 3,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 2,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	Prim = {
+		Ammo = "mfcammo",
+		Damage = 35,
+		KickUp = 0.4,
+		KickDown = 0.4,
+		KickHorizontal = 0.35,
+		Spread = .021,
+		IronAccuracy = .01,
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
+PLUGIN.GunData["aus_w_tribeam"] = {
+	BlackList = false,
+	Name = "Tri-Beam Laser Rifle",
+	conditionDrainFactor = 1.35,
+	Desc = "A modified Laser Rifle, with a device on the end that is capable of expending three charges at once in a shotgun-style spread, increasing damage output while limiting range due to the spread quickly going off-target beyond close range." ,
+	Slot = "primary",
+	Model = "models/hub/weapons/tribeam/tribeam.mdl",
+	Width = 3,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 2,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	Prim = {
+		Ammo = "mfcammo",
+		Damage = 35,
+		KickUp = 0.4,
+		KickDown = 0.4,
+		KickHorizontal = 0.35,
+		Spread = .021,
+		IronAccuracy = .01,
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
+PLUGIN.GunData["aus_w_wattzlasergun"] = {
+	BlackList = false,
+	Name = "Wattz Laser-Sniper Rifle",
+	conditionDrainFactor = 1.35,
+	Desc = "A Wattz Consumer Electronics creation, this rifle is effectively the sniper rifle of energy weaponry - using up twice as many MFC charges as a regular laser rifle for a more focused, accurate beam with included scope for longer range work. Favored by lightweight scouting units of advanced factions." ,
+	Slot = "primary",
+	Model = "models/illusion/fwp/w_wattzlasergun.mdl",
+	Width = 4,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 2,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	Prim = {
+		Ammo = "mfcammo",
+		Damage = 35,
+		KickUp = 0.4,
+		KickDown = 0.4,
+		KickHorizontal = 0.35,
+		Spread = .021,
+		IronAccuracy = .01,
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
+
+--=== ECP ===--
+PLUGIN.GunData["aus_w_rcw"] = {
+	BlackList = false,
+	Name = "Laser RCW",
+	conditionDrainFactor = 1.15,
+	Desc = "The lovechild of a tommygun and laser rifle, the Laser RCW is one of the few fully automatic energy weapons around, using the slightly less powerful Electron Charge Pack to dish out many lasers at a high speed. Favored by Fiends, as more advanced factions tend to save their ECPs for heavy weapons, but not to be underestimated." ,
+	Slot = "primary",
+	Model = "models/hub/weapons/rcw/rcw.mdl",
+	Width = 3,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 2,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	Prim = {
+		Ammo = "ecpammo",
+		Damage = 35,
+		KickUp = 0.4,
+		KickDown = 0.4,
+		KickHorizontal = 0.35,
+		Spread = .021,
+		IronAccuracy = .01,
+		ClipSize = 35
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
+PLUGIN.GunData["aus_w_gatlinglaser"] = {
+	BlackList = false,
+	Name = "Gatling Laser",
+	conditionDrainFactor = 1,
+	Desc = "A laser-tossing behemoth, the Gatling Laser is capable of sending out lasers provided by Electron Charge Packs at a blistering rate, swiftly melting most opposition without special protection. Almost unheard of outside of heavy units deployed by the most advanced groups in the wastes." ,
+	Slot = "primary",
+	Model = "models/hub/weapons/gatlinglaser/gatlinglaser.mdl",
+	Width = 4,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 3,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	Prim = {
+		Ammo = "ecpammo",
+		Damage = 35,
+		Spread = .021,
+		IronAccuracy = .01,
+
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
+--=== Plasma ===--
+PLUGIN.GunData["aus_w_plasmapistol"] = {
+	BlackList = false,
+	Name = "Plasma Pistol",
+	conditionDrainFactor = 1.35,
+	Desc = "A chunky pistol throwing superheated goo. While somewhat oversized for a pistol and uncomfortably weighted towards the barrel, its raw effectiveness against most targets is well worth it." ,
+	Slot = "secondary",
+	Model = "models/illusion/fwp/w_plasmapistol.mdl",
+	Width = 3,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 1,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	Prim = {
+		Ammo = "plasmaammo",
+		Damage = 35,
+		KickUp = 0.4,
+		KickDown = 0.4,
+		KickHorizontal = 0.35,
+		Spread = .021,
+		IronAccuracy = .01,
+	
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
+PLUGIN.GunData["aus_w_plasmarifle"] = {
+	BlackList = false,
+	Name = "Plasma Rifle",
+	conditionDrainFactor = 1.35,
+	Desc = "Perhaps most known as a symbol of the long gone Enclave due to the 'Urban' Plasma Rifle being their service rifle back in the day, it's now a very difficult find but highly prized by all energy enthusiasts." ,
+	Slot = "primary",
+	Model = "models/illusion/fwp/w_plasmarifle.mdl",
+	Width = 3,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 2,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	Prim = {
+		Ammo = "plasmaammo",
+		Damage = 35,
+		KickUp = 0.4,
+		KickDown = 0.4,
+		KickHorizontal = 0.35,
+		Spread = .021,
+		IronAccuracy = .01,
+	
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
+
+
+
