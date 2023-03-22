@@ -1,10 +1,10 @@
-ITEM.name = "Merc Veteran Outfit"
-ITEM.model = "models/thespireroleplay/items/clothes/group060.mdl"
+ITEM.name = "Leather Jacket"
+ITEM.model = "models/thespireroleplay/items/clothes/group051.mdl"
 ITEM.replacements = {
-	{"group004", "group060"}
+	{"group004", "group051"}
 }
-ITEM.description = "A lightweight explorer's outfit."
-ITEM.longdesc = "A set of gear meant for exploring in more hazardous areas, offering increased protection against the elements, radiation, and a coat with heat-dispersing canvas for better energy resistance than the typical suit."
+ITEM.description = "A jacket for cool cats."
+ITEM.longdesc = "A symbol of years long past, a good quality leather jacket is still worth it for both its coolness factor and being more protective against basic hazards than one might expect."
 ITEM.width = 2
 ITEM.height = 1
 ITEM.price = 230000
@@ -29,5 +29,6 @@ ITEM.res = {
 
 ITEM.newSkin = 0
 ITEM.bodyGroups = {
+	["outfit"] = 1,	
 }
 ITEM.bodygroupsub = {0}

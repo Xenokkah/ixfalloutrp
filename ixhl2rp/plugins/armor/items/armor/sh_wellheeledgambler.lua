@@ -1,10 +1,10 @@
-ITEM.name = "Merc Veteran Outfit"
-ITEM.model = "models/thespireroleplay/items/clothes/group060.mdl"
+ITEM.name = "Fancy Gambler Outfit"
+ITEM.model = "models/thespireroleplay/items/clothes/group014.mdl"
 ITEM.replacements = {
-	{"group004", "group060"}
+	{"group004", "group014"}
 }
-ITEM.description = "A lightweight explorer's outfit."
-ITEM.longdesc = "A set of gear meant for exploring in more hazardous areas, offering increased protection against the elements, radiation, and a coat with heat-dispersing canvas for better energy resistance than the typical suit."
+ITEM.description = "A set of refined formalwear."
+ITEM.longdesc = "A dignified ensemble, often seen on tourists bound for Vegas - or destitute folks stumbling their way back that lost it all there. Also favored by those who simply prefer to dress sharply."
 ITEM.width = 2
 ITEM.height = 1
 ITEM.price = 230000

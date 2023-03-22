@@ -1,10 +1,10 @@
-ITEM.name = "Merc Veteran Outfit"
-ITEM.model = "models/thespireroleplay/items/clothes/group060.mdl"
+ITEM.name = "Pre-War Casualwear"
+ITEM.model = "models/thespireroleplay/items/clothes/group059.mdl"
 ITEM.replacements = {
-	{"group004", "group060"}
+	{"group004", "group059"}
 }
-ITEM.description = "A lightweight explorer's outfit."
-ITEM.longdesc = "A set of gear meant for exploring in more hazardous areas, offering increased protection against the elements, radiation, and a coat with heat-dispersing canvas for better energy resistance than the typical suit."
+ITEM.description = "A set of stylish pre-war everyday wear."
+ITEM.longdesc = "Before the war, folks would wear this on a weekend or after work for a walk through the park or other pleasant pursuits. Now, it's only worn by those that don't see combat who want to look dapper."
 ITEM.width = 2
 ITEM.height = 1
 ITEM.price = 230000
