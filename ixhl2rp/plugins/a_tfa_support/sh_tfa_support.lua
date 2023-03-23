@@ -160,6 +160,7 @@ function PLUGIN:InitializedPlugins()
 		ITEM.weaponCategory = dat.Slot or "primary"
 		
 
+
 		ITEM.functions.Unload = {
 			name = "Unload",
 			tip = "unloadTip",
@@ -180,6 +181,22 @@ function PLUGIN:InitializedPlugins()
 				local client = item.player
 				--cant find a way to get ammo from weapon class so gotta be equipped
 				return IsValid(client) and item:GetData("equip") == true
+			end
+		}
+
+		ITEM.functions.Custom = {
+			name = "Customize",
+			tip = "Customize this item",
+			icon = "icon16/wrench.png",
+			OnRun = function(item)		
+				ix.plugin.list["customization"]:startCustom(item.player, item)
+				
+				return false
+			end,
+			
+			OnCanRun = function(item)
+				local client = item.player
+				return client:GetCharacter():HasFlags("N") and !IsValid(item.entity)
 			end
 		}
 
