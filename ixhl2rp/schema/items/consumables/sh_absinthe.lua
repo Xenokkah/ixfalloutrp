@@ -6,7 +6,7 @@ ITEM.longdesc = "Absinthe was often blamed before the war for being incredibly a
 ITEM.quantity = 2
 ITEM.price = 5
 ITEM.width = 1
-ITEM.height = 2
+ITEM.height = 3
 ITEM.sound = "npc/barnacle/barnacle_gulp2.wav"
 ITEM.flag = "5"
 ITEM:Hook("use", function(item)

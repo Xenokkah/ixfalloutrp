@@ -1,10 +1,10 @@
 ITEM.name = "Brahmin Milk"
-ITEM.model = "models/fnv/dlc04/clutter/moonshine/dlc04moonshinejug01.mdl"
+ITEM.model = "models/mosi/fnv/props/drink/milkbottle.mdl"
 ITEM.thirst = 15
 ITEM.hunger = 15
-ITEM.description = "A jug of Brahmin milk."
+ITEM.description = "A bottle of Brahmin milk."
 ITEM.longdesc = "Sourced from the wasteland's favorite bovine, Brahmin milk tastes much like the pre-war drink, complete with small globs of fat. Not only a fairly refreshing milk, but also with bits of protein in there. Tasty!"
-ITEM.quantity = 3
+ITEM.quantity = 1
 ITEM.price = 20
 ITEM.width = 1
 ITEM.height = 2

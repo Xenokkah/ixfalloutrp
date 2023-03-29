@@ -1,5 +1,5 @@
 ITEM.name = "Moonshine"
-ITEM.model = "models/fnv/dlc04/clutter/moonshine/dlc04moonshinejug01.mdl"
+ITEM.model = "models/mosi/fnv/props/drink/alcohol/moonshine.mdl"
 ITEM.thirst = 18
 ITEM.description = "A jug of homemade 'shine."
 ITEM.longdesc = "A chubby chug full of moonshine brewed in a still somewhere. Smells like disinfectant, tastes like a shotgun to the chest, and might kill you. It's probably worth it."
