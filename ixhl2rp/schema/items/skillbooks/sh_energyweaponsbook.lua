@@ -1,0 +1,9 @@
+ITEM.name = "Nikola Tesla And You"
+ITEM.model = "models/mosi/fallout4/props/junk/burntbook.mdl"
+ITEM.description = "A book about some of inventor Nikola Tesla's studies into directed energy weapony, how they compare to modern energy guns, and how past thoughts shape future designs."
+ITEM.category = "skillbooks"
+ITEM.flag = "1"
+ITEM.skill = "EnergyWeapons"
+ITEM.price = 5
+ITEM.width = 1
+ITEM.height = 2

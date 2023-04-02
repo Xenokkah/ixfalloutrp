@@ -76,6 +76,15 @@ PLUGIN.AmmoData[ "44magnumammo" ] = {
 	Height = 1
 }
 
+PLUGIN.AmmoData["127mmammo" ] = {
+	Name = "12.7mm Rounds",
+	Amount = 20,
+	Price = 2000,
+	Model = "models/illusion/fwp/127ammobox.mdl",
+	Width = 1,
+	Height = 1
+}
+
 PLUGIN.AmmoData[ "556ammo" ] = {
 	Name = "5.56 Rounds",
 	Amount = 30,

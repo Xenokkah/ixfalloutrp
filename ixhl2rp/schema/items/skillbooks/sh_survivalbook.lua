@@ -1,0 +1,9 @@
+ITEM.name = "Wasteland Survival Guide"
+ITEM.model = "models/props_lab/binderbluelabel.mdl"
+ITEM.description = "A manually photocopy of the Wasteland Survival Guide, thrown into a school binder. Contains useful information about surviving in the wastes - identifying plants, recipes, so on."
+ITEM.category = "skillbooks"
+ITEM.flag = "1"
+ITEM.skill = "Survival"
+ITEM.price = 5
+ITEM.width = 1
+ITEM.height = 2

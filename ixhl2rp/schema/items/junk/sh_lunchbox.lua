@@ -1,6 +1,6 @@
-ITEM.name = ""Lunchbox""
+ITEM.name = "Lunchbox"
 ITEM.model = "models/fnv/clutter/junk/lunchbox.mdl"
-ITEM.description = ""A Vault-Tec lunchbox.""
+ITEM.description = "A Vault-Tec lunchbox."
 ITEM.category = "junk"
 ITEM.flag = "1"
 ITEM.price = 5

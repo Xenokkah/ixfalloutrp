@@ -591,6 +591,40 @@ PLUGIN.GunData["aus_w_cowboyrepeater"] = {
 	}
 }
 
+--=== 12.7 ===--
+PLUGIN.GunData["aus_w_127pistol"] = {
+	BlackList = false,
+	Name = "12.7mm Pistol",
+	conditionDrainFactor = 1,
+	Desc = "A chunky pistol that's a trophy as much as anything else, using the massive 12.7mm cartridge. It rivals intermediate rifle rounds in power, and is only seen in the hands of well-off mercenaries or officers.",
+	Slot = "secondary",
+	Model = "models/illusion/fwp/w_127mmpistol.mdl",
+	Width = 3,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 1,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	Prim = {
+		Ammo = "127mmammo",
+		Damage = 35,
+		KickUp = 0.4,
+		KickDown = 0.4,
+		KickHorizontal = 0.35,
+		Spread = .021,
+		IronAccuracy = .01,
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
+
 
 --=== 5.56 ===--
 PLUGIN.GunData["aus_w_servicerifle"] = {

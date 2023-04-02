@@ -1,0 +1,9 @@
+ITEM.name = "Duck and Cover!"
+ITEM.model = "models/fo3/misc/bookduckandcover_0.mdl"
+ITEM.description = "A textbook discussing not only some applications of high explosive, but some of the theory and science behind it."
+ITEM.category = "skillbooks"
+ITEM.flag = "1"
+ITEM.skill = "Explosives"
+ITEM.price = 5
+ITEM.width = 1
+ITEM.height = 2

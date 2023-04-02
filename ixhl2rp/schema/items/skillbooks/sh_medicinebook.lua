@@ -1,0 +1,9 @@
+ITEM.name = "DC Journal of Internal Medicine"
+ITEM.model = "models/fo3/misc/bookdcjournal_0.mdl"
+ITEM.description = "A medical journey full of peer-reviewed studies on various parts of the human body."
+ITEM.category = "skillbooks"
+ITEM.flag = "1"
+ITEM.skill = "Medicine"
+ITEM.price = 5
+ITEM.width = 1
+ITEM.height = 2

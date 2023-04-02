@@ -1,0 +1,9 @@
+ITEM.name = "Big Book of Science"
+ITEM.model = "models/fo3/misc/bookofscience_0.mdl"
+ITEM.description = "A thick textbook discussing and detailing many scientific concepts in excruciating detail."
+ITEM.category = "skillbooks"
+ITEM.flag = "1"
+ITEM.skill = "Science"
+ITEM.price = 5
+ITEM.width = 1
+ITEM.height = 2
