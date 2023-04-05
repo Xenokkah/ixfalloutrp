@@ -153,7 +153,8 @@ ix.command.Add("MyProgress", {
         
         str = str .. "Level: " .. char:GetLevel() .. "\n"
         str = str .. "Next Level in: " .. char:GetXPToNextLevel() - char:GetXP() .. " XP \n"
-        str = str .. "Skillpoints: " ..char:GetSkillPoints() .. "\n\n"
+        str = str .. "Lifetime XP Gained: " ..char:GetLifetimeXP() .. "\n"
+        str = str .. "Skillpoints: " ..char:GetSkillPoints() .. "\n"
         return str
 	end
 })
