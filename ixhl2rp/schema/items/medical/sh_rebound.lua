@@ -8,7 +8,7 @@ ITEM.category = "Medical"
 ITEM.price = "4000"
 ITEM.flag = "1"
 ITEM.quantity = 1
-ITEM.sound = "items/smallmedkit1.wav"
+ITEM.sound = "fosounds/fix/npc_human_using_psycho_01.mp3"
 ITEM.weight = 0.05
 ITEM.duration = 350
 
@@ -38,6 +38,9 @@ ITEM.functions.use = {
 		end
 
 		return true
+
+		
+	end,
 
 	OnCanRun = function(item)
 		return (!IsValid(item.entity))

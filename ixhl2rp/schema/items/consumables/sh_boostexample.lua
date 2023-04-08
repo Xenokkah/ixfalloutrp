@@ -1,4 +1,4 @@
-ITEM.name = "Nuka Cola"
+ITEM.name = "Boost Test"
 ITEM.model = "models/fnv/clutter/junk/sodabottleclosed01.mdl"
 ITEM.thirst = 20
 ITEM.description = "A bottle of Nuka Cola."
@@ -7,7 +7,7 @@ ITEM.quantity = 2
 ITEM.price = 5
 ITEM.width = 1
 ITEM.height = 2
-ITEM.sound = "npc/barnacle/barnacle_gulp2.wav"
+ITEM.sound = "fosounds/fix/npc_humandrinking_soda_01.mp3"
 ITEM.quantity = 2
 ITEM.flag = "5"
 ITEM:Hook("use", function(item)

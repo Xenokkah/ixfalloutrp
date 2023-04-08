@@ -1,13 +1,13 @@
-ITEM.name = "Pear"
-ITEM.model = "models/mosi/fnv/props/food/crops/pear.mdl"
-ITEM.hunger = 5
-ITEM.description = "A pear."
-ITEM.longdesc = "Pretty much entirely unchanged from before the war, the pear is not the most popular fruit to grow but has its uses and unique taste anyway."
+ITEM.name = "Ant Bits"
+ITEM.model = "models/mosi/fnv/props/food/antbits.mdl"
+ITEM.hunger = 35
+ITEM.description = "A bowl of fried ant chunks."
+ITEM.longdesc = "A portion of crunchy fried ant bits prepared by someone with culinary skill. Actually pretty good."
 ITEM.quantity = 1
 ITEM.price = 20
 ITEM.width = 1
 ITEM.height = 1
-ITEM.sound = "npc/barnacle/barnacle_crunch2.wav"
+ITEM.sound = "fosounds/fix/npc_human_eating_food_chewy_02.mp3"
 ITEM.flag = "5"
 ITEM:Hook("use", function(item)
 	item.player:EmitSound(item.sound or "items/battery_pickup.wav")

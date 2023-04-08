@@ -8,7 +8,7 @@ ITEM.category = "Medical"
 ITEM.price = "4000"
 ITEM.flag = "1"
 ITEM.quantity = 1
-ITEM.sound = "items/smallmedkit1.wav"
+ITEM.sound = "fosounds/fix/npc_human_using_psycho_01.mp3"
 ITEM.weight = 0.05
 ITEM.duration = 350
 
@@ -18,7 +18,7 @@ ITEM.functions.use = {
 	OnRun = function(item)
 		local quantity = item:GetData("quantity", item.quantity)
 	
-		ix.chat.Send(item.player, "iteminternal", "drinks their "..item.name..".", false)
+		ix.chat.Send(item.player, "iteminternal", "injects a dose of "..item.name..".", false)
 		item.player:NewVegasNotify("LET'S FUCKING GOOOOOOOO! Ignore all negative statuses, which are applied after drug wears off", "messageAngry", 8)
 
 		curplayer = item.player:GetCharacter()
@@ -38,6 +38,7 @@ ITEM.functions.use = {
 		end
 
 		return true
+	end,
 
 	OnCanRun = function(item)
 		return (!IsValid(item.entity))

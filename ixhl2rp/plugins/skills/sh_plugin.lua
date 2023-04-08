@@ -349,7 +349,7 @@ ix.command.Add("SpendSkillpoints", {
             end 
             char:SetSurvival(currentlevel + pointstospend)
             char:SetSkillPoints(currentpoints - pointstospend)
-            client:NewVegasNotify("Successfully upgraded Repair from " .. currentlevel .. " to " .. char:GetSurvival() .. ".\n Skillpoints remaining: " .. char:GetSkillPoints(), "messageNeutral", 10)
+            client:NewVegasNotify("Successfully upgraded Survival from " .. currentlevel .. " to " .. char:GetSurvival() .. ".\n Skillpoints remaining: " .. char:GetSkillPoints(), "messageNeutral", 10)
             return
         end 
 

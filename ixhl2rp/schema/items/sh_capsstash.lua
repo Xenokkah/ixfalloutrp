@@ -24,7 +24,7 @@ end
 ITEM.functions.use = {
 	name = "Put Away",
 	icon = "icon16/coins_add.png",
-	sound = "physics/metal/chain_impact_soft2.wav",
+	sound = "fosounds/fix/ui_items_bottlecaps_up_03.mp3",
 	OnRun = function(item)
 		local position = item.player:GetItemDropPos()
 		local client = item.player

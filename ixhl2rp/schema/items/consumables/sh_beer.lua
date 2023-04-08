@@ -7,7 +7,7 @@ ITEM.quantity = 1
 ITEM.price = 5
 ITEM.width = 1
 ITEM.height = 2
-ITEM.sound = "npc/barnacle/barnacle_gulp2.wav"
+ITEM.sound = "fosounds/fix/npc_humandrinking_soda_01.mp3"
 ITEM.flag = "5"
 ITEM:Hook("use", function(item)
 	item.player:EmitSound(item.sound or "items/battery_pickup.wav")
