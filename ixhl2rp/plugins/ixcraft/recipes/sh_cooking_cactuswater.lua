@@ -22,8 +22,9 @@ RECIPE:PostHook("OnCanSee", function(recipeTable, client)
 		if (client:GetPos():DistToSqr(v:GetPos()) < 100 * 100) then
 			return true
 		end
-		return false
 	end
-end)
 
+	return false
+
+end)
 

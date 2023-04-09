@@ -17,7 +17,7 @@ RECIPE.results = {
 
 
 RECIPE:PostHook("OnCanSee", function(recipeTable, client)
-	if (client:GetCharacter():GetSurvival() < 75) then 
+	if (client:GetCharacter():GetSurvival() <= 75) then 
 		return false
 	end 
 
@@ -25,8 +25,9 @@ RECIPE:PostHook("OnCanSee", function(recipeTable, client)
 		if (client:GetPos():DistToSqr(v:GetPos()) < 100 * 100) then
 			return true
 		end
-		return false
 	end
+
+	return false
 end)
 
 

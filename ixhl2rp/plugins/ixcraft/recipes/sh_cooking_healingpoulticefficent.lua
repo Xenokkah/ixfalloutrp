@@ -1,6 +1,6 @@
 RECIPE.name = "Healing Poultice, Efficent"
 RECIPE.description = "Create a pouch of Healing Poultice, using your refined skill in herbology to make the most of every ingredient."
-RECIPE.model = "models/mosi/fnv/props/health/antivenom.mdl"
+RECIPE.model = "models/mosi/fnv/props/health/healingpowder.mdl"
 RECIPE.category = "Medicine"
 RECIPE.requirements = {
 	["xanderroot"] = 1,
@@ -25,8 +25,9 @@ RECIPE:PostHook("OnCanSee", function(recipeTable, client)
 		if (client:GetPos():DistToSqr(v:GetPos()) < 100 * 100) then
 			return true
 		end
-		return false
 	end
+
+	return false
 end)
 
 
