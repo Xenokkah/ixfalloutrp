@@ -1,21 +1,22 @@
-RECIPE.name = "Antivenom"
-RECIPE.description = "Mix up a dose of antivenom."
-RECIPE.model = "models/mosi/fnv/props/health/antivenom.mdl"
+RECIPE.name = "Healing Poultice"
+RECIPE.description = "Create a dose of Hydra."
+RECIPE.model = "models/mosi/fnv/props/health/chems/hydra.mdl"
 RECIPE.category = "Medicine"
 RECIPE.requirements = {
 	["radscorpionvenomgland"] = 2,
-	["nightstalkerblood"] = 1,
+	["nightstalkerblood"] = 2,
+	["cavefungus"] = 1,
 }
 
 RECIPE.results = {
-	["antivenom"] = 1
+	["hydra"] = 1
 	
 
 }
 
 
 RECIPE:PostHook("OnCanSee", function(recipeTable, client)
-	if (client:GetCharacter():GetSurvival() < 25) then 
+	if (client:GetCharacter():GetSurvival() <= 50) then 
 		return false
 	end 
 
@@ -26,7 +27,6 @@ RECIPE:PostHook("OnCanSee", function(recipeTable, client)
 	end
 
 	return false
-	
 end)
 
 

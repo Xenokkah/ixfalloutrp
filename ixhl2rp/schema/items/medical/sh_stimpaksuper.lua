@@ -8,7 +8,7 @@ ITEM.category = "Medical"
 ITEM.price = "4000"
 ITEM.flag = "1"
 ITEM.quantity = 1
-ITEM.model = "fosounds/fix/npc_human_using_stimpak.mp3"
+ITEM.sound = "fosounds/fix/npc_human_using_stimpak.mp3"
 ITEM.weight = 0.05
 ITEM.duration = 450
 
@@ -23,9 +23,9 @@ ITEM.functions.use = {
 
 		item.player:NewVegasNotify("You are suffering from Super Stimpak Sickness! -1 AGI, -1 STR", "messageSad", 8)
 
-		curplayer = item.player:GetCharacter()
-		itemname = item.name
-		duration = item.duration
+		local curplayer = item.player:GetCharacter()
+		local itemname = item.name
+		local duration = item.duration
 		curplayer:AddBoost("stimpaksickness", "endurance", -1)
 		curplayer:AddBoost("stimpaksickness", "agility", -1)
 
@@ -45,6 +45,7 @@ ITEM.functions.use = {
 
 			return true
 		end,
+	
 
 	OnCanRun = function(item)
 		return (!IsValid(item.entity))

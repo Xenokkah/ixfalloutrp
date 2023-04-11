@@ -70,6 +70,11 @@ ix.chat.Register("rollstat", {
     
         -- Real yanderedev hours here
 
+        if (add < 0) then
+            add = (-15 + add)
+            total = data.initialroll + add
+
+        end 
         if (add == 0) then 
             add = -15
             total = data.initialroll - 15
@@ -124,6 +129,14 @@ ix.chat.Register("rollstat", {
             add = 15
             total = data.initialroll + 15
         end
+
+        
+        if (add > 10) then
+            add = (add - 10 + 15)
+            total = data.initialroll + add
+        end
+
+
 
        
         local translated = L2(self.uniqueID.."Format", speaker:Name(), text, max)

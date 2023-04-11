@@ -86,6 +86,7 @@ function PLUGIN:InitializedPlugins()
 		--v.MainBullet.Ricochet = function() return true end
 		v.HandleDoor = function() return end
 		v.Primary.DefaultClip = 0
+		
 
 		local orig_wep = weapons.GetStored( class )
 
@@ -105,7 +106,7 @@ function PLUGIN:InitializedPlugins()
 			end
 		end
 
-		local ITEM = ix.item.Register( class, "base_weapons", nil, nil, true )
+		local ITEM = ix.item.Register( dat.ID or class, "base_weapons", nil, nil, true )
 
 		ITEM.name = dat.Name or orig_wep.PrintName
 		ITEM.price = dat.Price or 4000
@@ -148,6 +149,8 @@ function PLUGIN:InitializedPlugins()
 		if dat.conditionDrainFactor then
 			ITEM.conditionDrainFactor = dat.conditionDrainFactor
 		end 
+
+		
 
 		ITEM:Hook( "drop", function( item )
 			item.player:EmitSound( "physics/metal/metal_box_footstep1.wav" ) 

@@ -20,47 +20,10 @@
 --	Writed by Taxin2012
 --	https://steamcommunity.com/id/Taxin2012/
 
-
-
-PLUGIN.GunData[ "tfa_ins2_ak74m" ] = {
-	--Weapon can be Blacklisted and item will be not auto-generated
-	BlackList = true,
-	
-	Slot = "primary",
-	Model = "path_to_model_of_item",
-	iconCam = {
-		tpos = Vector( 0, 0, 0 ),
-		tang = Angle( 0, 0, 0 ),
-		tfov = 0
-	},
-	Width = 4,
-	Height = 2,
-	Weight = 3,
-	Price = 2000,
-	
-	--Weapon Parameters
-	--Prim == Primary
-	Prim = {
-		Ammo = "assault",
-		Damage = 31,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01
-	},
-	
-	--Sec == Secondary
-	Sec = {}
-}
-
-
-
-
-
 --=== 9MM ===--
 PLUGIN.GunData[ "aus_w_9mmpistol" ] = {
 	BlackList = false,
+	ID = "9mmpistol",
 	Name = "9mm Pistol",
 	Desc = "A Browning Hi-Power, common among civillians and law enforcement before the war, and these days wastelanders looking for protection. Also the service pistol for the NCRA.",
 	Slot = "secondary",
@@ -92,6 +55,7 @@ PLUGIN.GunData[ "aus_w_9mmpistol" ] = {
 
 PLUGIN.GunData["aus_w_9mmsmg"] = {
 	BlackList = false,
+	ID = "9mmsmg",
 	Name = "9mm Submachine Gun",
 	Desc = "A homemade machine gun firing 9mm from an open bolt, resembling a WW2-Era 'Grease Gun'. Notoriously inaccurate, but at close range such things tend to stop mattering so much. ",
 	Slot = "primary",
@@ -127,6 +91,7 @@ PLUGIN.GunData["aus_w_9mmsmg"] = {
 --=== 22LR ===--
 PLUGIN.GunData["aus_w_22_smg"] = {
 	BlackList = false,
+	ID = "22lrsmg",
 	Name = ".22LR Submachine Gun",
 	Desc = "A curious weapon, the American 180 puts a crapton of lead down range very fast, fed from a high capacity pan magazine - offset by the lacking performance of the .22 cartridge unless it's against small game.",
 	Slot = "primary",
@@ -159,7 +124,8 @@ PLUGIN.GunData["aus_w_22_smg"] = {
 
 PLUGIN.GunData["aus_w_varmintrifle"] = {
 	BlackList = false,
-	Name = "Varmint Rifle",
+	ID = "varmintrifle",
+	Name = "Varmint .22",
 	Desc = "A bolt action, five shot rifle chambered in .22, primarily for use against critters around the farm and house, hence the 'varmint'.",
 	Slot = "primary",
 	Model = "models/illusion/fwp/w_varmintrifle.mdl",
@@ -176,6 +142,7 @@ PLUGIN.GunData["aus_w_varmintrifle"] = {
 	
 	Prim = {
 		Ammo = "22lrammo",
+		ClipSize = 10,
 		Damage = 15,
 		KickUp = 0.4,
 		KickDown = 0.4,
@@ -194,6 +161,7 @@ PLUGIN.GunData["aus_w_varmintrifle"] = {
 PLUGIN.GunData["aus_w_piperevolver"] = {
 	BlackList = false,
 	Name = "Pipe Pistol",
+	ID = "pipepistol",
 	conditionDrainFactor = 1.50,
 	Desc = "A handmade revolver firing pistol rounds from an unrifled barrel, used by more desperate wasteland inhabitants for self defense or muggings. Its single-action fire rate, low capacity, and low power cartridge often have its owners seeking something more conventional.",
 	Slot = "secondary",
@@ -208,6 +176,7 @@ PLUGIN.GunData["aus_w_piperevolver"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	NoAutomatic = true,
 	
 	Prim = {
 		Ammo = "38specialammo",
@@ -221,12 +190,14 @@ PLUGIN.GunData["aus_w_piperevolver"] = {
 	
 	--Sec == Secondary
 	Sec = {
-	}
+
+	},
 }
 
 PLUGIN.GunData["aus_w_pipebolt"] = {
 	BlackList = false,
 	Name = "Bolt Action Pipe Rifle",
+	ID = "pipeboltactionrifle",
 	conditionDrainFactor = 1.50,
 	Desc = "A handmade bolt=action rifle. While generally being more accurate than its pistol counterpart due to a longer barrel and more comfortable ergonomics, its low fire rate makes it best for shooting pests and longer distance potshots.",
 	Slot = "primary",
@@ -241,6 +212,7 @@ PLUGIN.GunData["aus_w_pipebolt"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	Automatic = false,
 	
 	Prim = {
 		Ammo = "38specialammo",
@@ -260,8 +232,9 @@ PLUGIN.GunData["aus_w_pipebolt"] = {
 PLUGIN.GunData["aus_w_pipeboltscoped"] = {
 	BlackList = false,
 	Name = "Scoped Bolt Action Pipe Rifle",
+	ID = "pipeboltactionriflescoped",
 	conditionDrainFactor = 1.50,
-	Desc = "A handmade bolt=action rifle with a 'Scope' of a metal tube and two screws installed for sighting. Probably better than relying on just irons, but not by a whole lot.",
+	Desc = "A handmade bolt-action rifle with a 'Scope' of a metal tube and two screws installed for sighting. Probably better than relying on just irons, but not by a whole lot.",
 	Slot = "primary",
 	Model = "models/illusion/fwp/w_pipeboltscoped.mdl",
 	Width = 3,
@@ -274,6 +247,7 @@ PLUGIN.GunData["aus_w_pipeboltscoped"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	Automatic = false,
 	
 	Prim = {
 		Ammo = "38specialammo",
@@ -292,6 +266,7 @@ PLUGIN.GunData["aus_w_pipeboltscoped"] = {
 
 PLUGIN.GunData["aus_w_piperiflesemi"] = {
 	BlackList = false,
+	ID = "pipesemiautorifle",
 	Name = "Semi-Automatic Pipe Rifle",
 	conditionDrainFactor = 1.25,
 	Desc = "A handmade pipe gun with a bit more craftsmanship put into it, with scope, semi auto action, and drum magazine. The result is a decent firearm for light and medium use.",
@@ -307,6 +282,7 @@ PLUGIN.GunData["aus_w_piperiflesemi"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	NoAutomatic = true,
 	
 	Prim = {
 		Ammo = "38specialammo",
@@ -325,9 +301,12 @@ PLUGIN.GunData["aus_w_piperiflesemi"] = {
 }
 
 
+
+
 --=== .45 Auto ===--
 PLUGIN.GunData["aus_w_45pistol"] = {
 	BlackList = false,
+	ID = "45autopistol",
 	Name = ".45 Auto Pistol",
 	conditionDrainFactor = 1,
 	Desc = "The gift from John Moses Browning that keeps on giving. While beat in both power and capacity by more modern creations, the M1911 remains a classic due to its iconic style and feel, especially among the New Caananite Mormons.",
@@ -361,6 +340,7 @@ PLUGIN.GunData["aus_w_45pistol"] = {
 
 PLUGIN.GunData["aus_w_combatrifle"] = {
 	BlackList = false,
+	ID = "combatrifle",
 	Name = "Combat Rifle",
 	conditionDrainFactor = 1,
 	Desc = "A chunky, dependable rifle that was once popular primarily among civillian shooters, now having a niche as an accurate, but cheap to feed semi automatic.",
@@ -394,6 +374,7 @@ PLUGIN.GunData["aus_w_combatrifle"] = {
 
 PLUGIN.GunData["aus_w_submachinegun"] = {
 	BlackList = false,
+	ID = "45autosmg",
 	Name = ".45 Auto Submachine Gun",
 	conditionDrainFactor = 1,
 	Desc = "The Thompson machine gun, or 'Tommygun', was in use during the second World War, and ever since has become a cultural icon. Performance wise, it fires fast but quickly gets out of control. Popular among wiseguys.",
@@ -429,6 +410,7 @@ PLUGIN.GunData["aus_w_submachinegun"] = {
 --=== 10mm ===--
 PLUGIN.GunData["aus_w_10mmpistol"] = {
 	BlackList = false,
+	ID = "10mmpistol",
 	Name = "10mm Pistol",
 	conditionDrainFactor = 0.8,
 	Desc = "The N99 10mm Pistol is a rugged, durable, and reliable pistol, serving as the United States Army's service pistol before the war. Its distinct brick-shaped profile hints at its simplified internals that make cleaning a cinch.",
@@ -463,6 +445,7 @@ PLUGIN.GunData["aus_w_10mmpistol"] = {
 PLUGIN.GunData["aus_w_10mmsmg"] = {
 	BlackList = false,
 	Name = "10mm Submachine Gun",
+	ID = "10mmsmg",
 	conditionDrainFactor = 0.8,
 	Desc = "The 10mm SMG is much like its younger sibling - a square shaped profile making a reliable, satisfying shoot with acceptable recoil control. ",
 	Slot = "primary",
@@ -495,6 +478,7 @@ PLUGIN.GunData["aus_w_10mmsmg"] = {
 
 PLUGIN.GunData["aus_w_smmg"] = {
 	BlackList = false,
+	ID = "smmg",
 	Name = "Shoulder Mounted Machine Gun",
 	conditionDrainFactor = 1,
 	Desc = "The SMMG is very much an oddity, found only around the select few US Army sites to recieve them. Likened to an upside-down minigun, this hefty beast uses 10mm rounds at a very high rate of fire.",
@@ -530,6 +514,7 @@ PLUGIN.GunData["aus_w_smmg"] = {
 PLUGIN.GunData["aus_w_44magnum"] = {
 	BlackList = false,
 	Name = ".44 Magnum Revolver",
+	ID = ".44magnumrevolver",
 	conditionDrainFactor = 1,
 	Desc = "A cultural classic - long barreled 6 shot revolver, 44 magnum - powerful enough to blow your head clean off. Careful, it kicks like a mule.",
 	Slot = "secondary",
@@ -562,6 +547,7 @@ PLUGIN.GunData["aus_w_44magnum"] = {
 PLUGIN.GunData["aus_w_cowboyrepeater"] = {
 	BlackList = false,
 	Name = "Cowboy Repeater",
+	ID = "cowboyrepeater",
 	conditionDrainFactor = 1,
 	Desc = "A lever action rifle with generous tube magazine. Once used for hunting bigger game like Bucks, it's now a favorite of the New California Republic Rangers.",
 	Slot = "primary",
@@ -595,6 +581,7 @@ PLUGIN.GunData["aus_w_cowboyrepeater"] = {
 PLUGIN.GunData["aus_w_127pistol"] = {
 	BlackList = false,
 	Name = "12.7mm Pistol",
+	ID = "127mmpistol",
 	conditionDrainFactor = 1,
 	Desc = "A chunky pistol that's a trophy as much as anything else, using the massive 12.7mm cartridge. It rivals intermediate rifle rounds in power, and is only seen in the hands of well-off mercenaries or officers.",
 	Slot = "secondary",
@@ -630,6 +617,7 @@ PLUGIN.GunData["aus_w_127pistol"] = {
 PLUGIN.GunData["aus_w_servicerifle"] = {
 	BlackList = false,
 	Name = "Service Rifle",
+	ID = "servicerifle",
 	conditionDrainFactor = 0.7,
 	Desc = "A symbol of the Republic, this workhorse delivers steady firepower in a very mechanically simple, durable package, especially with multiple going off at once.",
 	Slot = "primary",
@@ -663,6 +651,7 @@ PLUGIN.GunData["aus_w_servicerifle"] = {
 PLUGIN.GunData["aus_w_hmar"] = {
 	BlackList = false,
 	Name = "Homemade Assault Rifle",
+	ID = "homemadeassaultrifle",
 	conditionDrainFactor = 1.3,
 	Desc = "An automatic rifle made by some enterprising mechanic in their backyard, this weapon dishes out steady rifle fire, but at the cost of accuracy and reliability due to their somewhat ramshackle assembly. Favored by raiders.",
 	Slot = "primary",
@@ -695,6 +684,7 @@ PLUGIN.GunData["aus_w_hmar"] = {
 PLUGIN.GunData["aus_w_r91"] = {
 	BlackList = false,
 	Name = "R91 Assault Rifle",
+	ID = "r91assaultrifle",
 	conditionDrainFactor = 1,
 	Desc = "The ballistic service rifle option for the former US Army, the R91 is a fine rifle with consistent fire rate and recoil control.",
 	Slot = "primary",
@@ -727,6 +717,7 @@ PLUGIN.GunData["aus_w_r91"] = {
 PLUGIN.GunData["aus_w_chinesear"] = {
 	BlackList = false,
 	Name = "Chinese Assault Rifle",
+	ID = "chineseassaultrifle",
 	conditionDrainFactor = 0.8,
 	Desc = "This rifle is an uncommon sight in the wastes compared to its contemporaries, but was often secretly shipped to the US to chinese intiltrators, chambered in the more locally available 5.56. Compared to its western counterpart, it offers a more durable frame and increased mag capacity.",
 	Slot = "primary",
@@ -759,6 +750,7 @@ PLUGIN.GunData["aus_w_chinesear"] = {
 PLUGIN.GunData["aus_w_marksmancarbine"] = {
 	BlackList = false,
 	Name = "Marksman Carbine",
+	ID = "marksmancarbine",
 	conditionDrainFactor = 1.1,
 	Desc = "A shortened carbine, usable only in semi automatic but equipped with higher quality parts and a scope, ideal for picking careful shots.",
 	Slot = "primary",
@@ -791,6 +783,7 @@ PLUGIN.GunData["aus_w_marksmancarbine"] = {
 PLUGIN.GunData["aus_w_assaultrifle"] = {
 	BlackList = false,
 	Name = "Light Machine Gun",
+	ID = "lightmachinegun",
 	conditionDrainFactor = 1,
 	Desc = "This chunky charlie is meant for suppressive and sustained fire, and has the extended magazine and heat dispersal to be up to task." ,
 	Slot = "primary",
@@ -825,6 +818,7 @@ PLUGIN.GunData["aus_w_assaultrifle"] = {
 --=== Buckshot ===--
 PLUGIN.GunData["aus_w_caravanshotgun"] = {
 	BlackList = false,
+	ID = "caravanshotgun",
 	Name = "Caravan Shotgun",
 	conditionDrainFactor = 1,
 	Desc = "An under-over double barreled shotgun generaly used by trade caravan guards, bartenders, and farmers. Effective, and simple." ,
@@ -858,6 +852,7 @@ PLUGIN.GunData["aus_w_caravanshotgun"] = {
 PLUGIN.GunData["aus_w_huntingshotgun"] = {
 	BlackList = false,
 	Name = "Hunting Shotgun",
+	ID = "huntingshotgun",
 	conditionDrainFactor = 1,
 	Desc = "A pump action shotgun favored by hunters or other individuals that prefer to be up close and personal." ,
 	Slot = "primary",
@@ -890,6 +885,7 @@ PLUGIN.GunData["aus_w_huntingshotgun"] = {
 PLUGIN.GunData["aus_w_combatshotgundrum"] = {
 	BlackList = false,
 	Name = "Combat Shotgun",
+	ID = "combatshotgun",
 	conditionDrainFactor = 1,
 	Desc = "A drum-fed, quick-firing shotgun often employed by guards of more well-funded organizations." ,
 	Slot = "primary",
@@ -924,6 +920,7 @@ PLUGIN.GunData["aus_w_combatshotgundrum"] = {
 PLUGIN.GunData["aus_w_assaultcarbine"] = {
 	BlackList = false,
 	Name = "Assault Carbine",
+	ID = "assaultcarbine",
 	conditionDrainFactor = 1,
 	Desc = "A quite rare automatic rifle utilizing the 5mm round, a slightly smaller but much faster and more armor-piercing round, ideal for armored foes." ,
 	Slot = "primary",
@@ -955,6 +952,7 @@ PLUGIN.GunData["aus_w_assaultcarbine"] = {
 
 PLUGIN.GunData["aus_w_minigun"] = {
 	BlackList = false,
+	ID = "minigun",
 	Name = "Minigun",
 	conditionDrainFactor = 0.50,
 	Desc = "A massive rotary cannon, capable of swiftly tearing through damn near anything. Nearly impossible to use without the use of power armor, or some other form of enhanced strength. Requires 5mm rounds linked together on a disintegrating belt to load." ,
@@ -988,6 +986,7 @@ PLUGIN.GunData["aus_w_minigun"] = {
 --=== .308 ===--
 PLUGIN.GunData["aus_w_huntingrifle"] = {
 	BlackList = false,
+	ID = "huntingrifle",
 	Name = "Hunting Rifle",
 	conditionDrainFactor = 0.9,
 	Desc = "A bolt action hunting rifle used for taking down big game, but also employed by many militaries or gangs due to its ease of use and stopping power." ,
@@ -1020,6 +1019,7 @@ PLUGIN.GunData["aus_w_huntingrifle"] = {
 
 PLUGIN.GunData["aus_w_battle_rifle"] = {
 	BlackList = false,
+	ID = "battlerifle",
 	Name = "Battle Rifle",
 	conditionDrainFactor = 0.9,
 	Desc = "An antique even by wasteland standards, the M1 Garand nonetheless has its fans by those looking for the power of the .308 but with a higher rate of fire and capacity compared to more common hunting rifles. " ,
@@ -1052,6 +1052,7 @@ PLUGIN.GunData["aus_w_battle_rifle"] = {
 
 PLUGIN.GunData["aus_w_sniperrifle"] = {
 	BlackList = false,
+	ID = "sniperrifle",
 	Name = "Sniper Rifle",
 	conditionDrainFactor = 0.9,
 	Desc = "The DKS-501 Sniper Rifle was the US Army's standard sniper rifle before the war, and enjoys success by more elite units or fortunate wastelanders due to its near unrivaled ability to land several accurate shots in short periods over long distances." ,
@@ -1084,6 +1085,7 @@ PLUGIN.GunData["aus_w_sniperrifle"] = {
 
 PLUGIN.GunData["aus_w_bar"] = {
 	BlackList = false,
+	ID = "automaticrifle",
 	Name = "Automatic Rifle",
 	conditionDrainFactor = 0.9,
 	Desc = "The Browning Automatic Rifle was developed during WW1 and used primarily during the second, intended to serve as a squad support weapon, its success in that measure is questionable due to its heft and low capacity. Now, a functional BAR is both a token of prestige and a horrifying sight in the right hands." ,
@@ -1118,6 +1120,7 @@ PLUGIN.GunData["aus_w_bar"] = {
 --=== .50MG ===--
 PLUGIN.GunData["aus_w_amr"] = {
 	BlackList = false,
+	ID = "antimat",
 	Name = "Anti-Materiel Rifle",
 	conditionDrainFactor = 0.9,
 	Desc = "The PGM Hecate rifle is a massive gun firing an equally massive round. Capable of putting down all but the heaviest infantry targets in a single shot, it's still liable to break your shoulder unless fired with bipod deployed from a seated or prone position. An icon of the NCR's Veteran Rangers." ,
@@ -1151,6 +1154,7 @@ PLUGIN.GunData["aus_w_amr"] = {
 --=== 2mmEC ===--
 PLUGIN.GunData["aus_w_gauss"] = {
 	BlackList = false,
+	ID = "gaussrifle",
 	Name = "Gauss Rifle",
 	conditionDrainFactor = 1.2,
 	Desc = "The Gauss Rifle was something of a prototype before the war, and now is only found in the hands of elite units of the wasteland's most technologically advanced factions. It will drop any infantry targets in a single well-placed shot, and is a threat to many vehicles too. " ,
@@ -1185,6 +1189,7 @@ PLUGIN.GunData["aus_w_gauss"] = {
 --=== 40mm Grenade ===--
 PLUGIN.GunData["aus_w_launcher_nade"] = {
 	BlackList = false,
+	ID = "grenadelauncher",
 	Name = "Grenade Launcher",
 	conditionDrainFactor = 1,
 	Desc = "A single-shot 40mm grenade launcher, not that common outside of certain well-armed groups but prized by many for its indirect fire capability." ,
@@ -1219,6 +1224,7 @@ PLUGIN.GunData["aus_w_launcher_nade"] = {
 PLUGIN.GunData["aus_w_laserpistol"] = {
 	BlackList = false,
 	Name = "Laser Pistol",
+	ID = "laserpistol",
 	conditionDrainFactor = 1.25,
 	Desc = "The AEP-7 laser pistol sports a smaller wattage than its larger siblings, but offers all the benefits of laser weaponry in a compact package." ,
 	Slot = "secondary",
@@ -1250,6 +1256,7 @@ PLUGIN.GunData["aus_w_laserpistol"] = {
 
 PLUGIN.GunData["aus_w_lasermusket"] = {
 	BlackList = false,
+	ID = "homemadelaserrifle",
 	Name = "Homemade Laser Rifle",
 	conditionDrainFactor = 1.50,
 	Desc = "Made out of salvaged laser rifle parts and whatever could be found, this weapon allows the less fortunate to have roughly the same power of a laser rifle even if an intact origonal cannot be found, but at the cost of capacity and durability." ,
@@ -1282,6 +1289,7 @@ PLUGIN.GunData["aus_w_lasermusket"] = {
 
 PLUGIN.GunData["aus_w_laserrifle"] = {
 	BlackList = false,
+	ID = "laserrifle",
 	Name = "Laser Rifle",
 	conditionDrainFactor = 1.35,
 	Desc = "The gold standard of laser weaponry, the AER-9 is lightweight and hits hard and accurate - but tends to be a bit finicky, needing repairs often." ,
@@ -1314,6 +1322,7 @@ PLUGIN.GunData["aus_w_laserrifle"] = {
 
 PLUGIN.GunData["aus_w_tribeam"] = {
 	BlackList = false,
+	ID = "tribeamlaserrifle",
 	Name = "Tri-Beam Laser Rifle",
 	conditionDrainFactor = 1.35,
 	Desc = "A modified Laser Rifle, with a device on the end that is capable of expending three charges at once in a shotgun-style spread, increasing damage output while limiting range due to the spread quickly going off-target beyond close range." ,
@@ -1346,6 +1355,7 @@ PLUGIN.GunData["aus_w_tribeam"] = {
 
 PLUGIN.GunData["aus_w_wattzlasergun"] = {
 	BlackList = false,
+	ID = "wattzlasersniperrifle",
 	Name = "Wattz Laser-Sniper Rifle",
 	conditionDrainFactor = 1.35,
 	Desc = "A Wattz Consumer Electronics creation, this rifle is effectively the sniper rifle of energy weaponry - using up twice as many MFC charges as a regular laser rifle for a more focused, accurate beam with included scope for longer range work. Favored by lightweight scouting units of advanced factions." ,
@@ -1380,6 +1390,7 @@ PLUGIN.GunData["aus_w_wattzlasergun"] = {
 --=== ECP ===--
 PLUGIN.GunData["aus_w_rcw"] = {
 	BlackList = false,
+	ID = "laserrcw",
 	Name = "Laser RCW",
 	conditionDrainFactor = 1.15,
 	Desc = "The lovechild of a tommygun and laser rifle, the Laser RCW is one of the few fully automatic energy weapons around, using the slightly less powerful Electron Charge Pack to dish out many lasers at a high speed. Favored by Fiends, as more advanced factions tend to save their ECPs for heavy weapons, but not to be underestimated." ,
@@ -1413,6 +1424,7 @@ PLUGIN.GunData["aus_w_rcw"] = {
 
 PLUGIN.GunData["aus_w_gatlinglaser"] = {
 	BlackList = false,
+	ID = "gatlinglaser",
 	Name = "Gatling Laser",
 	conditionDrainFactor = 1,
 	Desc = "A laser-tossing behemoth, the Gatling Laser is capable of sending out lasers provided by Electron Charge Packs at a blistering rate, swiftly melting most opposition without special protection. Almost unheard of outside of heavy units deployed by the most advanced groups in the wastes." ,
@@ -1444,6 +1456,7 @@ PLUGIN.GunData["aus_w_gatlinglaser"] = {
 --=== Plasma ===--
 PLUGIN.GunData["aus_w_plasmapistol"] = {
 	BlackList = false,
+	ID = "plasmapistol",
 	Name = "Plasma Pistol",
 	conditionDrainFactor = 1.35,
 	Desc = "A chunky pistol throwing superheated goo. While somewhat oversized for a pistol and uncomfortably weighted towards the barrel, its raw effectiveness against most targets is well worth it." ,
@@ -1477,6 +1490,7 @@ PLUGIN.GunData["aus_w_plasmapistol"] = {
 
 PLUGIN.GunData["aus_w_plasmarifle"] = {
 	BlackList = false,
+	ID = "plasmarifle",
 	Name = "Plasma Rifle",
 	conditionDrainFactor = 1.35,
 	Desc = "Perhaps most known as a symbol of the long gone Enclave due to the 'Urban' Plasma Rifle being their service rifle back in the day, it's now a very difficult find but highly prized by all energy enthusiasts." ,

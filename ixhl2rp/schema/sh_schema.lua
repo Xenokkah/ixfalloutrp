@@ -12,7 +12,6 @@ ix.util.Include("sh_commands.lua")
 ix.util.Include("cl_schema.lua")
 ix.util.Include("cl_hooks.lua")
 ix.util.Include("sh_hooks.lua")
-ix.util.Include("sh_voices.lua")
 ix.util.Include("sv_schema.lua")
 ix.util.Include("sv_hooks.lua")
 

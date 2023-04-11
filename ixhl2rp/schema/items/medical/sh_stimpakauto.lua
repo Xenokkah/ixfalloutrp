@@ -8,7 +8,7 @@ ITEM.category = "Medical"
 ITEM.price = "4000"
 ITEM.flag = "1"
 ITEM.quantity = 1
-ITEM.model = "fosounds/fix/npc_human_using_stimpak.mp3"
+ITEM.sound = "fosounds/fix/npc_human_using_stimpak.mp3"
 ITEM.weight = 0.05
 
 ITEM.functions.use = {
