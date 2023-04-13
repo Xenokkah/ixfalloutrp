@@ -300,6 +300,42 @@ PLUGIN.GunData["aus_w_piperiflesemi"] = {
 	}
 }
 
+PLUGIN.GunData["aus_w_piperifleauto"] = {
+	BlackList = false,
+	ID = "pipeautorifle",
+	Name = "Automatic Pipe Rifle",
+	conditionDrainFactor = 1.25,
+	Desc = "A handmade pipe gun with improved internals and an auto sear, allowing it to fire in fully automatic - with a slightly bigger drum magazine to boot.",
+	Slot = "primary",
+	Model = "models/illusion/fwp/w_piperiflesemi.mdl",
+	Width = 3,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 1,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	NoAutomatic = true,
+	
+	Prim = {
+		Ammo = "38specialammo",
+		Damage = 25,
+		KickUp = 0.4,
+		KickDown = 0.4,
+		KickHorizontal = 0.35,
+		Spread = .021,
+		IronAccuracy = .01,
+		ClipSize = 30
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
 
 
 
@@ -510,6 +546,76 @@ PLUGIN.GunData["aus_w_smmg"] = {
 	}
 }
 
+--=== .357 ===--
+PLUGIN.GunData["tfa_tfre_colt_peacemaker"] = {
+	BlackList = false,
+	ID = "357magnumrevolver",
+	Name = ".357 Magnum Revolver",
+	conditionDrainFactor = 0.8,
+	Desc = "A reproduction Colt Single Action Army, an iconic firearm of the old west, chambered in the more modern .357 magnum. Though its fixed cynlinder and single action make it outdated compared to more modern weapons, it's still often carried for style and for self defense by farmers and townies.",
+	Slot = "secondary",
+	Model = "models/weapons/tfre/w_peacemaker.mdl",
+	Width = 2,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 1,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	
+	Prim = {
+		Ammo = "357magnumammo",
+		Damage = 35,
+		KickUp = 0.4,
+		KickDown = 0.4,
+		KickHorizontal = 0.35,
+		Spread = .021,
+		IronAccuracy = .01,
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
+PLUGIN.GunData["tfa_tfre_yellowboy"] = {
+	BlackList = false,
+	ID = "cowboyrepeater",
+	Name = "Cowboy Repeater",
+	conditionDrainFactor = 0.8,
+	Desc = "A lever action rifle firing .357 Magnum, a common fixture around homesteads, to both defend against opportunistic bandits and aggressive pests.",
+	Model = "models/weapons/tfre/w_henryrifle.mdl",
+	Width = 3,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 1,
+	Weight = 4,
+	Price = 2000,
+	condition = 100,
+	
+	Prim = {
+		Ammo = "357magnumammo",
+		Damage = 35,
+		KickUp = 0.4,
+		KickDown = 0.4,
+		ClipSize = 7,
+		KickHorizontal = 0.35,
+		Spread = .021,
+		IronAccuracy = .01,
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
+
 --=== .44 Magnum ===--
 PLUGIN.GunData["aus_w_44magnum"] = {
 	BlackList = false,
@@ -546,8 +652,8 @@ PLUGIN.GunData["aus_w_44magnum"] = {
 
 PLUGIN.GunData["aus_w_cowboyrepeater"] = {
 	BlackList = false,
-	Name = "Cowboy Repeater",
-	ID = "cowboyrepeater",
+	Name = "Trail Carbine",
+	ID = "trailcarbine",
 	conditionDrainFactor = 1,
 	Desc = "A lever action rifle with generous tube magazine. Once used for hunting bigger game like Bucks, it's now a favorite of the New California Republic Rangers.",
 	Slot = "primary",
@@ -570,6 +676,7 @@ PLUGIN.GunData["aus_w_cowboyrepeater"] = {
 		KickHorizontal = 0.35,
 		Spread = .021,
 		IronAccuracy = .01,
+		ClipSize = 8,
 	},
 	
 	--Sec == Secondary
@@ -1259,7 +1366,7 @@ PLUGIN.GunData["aus_w_lasermusket"] = {
 	ID = "homemadelaserrifle",
 	Name = "Homemade Laser Rifle",
 	conditionDrainFactor = 1.50,
-	Desc = "Made out of salvaged laser rifle parts and whatever could be found, this weapon allows the less fortunate to have roughly the same power of a laser rifle even if an intact origonal cannot be found, but at the cost of capacity and durability." ,
+	Desc = "Made out of salvaged laser rifle parts and whatever could be found, loading makeshift 'laser canisters' that can be self-made but at the cost of power, capacity and durability." ,
 	Slot = "primary",
 	Model = "models/illusion/fwp/w_lasermusket.mdl",
 	Width = 4,
@@ -1273,7 +1380,7 @@ PLUGIN.GunData["aus_w_lasermusket"] = {
 	Price = 2000,
 	condition = 100,
 	Prim = {
-		Ammo = "mfcammo",
+		Ammo = "lasercanisterammo",
 		Damage = 35,
 		KickUp = 0.4,
 		KickDown = 0.4,
@@ -1286,6 +1393,40 @@ PLUGIN.GunData["aus_w_lasermusket"] = {
 	Sec = {
 	}
 }
+
+PLUGIN.GunData["aus_w_lasermusket_sixshot"] = {
+	BlackList = false,
+	ID = "sixshothomemadelaserrifle",
+	Name = "Six-Shot Homemade Laser Rifle",
+	conditionDrainFactor = 1.25,
+	Desc = "A homemade laser rifle with an improved capacitator, allowing six shots before a reload." ,
+	Slot = "primary",
+	Model = "models/illusion/fwp/w_lasermusket.mdl",
+	Width = 4,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 2,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	Prim = {
+		Ammo = "lasercanisterammo",
+		Damage = 35,
+		KickUp = 0.4,
+		KickDown = 0.4,
+		KickHorizontal = 0.35,
+		Spread = .021,
+		IronAccuracy = .01,
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
 
 PLUGIN.GunData["aus_w_laserrifle"] = {
 	BlackList = false,

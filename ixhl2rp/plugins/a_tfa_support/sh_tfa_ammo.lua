@@ -65,6 +65,17 @@ PLUGIN.AmmoData[ "10mmammo" ] = {
 	Model = "models/mosi/fallout4/ammo/10mm.mdl",
 	Width = 1,
 	Height = 1
+
+	
+}
+
+PLUGIN.AmmoData[ "357magnumammo" ] = {
+	Name = ".357 Magnum Rounds",
+	Amount = 30,
+	Price = 2000,
+	Model = "models/mosi/fallout4/ammo/38.mdl",
+	Width = 1,
+	Height = 1
 }
 
 PLUGIN.AmmoData[ "44magnumammo" ] = {
@@ -154,6 +165,15 @@ PLUGIN.AmmoData["40mmammo" ] = {
 	Price = 2000,
 	Model = "models/mosi/fallout4/props/junk/ammobag.mdl",
 	Width = 2,
+	Height = 1
+}
+
+PLUGIN.AmmoData["lasercanisterammo" ] = {
+	Name = "Homemade Laser Canister",
+	Amount = 12,
+	Price = 2000,
+	Model = "models/mosi/fallout4/ammo/flare.mdl",
+	Width = 1,
 	Height = 1
 }
 

@@ -76,7 +76,7 @@ function PLUGIN:InitializedPlugins()
 				continue
 			end
 		else
-			if self.DoAutoCreation and class:find( "aus_" ) and not class:find( "base" ) then
+			if self.DoAutoCreation and class:find( "aus_" ) or class:find("tfa_") and not class:find( "base" ) then
 				dat = {}
 			else
 				continue
