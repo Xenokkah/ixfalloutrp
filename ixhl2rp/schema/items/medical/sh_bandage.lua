@@ -1,7 +1,7 @@
-ITEM.name = "Stimpak"
+ITEM.name = "Bandage"
 ITEM.description = "A medical staple."
-ITEM.longdesc = "A one use, injectable stimpak that both clots wounds and provides near immediate healing from stem cells."
-ITEM.model = "models/mosi/fnv/props/health/stimpak.mdl"
+ITEM.longdesc = "A simple roll of sterilized cloth for wrapping around open wounds, relatively cheap and easy to make but a lifesaver in the field."
+ITEM.model = "models/warz/items/bandage.mdl"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.category = "Medical"
@@ -17,8 +17,7 @@ ITEM.functions.use = {
 	OnRun = function(item)
 		local quantity = item:GetData("quantity", item.quantity)
 	
-		ix.chat.Send(item.player, "iteminternal", "injects their "..item.name..".", false)
-		item.player:GetCharacter():GetInventory():Add("dirtysyringe", 1)
+		ix.chat.Send(item.player, "iteminternal", "uses their "..item.name..".", false)
 
 
 		quantity = quantity - 1

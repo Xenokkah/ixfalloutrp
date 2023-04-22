@@ -20,6 +20,9 @@
 --	Writed by Taxin2012
 --	https://steamcommunity.com/id/Taxin2012/
 
+
+
+
 --=== 9MM ===--
 PLUGIN.GunData[ "aus_w_9mmpistol" ] = {
 	BlackList = false,
@@ -221,7 +224,8 @@ PLUGIN.GunData["aus_w_pipebolt"] = {
 		KickDown = 0.4,
 		KickHorizontal = 0.35,
 		Spread = .021,
-		IronAccuracy = .01
+		IronAccuracy = .01,
+		ClipSize = 10
 	},
 	
 	--Sec == Secondary

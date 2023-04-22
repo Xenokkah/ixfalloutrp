@@ -19,6 +19,7 @@ ITEM.functions.use = {
 		local quantity = item:GetData("quantity", item.quantity)
 	
 		ix.chat.Send(item.player, "iteminternal", "injects a dose of "..item.name..".", false)
+		item.player:GetCharacter():GetInventory():Add("dirtysyringe", 1)
 		item.player:NewVegasNotify("LET'S FUCKING GOOOOOOOO! Ignore all negative statuses, which are applied after drug wears off", "messageAngry", 8)
 
 		curplayer = item.player:GetCharacter()

@@ -152,7 +152,7 @@ PLUGIN.AmmoData["50mgammo" ] = {
 
 PLUGIN.AmmoData["2mmecammo" ] = {
 	Name = "2mmEC Batteries",
-	Amount = 20,
+	Amount = 10,
 	Price = 2000,
 	Model = "models/mosi/fallout4/ammo/2mmec.mdl",
 	Width = 2,

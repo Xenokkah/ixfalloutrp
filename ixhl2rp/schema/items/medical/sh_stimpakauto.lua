@@ -18,6 +18,7 @@ ITEM.functions.use = {
 		local quantity = item:GetData("quantity", item.quantity)
 	
 		ix.chat.Send(item.player, "iteminternal", "injects their "..item.name..".", false)
+		item.player:GetCharacter():GetInventory():Add("dirtysyringe", 1)
 
 
 		quantity = quantity - 1

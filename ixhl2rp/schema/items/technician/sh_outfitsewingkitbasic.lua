@@ -1,20 +1,22 @@
-ITEM.name = "Outfit Patching Kit"
-ITEM.model = "models/props_junk/metal_paintcan001a.mdl"
+ITEM.name = "Armor Repair Kit"
+ITEM.model = "models/mosi/fallout4/props/junk/ammobag.mdl"
 ITEM.description = "A set of sewing needles, thread, and replacement fabric pouches."
 ITEM.longdesc = "With some patches, thread, and needles one can touch up a suit that's suffered some basic damage from tears or the elements."
 ITEM.flag = "3"
-ITEM.category = "Technician"
+ITEM.category = "Repair"
 ITEM.price = 15000
+ITEM.height = 2
+ITEM.width = 2
 ITEM.repairAmount = 5
 ITEM.repairTreshhold = 80
 ITEM.maxStack = 3
-ITEM.sound = "physics/body/body_medium_impact_soft6.wav"
+ITEM.sound = "fosounds/fix/repairweapon/ui_repairweapon_03.mp3"
 ITEM.weight = 0.2
  
 ITEM.functions.use = {
 	name = "Stitch up outfit",
 	tip = "useTip",
-	icon = "icon16/stalker/repair.png",
+	icon = "icon16/bullet_wrench.png",
 	isMulti = true,
 	multiOptions = function(item, client)
 		local targets = {}

@@ -1,9 +1,11 @@
 ITEM.name = "Gun Oil"
-ITEM.model = "models/props_junk/metal_paintcan001a.mdl"
+ITEM.model = "models/mosi/fallout4/props/junk/cookingoil.mdl"
 ITEM.description = "A bottle of gun lubricants and oil."
 ITEM.longdesc = "When your gun isn't up to standard, a combination of cleaning oils and lubricants can clean off some surface level dirt and reduce friction between parts."
-ITEM.category = "Technician"
+ITEM.category = "Repair"
 ITEM.repairAmount = 5
+ITEM.height = 2
+ITEM.width = 1
 ITEM.repairTreshhold = 70
 ITEM.maxStack = 3
 ITEM.flag = "A"

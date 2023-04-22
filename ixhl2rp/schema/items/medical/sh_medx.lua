@@ -19,6 +19,7 @@ ITEM.functions.use = {
 		local quantity = item:GetData("quantity", item.quantity)
 	
 		ix.chat.Send(item.player, "iteminternal", "injects some "..item.name..".", false)
+		item.player:GetCharacter():GetInventory():Add("dirtysyringe", 1)
 		item.player:NewVegasNotify("Phew, much better. Stun, stagger, and limb damage status effect(s) removed.", "messageNeutral", 8)
 		quantity = quantity - 1
 		if (quantity >= 1) then

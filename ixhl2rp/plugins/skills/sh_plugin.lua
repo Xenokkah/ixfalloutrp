@@ -118,7 +118,6 @@ function PLUGIN:OnCharacterCreated(client, character)
     character:SetGuns(agility * 2 + luck)
     character:SetSneak(agility * 2 + luck)
 
-	
 end 
 
 ix.command.Add("MySkills", {
@@ -205,10 +204,11 @@ ix.command.Add("SpendSkillpoints", {
     ix.type.string, 
     ix.type.number},
     OnRun = function(self, client, skill, pointstospend)
-        char = client:GetCharacter()
-        currentpoints = char:GetSkillPoints()
-        skill = string.upper(skill)
-
+        local char = client:GetCharacter()
+        local ply = client
+        local currentpoints = char:GetSkillPoints()
+        local skill = skill
+        
         if (currentpoints == 0) then
             client:NewVegasNotify("You don't have any skillpoints to spend.", "messageSad", 8)
             return
@@ -224,169 +224,40 @@ ix.command.Add("SpendSkillpoints", {
             return
         end 
 
-        if (skill == "GUNS") then
-            currentlevel = char:GetGuns()
-            if (currentlevel >= 100) then
-                client:NewVegasNotify("That skill is already at max level!", "messageNeutral", 8)
-                return
-            end 
-            if (currentlevel + pointstospend > 100) then
-                client:NewVegasNotify("You cannot raise a skill above 100.", "messageNeutral", 8)
-                return
-            end 
-            char:SetGuns(currentlevel + pointstospend)
-            char:SetSkillPoints(currentpoints - pointstospend)
-            client:NewVegasNotify("Successfully upgraded Guns from " .. currentlevel .. " to " .. char:GetGuns() .. ".\n Skillpoints remaining: " .. char:GetSkillPoints(), "messageNeutral", 10)
-            return
+         -- Catch some edge cases
+         if (string.upper(skill) == "ENERGY" or string.upper(skill) == "ENERGYWEAPONS") then 
+            skill = "EnergyWeapons"
+        elseif (string.upper(skill) == "MELEEWEAPONS") then 
+            skill = "Melee"
+        elseif (string.upper(skill) == "LOCKPICKING") then 
+            skill = "Lockpick"
+        else 
+            -- Most skills will end up here - ensure first letter is capitalized and the rest is lowercase.
+            skill = string.upper(string.sub(skill, 1, 1)) .. string.lower(string.sub(skill, 2))
+        end 
+    
+        -- Ensure that the given skill exists, spit out error and end if not.
+        local getterFunc = char["Get" .. skill] 
+        if not (getterFunc) then
+            return client:NewVegasNotify("Invalid Skill.", "messageSad", 8)
         end 
 
-        if (skill == "EXPLOSIVES") then
-            currentlevel = char:GetExplosives()
-            if (currentlevel >= 100) then
-                client:NewVegasNotify("That skill is already at max level!", "messageNeutral", 8)
-                return
-            end 
-            if (currentlevel + pointstospend > 100) then
-                client:NewVegasNotify("You cannot raise a skill above 100.", "messageNeutral", 8)
-                return
-            end 
-            char:SetExplosives(currentlevel + pointstospend)
-            char:SetSkillPoints(currentpoints - pointstospend)
-            client:NewVegasNotify("Successfully upgraded Explosives from " .. currentlevel .. " to " .. char:GetExplosives() .. ".\n Skillpoints remaining: " .. char:GetSkillPoints(), "messageNeutral", 10)
-            return
+        -- Use setter function to prepare set function, and get skill level
+        local setterFunc = char["Set" .. skill]
+        local skillLevel = getterFunc(char)
+
+        if (skillLevel + pointstospend > 100) then
+            return client:NewVegasNotify("Cannot upgrade a skill beyond 100.", "messageSad", 8)
         end 
 
-        if (skill == "ENERGYWEAPONS") then
-            currentlevel = char:GetEnergyWeapons()
-            if (currentlevel >= 100) then
-                client:NewVegasNotify("That skill is already at max level!", "messageNeutral", 8)
-                return
-            end 
-            if (currentlevel + pointstospend > 100) then
-                client:NewVegasNotify("You cannot raise a skill above 100.", "messageNeutral", 8)
-                return
-            end 
-            char:SetEnergyWeapons(currentlevel + pointstospend)
-            char:SetSkillPoints(currentpoints - pointstospend)
-            client:NewVegasNotify("Successfully upgraded Energy Weapons from " .. currentlevel .. " to " .. char:GetEnergyWeapons() .. ".\n Skillpoints remaining: " .. char:GetSkillPoints(), "messageNeutral", 10)
-            return
-        end 
-
-        if (skill == "MELEEWEAPONS" or skill == "MELEE") then
-            currentlevel = char:GetMelee()
-            if (currentlevel >= 100) then
-                client:NewVegasNotify("That skill is already at max level!", "messageNeutral", 8)
-                return
-            end 
-            if (currentlevel + pointstospend > 100) then
-                client:NewVegasNotify("You cannot raise a skill above 100.", "messageNeutral", 8)
-                return
-            end 
-            char:SetMelee(currentlevel + pointstospend)
-            char:SetSkillPoints(currentpoints - pointstospend)
-            client:NewVegasNotify("Successfully upgraded Melee Weapons from " .. currentlevel .. " to " .. char:GetMelee() .. ".\n Skillpoints remaining: " .. char:GetSkillPoints(), "messageNeutral", 10)
-            return
-        end 
-
-
-        if (skill == "SCIENCE") then
-            currentlevel = char:GetScience()
-            if (currentlevel >= 100) then
-                client:NewVegasNotify("That skill is already at max level!", "messageNeutral", 8)
-                return
-            end 
-            if (currentlevel + pointstospend > 100) then
-                client:NewVegasNotify("You cannot raise a skill above 100.", "messageNeutral", 8)
-                return
-            end 
-            char:SetScience(currentlevel + pointstospend)
-            char:SetSkillPoints(currentpoints - pointstospend)
-            client:NewVegasNotify("Successfully upgraded Science from " .. currentlevel .. " to " .. char:GetScience() .. ".\n Skillpoints remaining: " .. char:GetSkillPoints(), "messageNeutral", 10)
-            return
-        end 
-
-        if (skill == "MEDICINE") then
-            currentlevel = char:GetMedicine()
-            if (currentlevel >= 100) then
-                client:NewVegasNotify("That skill is already at max level!", "messageNeutral", 8)
-                return
-            end 
-            if (currentlevel + pointstospend > 100) then
-                client:NewVegasNotify("You cannot raise a skill above 100.", "messageNeutral", 8)
-                return
-            end 
-            char:SetMedicine(currentlevel + pointstospend)
-            char:SetSkillPoints(currentpoints - pointstospend)
-            client:NewVegasNotify("Successfully upgraded Medicine from " .. currentlevel .. " to " .. char:GetMedicine() .. ".\n Skillpoints remaining: " .. char:GetSkillPoints(), "messageNeutral", 10)
-            return
-        end 
-
-        if (skill == "REPAIR") then
-            currentlevel = char:GetRepair()
-            if (currentlevel >= 100) then
-                client:NewVegasNotify("That skill is already at max level!", "messageNeutral", 8)
-                return
-            end 
-            if (currentlevel + pointstospend > 100) then
-                client:NewVegasNotify("You cannot raise a skill above 100.", "messageNeutral", 8)
-                return
-            end 
-            char:SetRepair(currentlevel + pointstospend)
-            char:SetSkillPoints(currentpoints - pointstospend)
-            client:NewVegasNotify("Successfully upgraded Repair from " .. currentlevel .. " to " .. char:GetRepair() .. ".\n Skillpoints remaining: " .. char:GetSkillPoints(), "messageNeutral", 10)
-            return
-        end 
-
-        if (skill == "SURVIVAL") then
-            currentlevel = char:GetSurvival()
-            if (currentlevel >= 100) then
-                client:NewVegasNotify("That skill is already at max level!", "messageNeutral", 8)
-                return
-            end 
-            if (currentlevel + pointstospend > 100) then
-                client:NewVegasNotify("You cannot raise a skill above 100.", "messageNeutral", 8)
-                return
-            end 
-            char:SetSurvival(currentlevel + pointstospend)
-            char:SetSkillPoints(currentpoints - pointstospend)
-            client:NewVegasNotify("Successfully upgraded Survival from " .. currentlevel .. " to " .. char:GetSurvival() .. ".\n Skillpoints remaining: " .. char:GetSkillPoints(), "messageNeutral", 10)
-            return
-        end 
-
-        if (skill == "SNEAK") then
-            currentlevel = char:GetSneak()
-            if (currentlevel >= 100) then
-                client:NewVegasNotify("That skill is already at max level!", "messageNeutral", 8)
-                return
-            end 
-            if (currentlevel + pointstospend > 100) then
-                client:NewVegasNotify("You cannot raise a skill above 100.", "messageNeutral", 8)
-                return
-            end 
-            char:SetSneak(currentlevel + pointstospend)
-            char:SetSkillPoints(currentpoints - pointstospend)
-            client:NewVegasNotify("Successfully upgraded Repair from " .. currentlevel .. " to " .. char:GetSneak() .. ".\n Skillpoints remaining: " .. char:GetSkillPoints(), "messageNeutral", 10)
-            return
-        end 
-
-        if (skill == "LOCKPICK" or skill == "LOCKPICKING") then
-            currentlevel = char:GetLockpick()
-            if (currentlevel >= 100) then
-                client:NewVegasNotify("That skill is already at max level!", "messageNeutral", 8)
-                return
-            end 
-            if (currentlevel + pointstospend > 100) then
-                client:NewVegasNotify("You cannot raise a skill above 100.", "messageNeutral", 8)
-                return
-            end 
-            char:SetLockpick(currentlevel + pointstospend)
-            char:SetSkillPoints(currentpoints - pointstospend)
-            client:NewVegasNotify("Successfully upgraded Repair from " .. currentlevel .. " to " .. char:GetLockpick() .. ".\n Skillpoints remaining: " .. char:GetSkillPoints(), "messageNeutral", 10)
-            return
-        end 
-
-        client:NewVegasNotify("That skill doesn't exist!", "messageSad", 10)
+        -- Use setter function with given skill and points to spend, deduct skill points.
+        setterFunc(char, skillLevel + pointstospend)
+        local newlevel =  getterFunc(char)
+        char:SetSkillPoints(currentpoints - pointstospend)
+        client:NewVegasNotify("Your " .. skill .. " skill has been increased from " ..skillLevel.. " to " ..newlevel.. ". \n Skillpoints Remaining: " .. char:GetSkillPoints(), "messageNeutral", 8)
         return
-
+        
     end
 })
+
+
