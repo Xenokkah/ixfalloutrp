@@ -114,6 +114,16 @@ PLUGIN.AmmoData["12gaugeammo" ] = {
 	Height = 1
 }
 
+
+PLUGIN.AmmoData["12gaugeammo_alt" ] = {
+	Name = "12 Gauge Slug",
+	Amount = 20,
+	Price = 2000,
+	Model = "models/mosi/fallout4/ammo/shotgunshells.mdl",
+	Width = 1,
+	Height = 1
+}
+
 PLUGIN.AmmoData["5mmammo" ] = {
 	Name = "5mm Rounds",
 	Amount = 30,

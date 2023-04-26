@@ -31,3 +31,16 @@ PLUGIN.AttachData[ "ins2_si_kobra" ] = {
 	Height = 1,
 	Slot = 2
 }
+
+
+PLUGIN.AttachData[ "12gaugeammo_alt" ] = {
+	Name = "12 Gauge Shotgun Slug",
+	Desc = "You shouldn't be seeing this.",
+	Price = 2000,
+	Model = "models/Items/BoxSRounds.mdl",
+	Width = 1,
+	Height = 1,
+	Slot = 2
+}
+
+

@@ -4,7 +4,7 @@ ITEM.replacements = {
 	{"group004", "group011"}
 }
 ITEM.description = "A set of heavy metal armor."
-ITEM.longdesc = "A chunky metal armor set forged from metal parts. It provides quite potent physical protection, at the cost of weight and being highly conductive to energy weaponry and heat in general."
+ITEM.longdesc = "A chunky metal armor set forged from metal parts. It provides quite potent physical protection, at the cost of weight and being highly susceptible to energy and environmental threats."
 ITEM.width = 2
 ITEM.height = 2
 ITEM.price = 230000

@@ -36,15 +36,14 @@ ix.util.Include("sh_tfa_ammo.lua")
 if CLIENT then
 	function PLUGIN:PopulateItemTooltip( tooltip, item )
 		if item.Attachments and not table.IsEmpty( item.Attachments ) then
-			local text = "Modifications: "
-
+			local text = "Alternate Ammo: "
 			local mods = item:GetData( "mods", {} )
 			local already = {}
 
 			if not table.IsEmpty( mods ) then
 				for k, v in next, mods do
 					already[ v ] = true
-					text = text .. "\n  +" .. ( ( ix.item.list[ v ] and ix.item.list[ v ].name ) or v )
+					text = text .. "\n  (+) " .. ( ( ix.item.list[ v ] and ix.item.list[ v ].name ) or v )
 				end
 			end
 
@@ -52,7 +51,7 @@ if CLIENT then
 				if not already[ k ] then
 					local att = ix.item.list[ k ]
 					if att then
-						text = text .. "\n  -" .. att.name
+						text = text .. "\n " .. att.name
 					end
 				end
 			end
@@ -114,10 +113,13 @@ function PLUGIN:InitializedPlugins()
 		ITEM.IsTFA = true
 		ITEM.DoEquipSnd = true
 		ITEM.isWeapon = true
+
 	
 		
 	
 		
+
+
 		if dat.iconCam then
 			ITEM.iconCam = dat.iconCam
 		end
@@ -142,6 +144,12 @@ function PLUGIN:InitializedPlugins()
 			ITEM.DurCh = dat.DurCh
 		end
 
+		if dat.MultiAmmo == "true" then
+			ITEM.MultiAmmo = true
+		else
+			ITEM.MultiAmmo = false	
+		end 
+
 		if dat.condition then
 			ITEM.condition = dat.condition
 		end
@@ -150,7 +158,6 @@ function PLUGIN:InitializedPlugins()
 			ITEM.conditionDrainFactor = dat.conditionDrainFactor
 		end 
 
-		
 
 		ITEM:Hook( "drop", function( item )
 			item.player:EmitSound( "physics/metal/metal_box_footstep1.wav" ) 
@@ -185,6 +192,47 @@ function PLUGIN:InitializedPlugins()
 				--cant find a way to get ammo from weapon class so gotta be equipped
 				return IsValid(client) and item:GetData("equip") == true
 			end
+		}
+
+		ITEM.functions.SwapAmmo = {
+			name = "Switch Ammo",
+			tip = "Switch Ammo Type",
+			icon = "icon16/box.png",
+			OnRun = function(item)
+				local client = item.player
+				local weapon = client.carryWeapons[item.weaponCategory]
+
+				if (weapon:IsWeapon()) then
+					local data = item:GetData( "mods", {} )
+					local mods = item:GetData( "mods", {} )
+		
+
+					if not table.IsEmpty(data) then
+						client:GiveAmmo(weapon:Clip1(), game.GetAmmoName(weapon:GetPrimaryAmmoType()))
+						weapon:SetClip1(0)
+						mods[2] = nil
+						item:SetData( "mods", mods )
+						item:Unequip(client, true)
+					else
+						client:GiveAmmo(weapon:Clip1(), game.GetAmmoName(weapon:GetPrimaryAmmoType()))
+						weapon:SetClip1(0)
+						mods[2] = game.GetAmmoName(weapon:GetPrimaryAmmoType()) .. "_alt"
+						item:SetData( "mods", mods )
+						client:Notify(mods[2])
+						item:Unequip(client, true)
+					end 
+						
+					client:NewVegasNotify("You switch ammo types.", "messageNeutral", 5)
+				
+					return false
+				end
+			end,
+			OnCanRun = function(item)
+				local client = item.player
+				--cant find a way to get ammo from weapon class so gotta be equipped
+				return IsValid(client) and item:GetData("equip") == true and not table.IsEmpty(item.Attachments)
+			end
+
 		}
 
 		ITEM.functions.Custom = {
@@ -252,7 +300,7 @@ function PLUGIN:InitializedPlugins()
 
 			if v.Primary.Ammo and v.Primary.ClipSize then
 				local ammo_itm = ix.item.list[ "ammo_" .. v.Primary.Ammo ]
-				text = text .. "\nUsing ammo: " .. ( ( ammo_itm and ammo_itm.name ) or v.Primary.Ammo ) .. ".\nMagazine capacity: " .. v.Primary.ClipSize .. "."
+				text = text .. "\nDefault ammo: " .. ( ( ammo_itm and ammo_itm.name ) or v.Primary.Ammo ) .. ".\nMagazine capacity: " .. v.Primary.ClipSize .. "."
 			end
 
 			if dat.condition then
@@ -282,11 +330,10 @@ function PLUGIN:InitializedPlugins()
                         data = { k, v },
                     } )
                 end
-
                 return targets
             end,
 			OnCanRun = function( item )			
-                return not IsValid( item.entity ) and IsValid( item.player ) and item.invID == item.player:GetCharacter():GetInventory():GetID() and not table.IsEmpty( item:GetData( "mods", {} ) )
+                return false
 			end,
 			OnRun = function( item, data )
 				if data and data[1] and data[2] then

@@ -945,6 +945,7 @@ PLUGIN.GunData["aus_w_caravanshotgun"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	MultiAmmo = "true",
 	Prim = {
 		Ammo = "12gaugeammo",
 		Damage = 35,
