@@ -205,7 +205,7 @@ else
 
 	function PLUGIN:PostPlayerLoadout(client)
 		if (client:GetCharacter():GetRads()) then
-			client:SetRads(client:GetRads())
+			client:GetCharacter():SetRads(client:GetRads())
 		else
 			client:SetRads(0)
 		end

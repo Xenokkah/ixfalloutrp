@@ -39,6 +39,13 @@ function ENT:Use(activator)
             activator:NewVegasNotify("You pick some " .. self.PrintName .. ".", "messageNeutral", 5)
             activator:EmitSound("fosounds/fix/ui_items_generic_up_02.mp3")
             self:SetBodygroup(1,1)
+
+            
+		    timer.Simple(20, function() 
+                self:SetVar("bHarvested", false)
+                self:SetBodygroup(1,0)
+		    end)
+
             return
         end 
     end 

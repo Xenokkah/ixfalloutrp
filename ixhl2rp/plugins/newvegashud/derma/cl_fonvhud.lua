@@ -1,7 +1,7 @@
 
 --load up the materials
     local leftHUDElement = Material("fonvui/hud/hud_left_main.png", "smooth")
-    local compassStrip = Material("fonvui/hud/hud_compass_strip.png", "noclamp")
+    local compassStrip = Material("fonvui/hud/compass.png", "noclamp")
     --bruh how am i gonna do this
     --local compassAlphaMap = Material("fonvui/hud/hud_compass_alphamap.png")
 

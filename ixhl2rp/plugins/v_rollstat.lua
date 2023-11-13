@@ -3,154 +3,121 @@ PLUGIN.name = "Stat Rolling"
 PLUGIN.author = "Val"
 PLUGIN.description = "cheese.wav"
 
-ix.command.Add("Rollstat", {
-    description = "Leave fate to chance by rolling a random number with an attribute to boost your odds slightly.",
-    arguments = {ix.type.string, bit.bor(ix.type.number, ix.type.optional)},
-    OnRun = function(self, client, attrib, maximum)
-        maximum = math.Clamp(maximum or 100, 0, 1000000)
 
-        local value = math.random(0, maximum)
-        
-        local translate_tbl = {
-			-- The first string indicates what the player has to type in to properly get a bonus based on their roll. The second string is the actual attribute.
-			["s"] = "strength",
-            ["p"] = "perception",
-            ["e"] = "endurance",
-            ["c"] = "charisma",
-            ["i"] = "intelligence",
-            ["a"] = "agility",
-            ["l"] = "luck",
-			--[[
-            ["medical"] = "medical",
-			["accuracy"] = "accuracy",
-			["agility"] = "agility",
-			["constitution"] = "constitution",
-            ["fabrication"] = "fabrication",
-            ]]
-            -- Add more attributes here by following the previous format if desired.
-        }
-        local temp_attrib = attrib
-        attrib = translate_tbl[string.lower(temp_attrib)]
+-- Attributes --
 
-        if !attrib then 
-            return "Invalid attribute. Remember to roll SPECIAL stats with its first letter only."
-        end 
-        
-        local att = client:GetCharacter():GetAttribute(attrib,0)
-        local add = att --math.Round(att*1)
-		value = value
-        local char = client:GetCharacter()
-
-        ix.chat.Send(client, "rollStat", tostring(value), nil, nil, {
-            max = maximum,
-            attr=string.upper(attrib),
-            additive=add,
-            initialroll = value,
-    
-            
-        
-        })
-
-       ix.log.Add(client, "rollStat", value, maximum, attrib, add)
-    end
-})
-
+-- Chat type for attribute rolls
 ix.chat.Register("rollstat", {
-    format = "** %s rolled for %s: %s + %s = %s out of %s",
+    format = "** %s rolled for %s: %s Roll + %s Stat Boost %s = %s",
     color = Color(155, 111, 176),
     CanHear = ix.config.Get("chatRange", 280),
     deadCanChat = true,
     OnChatAdd = function(self, speaker, text, bAnonymous, data)
-        local max = data.max or 100
         local att = data.attr or "STR"
         local add = data.additive
-        local totaladd = 0
-        local total = 0
-      
-    
-        -- Real yanderedev hours here
+        local mod = data.mod
+        local total = data.initialroll + add + mod
 
-        if (add < 0) then
-            add = (-15 + add)
-            total = data.initialroll + add
-
-        end 
-        if (add == 0) then 
-            add = -15
-            total = data.initialroll - 15
-        end 
-
-        if (add == 1) then 
-            add = -12
-            total = data.initialroll - 12
-        end 
-
-        if (add == 2) then 
-            add = -9
-            total = data.initialroll - 9
-        end 
-
-        if (add == 3) then 
-            add = -6
-            total = data.initialroll - 6
-        end 
-
-        if (add == 4) then 
-            add = -3
-            total = data.initialroll - 3
-        end 
-
-        if (add == 5) then 
-            add = 0
-            total = data.initialroll + 0
-        end 
-
-        if (add == 6) then 
-            add = 3
-            total = data.initialroll + 3
-        end 
-
-        if (add == 7) then 
-            add = 6
-            total = data.initialroll + 6
-        end 
-
-        if (add == 8) then 
-            add = 9
-            total = data.initialroll + 9
-        end 
-
-        if (add == 9) then 
-            add = 12
-            total = data.initialroll + 12
-        end 
-
-        if (add == 10) then
-            add = 15
-            total = data.initialroll + 15
+        if mod ~= 0 then
+            mod = "with a Modifier of " .. mod .. " "
+        else
+            mod = ""
         end
 
-        
-        if (add > 10) then
-            add = (add - 10 + 15)
-            total = data.initialroll + add
-        end
+        local translated = L2(self.uniqueID.."Format", speaker:Name(), text)
 
-
-
-       
-        local translated = L2(self.uniqueID.."Format", speaker:Name(), text, max)
-
-        chat.AddText(self.color, translated and "** "..translated or string.format(self.format,speaker:Name(), att, text, add, total, max))
+        chat.AddText(self.color, translated and "** "..translated or string.format(self.format,speaker:Name(), att, text, add, mod, total))
     end
 })
 
  if (SERVER) then
-    ix.log.AddType("rollStat", function(client, value, maximum, attrib, add)
-        return string.format("%s has rolled a base %s out of %d with a %q skill of %s", client:Name(), value, maximum, attrib, add)
+    ix.log.AddType("rollStat", function(client, value, attrib, add, mod)
+
+        total = value + add + mod
+        return string.format("%s has rolled for %s: %s with a %q Stat Bonus and %s modifier = %s", client:Name(), attrib, value, add, mod, total)
     end)
 end
 
+-- Go through each attribute and make a command of the same that rolls a d10, then adds stat value to it.
+for k, v in pairs(ix.attributes.list) do
+
+    ix.command.Add(string.lower(v.name), {
+        description = "Roll a " .. v.name .. " check on a d10. Optional modifier.",
+        arguments = {bit.bor(ix.type.number, ix.type.optional)},
+        OnRun = function(self, client, modifier)
+            local value = math.random(0, 10)
+            local attr = v.name
+            local att = client:GetCharacter():GetAttribute(string.lower(v.name))
+
+            local add = att 
+            local char = client:GetCharacter()
+            local modifier = modifier or 0
+            
+            ix.chat.Send(client, "rollStat", tostring(value), nil, nil, {
+                attr = attr,
+                additive=add,
+                initialroll = value,
+                mod = modifier
+    
+            })
+    
+           ix.log.Add(client, "rollStat", value, attr, add, modifier)
+        end
+    })
+end 
+
+
+
+-- Skills
+
+--Agility
+ix.command.Add("Guns", {
+    description = "Roll a Guns check on a d10 + Agility. Optional modifier.",
+    arguments = {bit.bor(ix.type.number, ix.type.optional)},
+    OnRun = function(self, client, modifier)
+        local char = client:GetCharacter()
+        local value = math.random(0, 10)
+        local attr = "Agility"
+        local att = client:GetCharacter():GetAttribute("agility")
+        local add = att + char:GetGuns()
+        local modifier = modifier or 0
+        
+        ix.chat.Send(client, "rollStat", tostring(value), nil, nil, {
+            attr = attr,
+            additive=add,
+            initialroll = value,
+            mod = modifier
+        })
+
+       ix.log.Add(client, "rollStat", value, attr, add, modifier)
+    end
+})
+
+ix.command.Add("Evasion", {
+    description = "Roll an Evasion check on a d10 + Agility. Optional modifier.",
+    arguments = {bit.bor(ix.type.number, ix.type.optional)},
+    OnRun = function(self, client, modifier)
+        local char = client:GetCharacter()
+        local value = math.random(0, 10)
+        local attr = "Evasion"
+        local att = client:GetCharacter():GetAttribute("agility")
+        local add = att + char:GetEvasion()
+        local modifier = modifier or 0
+        
+        ix.chat.Send(client, "rollStat", tostring(value), nil, nil, {
+            attr = attr,
+            additive=add,
+            initialroll = value,
+            mod = modifier
+        })
+
+       ix.log.Add(client, "rollStat", value, attr, add, modifier)
+    end
+})
+
+
+
+-- Roll Stat Modifier
 ix.command.Add("Rollstatmodifier", {
     description = "Roll a number out of the given maximum and add the given amount to it.",
     arguments = {ix.type.number, bit.bor(ix.type.number, ix.type.optional)},
@@ -192,10 +159,5 @@ ix.chat.Register("rollStatModifier", {
     end
 })
 
---[[ if (SERVER) then
-    ix.log.AddType("rollStatModifier", function(client, value, maximum, modifier, total)
-        return string.format("%s has rolled %s out of %d with a modifier of %s for a total of %s", client:Name(), value, maximum, modifier, total)
-    end)
-end ]]
 
 

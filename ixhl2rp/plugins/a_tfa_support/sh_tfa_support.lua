@@ -218,7 +218,6 @@ function PLUGIN:InitializedPlugins()
 						weapon:SetClip1(0)
 						mods[2] = game.GetAmmoName(weapon:GetPrimaryAmmoType()) .. "_alt"
 						item:SetData( "mods", mods )
-						client:Notify(mods[2])
 						item:Unequip(client, true)
 					end 
 						

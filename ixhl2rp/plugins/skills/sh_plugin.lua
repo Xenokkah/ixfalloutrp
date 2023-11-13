@@ -84,8 +84,8 @@ ix.char.RegisterVar("Lockpick", {
     bNoDisplay = true
 })
 
-ix.char.RegisterVar("Sneak", {
-    field = "sneak",
+ix.char.RegisterVar("Evasion", {
+    field = "evasion",
     fieldType = ix.type.number,
     default = 0,
     isLocal = true,
@@ -116,7 +116,7 @@ function PLUGIN:OnCharacterCreated(client, character)
     character:SetMedicine(intelligence * 2 + luck)
 
     character:SetGuns(agility * 2 + luck)
-    character:SetSneak(agility * 2 + luck)
+    character:SetEvasion(agility * 2 + luck)
 
 end 
 
@@ -134,7 +134,7 @@ ix.command.Add("MySkills", {
         str = str .. "Melee Weapons: " ..char:GetMelee().. "/100\n"
         str = str .. "Explosives: " ..char:GetExplosives().. "/100\n"
         str = str .. "Medicine: " ..char:GetMedicine().. "/100\n"
-        str = str .. "Sneak: " ..char:GetSneak().. "/100\n"
+        str = str .. "Evasion: " ..char:GetEvasion().. "/100\n"
         str = str .. "Survival: " ..char:GetSurvival().. "/100\n"
         str = str .. "Science: " ..char:GetScience().. "/100\n"
         str = str .. "Repair: " ..char:GetRepair().. "/100\n"
@@ -175,7 +175,7 @@ ix.command.Add("CharGetSkills", {
         str = str .. "Melee Weapons: " ..char:GetMelee().. "/100\n"
         str = str .. "Explosives: " ..char:GetExplosives().. "/100\n"
         str = str .. "Medicine: " ..char:GetMedicine().. "/100\n"
-        str = str .. "Sneak: " ..char:GetSneak().. "/100\n"
+        str = str .. "Evasion: " ..char:GetEvasion().. "/100\n"
         str = str .. "Survival: " ..char:GetSurvival().. "/100\n"
         str = str .. "Science: " ..char:GetScience().. "/100\n"
         str = str .. "Repair: " ..char:GetRepair().. "/100\n"
