@@ -4,9 +4,10 @@ PLUGIN.author = "Val"
 PLUGIN.description = "cheese.wav"
 
 
--- Attributes --
+----= Attributes =----
 
--- Chat type for attribute rolls
+
+-- Chat type for rolls
 ix.chat.Register("rollstat", {
     format = "** %s rolled for %s: %s Roll + %s Stat Boost %s = %s",
     color = Color(155, 111, 176),
@@ -34,7 +35,7 @@ ix.chat.Register("rollstat", {
     ix.log.AddType("rollStat", function(client, value, attrib, add, mod)
 
         total = value + add + mod
-        return string.format("%s has rolled for %s: %s with a %q Stat Bonus and %s modifier = %s", client:Name(), attrib, value, add, mod, total)
+        return string.format("%s has rolled for %s: %s with a %s Stat Bonus and %s modifier = %s", client:Name(), attrib, value, add, mod, total)
     end)
 end
 
@@ -42,7 +43,7 @@ end
 for k, v in pairs(ix.attributes.list) do
 
     ix.command.Add(string.lower(v.name), {
-        description = "Roll a " .. v.name .. " check on a d10. Optional modifier.",
+        description = "Roll a " .. v.name .. " check on a d10 + Attribute. Optional modifier.",
         arguments = {bit.bor(ix.type.number, ix.type.optional)},
         OnRun = function(self, client, modifier)
             local value = math.random(0, 10)
@@ -68,16 +69,269 @@ end
 
 
 
--- Skills
+----= Skills =----
 
---Agility
+-- Strength --
+ix.command.Add("Unarmed", {
+    description = "Roll an Unarmed check on a d10 + Strength. Optional modifier.",
+    arguments = {bit.bor(ix.type.number, ix.type.optional)},
+    OnRun = function(self, client, modifier)
+        local char = client:GetCharacter()
+        local value = math.random(0, 10)
+        local attr = "Unarmed"
+        local att = client:GetCharacter():GetAttribute("strength")
+        local add = att + char:GetUnarmed()
+        local modifier = modifier or 0
+        
+        ix.chat.Send(client, "rollStat", tostring(value), nil, nil, {
+            attr = attr,
+            additive=add,
+            initialroll = value,
+            mod = modifier
+        })
+
+       ix.log.Add(client, "rollStat", value, attr, add, modifier)
+    end
+})
+
+ix.command.Add("Melee", {
+    description = "Roll a Melee Weapons check on a d10 + Strength. Optional modifier.",
+    arguments = {bit.bor(ix.type.number, ix.type.optional)},
+    OnRun = function(self, client, modifier)
+        local char = client:GetCharacter()
+        local value = math.random(0, 10)
+        local attr = "Melee Weapons"
+        local att = client:GetCharacter():GetAttribute("strength")
+        local add = att + char:GetMelee()
+        local modifier = modifier or 0
+        
+        ix.chat.Send(client, "rollStat", tostring(value), nil, nil, {
+            attr = attr,
+            additive=add,
+            initialroll = value,
+            mod = modifier
+        })
+
+       ix.log.Add(client, "rollStat", value, attr, add, modifier)
+    end
+})
+
+-- Perception --
+ix.command.Add("Energy", {
+    description = "Roll an Energy Weapons check on a d10 + Perception. Optional modifier.",
+    arguments = {bit.bor(ix.type.number, ix.type.optional)},
+    OnRun = function(self, client, modifier)
+        local char = client:GetCharacter()
+        local value = math.random(0, 10)
+        local attr = "Energy Weapons"
+        local att = client:GetCharacter():GetAttribute("perception")
+        local add = att + char:GetEnergyWeapons()
+        local modifier = modifier or 0
+        
+        ix.chat.Send(client, "rollStat", tostring(value), nil, nil, {
+            attr = attr,
+            additive=add,
+            initialroll = value,
+            mod = modifier
+        })
+
+       ix.log.Add(client, "rollStat", value, attr, add, modifier)
+    end
+})
+
+ix.command.Add("Explosives", {
+    description = "Roll an Explosives check on a d10 + Perception. Optional modifier.",
+    arguments = {bit.bor(ix.type.number, ix.type.optional)},
+    OnRun = function(self, client, modifier)
+        local char = client:GetCharacter()
+        local value = math.random(0, 10)
+        local attr = "Perception"
+        local att = client:GetCharacter():GetAttribute("perception")
+        local add = att + char:GetExplosives()
+        local modifier = modifier or 0
+        
+        ix.chat.Send(client, "rollStat", tostring(value), nil, nil, {
+            attr = attr,
+            additive=add,
+            initialroll = value,
+            mod = modifier
+        })
+
+       ix.log.Add(client, "rollStat", value, attr, add, modifier)
+    end
+})
+
+ix.command.Add("Lockpick", {
+    description = "Roll a Lockpick check on a d10 + Perception. Optional modifier.",
+    arguments = {bit.bor(ix.type.number, ix.type.optional)},
+    OnRun = function(self, client, modifier)
+        local char = client:GetCharacter()
+        local value = math.random(0, 10)
+        local attr = "Lockpicking"
+        local att = client:GetCharacter():GetAttribute("perception")
+        local add = att + char:GetLockpick()
+        local modifier = modifier or 0
+        
+        ix.chat.Send(client, "rollStat", tostring(value), nil, nil, {
+            attr = attr,
+            additive=add,
+            initialroll = value,
+            mod = modifier
+        })
+
+       ix.log.Add(client, "rollStat", value, attr, add, modifier)
+    end
+})
+
+-- Perception --
+ix.command.Add("Energy", {
+    description = "Roll an Energy Weapons check on a d10 + Perception. Optional modifier.",
+    arguments = {bit.bor(ix.type.number, ix.type.optional)},
+    OnRun = function(self, client, modifier)
+        local char = client:GetCharacter()
+        local value = math.random(0, 10)
+        local attr = "Energy Weapons"
+        local att = client:GetCharacter():GetAttribute("perception")
+        local add = att + char:GetEnergyWeapons()
+        local modifier = modifier or 0
+        
+        ix.chat.Send(client, "rollStat", tostring(value), nil, nil, {
+            attr = attr,
+            additive=add,
+            initialroll = value,
+            mod = modifier
+        })
+
+       ix.log.Add(client, "rollStat", value, attr, add, modifier)
+    end
+})
+
+ix.command.Add("Explosives", {
+    description = "Roll an Explosives check on a d10 + Perception. Optional modifier.",
+    arguments = {bit.bor(ix.type.number, ix.type.optional)},
+    OnRun = function(self, client, modifier)
+        local char = client:GetCharacter()
+        local value = math.random(0, 10)
+        local attr = "Perception"
+        local att = client:GetCharacter():GetAttribute("perception")
+        local add = att + char:GetExplosives()
+        local modifier = modifier or 0
+        
+        ix.chat.Send(client, "rollStat", tostring(value), nil, nil, {
+            attr = attr,
+            additive=add,
+            initialroll = value,
+            mod = modifier
+        })
+
+       ix.log.Add(client, "rollStat", value, attr, add, modifier)
+    end
+})
+
+
+-- Endurance --
+ix.command.Add("Survival", {
+    description = "Roll a Survival check on a d10 + Endurance. Optional modifier.",
+    arguments = {bit.bor(ix.type.number, ix.type.optional)},
+    OnRun = function(self, client, modifier)
+        local char = client:GetCharacter()
+        local value = math.random(0, 10)
+        local attr = "Survival"
+        local att = client:GetCharacter():GetAttribute("endurance")
+        local add = att + char:GetSurvival()
+        local modifier = modifier or 0
+        
+        ix.chat.Send(client, "rollStat", tostring(value), nil, nil, {
+            attr = attr,
+            additive=add,
+            initialroll = value,
+            mod = modifier
+        })
+
+       ix.log.Add(client, "rollStat", value, attr, add, modifier)
+    end
+})
+
+
+-- Charisma --
+
+
+-- Intelligence --
+ix.command.Add("Science", {
+    description = "Roll a Science check on a d10 + Intelligence. Optional modifier.",
+    arguments = {bit.bor(ix.type.number, ix.type.optional)},
+    OnRun = function(self, client, modifier)
+        local char = client:GetCharacter()
+        local value = math.random(0, 10)
+        local attr = "Science"
+        local att = client:GetCharacter():GetAttribute("intelligence")
+        local add = att + char:GetScience()
+        local modifier = modifier or 0
+        
+        ix.chat.Send(client, "rollStat", tostring(value), nil, nil, {
+            attr = attr,
+            additive=add,
+            initialroll = value,
+            mod = modifier
+        })
+
+       ix.log.Add(client, "rollStat", value, attr, add, modifier)
+    end
+})
+
+ix.command.Add("Medicine", {
+    description = "Roll a Medicine check on a d10 + Intelligence. Optional modifier.",
+    arguments = {bit.bor(ix.type.number, ix.type.optional)},
+    OnRun = function(self, client, modifier)
+        local char = client:GetCharacter()
+        local value = math.random(0, 10)
+        local attr = "Medicine"
+        local att = client:GetCharacter():GetAttribute("intelligence")
+        local add = att + char:GetMedicine()
+        local modifier = modifier or 0
+        
+        ix.chat.Send(client, "rollStat", tostring(value), nil, nil, {
+            attr = attr,
+            additive=add,
+            initialroll = value,
+            mod = modifier
+        })
+
+       ix.log.Add(client, "rollStat", value, attr, add, modifier)
+    end
+})
+
+ix.command.Add("Repair", {
+    description = "Roll a Repair check on a d10 + Intelligence. Optional modifier.",
+    arguments = {bit.bor(ix.type.number, ix.type.optional)},
+    OnRun = function(self, client, modifier)
+        local char = client:GetCharacter()
+        local value = math.random(0, 10)
+        local attr = "Repair"
+        local att = client:GetCharacter():GetAttribute("intelligence")
+        local add = att + char:GetRepair()
+        local modifier = modifier or 0
+        
+        ix.chat.Send(client, "rollStat", tostring(value), nil, nil, {
+            attr = attr,
+            additive=add,
+            initialroll = value,
+            mod = modifier
+        })
+
+       ix.log.Add(client, "rollStat", value, attr, add, modifier)
+    end
+})
+
+
+-- Agility --
 ix.command.Add("Guns", {
     description = "Roll a Guns check on a d10 + Agility. Optional modifier.",
     arguments = {bit.bor(ix.type.number, ix.type.optional)},
     OnRun = function(self, client, modifier)
         local char = client:GetCharacter()
         local value = math.random(0, 10)
-        local attr = "Agility"
+        local attr = "Guns"
         local att = client:GetCharacter():GetAttribute("agility")
         local add = att + char:GetGuns()
         local modifier = modifier or 0
@@ -117,7 +371,15 @@ ix.command.Add("Evasion", {
 
 
 
--- Roll Stat Modifier
+
+-- Luck --
+
+
+
+
+
+
+
 ix.command.Add("Rollstatmodifier", {
     description = "Roll a number out of the given maximum and add the given amount to it.",
     arguments = {ix.type.number, bit.bor(ix.type.number, ix.type.optional)},

@@ -308,8 +308,10 @@ LANGUAGE = {
 	containerNameRemove = "You have removed this container's name.",
 	containerInvalid = "You need to be looking at a container to do this!",
 	wrongPassword = "You have entered an incorrect password!",
+	passwordAttemptLimit = "You have made too many incorrect password attempts!",
 	respawning = "Respawning...",
 	tellAdmin = "Inform a staff member of this error: %s",
+	syntax = "Syntax: %s",
 
 	mapAdd = "You have added a map scene.",
 	mapDel = "You have removed %d map scene(s).",

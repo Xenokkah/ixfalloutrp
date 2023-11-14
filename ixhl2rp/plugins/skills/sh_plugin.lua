@@ -43,6 +43,14 @@ ix.char.RegisterVar("Melee", {
     bNoDisplay = true
 })
 
+ix.char.RegisterVar("Unarmed", {
+    field = "unarmed",
+    fieldType = ix.type.number,
+    default = 0,
+    isLocal = true,
+    bNoDisplay = true
+})
+
 
 ix.char.RegisterVar("survival", {
     field = "survival",
@@ -104,6 +112,7 @@ function PLUGIN:OnCharacterCreated(client, character)
     local luck = character:GetAttribute("luck")
 
     character:SetMelee(strength * 2 + luck)
+    character:SetUnarmed(strength * 2 + luck)
 
     character:SetEnergyWeapons(perception * 2 + luck)
     character:SetExplosives(perception * 2 + luck)
@@ -132,6 +141,7 @@ ix.command.Add("MySkills", {
         str =  str .. "Energy Weapons: " .. char:GetEnergyWeapons().. "/100\n"
         str = str .. "Guns: " ..char:GetGuns().. "/100\n"
         str = str .. "Melee Weapons: " ..char:GetMelee().. "/100\n"
+        str = str .. "Unarmed: " ..char:GetUnarmed().. "/100\n"
         str = str .. "Explosives: " ..char:GetExplosives().. "/100\n"
         str = str .. "Medicine: " ..char:GetMedicine().. "/100\n"
         str = str .. "Evasion: " ..char:GetEvasion().. "/100\n"
