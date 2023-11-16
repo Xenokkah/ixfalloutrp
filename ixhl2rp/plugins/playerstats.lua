@@ -145,42 +145,132 @@ function playerMeta:GetTotalCharRadResist()
 end
 
 function playerMeta:AdjustHealth(type, amount)
-
     local char = self:GetCharacter()
     local player = self
 
+    -- A player is considered staggered if they're at or below 80% HP, Stunned if at or below 40% HP, and Incapped at 0% HP. Find out what these tresholds are by comparing them to player's max hp.
     maxhp = self:GetTotalCharHp()
     stagger = maxhp * 0.80
     stun = maxhp * 0.40
     incap = 0
 	
+    -- If hurt, reduce player HP by damage amount. If the amount would drop them below 0, put them to zero as we don't use negative HP here. Script HP already has this in place.
     if type == "hurt" then
         char:SetCharcurrenthp(char:GetCharcurrenthp() - amount)
-        if char:GetCharcurrenthp() < 0 then char:SetCharcurrenthp(0)
+        if char:GetCharcurrenthp() < 0 then char:SetCharcurrenthp(0) end
         player:SetHealth(player:Health() - amount)
+    end 
 
+    -- If heal, increase player HP by damage amount. If the amount would put them above their current maximum, just set them to the maximum as we don't use overheals here.
+    if type == "heal" then
+        if (char:GetCharcurrenthp() + amount > player:GetTotalCharHp()) then
+            char:SetCharcurrenthp(player:GetTotalCharHp())
+            player:SetHealth(player:GetTotalCharHp())
+        else
+            char:SetCharcurrenthp(char:GetCharcurrenthp() + amount)
+            player:SetHealth(player:Health() + amount)
+        end
+    end 
 
-        newhp = char:GetCharcurrenthp()
+    newhp = char:GetCharcurrenthp()
 
-        if newhp == 0 then
-            player:Notify("You're incapacitated and unable to fight.")
+    -- Based on new health after hurt/heal, give a status message and apply debuffs to stats. If health goes down, remove lighter debuffs and replace with worse ones. As health goes up, reduce 
 
-            char:AddBoost("incap", "endurance", -3)
-		    char:AddBoost("incap", "agility", -3)
-            char:AddBoost("incap", "perception", -3)
-            char:AddBoost("incap", "strength", -3)
+    if newhp == 0 then
+        player:Notify("You're incapacitated and unable to fight, requiring stabilization.")
+
+        if type == "heal" then
+            ix.log.Add(client, "damage", char, "healed", amount, "and is currently Incapacitated.")
+        else
+            ix.log.Add(client, "damage", char, "taken", amount, "and is currently Incapacitated.")
         end 
 
+        char:AddBoost("incap", "endurance", -4)
+        char:AddBoost("incap", "agility", -4)
+        char:AddBoost("incap", "perception", -4)
+        char:AddBoost("incap", "strength", -4)
 
+        char:RemoveBoost("stun", "endurance")
+        char:RemoveBoost("stun", "agility")
+        char:RemoveBoost("stun", "perception")
+        char:RemoveBoost("stun", "strength")
+        return
 
+    elseif newhp <= stun then
+        player:Notify("You're stunned by incoming damage and take a notable hit to your stats.")
+     
+        if type == "heal" then
+            ix.log.Add(client, "damage", char, "healed", amount, "and is currently Stunned.")
+        else
+            ix.log.Add(client, "damage", char, "taken", amount, "and is currently Stunned.")
+        end 
 
+        char:AddBoost("stun", "endurance", -3)
+        char:AddBoost("stun", "agility", -3)
+        char:AddBoost("stun", "perception", -3)
+        char:AddBoost("stun", "strength", -3)
+
+        char:RemoveBoost("stagger", "endurance")
+        char:RemoveBoost("stagger", "agility")
+        char:RemoveBoost("stagger", "perception")
+        char:RemoveBoost("stagger", "strength")
+        
+        char:RemoveBoost("incap", "endurance")
+        char:RemoveBoost("incap", "agility")
+        char:RemoveBoost("incap", "perception")
+        char:RemoveBoost("incap", "strength")
+        
+        return
+
+    elseif newhp <= stagger then
+        player:Notify("You're staggered by incoming damage and take a slight hit to your stats.")
+       
+        if type == "heal" then
+            ix.log.Add(client, "damage", char, "healed", amount, "and is currently Staggered.")
+        else
+            ix.log.Add(client, "damage", char, "taken", amount, "and is currently Staggered.")
+        end 
+
+        char:AddBoost("stagger", "endurance", -1)
+        char:AddBoost("stagger", "agility", -1)
+        char:AddBoost("stagger", "perception", -1)
+        char:AddBoost("stagger", "strength", -1)
+
+        char:RemoveBoost("incap", "endurance")
+        char:RemoveBoost("incap", "agility")
+        char:RemoveBoost("incap", "perception")
+        char:RemoveBoost("incap", "strength")
+        
+        char:RemoveBoost("stun", "endurance")
+        char:RemoveBoost("stun", "agility")
+        char:RemoveBoost("stun", "perception")
+        char:RemoveBoost("stun", "strength")
+    
+        return
+
+    else
+        if type == "heal" then
+            ix.log.Add(client, "damage", char, "healed", amount, ".")
+        else
+            ix.log.Add(client, "damage", char, "taken", amount, ".")
+        end 
+
+        char:RemoveBoost("incap", "endurance")
+        char:RemoveBoost("incap", "agility")
+        char:RemoveBoost("incap", "perception")
+        char:RemoveBoost("incap", "strength")
+        
+        char:RemoveBoost("stun", "endurance")
+        char:RemoveBoost("stun", "agility")
+        char:RemoveBoost("stun", "perception")
+        char:RemoveBoost("stun", "strength")
+
+        char:RemoveBoost("stagger", "endurance")
+        char:RemoveBoost("stagger", "agility")
+        char:RemoveBoost("stagger", "perception")
+        char:RemoveBoost("stagger", "strength")
     end 
 end 
-end 
-
-
-
-
 
 
 ix.command.Add("Status", {
@@ -226,7 +316,6 @@ ix.command.Add("Damage", {
         local char = target
         local player = target:GetPlayer()
 
-
         -- Get player armor and health stats
         local dt = player:GetTotalCharDt()
         local et = player:GetTotalCharEt()
@@ -238,11 +327,8 @@ ix.command.Add("Damage", {
         local damage = damage - (damage % 1)
         if (ap) then local ap = ap - (ap % 1) else ap = 0 end
 
-       
-
-
         -- Ballistic weapons, blasts, and melee
-        if damtype == "bullet" then
+        if damtype == "physical" then
             player:Notify("You're hit with ".. damage .. " physical damage!")
             if (ap > 0) then player:Notify("It pierces " .. ap .. " points of DT!") end
 
@@ -250,50 +336,86 @@ ix.command.Add("Damage", {
             dt = dt - ap 
             if dt < 0 then dt = 0 end
 
-            damage = damage - dt
-            if damage < 0 then damage = 0 end
+            if dt > 0 then 
+                damage = damage - dt
+                if damage < 0 then damage = 0 end
+                player:Notify("Your DT reduces the damage by " .. dt .. "!")
+            end 
 
-            player:Notify("Your armor reduces the damage by " .. dt .. "!")
+            if dr > 0 then 
+                damage = damage - dr
+                if damage < 0 then damage = 0 end
+                player:Notify("Your DR reduces the damage by " .. dr .. "!")
+            end 
 
             if damage > 0 then
+                client:Notify(target:GetName() .. " has taken " .. damage .. " physical damage!")
                 player:Notify("You take " .. damage  .. " damage!")
                 player:AdjustHealth("hurt", damage)
             else 
+                client:Notify(target:GetName() .. " has blocked all physical damage!")
                 player:Notify("Your armor tanks the shot completely!")
             end 
 
-
         -- Laser, Plasma, Fire 
-        elseif damtype == "laser" then
+        elseif damtype == "energy" then
+            player:Notify("You're hit with ".. damage .. " energy damage!")
+            if (ap > 0) then player:Notify("It pierces " .. ap .. " points of ET!") end
 
+            -- Subtract AP value from ET value. Since you can't have negative protection, if below 0, make 0.
+            et = et - ap 
+            if et < 0 then et = 0 end
+
+            if dt > 0 then 
+                damage = damage - dt
+                if damage < 0 then damage = 0 end
+                player:Notify("Your ET reduces the damage by " .. dt .. "!")
+            end 
+
+            -- Directly reduce final damage by DR, if any. Again, make 0 damage if below 0 damage.
+            if dr > 0 then 
+                damage = damage - dr
+                if damage < 0 then damage = 0 end
+                player:Notify("Your DR reduces the damage by " .. dr .. "!")
+            end 
+
+            if damage > 0 then
+                client:Notify(target:GetName() .. " has taken " .. damage .. " energy damage!")
+                player:Notify("You take " .. damage  .. " damage!")
+                player:AdjustHealth("hurt", damage)
+            else 
+                client:Notify(target:GetName() .. " has blocked all energy damage!")
+                player:Notify("Your armor tanks the shot completely!")
+            end 
         
-
         -- Bleeding damage. Bypasses armor
         elseif damtype == "bleed" then
             client:Notify(target:GetName() .. " has taken " .. damage .. " bleed damage!")
             player:Notify("You have taken " .. damage .. " bleed damage!")
+            player:AdjustHealth("hurt", damage)
         
         -- Poison damage. Bypasses armor
         elseif damtype == "poison" then
             client:Notify(target:GetName() .. " has taken " .. damage .. " poison damage!")
             player:Notify("You have taken " .. damage .. " poison damage!")
+            player:AdjustHealth("hurt", damage)
 
         -- Some other form of damage as necessary. Bypasses armor
         elseif damtype == "direct" then
             client:Notify(target:GetName() .. " has taken " .. damage .. " damage!")
             player:Notify("You have taken " .. damage .. " damage!")
+            player:AdjustHealth("hurt", damage)
         else 
-            return "Invalid damage type. Accepted options: Bullet, Laser, Bleed, Poison, Direct"
+            return "Invalid damage type. Accepted options: Physical, Energy, Bleed, Poison, Direct"
         end 
-
-        
-       
-        
-        
-
-       --ix.log.Add(client, "rollStat", value, attr, add, modifier)
     end
 })
+
+if (SERVER) then
+    ix.log.AddType("damage", function(client, target, actiontype, damage, status)
+        return string.format("%s has %s %s damage %s", target:GetName(), actiontype, damage, status)
+    end)
+end
 
 
 ix.command.Add("Heal", {
@@ -307,6 +429,21 @@ ix.command.Add("Heal", {
         char:SetCharcurrenthp(player:GetTotalCharHp())
         player:SetHealth(player:GetTotalCharHp())
         player:SetMaxHealth(player:GetTotalCharHp())
+
+        char:RemoveBoost("incap", "endurance")
+        char:RemoveBoost("incap", "agility")
+        char:RemoveBoost("incap", "perception")
+        char:RemoveBoost("incap", "strength")
+        
+        char:RemoveBoost("stun", "endurance")
+        char:RemoveBoost("stun", "agility")
+        char:RemoveBoost("stun", "perception")
+        char:RemoveBoost("stun", "strength")
+
+        char:RemoveBoost("stagger", "endurance")
+        char:RemoveBoost("stagger", "agility")
+        char:RemoveBoost("stagger", "perception")
+        char:RemoveBoost("stagger", "strength")
         
     end
 })
