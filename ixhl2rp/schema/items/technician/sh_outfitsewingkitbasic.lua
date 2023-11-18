@@ -30,9 +30,9 @@ ITEM.functions.use = {
 				local items = inv:GetItems()
 
 				for k, v in pairs(items) do
-					if (v.isBodyArmor or v.isHelmet or v.isGasmask) and item.repairTreshhold < v:GetData("durability", 0) and v:GetData("durability", 0) < 100 then
+					if (v.isBodyArmor or v.isHelmet or v.isGasmask) and v:GetData("dT") < v:GetData("maxDt") then
 						table.insert(targets, {
-							name = "Repair "..v.name.." with "..math.Round(v:GetData("durability",0), 2).." percent durability to "..math.Clamp(math.Round(v:GetData("durability",0), 2)+item.repairAmount, 0, 100).." percent durability.",
+							name = "Repair "..v.name.." up to " .. item.repairAmount .. " units of protection.",
 							data = {v:GetID()},
 						})
 					else
@@ -72,8 +72,32 @@ ITEM.functions.use = {
 		end
 		
 		if target:GetData("equip") != true then
-			if target:GetData("durability",100) > item.repairTreshhold then
-				target:SetData("durability", math.Clamp(target:GetData("durability",100) + item.repairAmount, 0, 100))
+				
+			local repair = item.repairAmount
+
+			local curDT = target:GetData("dT")
+			local curET = target:GetData("eT")
+			local curDR = target:GetData("dR")
+
+			local maxDT = target:GetData("maxDt")
+			local maxET = target:GetData("maxEt")
+			local maxDR = target:GetData("maxDr")
+
+		
+			if (curDT) then
+				local newDT = curDT + repair
+				target:SetData("dT", math.Clamp(newDT, 0, maxDT))
+			end 
+
+			if (curET) then 
+				local newET = curET + repair
+				target:SetData("eT", math.Clamp(newET, 0, maxET))
+			end 
+
+			if (curDR) then
+				local newDR = curDR + repair
+				target:SetData("dR", math.Clamp(newDR, 0, maxDR))
+			end 
 				client:Notify(target.name.." successfully repaired.")
 				item.player:EmitSound(item.sound or "items/battery_pickup.wav")
 				if item:GetData("quantity",3) > 1 then
@@ -82,10 +106,7 @@ ITEM.functions.use = {
 				else
 					return true
 				end
-			else
-				client:Notify("Óutfit too damaged.")
-				return false
-			end
+			
 		else
 			client:Notify("Unequip the outfit first!")
 			return false	
@@ -103,9 +124,9 @@ function ITEM:GetDescription()
 	end
 
 	if (self.entity) then
-		return self.description.."\n \nThis tool has "..math.Round(quant).." uses left durability."
+		return self.description.."\n \nThis tool has "..math.Round(quant).." uses left."
 	else
-        return (str.."Amount of durability restored: "..self.repairAmount.."% \nMinimum durability percentage: "..self.repairTreshhold.."%".."\n \nThis tool has "..quant.."/"..self.maxStack.." uses left.")
+        return (str.."Amount of durability restored: "..self.repairAmount.." units of lost protection.".."\n \nThis tool has "..quant.."/"..self.maxStack.." uses left.")
 	end
 end
 

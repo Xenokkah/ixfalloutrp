@@ -182,6 +182,7 @@ if (CLIENT) then
 	local char = LocalPlayer():GetCharacter()
 	local color = Color(39, 174, 96)
 	function PLUGIN:RenderScreenspaceEffects()
+		local char = LocalPlayer():GetCharacter()
 			-- Advanced Poisoning.
 		if char:GetRads() > 399 and char:GetRads() < 600 then
 			DrawMotionBlur(0.05, 0.25, 0.001)

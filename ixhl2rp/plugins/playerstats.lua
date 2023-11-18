@@ -352,6 +352,7 @@ ix.command.Add("Damage", {
                 client:Notify(target:GetName() .. " has taken " .. damage .. " physical damage!")
                 player:Notify("You take " .. damage  .. " damage!")
                 player:AdjustHealth("hurt", damage)
+                player:DamageArmor(target, 1)
             else 
                 client:Notify(target:GetName() .. " has blocked all physical damage!")
                 player:Notify("Your armor tanks the shot completely!")
@@ -366,7 +367,7 @@ ix.command.Add("Damage", {
             et = et - ap 
             if et < 0 then et = 0 end
 
-            if dt > 0 then 
+            if et > 0 then 
                 damage = damage - dt
                 if damage < 0 then damage = 0 end
                 player:Notify("Your ET reduces the damage by " .. dt .. "!")
@@ -383,6 +384,7 @@ ix.command.Add("Damage", {
                 client:Notify(target:GetName() .. " has taken " .. damage .. " energy damage!")
                 player:Notify("You take " .. damage  .. " damage!")
                 player:AdjustHealth("hurt", damage)
+                player:DamageArmor(target, 1)
             else 
                 client:Notify(target:GetName() .. " has blocked all energy damage!")
                 player:Notify("Your armor tanks the shot completely!")

@@ -9,14 +9,6 @@ ENT.Category         = "Fallout Harvestables"
 ENT.Spawnable = true
 ENT.AdminOnly = true
 
-
-function ENT:SetupDataTables()
- 
-	self:NetworkVar( "Float", 0, "Amount" )
- 	self:NetworkVar( "Vector", 0, "BloodPos" )
- 	self:NetworkVar( "Vector", 1, "UrinePos" )
- 
- end
 if (SERVER) then
     function ENT:Initialize()
         self:SetModel("models/mosi/fnv/props/plants/maize.mdl")
@@ -25,9 +17,10 @@ if (SERVER) then
         self:SetSolid(SOLID_VPHYSICS)
         self:SetUseType(SIMPLE_USE)
         self:SetVar("bHarvestable", false)
+
         self:SetBodygroup(1,1)
       
-        timer.Create( "Growtimer", 60, 1, function()  self:SetVar("bHarvestable", true) self:SetBodygroup(1,0) self:SetGrown("true") end )
+        timer.Create( "Growtimer", 60, 1, function()  self:SetVar("bHarvestable", true) self:SetHarvestable(1) self:SetBodygroup(1,0) end )
 
         self:SetCollisionGroup(COLLISION_GROUP_PASSABLE_DOOR)
         local phys = self:GetPhysicsObject()
@@ -42,6 +35,7 @@ end
 function ENT:SetupDataTables()
 	self:NetworkVar( "Int", 0, "Watered" )
     self:NetworkVar( "Int", 0, "Fertilized" )
+    self:NetworkVar( "Int", 0, "Harvestable" )
     self:NetworkVar( "String", "false", "Grown" )
  end
 
@@ -72,8 +66,10 @@ function ENT:Use(activator)
             else 
                 self:SetWatered(self:GetWatered() + 1)
                 activator:NewVegasNotify("You water the plant with some pure water.", "messageNeutral", 5)
-                timer.Adjust("Growtimer", timer.TimeLeft("Growtimer") - 30)
+                timer.Adjust("Growtimer", timer.TimeLeft("Growtimer") - 5)
             end 
+
+
         end
     end 
 end
@@ -81,6 +77,7 @@ end
 if (CLIENT) then
     function ENT:OnPopulateEntityInfo(tooltip)
         surface.SetFont("ixIconsSmall")
+       
 
         local title = tooltip:AddRow("name")
         title:SetImportant()
@@ -89,12 +86,18 @@ if (CLIENT) then
         title:SizeToContents()    
 
         
-        
-        if (self:GetGrown() == "false") then
+        if (self:GetHarvestable() == 0 and self:GetWatered() < 3) then 
             local water = tooltip:AddRow("water")
-            water:SetText("Interact to water with Purified Water " .. self:GetWatered() .. "/3" )
+            water:SetText("Interact to water with Purified Water to encourage quicker growth " .. self:GetWatered() .. "/3" )
             water:SetBackgroundColor(ix.config.Get("color"))
             water:SizeToContents()    
+        end
+
+        if (self:GetHarvestable() == 0 and self:GetWatered() >= 3) then 
+            local fertilizer = tooltip:AddRow("fertilizer")
+            fertilizer:SetText("Interact to apply Fertilizer for a bigger output " .. self:GetFertilized() .. "/3" )
+            fertilizer:SetBackgroundColor(ix.config.Get("color"))
+            fertilizer:SizeToContents()    
         end
       
     end
