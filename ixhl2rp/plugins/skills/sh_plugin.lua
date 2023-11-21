@@ -256,8 +256,8 @@ ix.command.Add("SpendSkillpoints", {
         local setterFunc = char["Set" .. skill]
         local skillLevel = getterFunc(char)
 
-        if (skillLevel + pointstospend > 100) then
-            return client:NewVegasNotify("Cannot upgrade a skill beyond 100.", "messageSad", 8)
+        if (skillLevel + pointstospend > 20) then
+            return client:NewVegasNotify("Cannot upgrade a skill beyond 20.", "messageSad", 8)
         end 
 
         -- Use setter function with given skill and points to spend, deduct skill points.
