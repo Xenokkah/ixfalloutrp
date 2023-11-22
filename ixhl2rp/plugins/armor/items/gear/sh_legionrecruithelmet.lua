@@ -5,3 +5,4 @@ ITEM.model = "models/fallout/apparel/legionbandana_go.mdl"
 ITEM.price = 15000
 ITEM.isGasmask = true
 ITEM.isHelmet = true
+ITEM.isArmor = true

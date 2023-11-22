@@ -5,3 +5,4 @@ ITEM.model = "models/fallout/apparel/combatarmorhelmet.mdl"
 ITEM.price = 15000
 ITEM.isGasmask = false
 ITEM.isHelmet = true
+ITEM.isArmor = true
