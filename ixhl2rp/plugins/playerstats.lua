@@ -144,6 +144,26 @@ function playerMeta:GetTotalCharRadResist()
 	return self:GetCharacter():GetCharradresist() + self:GetCharacter():GetCharradresistboost()
 end
 
+function playerMeta:CalculateBaseHP()
+	local char = self:GetCharacter()
+    local hpboost = math.floor(char:GetAttribute("endurance") * 5)
+    local hp = 50 + hpboost
+    return hp
+end
+
+function playerMeta:CalculateBaseAP()
+	local char = self:GetCharacter()
+    local apboost =  math.floor(char:GetAttribute("agility") / 2)
+    local ap = 5 + apboost
+    return ap
+end
+
+function playerMeta:CalculateBaseRadResist()
+	local char = self:GetCharacter()
+    local radresist =  math.floor(char:GetAttribute("endurance") * 2)
+    return radresist
+end
+
 function playerMeta:AdjustHealth(type, amount)
     local char = self:GetCharacter()
     local player = self
@@ -272,6 +292,15 @@ function playerMeta:AdjustHealth(type, amount)
     end 
 end 
 
+function PLUGIN:OnCharacterCreated(client, character)
+    -- After char creation, assign initial health, ap, and radresists.
+   
+    character:SetCharmaxhp(client:CalculateBaseHP())
+    character:SetCharap(client:CalculateBaseAP())
+    character:SetCharradresist(client:CalculateBaseRadResist())
+    
+
+end 
 
 ix.command.Add("Status", {
 	description = "View your current health, AP, and resistances.",
@@ -300,6 +329,43 @@ ix.command.Add("Status", {
         str = str .. "\n"
         
         str = str .. "DR: " .. client:GetTotalCharDr()
+        if char:GetChardrboost() > 0 then str = str .. " (+)" end
+        str = str .. "\n"
+        
+        return str
+	end
+})
+
+ix.command.Add("CharGetStatus", {
+	description = "View current health, AP, and resistances of given player.",
+    adminOnly = true,
+    arguments = {ix.type.character},
+	OnRun = function(self, client, target)
+		local str = target:GetName() .. " has the following stats:"
+        local char = target
+        local player = target:GetPlayer()
+        
+        str = str .. "\nHealth: " .. char:GetCharcurrenthp() .. "/" .. player:GetTotalCharHp()
+        if char:GetCharmaxhpboost() > 0 then str = str .. " (+)" end
+        str = str .. "\n"
+
+        str = str .. "AP: " .. player:GetTotalCharAp()
+        if char:GetCharapboost() > 0 then str = str .. " (+)" end
+        str = str .. "\n"
+
+        str = str .. "Rad Resistance: " .. player:GetTotalCharRadResist() .. "%"
+        if char:GetCharradresistboost() > 0 then str = str .. " (+)" end
+        str = str .. "\n"
+
+        str = str .. "DT: " .. player:GetTotalCharDt()
+        if char:GetChardtboost() > 0 then str = str .. " (+)" end
+        str = str .. "\n"
+
+        str = str .. "ET: " .. player:GetTotalCharEt()
+        if char:GetCharetboost() > 0 then str = str .. " (+)" end
+        str = str .. "\n"
+        
+        str = str .. "DR: " .. player:GetTotalCharDr()
         if char:GetChardrboost() > 0 then str = str .. " (+)" end
         str = str .. "\n"
         
@@ -450,4 +516,41 @@ ix.command.Add("Heal", {
         
     end
 })
+
+ix.command.Add("ResetStats", {
+    description = "Debug command - reset player health and armor stats to default.",
+    adminOnly = true,
+    arguments = {ix.type.character},
+    OnRun = function(self, client, target, damtype, damage, ap)
+        local char = target
+        local player = target:GetPlayer()
+
+        local hp = player:CalculateBaseHP()
+        local ap = player:CalculateBaseAP()
+        local radresist = player:CalculateBaseRadResist()
+
+        char:SetCharmaxhp(hp)
+        char:SetCharmaxhpboost(0)
+        char:SetCharcurrenthp(hp)
+
+        char:SetCharap(ap)
+        char:SetCharapboost(0)
+
+        char:SetCharradresist(radresist)
+        char:SetCharradresistboost(0)
+
+        char:SetChardt(0)
+        char:SetChardtboost(0)
+        char:SetCharet(0)
+        char:SetCharetboost(0)
+        char:SetChardr(0)
+        char:SetChardrboost(0)
+
+        return "Reset player stats."
+
+
+    end
+})
+
+
 
