@@ -111,21 +111,23 @@ function PLUGIN:OnCharacterCreated(client, character)
     local agility = character:GetAttribute("agility")
     local luck = character:GetAttribute("luck")
 
-    character:SetMelee(strength * 2 + luck)
-    character:SetUnarmed(strength * 2 + luck)
+    luckboost = math.ceil(luck / 2)
 
-    character:SetEnergyWeapons(perception * 2 + luck)
-    character:SetExplosives(perception * 2 + luck)
-    character:SetLockpick(perception * 2 + luck)
+    character:SetMelee(strength + luckboost)
+    character:SetUnarmed(strength + luckboost)
 
-    character:SetSurvival(endurance * 2 + luck)
+    character:SetEnergyWeapons(perception + luckboost)
+    character:SetExplosives(perception + luckboost)
+    character:SetLockpick(perception + luckboost)
 
-    character:SetScience(intelligence * 2 + luck)
-    character:SetRepair(intelligence * 2 + luck)
-    character:SetMedicine(intelligence * 2 + luck)
+    character:SetSurvival(endurance + luckboost)
 
-    character:SetGuns(agility * 2 + luck)
-    character:SetEvasion(agility * 2 + luck)
+    character:SetScience(intelligence + luckboost)
+    character:SetRepair(intelligence + luckboost)
+    character:SetMedicine(intelligence + luckboost)
+
+    character:SetGuns(agility + luckboost)
+    character:SetEvasion(agility + luckboost)
 
 end 
 

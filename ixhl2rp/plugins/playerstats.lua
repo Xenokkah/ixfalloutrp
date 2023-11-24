@@ -340,7 +340,7 @@ ix.command.Add("Damage", {
                 local reduction = damage * (dr / 100)
                 damage = math.ceil(damage - reduction)
                 if damage < 0 then damage = 0 end
-                player:Notify("Your DR reduces the damage by " .. reduction .. "points!")
+                player:Notify("Your DR reduces the damage by " .. math.ceil(reduction) .. " points!")
             end 
 
             if dt > 0 then 
@@ -450,3 +450,4 @@ ix.command.Add("Heal", {
         
     end
 })
+
