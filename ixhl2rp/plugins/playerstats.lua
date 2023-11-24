@@ -332,20 +332,21 @@ ix.command.Add("Damage", {
             player:Notify("You're hit with ".. damage .. " physical damage!")
             if (ap > 0) then player:Notify("It pierces " .. ap .. " points of DT!") end
 
-            -- Subtract AP value from DT value. Since you can't have negative protection, if below 0, make 0.
+            -- Subtract DR percentage from damage. Will always be at least 1 point of damage blocked if you have any DR.
             dt = dt - ap 
             if dt < 0 then dt = 0 end
+
+            if dr > 0 then 
+                local reduction = damage * (dr / 100)
+                damage = math.ceil(damage - reduction)
+                if damage < 0 then damage = 0 end
+                player:Notify("Your DR reduces the damage by " .. reduction .. "points!")
+            end 
 
             if dt > 0 then 
                 damage = damage - dt
                 if damage < 0 then damage = 0 end
-                player:Notify("Your DT reduces the damage by " .. dt .. "!")
-            end 
-
-            if dr > 0 then 
-                damage = damage - dr
-                if damage < 0 then damage = 0 end
-                player:Notify("Your DR reduces the damage by " .. dr .. "!")
+                player:Notify("Your DT reduces the damage by " .. dt .. " points!")
             end 
 
             if damage > 0 then
@@ -367,17 +368,17 @@ ix.command.Add("Damage", {
             et = et - ap 
             if et < 0 then et = 0 end
 
-            if et > 0 then 
-                damage = damage - dt
+            if dr > 0 then 
+                local reduction = damage * (dr / 100)
+                damage = math.ceil(damage - reduction)
                 if damage < 0 then damage = 0 end
-                player:Notify("Your ET reduces the damage by " .. dt .. "!")
+                player:Notify("Your DR reduces the damage by " .. dr .. "%!")
             end 
 
-            -- Directly reduce final damage by DR, if any. Again, make 0 damage if below 0 damage.
-            if dr > 0 then 
-                damage = damage - dr
+            if et > 0 then 
+                damage = damage - et
                 if damage < 0 then damage = 0 end
-                player:Notify("Your DR reduces the damage by " .. dr .. "!")
+                player:Notify("Your DT reduces the damage by " .. et .. " points!")
             end 
 
             if damage > 0 then
