@@ -1,6 +1,6 @@
 ITEM.name = "Stimpak"
 ITEM.description = "A medical staple."
-ITEM.longdesc = "A one use, injectable stimpak that both clots wounds and provides near immediate healing from stem cells."
+ITEM.longdesc = "A one use, injectable stimpak that both clots wounds and provides near immediate healing from stem cells.\n\n+30 HP\nMedical DC to Stabilize: 25"
 ITEM.model = "models/mosi/fnv/props/health/stimpak.mdl"
 ITEM.width = 1
 ITEM.height = 1
@@ -8,6 +8,7 @@ ITEM.category = "Medical"
 ITEM.price = "4000"
 ITEM.flag = "1"
 ITEM.quantity = 1
+ITEM.heal = 30
 ITEM.sound = "fosounds/fix/npc_human_using_stimpak.mp3"
 ITEM.weight = 0.05
 
@@ -20,6 +21,9 @@ ITEM.functions.use = {
 		ix.chat.Send(item.player, "iteminternal", "injects their "..item.name..".", false)
 		item.player:GetCharacter():GetInventory():Add("dirtysyringe", 1)
 
+
+		item.player:AdjustHealth("heal", item.heal)
+		item.player:NewVegasNotify("Restored " .. item.heal .. " health.", "messageNeutral", 4)
 
 		quantity = quantity - 1
 

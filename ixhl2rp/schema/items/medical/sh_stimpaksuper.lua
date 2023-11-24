@@ -1,6 +1,6 @@
 ITEM.name = "Super Stimpak"
 ITEM.description = "A rarer medical treatment item for heavy wounds."
-ITEM.longdesc = "A one use, injectable stimpak dialed up to eleven, suitable for the worst injuries. Has a side effect of a feeling of weakness for a modest period of time."
+ITEM.longdesc = "A one use, injectable stimpak dialed up to eleven, suitable for the worst injuries. Has a side effect of a feeling of weakness for a modest period of time.\n\n+75 HP\n-1 END, AGI\nMedical DC to Stabilize: 15"
 ITEM.model = "models/mosi/fnv/props/health/superstimpak.mdl"
 ITEM.width = 1
 ITEM.height = 2

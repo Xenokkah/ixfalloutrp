@@ -1,6 +1,6 @@
 ITEM.name = "Auto-Inject Super Stimpak"
 ITEM.description = "A rarer medical treatment item for heavy wounds, with some science used to improve it."
-ITEM.longdesc = "A one use, injectable stimpak dialed up to eleven, suitable for the worst injuries. Has a side effect of a feeling of weakness for a modest period of time. This one monitors the user's lifesigns and automatically injects when they receive a life threatening injury."
+ITEM.longdesc = "A one use, injectable stimpak dialed up to eleven, suitable for the worst injuries. Has a side effect of a feeling of weakness for a modest period of time. This one monitors the user's lifesigns and automatically injects when they receive a life threatening injury.\n\n+75 HP, no AP cost to use\n-1 END, AGI\nMedical DC to Stabilize: 15"
 ITEM.model = "models/mosi/fnv/props/health/superstimpak_auto.mdl"
 ITEM.width = 1
 ITEM.height = 2

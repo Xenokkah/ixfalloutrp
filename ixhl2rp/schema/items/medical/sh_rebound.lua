@@ -1,6 +1,6 @@
 ITEM.name = "Rebound"
 ITEM.description = "An energy mixture."
-ITEM.longdesc = "A flask with several liquids piped in, Rebound is effectively a very strong energy drink that gets the heart pumping almost immediately."
+ITEM.longdesc = "A flask with several liquids piped in, Rebound is effectively a very strong energy drink that gets the heart pumping almost immediately.\n\nAGI +1"
 ITEM.model = "models/mosi/fnv/props/health/radx.mdl"
 ITEM.width = 1
 ITEM.height = 1
@@ -19,14 +19,14 @@ ITEM.functions.use = {
 		local quantity = item:GetData("quantity", item.quantity)
 	
 		ix.chat.Send(item.player, "iteminternal", "drinks their "..item.name..".", false)
-		item.player:NewVegasNotify("No time to die! +2 ROF", "messageNeutral", 8)
 
 		curplayer = item.player:GetCharacter()
 		itemname = item.name
 		duration = item.duration
-		
+		curplayer:AddBoost("rebound", "agility", 1)
 
 		timer.Simple(duration, function() 
+			curplayer:RemoveBoost("rebound", "agility")
 			curplayer:GetPlayer():NewVegasNotify(itemname .. " has worn off.", "messageNeutral", 8)
 			curplayer:GetPlayer():EmitSound("cwfallout3/ui/medical/wear_off.wav" or "items/battery_pickup.wav")
 		end)

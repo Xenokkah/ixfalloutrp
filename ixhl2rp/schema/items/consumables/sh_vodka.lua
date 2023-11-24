@@ -10,6 +10,7 @@ ITEM.height = 2
 ITEM.sound = "fosounds/fix/npc_humandrinking_soda_01.mp3"
 ITEM.flag = "5"
 ITEM:Hook("use", function(item)
+	item.player:addRadiation(-10)
 	item.player:EmitSound(item.sound or "items/battery_pickup.wav")
 	ix.chat.Send(item.player, "iteminternal", "takes a swig of their "..item.name..".", false)
 end)

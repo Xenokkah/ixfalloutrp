@@ -1,6 +1,6 @@
 ITEM.name = "Jet"
 ITEM.description = "An amphetamine in an inhaler."
-ITEM.longdesc = "An inhaler full of brahmin dung and other chemicals, it is arguably the Wasteland's most infamous and widespread drug. When inhaled, the user feels energized and euphoric, but only for a short period of mere minutes before it ends, often leaving them wanting more.."
+ITEM.longdesc = "An inhaler full of brahmin dung and other chemicals, it is arguably the Wasteland's most infamous and widespread drug. When inhaled, the user feels energized and euphoric, but only for a short period of mere minutes before it ends, often leaving them wanting more..\n\n +1 AP"
 ITEM.model = "models/mosi/fnv/props/health/chems/jet.mdl"
 ITEM.width = 1
 ITEM.height = 1
@@ -10,7 +10,7 @@ ITEM.flag = "1"
 ITEM.quantity = 1
 ITEM.sound = "fosounds/fix/npc_human_using_jet.mp3"
 ITEM.weight = 0.05
-ITEM.duration = 160
+ITEM.duration = 300
 
 ITEM.functions.use = {
 	name = "Use",
@@ -20,13 +20,16 @@ ITEM.functions.use = {
 	
 		ix.chat.Send(item.player, "iteminternal", "huffs some "..item.name..".", false)
 
-		item.player:NewVegasNotify("You feel SO READY! +2 sec movement", "messageVeryHappy", 8)
+		item.player:NewVegasNotify("You feel SO READY! +1 AP.", "messageVeryHappy", 8)
 
 		curplayer = item.player:GetCharacter()
 		itemname = item.name
 		duration = item.duration
 
+		curplayer:SetCharapboost(curplayer:GetCharapboost() + 1)
+
 		timer.Simple(duration, function() 
+			curplayer:SetCharapboost(curplayer:GetCharapboost() - 1)
 			curplayer:GetPlayer():NewVegasNotify(itemname .. " has worn off.", "messageNeutral", 8)
 			curplayer:GetPlayer():EmitSound("cwfallout3/ui/medical/wear_off.wav" or "items/battery_pickup.wav")
 		end)

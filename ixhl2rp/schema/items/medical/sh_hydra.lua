@@ -1,6 +1,6 @@
 ITEM.name = "Hydra"
 ITEM.description = "A pain-killing mixture."
-ITEM.longdesc = "A soda bottle with three seperate glass vials leading to its mouth via tube, hence the name. Provides effective pain relief over time. Despite having some addictive properties, the Legion does not consider it a banned drug and often issues it to its soldiers - but it's equally valued by anybody else without the luxury of Med-X access."
+ITEM.longdesc = "A soda bottle with three seperate glass vials leading to its mouth via tube, hence the name. Provides effective pain relief over time. Despite having some addictive properties, the Legion does not consider it a banned drug and often issues it to its soldiers - but it's equally valued by anybody else without the luxury of Med-X access. \n\nSurvival DC to Stabilize: 5"
 ITEM.model = "models/mosi/fnv/props/health/chems/hydra.mdl"
 ITEM.width = 1
 ITEM.height = 2
@@ -18,8 +18,7 @@ ITEM.functions.use = {
 	OnRun = function(item)
 		local quantity = item:GetData("quantity", item.quantity)
 	
-		ix.chat.Send(item.player, "iteminternal", "injects some "..item.name..".", false)
-		item.player:NewVegasNotify("Phew, much better. Stun, stagger, and limb damage status effect(s) removed at a rate of one per turn.", "messageNeutral", 8)
+		ix.chat.Send(item.player, "iteminternal", "drinks some "..item.name..".", false)
 		quantity = quantity - 1
 		if (quantity >= 1) then
 			item:SetData("quantity", quantity)

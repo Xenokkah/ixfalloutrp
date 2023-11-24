@@ -1,16 +1,16 @@
-ITEM.name = "Radaway"
-ITEM.description = "Radiation treatment fluid."
-ITEM.longdesc = "An IV bag full of fluid. Purges some radiation from the body. Best used while resting.\n\n-50 Rads"
-ITEM.model = "models/mosi/fnv/props/health/radx.mdl"
+ITEM.name = "Doctor's Bag"
+ITEM.description = "A leather bag with metal clasps holding a set of tools."
+ITEM.longdesc = "A bag of tools suitable for both surgery and field work. Comes with a yellowed book on basic procedures for staunching bleeding wounds and the like - making it valuable for stablizing a wounded teammate even with minimal training. \n\nMedical DC to Stabilize: 5"
+ITEM.model = "models/mosi/fnv/props/health/chems/hydra.mdl"
 ITEM.width = 1
 ITEM.height = 2
 ITEM.category = "Medical"
 ITEM.price = "4000"
 ITEM.flag = "1"
 ITEM.quantity = 1
-ITEM.sound = "fosounds/fix/npc_human_using_stimpak.mp3"
+ITEM.sound = "fosounds/fix/npc_human_using_psycho_01.mp3"
 ITEM.weight = 0.05
-ITEM.duration = 400
+ITEM.duration = 350
 
 ITEM.functions.use = {
 	name = "Use",
@@ -18,14 +18,7 @@ ITEM.functions.use = {
 	OnRun = function(item)
 		local quantity = item:GetData("quantity", item.quantity)
 	
-		ix.chat.Send(item.player, "iteminternal", "uses a bag of "..item.name..".", false)
-
-
-		curplayer = item.player:GetCharacter()
-		itemname = item.name
-		duration = item.duration
-		item.player:addRadiation(-50)
-
+		ix.chat.Send(item.player, "iteminternal", "uses their "..item.name..".", false)
 		quantity = quantity - 1
 		if (quantity >= 1) then
 			item:SetData("quantity", quantity)
@@ -33,7 +26,7 @@ ITEM.functions.use = {
 		end
 
 		return true
-		
+
 	end,
 
 	OnCanRun = function(item)

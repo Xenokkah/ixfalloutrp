@@ -19,7 +19,6 @@ ITEM.functions.use = {
 	
 		ix.chat.Send(item.player, "iteminternal", "uses their "..item.name..".", false)
 
-
 		quantity = quantity - 1
 
 		if (quantity >= 1) then

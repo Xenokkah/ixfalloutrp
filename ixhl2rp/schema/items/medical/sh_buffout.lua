@@ -10,7 +10,7 @@ ITEM.flag = "1"
 ITEM.quantity = 1
 ITEM.sound = "fosounds/fix/npc_human_eating_mentats.mp3"
 ITEM.weight = 0.05
-ITEM.duration = 350
+ITEM.duration = 900
 
 ITEM.functions.use = {
 	name = "Use",
@@ -20,18 +20,20 @@ ITEM.functions.use = {
 	
 		ix.chat.Send(item.player, "iteminternal", "takes some "..item.name..".", false)
 
-		item.player:NewVegasNotify("You feel ready to take on the world! +3 END, +2 STR", "messageNeutral", 8)
+		item.player:NewVegasNotify("You feel ready to take on the world! +3 END, +2 STR, +25 Max HP", "messageNeutral", 8)
 
 		curplayer = item.player:GetCharacter()
 		itemname = item.name
 		duration = item.duration
 		curplayer:AddBoost("buffout", "strength", 2)
 		curplayer:AddBoost("buffout", "endurance", 2)
+		curplayer:SetCharmaxhpboost(GetCharmaxhpboost() + 25)
 
 
 		timer.Simple(duration, function() 
 			curplayer:RemoveBoost("buffout", "strength")
 			curplayer:RemoveBoost("buffout", "endurance")
+			curplayer:SetCharmaxhpboost(GetCharmaxhpboost() - 25)
 			curplayer:GetPlayer():NewVegasNotify(itemname .. " has worn off.", "messageNeutral", 8)
 			curplayer:GetPlayer():EmitSound("cwfallout3/ui/medical/wear_off.wav" or "items/battery_pickup.wav")
 		end)

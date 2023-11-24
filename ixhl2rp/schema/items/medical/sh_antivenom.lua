@@ -18,7 +18,7 @@ ITEM.functions.use = {
 	OnRun = function(item)
 		local quantity = item:GetData("quantity", item.quantity)
 	
-		ix.chat.Send(item.player, "iteminternal", "injects some "..item.name..".", false)
+		ix.chat.Send(item.player, "iteminternal", "takes some "..item.name..".", false)
 		item.player:NewVegasNotify("Animal venom effects removed.", "messageNeutral", 8)
 		quantity = quantity - 1
 		if (quantity >= 1) then

@@ -1,6 +1,6 @@
 ITEM.name = "Rad-X"
 ITEM.description = "Preventative medicine."
-ITEM.longdesc = "A bottle of pills to be taken before entering a radioactive area, to increase the body's natural radiation resistance for a medium period."
+ITEM.longdesc = "A bottle of pills to be taken before entering a radioactive area, to increase the body's natural radiation resistance for a medium period.\n\n+25% Radiation Resistance"
 ITEM.model = "models/mosi/fnv/props/health/radx.mdl"
 ITEM.width = 1
 ITEM.height = 2
@@ -10,7 +10,7 @@ ITEM.flag = "1"
 ITEM.quantity = 1
 ITEM.sound = "fosounds/fix/npc_human_using_stimpak.mp3"
 ITEM.weight = 0.05
-ITEM.duration = 450
+ITEM.duration = 550
 
 ITEM.functions.use = {
 	name = "Use",
@@ -19,14 +19,14 @@ ITEM.functions.use = {
 		local quantity = item:GetData("quantity", item.quantity)
 	
 		ix.chat.Send(item.player, "iteminternal", "takes some "..item.name..".", false)
-		item.player:NewVegasNotify("Prepared for the worst. +2 Tiers Rad Resistance.", "messageNeutral", 8)
 
 		curplayer = item.player:GetCharacter()
 		itemname = item.name
 		duration = item.duration
 		
-
+		curplayer:SetCharradresistboost(curplayer:GetCharradresistboost() + 25)
 		timer.Simple(duration, function() 
+			curplayer:SetCharradresistboost(curplayer:GetCharradresistboost() - 25)
 			curplayer:GetPlayer():NewVegasNotify(itemname .. " has worn off.", "messageNeutral", 8)
 			curplayer:GetPlayer():EmitSound("cwfallout3/ui/medical/wear_off.wav" or "items/battery_pickup.wav")
 		end)

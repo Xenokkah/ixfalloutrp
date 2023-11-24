@@ -1,6 +1,6 @@
 ITEM.name = "Med-X"
 ITEM.description = "A syringe full of opiod."
-ITEM.longdesc = "A potent painkiller using opiates. Good for immediate, effective pain reflief. Can be addictive if abused."
+ITEM.longdesc = "A potent painkiller using opiates. Good for immediate, effective pain reflief. Can be addictive if abused.\n\n+25% DR"
 ITEM.model = "models/fnv/clutter/hospital/surgicalsyringe01.mdl"
 ITEM.width = 1
 ITEM.height = 1
@@ -20,12 +20,20 @@ ITEM.functions.use = {
 	
 		ix.chat.Send(item.player, "iteminternal", "injects some "..item.name..".", false)
 		item.player:GetCharacter():GetInventory():Add("dirtysyringe", 1)
-		item.player:NewVegasNotify("Phew, much better. Stun, stagger, and limb damage status effect(s) removed.", "messageNeutral", 8)
+
+		curplayer:SetChardrboost(GetChardrboost() + 25)
+
 		quantity = quantity - 1
 		if (quantity >= 1) then
 			item:SetData("quantity", quantity)
 			return false
 		end
+
+		timer.Simple(duration, function() 
+			curplayer:SetChardrboost(GetChardrboost() - 25)
+			curplayer:GetPlayer():NewVegasNotify(itemname .. " has worn off.", "messageNeutral", 8)
+			curplayer:GetPlayer():EmitSound("cwfallout3/ui/medical/wear_off.wav" or "items/battery_pickup.wav")
+		end)
 
 		return true
 
