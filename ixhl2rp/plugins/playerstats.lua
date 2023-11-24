@@ -79,7 +79,7 @@ ix.char.RegisterVar("charetboost", {
 ix.char.RegisterVar("charap", {
     field = "charap",
     fieldType = ix.type.number,
-    default = 5,
+    default = 0,
     isLocal = true,
     bNoDisplay = true
 })
@@ -294,12 +294,36 @@ end
 
 function PLUGIN:OnCharacterCreated(client, character)
     -- After char creation, assign initial health, ap, and radresists.
-   
-    character:SetCharmaxhp(client:CalculateBaseHP())
-    character:SetCharap(client:CalculateBaseAP())
-    character:SetCharradresist(client:CalculateBaseRadResist())
-    
 
+    local char = character
+
+    local hpboost = math.floor(char:GetAttribute("endurance") * 5)
+    local hp = 50 + hpboost
+
+    local apboost =  math.floor(char:GetAttribute("agility") / 2)
+    local ap = 5 + apboost
+
+    local radresist =  math.floor(char:GetAttribute("endurance") * 2)
+
+    char:SetCharmaxhp(hp)
+    char:SetCharmaxhpboost(0)
+    char:SetCharcurrenthp(hp)
+    char:SetCharap(ap)
+    char:SetCharapboost(0)
+
+    char:SetCharradresist(radresist)
+    char:SetCharradresistboost(0)
+
+    char:SetChardt(0)
+    char:SetChardtboost(0)
+    char:SetCharet(0)
+    char:SetCharetboost(0)
+    char:SetChardr(0)
+    char:SetChardrboost(0)
+
+
+   
+    
 end 
 
 ix.command.Add("Status", {
