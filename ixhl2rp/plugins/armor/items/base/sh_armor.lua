@@ -11,23 +11,6 @@ ITEM.isBodyArmor = true
 ITEM.resistance = true
 ITEM.longdesc = "No longer description available."
 ITEM.category = "Armor"
-ITEM.res = {
-	["Fall"] = 0,
-	["Blast"] = 0,
-	["Bullet"] = 0,
-	["Shock"] = 0,
-	["Burn"] = 0,
-	["Radiation"] = 0,
-	["Psi"] = 0,
-}
-ITEM.ballisticlevels = {"1", "1", "1", "1", "1", "1", "1"}
-ITEM.ballisticareas = {"  Head:", "  Torso:", "  Abdomen:", "  Arms:", "  Legs:", "  Anomaly:", "  Radiation:"}
-ITEM.ballisticrpgtypes = {"Ballistic (Body)", "Ballistic (Limb)"}
-ITEM.anomalousrpgtypes = {"Impact","Burning","Radiation","Chemical","Electrical"}
-ITEM.br = 0
-ITEM.fbr = 0
-ITEM.ar = 0
-ITEM.far = 0
 ITEM.skincustom = {}
 ITEM.outfitCategory = "model"
 
@@ -273,7 +256,7 @@ function ITEM:OnInstanced()
 	self:SetData("maxDr", self.dR)
 	self:SetData("dT", self.dT)
 	self:SetData("eT", self.eT)
-	self:SetData("dR", self.eT)
+	self:SetData("dR", self.dR)
 end
 
 local function skinset(item, data)
@@ -413,10 +396,6 @@ ITEM.functions.EquipUn = { -- sorry, for name order.
 		if(item.apBoost) then
 			character:SetCharapboost(character:GetCharapboost() - item.apBoost)
 		end 
-		
-
-		
-
 		
 		return false
 	end,
@@ -736,7 +715,7 @@ function ITEM:GetDescription()
 	end 
 
 	if self.dR then
-		str = str .. "\nDR: " .. self:GetData("dT") .. "/" .. self:GetData("maxDr") .. "%"
+		str = str .. "\nDR: " .. self:GetData("dR") .. "/" .. self:GetData("maxDr") .. "%"
 	end 
 
 	if self.radResist then

@@ -248,6 +248,38 @@ ix.command.Add("CharSetRadiation", {
 	end
 })
 
+ix.command.Add("irradiate", {
+	description = "Add radiation to a character, taking their rad resist into account.",
+	adminOnly = true,
+	arguments = {
+		ix.type.character,
+		ix.type.number,
+	},
+	OnRun = function(self, client, target, radiation)
+		local radiation = tonumber(radiation)
+
+		if target:GetRadImmune() == true then
+			return client:Notify(target:GetName() .. " is set to be immune to radiation.")
+		end
+
+		local resistance = target:GetPlayer():GetTotalCharRadResist()
+
+		if (resistance > 85) then resistance = 85 end
+
+		local radstoadd = radiation - (radiation * (resistance / 100))
+
+		target:GetPlayer():addRadiation(radstoadd)
+
+
+		if client == target:GetPlayer() then
+            client:Notify("You have taken " ..radstoadd.. " rads with " ..resistance.. "% rad resistance. You now have " .. client:GetRads() .. " rads.")
+        else
+			client:Notify(client:Name().. "has taken " ..radstoadd.. " rads with " ..resistance.. "% rad resistance. Target now have  " .. target:GetRads() .. " rads.")
+            target:Notify(client:Name().." has added radiation to you. Your rad resistance provides " .. resistance .. "% resistance.")
+        end
+	end
+})
+
 ix.command.Add("CharAddRadiation", {
 	adminOnly = true,
 	arguments = {

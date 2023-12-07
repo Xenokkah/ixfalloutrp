@@ -25,10 +25,12 @@ ITEM.functions.use = {
 		duration = item.duration
 		
 		curplayer:SetCharradresistboost(curplayer:GetCharradresistboost() + 25)
+		curplayer:SetData("usingRadX", true)
 		timer.Simple(duration, function() 
 			curplayer:SetCharradresistboost(curplayer:GetCharradresistboost() - 25)
 			curplayer:GetPlayer():NewVegasNotify(itemname .. " has worn off.", "messageNeutral", 8)
 			curplayer:GetPlayer():EmitSound("cwfallout3/ui/medical/wear_off.wav" or "items/battery_pickup.wav")
+			curplayer:SetData("usingRadX", false)
 		end)
 
 		quantity = quantity - 1
@@ -42,7 +44,13 @@ ITEM.functions.use = {
 	end,
 
 	OnCanRun = function(item)
-		return (!IsValid(item.entity))
+		curplayer = item.player:GetCharacter()
+		
+		if (curplayer:GetData("usingRadX")) then 
+			return false
+		else 
+			return (!IsValid(item.entity))
+		end 
 	end
 }
 

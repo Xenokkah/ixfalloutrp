@@ -10,7 +10,7 @@ ITEM.flag = "1"
 ITEM.quantity = 1
 ITEM.sound = "fosounds/fix/npc_human_using_jet.mp3"
 ITEM.weight = 0.05
-ITEM.duration = 300
+ITEM.duration = 200
 
 ITEM.functions.use = {
 	name = "Use",
@@ -20,18 +20,18 @@ ITEM.functions.use = {
 	
 		ix.chat.Send(item.player, "iteminternal", "huffs some "..item.name..".", false)
 
-		item.player:NewVegasNotify("You feel SO READY! +1 AP.", "messageVeryHappy", 8)
-
 		curplayer = item.player:GetCharacter()
 		itemname = item.name
 		duration = item.duration
 
 		curplayer:SetCharapboost(curplayer:GetCharapboost() + 1)
+		curplayer:SetData("usingJet", true)
 
 		timer.Simple(duration, function() 
 			curplayer:SetCharapboost(curplayer:GetCharapboost() - 1)
 			curplayer:GetPlayer():NewVegasNotify(itemname .. " has worn off.", "messageNeutral", 8)
 			curplayer:GetPlayer():EmitSound("cwfallout3/ui/medical/wear_off.wav" or "items/battery_pickup.wav")
+			curplayer:SetData("usingJet", false)
 		end)
 
 			quantity = quantity - 1
@@ -44,7 +44,13 @@ ITEM.functions.use = {
 		end,
 
 	OnCanRun = function(item)
-		return (!IsValid(item.entity))
+		curplayer = item.player:GetCharacter()
+		
+		if (curplayer:GetData("usingBuffout")) then 
+			return false
+		else 
+			return (!IsValid(item.entity))
+		end 
 	end
 }
 

@@ -30,7 +30,7 @@ ITEM.functions.use = {
 				local items = inv:GetItems()
 
 				for k, v in pairs(items) do
-					if (v.isBodyArmor or v.isHelmet or v.isGasmask) and v:GetData("dT") < v:GetData("maxDt") then
+					if (v.isArmor) and v:GetData("dT") < v:GetData("maxDt") then
 						table.insert(targets, {
 							name = "Repair "..v.name.." up to " .. item.repairAmount .. " units of protection.",
 							data = {v:GetID()},

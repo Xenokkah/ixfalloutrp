@@ -20,14 +20,11 @@ ITEM.functions.use = {
 	
 		ix.chat.Send(item.player, "iteminternal", "huffs some "..item.name..".", false)
 
-		item.player:NewVegasNotify("You feel the need to GO! GO, ANYWHERE, JUST GO! +4 sec movement, +1 AGI", "messageVeryHappy", 8)
-		
-
 		curplayer = item.player:GetCharacter()
 		itemname = item.name
 		duration = item.duration
 
-		curplayer:AddBoost("turbo", "agility", 1)
+		curplayer:AddBoost("turbo", "agility", 2)
 		timer.Simple(duration, function() 
 			curplayer:RemoveBoost("turbo", "agility")
 			curplayer:GetPlayer():NewVegasNotify(itemname .. " has worn off.", "messageNeutral", 8)

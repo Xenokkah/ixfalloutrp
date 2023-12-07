@@ -352,7 +352,7 @@ ix.command.Add("Status", {
         if char:GetCharetboost() > 0 then str = str .. " (+)" end
         str = str .. "\n"
         
-        str = str .. "DR: " .. client:GetTotalCharDr()
+        str = str .. "DR: " .. client:GetTotalCharDr() .. "%"
         if char:GetChardrboost() > 0 then str = str .. " (+)" end
         str = str .. "\n"
         
@@ -430,7 +430,7 @@ ix.command.Add("Damage", {
                 local reduction = damage * (dr / 100)
                 damage = math.ceil(damage - reduction)
                 if damage < 0 then damage = 0 end
-                player:Notify("Your DR reduces the damage by " .. math.ceil(reduction) .. " points!")
+                player:Notify("Your DR reduces the damage by " .. dr .. "%!")
             end 
 
             if dt > 0 then 
@@ -542,7 +542,7 @@ ix.command.Add("Heal", {
 })
 
 ix.command.Add("ResetStats", {
-    description = "Debug command - reset player health and armor stats to default.",
+    description = "Debug command - reset player health, chem usage, and armor stats to default.",
     adminOnly = true,
     arguments = {ix.type.character},
     OnRun = function(self, client, target, damtype, damage, ap)
@@ -569,6 +569,19 @@ ix.command.Add("ResetStats", {
         char:SetCharetboost(0)
         char:SetChardr(0)
         char:SetChardrboost(0)
+
+        char:SetData("usingRadX", false)
+        char:SetData("usingJet", false)
+        char:SetData("usingMedX", false)
+        char:SetData("usingBuffout", false)
+
+        local boosts = char:GetBoosts()
+
+		for attribID, v in pairs(boosts) do
+			for boostID, _ in pairs(v) do
+				item.player:GetCharacter():RemoveBoost(boostID, attribID)
+			end
+		end
 
         return "Reset player stats."
 

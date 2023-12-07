@@ -5,4 +5,5 @@ ITEM.model = "models/fallout/apparel/red_beret.mdl"
 ITEM.price = 15000
 ITEM.isGasmask = false
 ITEM.isHelmet = true
+ITEM.isArmor = false
 

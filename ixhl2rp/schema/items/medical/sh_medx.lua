@@ -21,7 +21,8 @@ ITEM.functions.use = {
 		ix.chat.Send(item.player, "iteminternal", "injects some "..item.name..".", false)
 		item.player:GetCharacter():GetInventory():Add("dirtysyringe", 1)
 
-		curplayer:SetChardrboost(GetChardrboost() + 25)
+		curplayer:SetChardrboost(curplayer:GetChardrboost() + 25)
+		curplayer:SetData("usingMedX", true)
 
 		quantity = quantity - 1
 		if (quantity >= 1) then
@@ -30,9 +31,11 @@ ITEM.functions.use = {
 		end
 
 		timer.Simple(duration, function() 
-			curplayer:SetChardrboost(GetChardrboost() - 25)
+			curplayer:SetChardrboost(curplayer:GetChardrboost() - 25)
 			curplayer:GetPlayer():NewVegasNotify(itemname .. " has worn off.", "messageNeutral", 8)
 			curplayer:GetPlayer():EmitSound("cwfallout3/ui/medical/wear_off.wav" or "items/battery_pickup.wav")
+			curplayer:SetData("usingMedX", false)
+
 		end)
 
 		return true
@@ -40,7 +43,13 @@ ITEM.functions.use = {
 	end,
 
 	OnCanRun = function(item)
-		return (!IsValid(item.entity))
+		curplayer = item.player:GetCharacter()
+		
+		if (curplayer:GetData("usingMedX")) then 
+			return false
+		else 
+			return (!IsValid(item.entity))
+		end 
 	end
 }
 

@@ -29,7 +29,7 @@ ITEM.fbr = 0
 ITEM.ar = 0
 ITEM.far = 0
 ITEM.skincustom = {}
-ITEM.outfitCategory = "model"
+
 
 ITEM:Hook("drop", function(item)
 	if (item:GetData("equip")) then

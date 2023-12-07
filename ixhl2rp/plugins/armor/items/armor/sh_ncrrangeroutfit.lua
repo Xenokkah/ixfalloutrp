@@ -15,18 +15,10 @@ ITEM.ar = 0.4
 ITEM.far = 4
 ITEM.isArmor = true
 ITEM.isBodyArmor = true
-ITEM.isHelmet = true
-ITEM.isGasmask = true
 ITEM.noBusiness = true
 ITEM.weight = 2
-ITEM.res = {
-	["Impact"] = 1,
-	["Shock"] = 1,
-	["Fire"] = 1,
-	["Toxic"] = 1,
-}
-
-
+ITEM.dT = 2
+ITEM.eT = 2
 ITEM.newSkin = 0
 ITEM.bodyGroups = {
 
