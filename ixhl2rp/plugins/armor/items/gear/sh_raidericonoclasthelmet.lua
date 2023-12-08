@@ -6,3 +6,6 @@ ITEM.price = 15000
 ITEM.isGasmask = true
 ITEM.isHelmet = true
 ITEM.isArmor = true
+ITEM.dT = 2
+ITEM.eT = 2
+ITEM.radResist = 3

@@ -53,10 +53,10 @@ function playerMeta:DamageArmor(target, damage)
 			target:SetChardr(target:GetChardr() - damage)
 		end 
 		
-		str = str.. "Reduced the damage protection values of the " .. v.name.. " equipped by " ..target:GetName().. " by " .. damage
-
-		return str
+		str = str.. "\nReduced the damage protection values of the " .. v.name.. " equipped by " ..target:GetName().. " by " .. damage
 	end
+
+	return str
 end
 
 function playerMeta:RepairArmor(target, repair)

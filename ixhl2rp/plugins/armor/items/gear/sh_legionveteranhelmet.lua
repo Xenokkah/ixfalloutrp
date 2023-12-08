@@ -6,3 +6,5 @@ ITEM.price = 15000
 ITEM.isGasmask = true
 ITEM.isHelmet = true
 ITEM.isArmor = true
+ITEM.dT = 3
+ITEM.eT = 1

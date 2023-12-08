@@ -6,3 +6,11 @@ ITEM.price = 15000
 ITEM.isGasmask = true
 ITEM.isHelmet = true
 ITEM.isArmor = true
+ITEM.dT = 6
+ITEM.eT = 5
+ITEM.radResist = 8
+ITEM.attribBoosts = {
+	["charisma"] = 1
+}
+
+

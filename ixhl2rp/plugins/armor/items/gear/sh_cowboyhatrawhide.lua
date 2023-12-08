@@ -5,4 +5,8 @@ ITEM.model = "models/fallout/apparel/cowboyhat3.mdl"
 ITEM.price = 15000
 ITEM.isGasmask = false
 ITEM.isHelmet = true
-
+ITEM.isArmor = true
+ITEM.dT = 1
+ITEM.attribBoosts = {
+	["perception"] = 1
+}
