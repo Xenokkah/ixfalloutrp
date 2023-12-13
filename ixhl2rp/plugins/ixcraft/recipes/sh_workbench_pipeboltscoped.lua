@@ -6,7 +6,7 @@ RECIPE.requirements = {
 	["steel"] = 2,
 	["adhesive"] = 2,
 	["screws"] = 2,	
-	["pipeboltactionrife"] = 1
+	["pipeboltactionrifle"] = 1
 }
 
 RECIPE.results = {
