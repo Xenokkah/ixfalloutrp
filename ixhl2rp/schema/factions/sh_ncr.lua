@@ -1,33 +1,37 @@
-FACTION.name = "НКР"
-FACTION.description = "Народная калифорнийская республика"
+FACTION.name = "New California Republic"
+FACTION.description = "Soldiers and personnel of the New California Republic."
 FACTION.color = Color(255, 140, 0)
 FACTION.models = {
-	"models/ncr/female_01.mdl",
-	"models/ncr/female_02.mdl",
-	"models/ncr/female_03.mdl",
-	"models/ncr/female_04.mdl",
-	"models/ncr/female_06.mdl",
-	"models/ncr/female_07.mdl",
-	"models/ncr/ncr_01.mdl",
-	"models/ncr/ncr_02.mdl",
-	"models/ncr/ncr_03.mdl",
-	"models/ncr/ncr_04.mdl",
-	"models/ncr/ncr_05.mdl",
-	"models/ncr/ncr_06.mdl",
-	"models/ncr/ncr_07.mdl",
-	"models/ncr/ncr_08.mdl",
-	"models/ncr/ncr_09.mdl",
+	"models/thespireroleplay/humans/group004/female_01.mdl",
+	"models/thespireroleplay/humans/group004/female_02.mdl",
+	"models/thespireroleplay/humans/group004/female_03.mdl", 
+	"models/thespireroleplay/humans/group004/female_04.mdl", 
+	"models/thespireroleplay/humans/group004/female_05.mdl", 
+	"models/thespireroleplay/humans/group004/female_06.mdl", 
+	"models/thespireroleplay/humans/group004/female_07.mdl", 
+	"models/thespireroleplay/humans/group004/female_08.mdl", 
+	"models/thespireroleplay/humans/group004/female_09.mdl", 
+	"models/thespireroleplay/humans/group004/female_10.mdl", 
+	"models/thespireroleplay/humans/group004/female_11.mdl", 
+	"models/thespireroleplay/humans/group004/female_12.mdl", 
+	"models/thespireroleplay/humans/group004/male_01.mdl", 
+	"models/thespireroleplay/humans/group004/male_02.mdl", 
+	"models/thespireroleplay/humans/group004/male_03.mdl", 
+	"models/thespireroleplay/humans/group004/male_04.mdl", 
+	"models/thespireroleplay/humans/group004/male_05.mdl", 
+	"models/thespireroleplay/humans/group004/male_06.mdl", 
+	"models/thespireroleplay/humans/group004/male_07.mdl", 
+	"models/thespireroleplay/humans/group004/male_08.mdl", 
+	"models/thespireroleplay/humans/group004/male_09.mdl", 
+	"models/thespireroleplay/humans/group004/male_10.mdl", 
+	"models/thespireroleplay/humans/group004/male_11.mdl", 
+	"models/thespireroleplay/humans/group004/male_12.mdl", 
+	"models/thespireroleplay/humans/group004/male_13.mdl", 
+	"models/thespireroleplay/humans/group004/male_14.mdl", 
+	"models/thespireroleplay/humans/group004/male_15.mdl", 
+	"models/thespireroleplay/humans/group004/male_16.mdl", 
+	"models/thespireroleplay/humans/group004/male_17.mdl", 
+	"models/thespireroleplay/humans/group004/male_18.mdl", 
 }
 FACTION.isDefault = false
-
-function FACTION:OnCharacterCreated(client, character)
-	local inventory = character:GetInventory()
-
-	inventory:Add("varmint_rifle", 1)
-	inventory:Add("556ammo", 2)
-	inventory:Add("handheld_radio", 1)
-	inventory:Add("suitcase", 1)
-
-end
-
 FACTION_NCR = FACTION.index

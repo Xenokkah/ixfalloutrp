@@ -1,4 +1,4 @@
-CLASS.name = "Обычный житель"
-CLASS.faction = FACTION_WASTELANDS
+CLASS.name = "Wasteland Citizen"
+CLASS.faction = FACTION_WASTELAND
 CLASS.isDefault = true
-CLASS_CITIZEN = CLASS.index
+CLASS_WASTELANDCITIZEN = CLASS.index

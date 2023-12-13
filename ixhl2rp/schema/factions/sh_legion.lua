@@ -1,6 +1,6 @@
-FACTION.name = "Рейдеры"
-FACTION.description = "Криминальный контингент пустоши"
-FACTION.color = Color(192, 255, 62)
+FACTION.name = "Caesar's Legion"
+FACTION.description = "Members of Caesar's Legion."
+FACTION.color = Color(255, 0, 0)
 FACTION.models = {
 	"models/thespireroleplay/humans/group004/female_01.mdl",
 	"models/thespireroleplay/humans/group004/female_02.mdl",
@@ -33,13 +33,5 @@ FACTION.models = {
 	"models/thespireroleplay/humans/group004/male_17.mdl", 
 	"models/thespireroleplay/humans/group004/male_18.mdl", 
 }
-
-function FACTION:OnCharacterCreated(client, character)
-	local inventory = character:GetInventory()
-
-	inventory:Add("caps", 1000)
-
-end
-
 FACTION.isDefault = false
-FACTION_RAIDERS = FACTION.index
+FACTION_LEGION = FACTION.index

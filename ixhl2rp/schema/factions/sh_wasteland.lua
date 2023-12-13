@@ -1,6 +1,7 @@
-FACTION.name = "Жители пустошей"
-FACTION.description = "Те, кому повезло остаться в живых."
+FACTION.name = "Wastelanders"
+FACTION.description = "Unaffiliated wasteland denziens."
 FACTION.color = Color(244, 164, 96)
+FACTION.isDefault = true
 FACTION.models = {
 	"models/thespireroleplay/humans/group004/female_01.mdl",
 	"models/thespireroleplay/humans/group004/female_02.mdl",
@@ -34,4 +35,4 @@ FACTION.models = {
 	"models/thespireroleplay/humans/group004/male_18.mdl", 
 }
 
-FACTION_WASTELANDS = FACTION.index
+FACTION_WASTELAND = FACTION.index
