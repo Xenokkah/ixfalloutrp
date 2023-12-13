@@ -411,12 +411,14 @@ ix.command.Add("Damage", {
         local et = player:GetTotalCharEt()
         local dr = player:GetTotalCharDr()
         local hp = player:GetTotalCharHp()
+        local luck = target:GetAttribute("luck")
+        local minimumdamage = math.ceil(damage * 0.15)
 
         -- Format entries so that they're ready to work with - lowercase damtype, chop off any decimal points
         local damtype = string.lower(damtype)
         local damage = damage - (damage % 1)
         if (ap) then local ap = ap - (ap % 1) else ap = 0 end
-
+    
         -- Ballistic weapons, blasts, and melee
         if damtype == "physical" then
             player:Notify("You're hit with ".. damage .. " physical damage!")
@@ -439,14 +441,16 @@ ix.command.Add("Damage", {
                 player:Notify("Your DT reduces the damage by " .. dt .. " points!")
             end 
 
-            if damage > 0 then
-                client:Notify(target:GetName() .. " has taken " .. damage .. " physical damage!")
-                player:Notify("You take " .. damage  .. " damage!")
+            if damage < minimumdamage then
+                damage = minimumdamage
+                client:Notify(target:GetName() .. " has taken " .. damage .. " minimum physical damage!")
+                player:Notify("You take " .. damage  .. " minimum damage!")
+                player:AdjustHealth("hurt", damage)
+            else 
+                client:Notify(target:GetName() .. " has taken " .. damage .. " physical damage, damaging their armor.")
+                player:Notify("You take " .. damage  .. " damage! Your armor is damaged.")
                 player:AdjustHealth("hurt", damage)
                 player:DamageArmor(target, 1)
-            else 
-                client:Notify(target:GetName() .. " has blocked all physical damage!")
-                player:Notify("Your armor tanks the shot completely!")
             end 
 
         -- Laser, Plasma, Fire 
@@ -468,17 +472,19 @@ ix.command.Add("Damage", {
             if et > 0 then 
                 damage = damage - et
                 if damage < 0 then damage = 0 end
-                player:Notify("Your DT reduces the damage by " .. et .. " points!")
+                player:Notify("Your ET reduces the damage by " .. et .. " points!")
             end 
 
-            if damage > 0 then
-                client:Notify(target:GetName() .. " has taken " .. damage .. " energy damage!")
-                player:Notify("You take " .. damage  .. " damage!")
+            if damage < minimumdamage then
+                damage = minimumdamage
+                client:Notify(target:GetName() .. " has taken " .. damage .. " minimum physical damage!")
+                player:Notify("You take " .. damage  .. " minimum damage!")
+                player:AdjustHealth("hurt", damage)
+            else 
+                client:Notify(target:GetName() .. " has taken " .. damage .. " physical damage, damaging their armor.")
+                player:Notify("You take " .. damage  .. " damage! Your armor is damaged.")
                 player:AdjustHealth("hurt", damage)
                 player:DamageArmor(target, 1)
-            else 
-                client:Notify(target:GetName() .. " has blocked all energy damage!")
-                player:Notify("Your armor tanks the shot completely!")
             end 
         
         -- Bleeding damage. Bypasses armor
