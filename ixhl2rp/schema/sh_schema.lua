@@ -1,7 +1,7 @@
 
 Schema.name = "Fallout: New Vegas"
-Schema.author = "Крыжовник"
-Schema.description = "Основано на режиме HL2RP."
+Schema.author = "Scrat Knapp"
+Schema.description = "A tabletop inspired Fallout Roleplay."
 
 -- Include netstream
 ix.util.Include("libs/thirdparty/sh_netstream2.lua")
@@ -19,8 +19,6 @@ ix.util.Include("meta/sh_player.lua")
 ix.util.Include("meta/sv_player.lua")
 ix.util.Include("meta/sh_character.lua")
 
-ix.flag.Add("v", "Access to light blackmarket goods.")
-ix.flag.Add("V", "Access to heavy blackmarket goods.")
 ix.flag.Add("N", "Event/Customization")
 
 ix.anim.SetModelClass("models/sanctum/ncr_powerarmor.mdl", "player")

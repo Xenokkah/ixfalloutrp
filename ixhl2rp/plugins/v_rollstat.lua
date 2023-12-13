@@ -79,7 +79,7 @@ ix.command.Add("Unarmed", {
         local char = client:GetCharacter()
         local value = math.random(0, 10)
         local attr = "Unarmed"
-        local att = client:GetCharacter():GetAttribute("strength")
+        local att =  math.floor(client:GetCharacter():GetAttribute("strength") / 2)
         local add = att + char:GetUnarmed()
         local modifier = modifier or 0
         
@@ -101,7 +101,7 @@ ix.command.Add("Melee", {
         local char = client:GetCharacter()
         local value = math.random(0, 10)
         local attr = "Melee Weapons"
-        local att = client:GetCharacter():GetAttribute("strength")
+        local att = math.floor(client:GetCharacter():GetAttribute("strength") / 2)
         local add = att + char:GetMelee()
         local modifier = modifier or 0
         
@@ -124,7 +124,7 @@ ix.command.Add("Energy", {
         local char = client:GetCharacter()
         local value = math.random(0, 10)
         local attr = "Energy Weapons"
-        local att = client:GetCharacter():GetAttribute("perception")
+        local att = math.floor(client:GetCharacter():GetAttribute("perception") / 2)
         local add = att + char:GetEnergyWeapons()
         local modifier = modifier or 0
         
@@ -146,7 +146,7 @@ ix.command.Add("Explosives", {
         local char = client:GetCharacter()
         local value = math.random(0, 10)
         local attr = "Perception"
-        local att = client:GetCharacter():GetAttribute("perception")
+        local att = math.floor(client:GetCharacter():GetAttribute("perception") / 2)
         local add = att + char:GetExplosives()
         local modifier = modifier or 0
         
@@ -168,53 +168,8 @@ ix.command.Add("Lockpick", {
         local char = client:GetCharacter()
         local value = math.random(0, 10)
         local attr = "Lockpicking"
-        local att = client:GetCharacter():GetAttribute("perception")
+        local att = math.floor(client:GetCharacter():GetAttribute("perception") / 2)
         local add = att + char:GetLockpick()
-        local modifier = modifier or 0
-        
-        ix.chat.Send(client, "rollStat", tostring(value), nil, nil, {
-            attr = attr,
-            additive=add,
-            initialroll = value,
-            mod = modifier
-        })
-
-       ix.log.Add(client, "rollStat", value, attr, add, modifier)
-    end
-})
-
--- Perception --
-ix.command.Add("Energy", {
-    description = "Roll an Energy Weapons check on a d10 + Perception. Optional modifier.",
-    arguments = {bit.bor(ix.type.number, ix.type.optional)},
-    OnRun = function(self, client, modifier)
-        local char = client:GetCharacter()
-        local value = math.random(0, 10)
-        local attr = "Energy Weapons"
-        local att = client:GetCharacter():GetAttribute("perception")
-        local add = att + char:GetEnergyWeapons()
-        local modifier = modifier or 0
-        
-        ix.chat.Send(client, "rollStat", tostring(value), nil, nil, {
-            attr = attr,
-            additive=add,
-            initialroll = value,
-            mod = modifier
-        })
-
-       ix.log.Add(client, "rollStat", value, attr, add, modifier)
-    end
-})
-
-ix.command.Add("Explosives", {
-    description = "Roll an Explosives check on a d10 + Perception. Optional modifier.",
-    arguments = {bit.bor(ix.type.number, ix.type.optional)},
-    OnRun = function(self, client, modifier)
-        local char = client:GetCharacter()
-        local value = math.random(0, 10)
-        local attr = "Perception"
-        local att = client:GetCharacter():GetAttribute("perception")
-        local add = att + char:GetExplosives()
         local modifier = modifier or 0
         
         ix.chat.Send(client, "rollStat", tostring(value), nil, nil, {
@@ -237,7 +192,7 @@ ix.command.Add("Survival", {
         local char = client:GetCharacter()
         local value = math.random(0, 10)
         local attr = "Survival"
-        local att = client:GetCharacter():GetAttribute("endurance")
+        local att = math.floor(client:GetCharacter():GetAttribute("endurance") / 2)
         local add = att + char:GetSurvival()
         local modifier = modifier or 0
         
@@ -264,7 +219,7 @@ ix.command.Add("Science", {
         local char = client:GetCharacter()
         local value = math.random(0, 10)
         local attr = "Science"
-        local att = client:GetCharacter():GetAttribute("intelligence")
+        local att = math.floor(client:GetCharacter():GetAttribute("intelligence") / 2)
         local add = att + char:GetScience()
         local modifier = modifier or 0
         
@@ -286,7 +241,7 @@ ix.command.Add("Medicine", {
         local char = client:GetCharacter()
         local value = math.random(0, 10)
         local attr = "Medicine"
-        local att = client:GetCharacter():GetAttribute("intelligence")
+        local att =math.floor(client:GetCharacter():GetAttribute("intelligence") / 2)
         local add = att + char:GetMedicine()
         local modifier = modifier or 0
         
@@ -308,7 +263,7 @@ ix.command.Add("Repair", {
         local char = client:GetCharacter()
         local value = math.random(0, 10)
         local attr = "Repair"
-        local att = client:GetCharacter():GetAttribute("intelligence")
+        local att = math.floor(client:GetCharacter():GetAttribute("intelligence") / 2)
         local add = att + char:GetRepair()
         local modifier = modifier or 0
         
@@ -332,7 +287,7 @@ ix.command.Add("Guns", {
         local char = client:GetCharacter()
         local value = math.random(0, 10)
         local attr = "Guns"
-        local att = client:GetCharacter():GetAttribute("agility")
+        local att = math.floor(client:GetCharacter():GetAttribute("agility") / 2)
         local add = att + char:GetGuns()
         local modifier = modifier or 0
         
@@ -354,7 +309,7 @@ ix.command.Add("Evasion", {
         local char = client:GetCharacter()
         local value = math.random(0, 10)
         local attr = "Evasion"
-        local att = client:GetCharacter():GetAttribute("agility")
+        local att = math.floor(client:GetCharacter():GetAttribute("agility") / 2)
         local add = att + char:GetEvasion()
         local modifier = modifier or 0
         

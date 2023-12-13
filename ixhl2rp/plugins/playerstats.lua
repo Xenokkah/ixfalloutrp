@@ -551,7 +551,7 @@ ix.command.Add("ResetStats", {
     description = "Debug command - reset player health, chem usage, and armor stats to default.",
     adminOnly = true,
     arguments = {ix.type.character},
-    OnRun = function(self, client, target, damtype, damage, ap)
+    OnRun = function(self, client, target)
         local char = target
         local player = target:GetPlayer()
 
@@ -594,6 +594,78 @@ ix.command.Add("ResetStats", {
 
     end
 })
+
+ix.command.Add("CharSetDT", {
+    description = "Set character's current DT to the given number.",
+    adminOnly = true,
+    arguments = {ix.type.character, ix.type.number},
+    OnRun = function(self, client, target, value)
+        target:SetChardt(value)
+        client:Notify("Set DT of " .. target:GetName() .. " to " .. value)
+    end
+})
+
+ix.command.Add("CharSetET", {
+    description = "Set character's current ET to the given number.",
+    adminOnly = true,
+    arguments = {ix.type.character, ix.type.number},
+    OnRun = function(self, client, target, value)
+        target:SetCharet(value)
+        client:Notify("Set ET of " .. target:GetName() .. " to " .. value)
+    end
+})
+
+ix.command.Add("CharSetDR", {
+    description = "Set character's current DR to the given number.",
+    adminOnly = true,
+    arguments = {ix.type.character, ix.type.number},
+    OnRun = function(self, client, target, value)
+        target:SetChardr(value)
+        client:Notify("Set DR of " .. target:GetName() .. " to " .. value)
+    end
+})
+
+ix.command.Add("CharSetRadResist", {
+    description = "Set character's current Radiation Resistance to the given number.",
+    adminOnly = true,
+    arguments = {ix.type.character, ix.type.number},
+    OnRun = function(self, client, target, value)
+        target:SetCharradresist(value)
+        client:Notify("Set Rad Resistance of " .. target:GetName() .. " to " .. value)
+    end
+})
+
+ix.command.Add("CharSetAP", {
+    description = "Set character's current AP to the given number.",
+    adminOnly = true,
+    arguments = {ix.type.character, ix.type.number},
+    OnRun = function(self, client, target, value)
+        target:SetCharap(value)
+        client:Notify("Set AP of " .. target:GetName() .. " to " .. value)
+    end
+})
+
+ix.command.Add("CharSetHP", {
+    description = "Set character's current HP to the given number.",
+    adminOnly = true,
+    arguments = {ix.type.character, ix.type.number},
+    OnRun = function(self, client, target, value)
+        target:SetCharcurrenthp(value)
+        client:Notify("Set HP of " .. target:GetName() .. " to " .. value)
+    end
+})
+
+ix.command.Add("CharSetMaxHP", {
+    description = "Set character's current Maximum HP to the given number.",
+    adminOnly = true,
+    arguments = {ix.type.character, ix.type.number},
+    OnRun = function(self, client, target, value)
+        target:SetCharmaxhp(value)
+        client:Notify("Set Max HP of " .. target:GetName() .. " to " .. value)
+    end
+})
+
+
 
 
 
