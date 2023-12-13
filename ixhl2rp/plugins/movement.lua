@@ -18,7 +18,7 @@ ix.command.Add( "Movement", {
             distance = (distance / 39.3701) 
             distance =  distance - (distance % 1)
 
-            local apcost = math.ceil(distance / 5)
+            local apcost = math.ceil(distance / 15)
 
             client:Notify("You've moved " .. distance .. " Meters.")
             client:Notify("AP Cost: " .. apcost )
