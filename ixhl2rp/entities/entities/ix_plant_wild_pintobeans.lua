@@ -3,7 +3,7 @@ AddCSLuaFile()
 
 ENT.Base             = "base_gmodentity"
 ENT.Type             = "anim"
-ENT.PrintName        = "Broc Flower"
+ENT.PrintName        = "Wild Pinto Beans"
 ENT.Author            = "Scrat"
 ENT.Category         = "Fallout Harvestables"
 ENT.Spawnable = true
@@ -12,7 +12,7 @@ ENT.AdminOnly = true
 
 if (SERVER) then
     function ENT:Initialize()
-        self:SetModel("models/mosi/fnv/props/plants/brocflower.mdl")
+        self:SetModel("models/mosi/fnv/props/plants/pinto.mdl")
         self:PhysicsInit(SOLID_VPHYSICS)
         self:SetMoveType(MOVETYPE_VPHYSICS)
         self:SetSolid(SOLID_VPHYSICS)
@@ -34,9 +34,9 @@ function ENT:Use(activator)
         
         if (bHarvested == false) then
             target = activator:GetCharacter()
-            target:GetInventory():Add("brocflower", 1)
+            target:GetInventory():Add("pintobeans", 1)
             self:SetVar("bHarvested", true)
-            activator:NewVegasNotify("You pick a " .. self.PrintName .. ".", "messageNeutral", 5)
+            activator:NewVegasNotify("You pick some " .. self.PrintName .. ".", "messageNeutral", 5)
             activator:EmitSound("fosounds/fix/ui_items_generic_up_02.mp3")
             self:SetBodygroup(1,1)
             return

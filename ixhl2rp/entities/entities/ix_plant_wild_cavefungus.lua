@@ -3,7 +3,7 @@ AddCSLuaFile()
 
 ENT.Base             = "base_gmodentity"
 ENT.Type             = "anim"
-ENT.PrintName        = "Nevada Agave"
+ENT.PrintName        = "Wild Cave Fungus"
 ENT.Author            = "Scrat"
 ENT.Category         = "Fallout Harvestables"
 ENT.Spawnable = true
@@ -12,7 +12,7 @@ ENT.AdminOnly = true
 
 if (SERVER) then
     function ENT:Initialize()
-        self:SetModel("models/mosi/fnv/props/plants/nevadaagave.mdl")
+        self:SetModel("models/mosi/fnv/props/plants/cavefungus.mdl")
         self:PhysicsInit(SOLID_VPHYSICS)
         self:SetMoveType(MOVETYPE_VPHYSICS)
         self:SetSolid(SOLID_VPHYSICS)
@@ -34,18 +34,11 @@ function ENT:Use(activator)
         
         if (bHarvested == false) then
             target = activator:GetCharacter()
-            target:GetInventory():Add("nevadaagave", 1)
+            target:GetInventory():Add("cavefungus", 1)
             self:SetVar("bHarvested", true)
-            activator:NewVegasNotify("You pick some " .. self.PrintName .. ".", "messageNeutral", 5)
+            activator:NewVegasNotify("You pick some Cave Fungus.", "messageNeutral", 5)
             activator:EmitSound("fosounds/fix/ui_items_generic_up_02.mp3")
             self:SetBodygroup(1,1)
-
-            
-		    timer.Simple(20, function() 
-                self:SetVar("bHarvested", false)
-                self:SetBodygroup(1,0)
-		    end)
-
             return
         end 
     end 
@@ -57,7 +50,7 @@ if (CLIENT) then
     
         local title = tooltip:AddRow("name")
         title:SetImportant()
-        title:SetText(self.PrintName)
+        title:SetText("Cave Fungus")
         title:SetBackgroundColor(ix.config.Get("color"))
         title:SizeToContents()    
     end
