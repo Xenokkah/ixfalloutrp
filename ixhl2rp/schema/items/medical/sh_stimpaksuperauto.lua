@@ -1,6 +1,6 @@
 ITEM.name = "Auto-Inject Super Stimpak"
 ITEM.description = "A rarer medical treatment item for heavy wounds, with some science used to improve it."
-ITEM.longdesc = "A one use, injectable stimpak dialed up to eleven, suitable for the worst injuries. Has a side effect of a feeling of weakness for a modest period of time. This one monitors the user's lifesigns and automatically injects when they receive a life threatening injury.\n\n+75 HP, no AP cost to use\n-1 END, AGI\nMedical DC to Stabilize: 15"
+ITEM.longdesc = "A one use, injectable stimpak dialed up to eleven, suitable for the worst injuries. Has a side effect of a feeling of weakness for a modest period of time. This one monitors the user's lifesigns and automatically injects when they receive a life threatening injury.\n\n+65 HP, no AP cost to use\n-1 END, AGI\nMedical DC to Stabilize: 15"
 ITEM.model = "models/mosi/fnv/props/health/superstimpak_auto.mdl"
 ITEM.width = 1
 ITEM.height = 2
@@ -11,7 +11,7 @@ ITEM.quantity = 1
 ITEM.sound = "fosounds/fix/npc_human_using_stimpak.mp3"
 ITEM.weight = 0.05
 ITEM.duration = 450
-
+ITEM.heal = 65
 
 ITEM.functions.use = {
 	name = "Use",
@@ -22,11 +22,11 @@ ITEM.functions.use = {
 		ix.chat.Send(item.player, "iteminternal", "injects their "..item.name..".", false)
 		item.player:GetCharacter():GetInventory():Add("dirtysyringe", 1)
 
-		item.player:NewVegasNotify("You are suffering from Super Stimpak Sickness! -1 AGI, -1 STR", "messageSad", 8)
-
 		curplayer = item.player:GetCharacter()
 		duration = ITEM.duration
 		itemname = ITEM.name
+		item.player:AdjustHealth("heal", item.heal)
+		item.player:NewVegasNotify("Restored " .. item.heal .. " health.", "messageNeutral", 4)
 		curplayer:AddBoost("stimpaksickness", "endurance", -1)
 		curplayer:AddBoost("stimpaksickness", "agility", -1)
 

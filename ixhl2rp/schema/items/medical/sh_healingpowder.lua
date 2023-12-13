@@ -1,6 +1,6 @@
 ITEM.name = "Healing Powder"
 ITEM.description = "A classic tribal cure."
-ITEM.longdesc = "A pouch of ground up Broc Flower and Xander Root, rubbed directly onto a wound. Aids well in pain and bleeding, but the powder tends to make one's vision hazy for a short period. \n\n+20 HP\n-1 PER\nSurvival DC to Stabilize: 25"
+ITEM.longdesc = "A pouch of ground up Broc Flower and Xander Root, rubbed directly onto a wound. Aids well in pain and bleeding, but the powder tends to make one's vision hazy for a short period. \n\n+15 HP\n-1 PER\nSurvival DC to Stabilize: 25"
 ITEM.model = "models/mosi/fnv/props/health/healingpowder.mdl"
 ITEM.width = 1
 ITEM.height = 1
@@ -8,7 +8,7 @@ ITEM.category = "Medical"
 ITEM.price = "4000"
 ITEM.flag = "1"
 ITEM.quantity = 1
-ITEM.heal = 20
+ITEM.heal = 15
 ITEM.sound = "fosounds/fix/npc_human_using_stimpak.mp3"
 ITEM.weight = 0.05
 ITEM.duration = 300
