@@ -1,0 +1,20 @@
+ITEM.name = "Vault Security Armor"
+ITEM.model = "models/fallout/apparel/vaultsecurity.mdl"
+ITEM.replacements = "models/bloocobalt/fo3/vaulttech/101-security_09.mdl"
+ITEM.description = "A set of Vault Security Armor."
+ITEM.longdesc = "Mass-produced by Vault-Tec before the war and issued to Security Officers in its vault, this set of vest, boots, and gloves provide solid protection against small caliber rounds and physical blows, but has almost nothing for heat-based weapons."
+ITEM.width = 2
+ITEM.height = 1
+ITEM.price = 230000
+ITEM.flag = "A"
+ITEM.isArmor = true
+ITEM.isBodyArmor = true
+ITEM.noBusiness = true
+ITEM.weight = 2
+ITEM.dT = 14
+ITEM.eT = 3
+ITEM.newSkin = 0
+ITEM.bodyGroups = {
+["helmet"] = 3,
+}
+ITEM.bodygroupsub = {0}
