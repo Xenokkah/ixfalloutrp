@@ -108,8 +108,6 @@ ix.char.RegisterVar("charradresistboost", {
     bNoDisplay = true
 })
 
-
-
 function playerMeta:GetTotalCharHp()
     local maxhp = self:GetCharacter():GetCharmaxhp() + self:GetCharacter():GetCharmaxhpboost()
    -- self:SetMaxHealth(maxhp)

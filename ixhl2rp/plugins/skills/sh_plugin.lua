@@ -3,6 +3,8 @@ PLUGIN.name = "Skills"
 PLUGIN.author = "Scrat Knapp"
 PLUGIN.desc = "Define and upgrade skills."
 
+
+
 ix.char.RegisterVar("SkillPoints", {
     field = "skillpoints",
     fieldType = ix.type.number,
@@ -10,6 +12,8 @@ ix.char.RegisterVar("SkillPoints", {
     isLocal = true,
     bNoDisplay = true
 })
+
+    --[[
 
 ix.char.RegisterVar("EnergyWeapons", {
     field = "energyweapons",
@@ -101,6 +105,18 @@ ix.char.RegisterVar("Evasion", {
 })
 
 
+ix.char.RegisterVar("Evasion", {
+    field = "evasion",
+    fieldType = ix.type.number,
+    default = 0,
+    isLocal = true,
+    bNoDisplay = true
+})
+
+--]]
+
+
+
 function PLUGIN:OnCharacterCreated(client, character)
     -- After char creation, get character's SPECIAL and assign skills based on these
     local strength = character:GetAttribute("strength")
@@ -113,21 +129,21 @@ function PLUGIN:OnCharacterCreated(client, character)
 
     luckboost = math.ceil(luck / 2)
 
-    character:SetMelee(strength + luckboost)
-    character:SetUnarmed(strength + luckboost)
+    character:SetSkill("meleeweapons", strength + luckboost)
+    character:SetSkill("unarmed", strength + luckboost)
 
-    character:SetEnergyWeapons(perception + luckboost)
-    character:SetExplosives(perception + luckboost)
-    character:SetLockpick(perception + luckboost)
+    character:SetSkill("energyweapons", perception + luckboost)
+    character:SetSkill("explosives", perception + luckboost)
+    character:SetSkill("lockpicking", perception + luckboost)
 
-    character:SetSurvival(endurance + luckboost)
+    character:SetSkill("survival", endurance + luckboost)
 
-    character:SetScience(intelligence + luckboost)
-    character:SetRepair(intelligence + luckboost)
-    character:SetMedicine(intelligence + luckboost)
+    character:SetSkill("science", intelligence + luckboost)
+    character:SetSkill("repair", intelligence + luckboost)
+    character:SetSkill("medicine", intelligence + luckboost)
 
-    character:SetGuns(agility + luckboost)
-    character:SetEvasion(agility + luckboost)
+    character:SetSkill("guns", agility + luckboost)
+    character:SetSkill("evasion", agility + luckboost)
 
 end 
 
@@ -140,18 +156,17 @@ ix.command.Add("MySkills", {
         if (char:GetSkillPoints() > 0) then
             str =  str .. "You have unspent skill points! /spendskillpoints to use.\n"
         end 
-        str =  str .. "Energy Weapons: " .. char:GetEnergyWeapons().. "/20\n"
-        str = str .. "Guns: " ..char:GetGuns().. "/20\n"
-        str = str .. "Melee Weapons: " ..char:GetMelee().. "/20\n"
-        str = str .. "Unarmed: " ..char:GetUnarmed().. "/20\n"
-        str = str .. "Explosives: " ..char:GetExplosives().. "/20\n"
-        str = str .. "Medicine: " ..char:GetMedicine().. "/20\n"
-        str = str .. "Evasion: " ..char:GetEvasion().. "/20\n"
-        str = str .. "Survival: " ..char:GetSurvival().. "/20\n"
-        str = str .. "Science: " ..char:GetScience().. "/20\n"
-        str = str .. "Repair: " ..char:GetRepair().. "/20\n"
-        str = str .. "Medicine: " ..char:GetMedicine().. "/20\n"
-        str = str .. "Lockpicking: " ..char:GetLockpick().. "/20\n"
+        str =  str .. "Energy Weapons: " .. char:GetAttribute("energyweapons", 0).. "/20\n"
+        str = str .. "Guns: " ..char:GetAttribute("guns", 0).. "/20\n"
+        str = str .. "Melee Weapons: " ..char:GetAttribute("meleeweapons", 0).. "/20\n"
+        str = str .. "Unarmed: " ..char:GetAttribute("unarmed", 0).. "/20\n"
+        str = str .. "Explosives: " ..char:GetAttribute("explosives", 0).. "/20\n"
+        str = str .. "Medicine: " ..char:GetAttribute("medicine", 0).. "/20\n"
+        str = str .. "Evasion: " ..char:GetAttribute("evasion", 0).. "/20\n"
+        str = str .. "Survival: " ..char:GetAttribute("survival", 0).. "/20\n"
+        str = str .. "Science: " ..char:GetAttribute("science", 0).. "/20\n"
+        str = str .. "Repair: " ..char:GetAttribute("repair", 0).. "/20\n"
+        str = str .. "Lockpicking: " ..char:GetAttribute("lockpicking", 0).. "/20\n"
         return str
 	end
 })
@@ -182,17 +197,17 @@ ix.command.Add("CharGetSkills", {
         str = str .. "Level: " .. char:GetLevel() .. "\n"
         str = str .. "Next Level in: " .. char:GetXPToNextLevel() - char:GetXP() .. " XP \n"
         str = str .. "Skillpoints: " ..char:GetSkillPoints() .. "\n\n"
-        str =  str .. "Energy Weapons: " .. char:GetEnergyWeapons().. "/20\n"
-        str = str .. "Guns: " ..char:GetGuns().. "/20\n"
-        str = str .. "Melee Weapons: " ..char:GetMelee().. "/20\n"
-        str = str .. "Explosives: " ..char:GetExplosives().. "/20\n"
-        str = str .. "Medicine: " ..char:GetMedicine().. "/20\n"
-        str = str .. "Evasion: " ..char:GetEvasion().. "/20\n"
-        str = str .. "Survival: " ..char:GetSurvival().. "/20\n"
-        str = str .. "Science: " ..char:GetScience().. "/20\n"
-        str = str .. "Repair: " ..char:GetRepair().. "/20\n"
-        str = str .. "Medicine: " ..char:GetMedicine().. "/20\n"
-        str = str .. "Lockpicking: " ..char:GetLockpick().. "/20\n"
+        str =  str .. "Energy Weapons: " .. char:GetAttribute("energyweapons", 0).. "/20\n"
+        str = str .. "Guns: " ..char:GetAttribute("guns", 0).. "/20\n"
+        str = str .. "Melee Weapons: " ..char:GetAttribute("meleeweapons", 0).. "/20\n"
+        str = str .. "Explosives: " ..char:GetAttribute("explosives", 0).. "/20\n"
+        str = str .. "Medicine: " ..char:GetAttribute("medicine", 0).. "/20\n"
+        str = str .. "Evasion: " ..char:GetAttribute("evasion", 0).. "/20\n"
+        str = str .. "Survival: " ..char:GetAttribute("survival", 0).. "/20\n"
+        str = str .. "Science: " ..char:GetAttribute("science", 0).. "/20\n"
+        str = str .. "Repair: " ..char:GetAttribute("repair", 0).. "/20\n"
+        str = str .. "Medicine: " ..char:GetAttribute("medicine", 0).. "/20\n"
+        str = str .. "Lockpicking: " ..char:GetAttribute("lockpicking", 0).. "/20\n"
         return str
 	end
 })
@@ -219,7 +234,9 @@ ix.command.Add("SpendSkillpoints", {
         local char = client:GetCharacter()
         local ply = client
         local currentpoints = char:GetSkillPoints()
-        local skill = skill
+        local skill = string.lower(skill)
+
+        
         
         if (currentpoints == 0) then
             client:NewVegasNotify("You don't have any skillpoints to spend.", "messageSad", 8)
@@ -236,37 +253,23 @@ ix.command.Add("SpendSkillpoints", {
             return
         end 
 
-         -- Catch some edge cases
-         if (string.upper(skill) == "ENERGY" or string.upper(skill) == "ENERGYWEAPONS") then 
-            skill = "EnergyWeapons"
-        elseif (string.upper(skill) == "MELEEWEAPONS") then 
-            skill = "Melee"
-        elseif (string.upper(skill) == "LOCKPICKING") then 
-            skill = "Lockpick"
+        local skillLevel = char:GetSkill(skill)
+
+        if not (skillLevel == nil) then
+
+            if (skillLevel + pointstospend > 20) then
+                client:NewVegasNotify("You cannot raise a skill above 20.", "messageSad", 8)
+                return
+            end 
+
+            char:SetSkill(skill, skillLevel + pointstospend)
+            local newlevel = char:GetSkill(skill, 0)
+            char:SetSkillPoints(char:GetSkillPoints() - pointstospend)
+            client:NewVegasNotify("Your " .. skill .. " skill has been increased from " ..skillLevel.. " to " ..newlevel.. ". \n Skillpoints Remaining: " .. char:GetSkillPoints(), "messageNeutral", 8)
         else 
-            -- Most skills will end up here - ensure first letter is capitalized and the rest is lowercase.
-            skill = string.upper(string.sub(skill, 1, 1)) .. string.lower(string.sub(skill, 2))
+            client:NewVegasNotify("Invalid skill name.", "messageSad", 8)
         end 
-    
-        -- Ensure that the given skill exists, spit out error and end if not.
-        local getterFunc = char["Get" .. skill] 
-        if not (getterFunc) then
-            return client:NewVegasNotify("Invalid Skill.", "messageSad", 8)
-        end 
-
-        -- Use setter function to prepare set function, and get skill level
-        local setterFunc = char["Set" .. skill]
-        local skillLevel = getterFunc(char)
-
-        if (skillLevel + pointstospend > 20) then
-            return client:NewVegasNotify("Cannot upgrade a skill beyond 20.", "messageSad", 8)
-        end 
-
-        -- Use setter function with given skill and points to spend, deduct skill points.
-        setterFunc(char, skillLevel + pointstospend)
-        local newlevel =  getterFunc(char)
-        char:SetSkillPoints(currentpoints - pointstospend)
-        client:NewVegasNotify("Your " .. skill .. " skill has been increased from " ..skillLevel.. " to " ..newlevel.. ". \n Skillpoints Remaining: " .. char:GetSkillPoints(), "messageNeutral", 8)
+        
         return
         
     end

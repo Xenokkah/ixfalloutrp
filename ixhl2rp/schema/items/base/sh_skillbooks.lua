@@ -132,42 +132,42 @@ ITEM.functions.use = {
 		local char = item.player:GetCharacter()
 
 		if (item.skill == "Guns") then 
-			local currentlevel = char:GetGuns()
+			local currentlevel = char:GetAttribute("guns", 0)
 			char:SetGuns(currentlevel + 1)
 		end 
 
 		if (item.skill == "EnergyWeapons") then 
-			local currentlevel = char:GetEnergyWeapons()
+			local currentlevel = char:GetAttribute("energyweapons", 0)
 			char:SetEnergyWeapons(currentlevel + 1)
 		end 
 
 		if (item.skill == "Melee") then 
-			local currentlevel = char:GetMelee()
+			local currentlevel = char:GetAttribute("meleeweapons", 0)
 			char:SetMelee(currentlevel + 1)
 		end 
 
 		if (item.skill == "Explosives") then 
-			local currentlevel = char:GetExplosives()
+			local currentlevel = char:GetAttribute("explosives", 0)
 			char:SetExplosives(currentlevel + 1)
 		end 
 
 		if (item.skill == "Survival") then 
-			local currentlevel = char:GetSurvival()
+			local currentlevel = char:GetAttribute("survival", 0)
 			char:SetSurvival(currentlevel + 1)
 		end 
 
 		if (item.skill == "Science") then 
-			local currentlevel = char:GetScience()
+			local currentlevel = char:GetAttribute("science", 0)
 			char:SetScience(currentlevel + 1)
 		end 
 
 		if (item.skill == "Repair") then 
-			local currentlevel = char:GetRepair()
+			local currentlevel = char:GetAttribute("repair", 0)
 			char:SetRepair(currentlevel + 1)
 		end 
 
 		if (item.skill == "Medicine") then 
-			local currentlevel = char:GetMedicine()
+			local currentlevel = char:GetAttribute("medicine", 0)
 			char:SetMedicine(currentlevel + 1)
 		end 
 
@@ -177,7 +177,7 @@ ITEM.functions.use = {
 		end 
 
 		if (item.skill == "Lockpick") then 
-			local currentlevel = char:GetLockpick()
+			local currentlevel = char:GetAttribute("lockpicking", 0)
 			char:SetLockpick(currentlevel + 1)
 		end 
 

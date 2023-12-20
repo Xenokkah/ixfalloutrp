@@ -80,7 +80,7 @@ ix.command.Add("Unarmed", {
         local value = math.random(0, 10)
         local attr = "Unarmed"
         local att =  math.floor(client:GetCharacter():GetAttribute("strength") / 2)
-        local add = att + char:GetUnarmed()
+        local add = att + char:GetSkill("unarmed", 0)
         local modifier = modifier or 0
         
         ix.chat.Send(client, "rollStat", tostring(value), nil, nil, {
@@ -102,7 +102,7 @@ ix.command.Add("Melee", {
         local value = math.random(0, 10)
         local attr = "Melee Weapons"
         local att = math.floor(client:GetCharacter():GetAttribute("strength") / 2)
-        local add = att + char:GetMelee()
+        local add = att + char:GetSkill("meleeweapons", 0)
         local modifier = modifier or 0
         
         ix.chat.Send(client, "rollStat", tostring(value), nil, nil, {
@@ -125,7 +125,7 @@ ix.command.Add("Energy", {
         local value = math.random(0, 10)
         local attr = "Energy Weapons"
         local att = math.floor(client:GetCharacter():GetAttribute("perception") / 2)
-        local add = att + char:GetEnergyWeapons()
+        local add = att + char:GetSkill("energyweapons", 0)
         local modifier = modifier or 0
         
         ix.chat.Send(client, "rollStat", tostring(value), nil, nil, {
@@ -147,7 +147,7 @@ ix.command.Add("Explosives", {
         local value = math.random(0, 10)
         local attr = "Perception"
         local att = math.floor(client:GetCharacter():GetAttribute("perception") / 2)
-        local add = att + char:GetExplosives()
+        local add = att + char:GetSkill("explosives", 0)
         local modifier = modifier or 0
         
         ix.chat.Send(client, "rollStat", tostring(value), nil, nil, {
@@ -169,7 +169,7 @@ ix.command.Add("Lockpick", {
         local value = math.random(0, 10)
         local attr = "Lockpicking"
         local att = math.floor(client:GetCharacter():GetAttribute("perception") / 2)
-        local add = att + char:GetLockpick()
+        local add = att + char:GetSkill("lockpicking", 0)
         local modifier = modifier or 0
         
         ix.chat.Send(client, "rollStat", tostring(value), nil, nil, {
@@ -193,7 +193,7 @@ ix.command.Add("Survival", {
         local value = math.random(0, 10)
         local attr = "Survival"
         local att = math.floor(client:GetCharacter():GetAttribute("endurance") / 2)
-        local add = att + char:GetSurvival()
+        local add = att + char:GetSkill("survival", 0)
         local modifier = modifier or 0
         
         ix.chat.Send(client, "rollStat", tostring(value), nil, nil, {
@@ -220,7 +220,7 @@ ix.command.Add("Science", {
         local value = math.random(0, 10)
         local attr = "Science"
         local att = math.floor(client:GetCharacter():GetAttribute("intelligence") / 2)
-        local add = att + char:GetScience()
+        local add = att + char:GetSkill("science", 0)
         local modifier = modifier or 0
         
         ix.chat.Send(client, "rollStat", tostring(value), nil, nil, {
@@ -242,7 +242,7 @@ ix.command.Add("Medicine", {
         local value = math.random(0, 10)
         local attr = "Medicine"
         local att =math.floor(client:GetCharacter():GetAttribute("intelligence") / 2)
-        local add = att + char:GetMedicine()
+        local add = att + char:GetSkill("medicine", 0)
         local modifier = modifier or 0
         
         ix.chat.Send(client, "rollStat", tostring(value), nil, nil, {
@@ -264,7 +264,7 @@ ix.command.Add("Repair", {
         local value = math.random(0, 10)
         local attr = "Repair"
         local att = math.floor(client:GetCharacter():GetAttribute("intelligence") / 2)
-        local add = att + char:GetRepair()
+        local add = att + char:GetSkill("repair", 0)
         local modifier = modifier or 0
         
         ix.chat.Send(client, "rollStat", tostring(value), nil, nil, {
@@ -288,7 +288,7 @@ ix.command.Add("Guns", {
         local value = math.random(0, 10)
         local attr = "Guns"
         local att = math.floor(client:GetCharacter():GetAttribute("agility") / 2)
-        local add = att + char:GetGuns()
+        local add = att + char:GetSkill("guns", 0)
         local modifier = modifier or 0
         
         ix.chat.Send(client, "rollStat", tostring(value), nil, nil, {
@@ -310,7 +310,7 @@ ix.command.Add("Evasion", {
         local value = math.random(0, 10)
         local attr = "Evasion"
         local att = math.floor(client:GetCharacter():GetAttribute("agility") / 2)
-        local add = att + char:GetEvasion()
+        local add = att + char:GetSkill("evasion", 0)
         local modifier = modifier or 0
         
         ix.chat.Send(client, "rollStat", tostring(value), nil, nil, {

@@ -51,6 +51,6 @@ if (SERVER) then
     end)
 
     ix.log.AddType("moveEnd", function(client, distance, apcost)
-        return string.format("%s has finished moving. Distance: %s. AP Cost: %s.", client:Name(), distance, apcost)
+        return string.format("%s has finished moving. Distance: %sm. AP Cost: %s.", client:Name(), distance, apcost)
     end)
 end

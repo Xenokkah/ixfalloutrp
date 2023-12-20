@@ -16,7 +16,7 @@ RECIPE.blueprint = "blueprintmfcefficent"
 
 
 RECIPE:PostHook("OnCanSee", function(recipeTable, client)
-	if (client:GetCharacter():GetRepair() < 5) then 
+	if (client:GetCharacter():GetSkill("repair", 0) < 5) then 
 		return false
 	end 
 
