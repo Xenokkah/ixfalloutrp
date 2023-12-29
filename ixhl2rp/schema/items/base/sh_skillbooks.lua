@@ -7,7 +7,6 @@ ITEM.height = 1
 ITEM.category = "Consumables"
 ITEM.hunger = 0
 ITEM.quantity = 1
-ITEM.skill = "Survival"
 
 function ITEM:GetDescription()
 	local quant = self:GetData("quantity", 1)
@@ -131,60 +130,29 @@ ITEM.functions.use = {
 
 		local char = item.player:GetCharacter()
 
-		if (item.skill == "Guns") then 
-			local currentlevel = char:GetAttribute("guns", 0)
-			char:SetGuns(currentlevel + 1)
+		if (item.skill) then
+
+			if char:GetSkill(item.skill) >= 20 then
+				item.player:NewVegasNotify("Your skill is already at maximum, this book can't possibly teach you anything more!", "messageNeutral", 5)
+				return false
+			else 
+				char:SetSkill(item.skill, char:GetSkill(item.skill, 0) + 1)
+				item.player:NewVegasNotify(item.skill .. " increased by 1.", "messageNeutral", 5)
+			end 
 		end 
 
-		if (item.skill == "EnergyWeapons") then 
-			local currentlevel = char:GetAttribute("energyweapons", 0)
-			char:SetEnergyWeapons(currentlevel + 1)
+		if (item.trait) then
+			if (char:HasFeat(item.trait)) then
+				item.player:NewVegasNotify("You already know the information in this book, it's of no use to you!", "messageNeutral", 5)
+				return false
+			else 
+				char:AddFeat(item.trait)
+				item.player:NewVegasNotify("You have learned " .. item.traitdisplay ..  "!", "messageNeutral", 5)
+			end 
 		end 
 
-		if (item.skill == "Melee") then 
-			local currentlevel = char:GetAttribute("meleeweapons", 0)
-			char:SetMelee(currentlevel + 1)
-		end 
-
-		if (item.skill == "Explosives") then 
-			local currentlevel = char:GetAttribute("explosives", 0)
-			char:SetExplosives(currentlevel + 1)
-		end 
-
-		if (item.skill == "Survival") then 
-			local currentlevel = char:GetAttribute("survival", 0)
-			char:SetSurvival(currentlevel + 1)
-		end 
-
-		if (item.skill == "Science") then 
-			local currentlevel = char:GetAttribute("science", 0)
-			char:SetScience(currentlevel + 1)
-		end 
-
-		if (item.skill == "Repair") then 
-			local currentlevel = char:GetAttribute("repair", 0)
-			char:SetRepair(currentlevel + 1)
-		end 
-
-		if (item.skill == "Medicine") then 
-			local currentlevel = char:GetAttribute("medicine", 0)
-			char:SetMedicine(currentlevel + 1)
-		end 
-
-		if (item.skill == "Sneak") then 
-			local currentlevel = char:GetSneak()
-			char:SetSneak(currentlevel + 1)
-		end 
-
-		if (item.skill == "Lockpick") then 
-			local currentlevel = char:GetAttribute("lockpicking", 0)
-			char:SetLockpick(currentlevel + 1)
-		end 
-
-		item.player:NewVegasNotify(item.skill .. " increased by 1.", "messageNeutral", 10)
-
+		
 		quantity = quantity - 1
-
 		if (quantity >= 1) then
 			item:SetData("quantity", quantity)
 			return false

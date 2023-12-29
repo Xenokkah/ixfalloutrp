@@ -10,7 +10,7 @@ ix.config.Add("startingSkillPoints", 20, "The starting amount of attribute point
 	category = "characters"
 })
 
-ix.config.Add("startingFeats", 3, "The starting amount of attribute points a character has on creation.", nil, {
+ix.config.Add("maxFeats", 3, "The starting amount of attribute points a character has on creation.", nil, {
 	data = { min = 0, max = 10 },
 	category = "characters"
 })

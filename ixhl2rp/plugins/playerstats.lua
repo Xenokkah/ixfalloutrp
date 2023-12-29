@@ -320,6 +320,28 @@ function PLUGIN:OnCharacterCreated(client, character)
     char:SetChardrboost(0)
 
 
+    if character:HasFeat("kamikaze") then
+        character:SetChardt(character:GetChardt() - 5)
+        character:SetCharap(character:GetCharap() + 2)
+    end 
+
+    if character:HasFeat("pure") then
+        character:SetCharmaxhp(character:GetCharmaxhp() + 10)
+        character:SetCharradresist(character:GetCharradresist() - 25)
+        character:SetCharcurrenthp(character:GetCharmaxhp())
+    end 
+
+    if character:GetLineage() == "none" then
+        character:SetLineage("wastelander")
+        character:AddFeat("wastelander")
+    end 
+
+    if character:GetLineage() == "tribal" then
+
+        local unarmedboost = math.clamp(character:GetSkill("unarmed") + 5, 0, 20)
+        local meleeboost = math.clamp(character:GetSkill("meleeweapons") + 5, 0, 20)
+        local survivalboost = math.clamp(character:GetSkill("survival") + 5, 0, 20)
+    end 
    
     
 end 

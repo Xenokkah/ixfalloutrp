@@ -1,0 +1,11 @@
+ITEM.name = "US Army Operations Manual: Powered Infantry Armor Operation and Care"
+ITEM.model = "models/mosi/fallout4/props/books/uscovertops.mdl"
+ITEM.description = "A pre-war document issued to US Army mechanized troops instructing them on safe and effective use of Power Armor, as well as tips and tricks for extending its lifespan and effectiveness between tuneups."
+ITEM.category = "skillbooks"
+ITEM.flag = "1"
+ITEM.skin = 6
+ITEM.trait = "patraining"
+ITEM.traitdisplay = "Power Armor Training"
+ITEM.price = 5
+ITEM.width = 1
+ITEM.height = 2

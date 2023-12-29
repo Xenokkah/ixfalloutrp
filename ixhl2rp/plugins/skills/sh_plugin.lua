@@ -13,110 +13,6 @@ ix.char.RegisterVar("SkillPoints", {
     bNoDisplay = true
 })
 
-    --[[
-
-ix.char.RegisterVar("EnergyWeapons", {
-    field = "energyweapons",
-    fieldType = ix.type.number,
-    default = 0,
-    isLocal = true,
-    bNoDisplay = true
-})
-
-ix.char.RegisterVar("Explosives", {
-    field = "explosives",
-    fieldType = ix.type.number,
-    default = 0,
-    isLocal = true,
-    bNoDisplay = true
-})
-
-ix.char.RegisterVar("Guns", {
-    field = "guns",
-    fieldType = ix.type.number,
-    default = 0,
-    isLocal = true,
-    bNoDisplay = true
-})
-
-ix.char.RegisterVar("Melee", {
-    field = "melee",
-    fieldType = ix.type.number,
-    default = 0,
-    isLocal = true,
-    bNoDisplay = true
-})
-
-ix.char.RegisterVar("Unarmed", {
-    field = "unarmed",
-    fieldType = ix.type.number,
-    default = 0,
-    isLocal = true,
-    bNoDisplay = true
-})
-
-
-ix.char.RegisterVar("survival", {
-    field = "survival",
-    fieldType = ix.type.number,
-    default = 0,
-    isLocal = true,
-    bNoDisplay = true
-})
-
-ix.char.RegisterVar("Repair", {
-    field = "repair",
-    fieldType = ix.type.number,
-    default = 0,
-    isLocal = true,
-    bNoDisplay = true
-})
-
-ix.char.RegisterVar("Science", {
-    field = "science",
-    fieldType = ix.type.number,
-    default = 0,
-    isLocal = true,
-    bNoDisplay = true
-})
-
-ix.char.RegisterVar("Medicine", {
-    field = "medicine",
-    fieldType = ix.type.number,
-    default = 0,
-    isLocal = true,
-    bNoDisplay = true
-})
-
-ix.char.RegisterVar("Lockpick", {
-    field = "lockpick",
-    fieldType = ix.type.number,
-    default = 0,
-    isLocal = true,
-    bNoDisplay = true
-})
-
-ix.char.RegisterVar("Evasion", {
-    field = "evasion",
-    fieldType = ix.type.number,
-    default = 0,
-    isLocal = true,
-    bNoDisplay = true
-})
-
-
-ix.char.RegisterVar("Evasion", {
-    field = "evasion",
-    fieldType = ix.type.number,
-    default = 0,
-    isLocal = true,
-    bNoDisplay = true
-})
-
---]]
-
-
-
 function PLUGIN:OnCharacterCreated(client, character)
     -- After char creation, get character's SPECIAL and assign skills based on these
     local strength = character:GetAttribute("strength")
@@ -145,45 +41,79 @@ function PLUGIN:OnCharacterCreated(client, character)
     character:SetSkill("guns", agility + luckboost)
     character:SetSkill("evasion", agility + luckboost)
 
+
+    -- Background Traits --
+    if character:HasFeat("tribal") then
+        local unarmedboost = math.Clamp(character:GetSkill("unarmed") + 5, 0, 20)
+        local meleeboost = math.Clamp(character:GetSkill("meleeweapons") + 5, 0, 20)
+        local survivalboost = math.Clamp(character:GetSkill("survival") + 5, 0, 20)
+        local energygunsdebuff = math.Clamp(character:GetSkill("energyweapons") -5, 0, 20)
+        local sciencedebuff = math.Clamp(character:GetSkill("science")  -5, 0, 20)
+        local medicinedebuff = math.Clamp(character:GetSkill("medicine") -5, 0, 20)
+        character:SetSkill("unarmed", unarmedboost)
+        character:SetSkill("meleeweapons", meleeboost)
+        character:SetSkill("survival", survivalboost)
+        character:SetSkill("energyweapons", energygunsdebuff)
+        character:SetSkill("science", sciencedebuff)
+        character:SetSkill("medicine", medicinedebuff)
+    end 
+
+    if character:HasFeat("cityslicker") then
+        local lockpickboost = math.Clamp(character:GetSkill("lockpicking") + 5, 0, 20)
+        local evasionboost = math.Clamp(character:GetSkill("evasion") + 5, 0, 20)
+        local sciendedebuff = math.Clamp(character:GetSkill("science") -5, 0, 20)
+        local explosivesdebuff = math.Clamp(character:GetSkill("explosives")  -5, 0, 20)
+        character:SetSkill("lockpicking", lockpickboost)
+        character:SetSkill("evasion", evasionboost)
+        character:SetSkill("science", sciencedebuff)
+        character:SetSkill("explosives", explosivesdebuff)
+    end 
+
+    if character:HasFeat("mechanic") then
+        local repairboost = math.Clamp(character:GetSkill("repair") + 5, 0, 20)
+        local energygunsboost = math.Clamp(character:GetSkill("energyweapons") + 5, 0, 20)
+        local meleedebuff = math.Clamp(character:GetSkill("meleeweapons") -5, 0, 20)
+        local unarmeddebuff = math.Clamp(character:GetSkill("unarmed")  -5, 0, 20)
+        character:SetSkill("repair", repairboost)
+        character:SetSkill("energyweapons", energygunsdebuff)
+        character:SetSkill("meleeweapons", meleedebuff)
+        character:SetSkill("unarmed", unarmeddebuff)
+    end 
+
+    if character:HasFeat("junkie") then
+        local gunsboost = math.Clamp(character:GetSkill("guns") + 5, 0, 20)
+        local scienceboost = math.Clamp(character:GetSkill("science") + 5, 0, 20)
+        local evasiondebuff = math.Clamp(character:GetSkill("evasion") -5, 0, 20)
+        local medicinedebuff = math.Clamp(character:GetSkill("medicine")  -5, 0, 20)
+        character:SetSkill("guns", gunsboost)
+        character:SetSkill("science", scienceboost)
+        character:SetSkill("evasion", evasiondebuff)
+        character:SetSkill("medicine", medicinedebuff)
+    end 
+
+    if character:HasFeat("soldier") then
+        local gunsboost = math.Clamp(character:GetSkill("guns") + 5, 0, 20)
+        local explosivesboost = math.Clamp(character:GetSkill("explosives") + 5, 0, 20)
+        local survivaldebuff = math.Clamp(character:GetSkill("survival") -5, 0, 20)
+        local lockpickingdebuff = math.Clamp(character:GetSkill("lockpicking")  -5, 0, 20)
+        character:SetSkill("guns", gunsboost)
+        character:SetSkill("explosives", explosivesboost)
+        character:SetSkill("survival", survivaldebuff)
+        character:SetSkill("lockpicking", lockpickingdebuff)
+    end 
+
+    if character:HasFeat("doctor") then
+        local medicineboost = math.Clamp(character:GetSkill("medicine") + 5, 0, 20)
+        local scienceboost = math.Clamp(character:GetSkill("science") + 5, 0, 20)
+        local gunsdebuff = math.Clamp(character:GetSkill("guns") -5, 0, 20)
+        local meleedebuff = math.Clamp(character:GetSkill("meleeweapons")  -5, 0, 20)
+        character:SetSkill("medicine", medicineboost)
+        character:SetSkill("science", scienceboost)
+        character:SetSkill("guns", gunsdebuff)
+        character:SetSkill("meleeweapons", meleedebuff)
+    end 
+
 end 
-
-ix.command.Add("MySkills", {
-	description = "View your current skills.",
-	OnRun = function(self, client)
-		local str = ""
-        local char = client:GetCharacter()
-    
-        if (char:GetSkillPoints() > 0) then
-            str =  str .. "You have unspent skill points! /spendskillpoints to use.\n"
-        end 
-        str =  str .. "Energy Weapons: " .. char:GetAttribute("energyweapons", 0).. "/20\n"
-        str = str .. "Guns: " ..char:GetAttribute("guns", 0).. "/20\n"
-        str = str .. "Melee Weapons: " ..char:GetAttribute("meleeweapons", 0).. "/20\n"
-        str = str .. "Unarmed: " ..char:GetAttribute("unarmed", 0).. "/20\n"
-        str = str .. "Explosives: " ..char:GetAttribute("explosives", 0).. "/20\n"
-        str = str .. "Medicine: " ..char:GetAttribute("medicine", 0).. "/20\n"
-        str = str .. "Evasion: " ..char:GetAttribute("evasion", 0).. "/20\n"
-        str = str .. "Survival: " ..char:GetAttribute("survival", 0).. "/20\n"
-        str = str .. "Science: " ..char:GetAttribute("science", 0).. "/20\n"
-        str = str .. "Repair: " ..char:GetAttribute("repair", 0).. "/20\n"
-        str = str .. "Lockpicking: " ..char:GetAttribute("lockpicking", 0).. "/20\n"
-        return str
-	end
-})
-
-ix.command.Add("MyProgress", {
-	description = "View your current level, skill points, and progress.",
-	OnRun = function(self, client)
-		local str = ""
-        local char = client:GetCharacter()
-        
-        str = str .. "Level: " .. char:GetLevel() .. "\n"
-        str = str .. "Next Level in: " .. char:GetXPToNextLevel() - char:GetXP() .. " XP \n"
-        str = str .. "Lifetime XP Gained: " ..char:GetLifetimeXP() .. "\n"
-        str = str .. "Skillpoints: " ..char:GetSkillPoints() .. "\n"
-        return str
-	end
-})
 
 ix.command.Add("CharGetSkills", {
 	description = "View given player's skills.",
@@ -197,17 +127,17 @@ ix.command.Add("CharGetSkills", {
         str = str .. "Level: " .. char:GetLevel() .. "\n"
         str = str .. "Next Level in: " .. char:GetXPToNextLevel() - char:GetXP() .. " XP \n"
         str = str .. "Skillpoints: " ..char:GetSkillPoints() .. "\n\n"
-        str =  str .. "Energy Weapons: " .. char:GetAttribute("energyweapons", 0).. "/20\n"
-        str = str .. "Guns: " ..char:GetAttribute("guns", 0).. "/20\n"
-        str = str .. "Melee Weapons: " ..char:GetAttribute("meleeweapons", 0).. "/20\n"
-        str = str .. "Explosives: " ..char:GetAttribute("explosives", 0).. "/20\n"
-        str = str .. "Medicine: " ..char:GetAttribute("medicine", 0).. "/20\n"
-        str = str .. "Evasion: " ..char:GetAttribute("evasion", 0).. "/20\n"
-        str = str .. "Survival: " ..char:GetAttribute("survival", 0).. "/20\n"
-        str = str .. "Science: " ..char:GetAttribute("science", 0).. "/20\n"
-        str = str .. "Repair: " ..char:GetAttribute("repair", 0).. "/20\n"
-        str = str .. "Medicine: " ..char:GetAttribute("medicine", 0).. "/20\n"
-        str = str .. "Lockpicking: " ..char:GetAttribute("lockpicking", 0).. "/20\n"
+        str =  str .. "Energy Weapons: " .. char:GetSkill("energyweapons", 0).. "/20\n"
+        str = str .. "Guns: " ..char:GetSkill("guns", 0).. "/20\n"
+        str = str .. "Melee Weapons: " ..char:GetSkill("meleeweapons", 0).. "/20\n"
+        str = str .. "Explosives: " ..char:GetSkill("explosives", 0).. "/20\n"
+        str = str .. "Medicine: " ..char:GetSkill("medicine", 0).. "/20\n"
+        str = str .. "Evasion: " ..char:GetSkill("evasion", 0).. "/20\n"
+        str = str .. "Survival: " ..char:GetSkill("survival", 0).. "/20\n"
+        str = str .. "Science: " ..char:GetSkill("science", 0).. "/20\n"
+        str = str .. "Repair: " ..char:GetSkill("repair", 0).. "/20\n"
+        str = str .. "Medicine: " ..char:GetSkill("medicine", 0).. "/20\n"
+        str = str .. "Lockpicking: " ..char:GetSkill("lockpicking", 0).. "/20\n"
         return str
 	end
 })

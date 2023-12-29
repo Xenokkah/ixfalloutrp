@@ -6,7 +6,7 @@ do
 
 		if (character) then
 			PANEL.feats = PANEL:Add("ixCategoryPanel")
-			PANEL.feats:SetText("Feats")
+			PANEL.feats:SetText("Traits")
 			PANEL.feats:Dock(TOP)
 			PANEL.feats:DockMargin(0, 0, 0, 8)
 

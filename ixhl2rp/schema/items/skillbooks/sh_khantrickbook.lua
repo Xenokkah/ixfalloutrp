@@ -1,0 +1,11 @@
+ITEM.name = "Sex, Drugs, and Rock'n'Roll: The Story Of A Mudflap"
+ITEM.model = "models/props_lab/bindergraylabel01a.mdl"
+ITEM.description = "A surprisingly insightful memoir from a Great Khan named Mudflap that outlines his life of scrapping and debauchery. Might have some interesting lessons for enterprising rough riders that like to fight dirty."
+ITEM.category = "skillbooks"
+ITEM.flag = "1"
+ITEM.skin = 6
+ITEM.trait = "khantrick"
+ITEM.traitdisplay = "the Khan Trick unarmed technique"
+ITEM.price = 5
+ITEM.width = 1
+ITEM.height = 2

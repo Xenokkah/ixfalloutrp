@@ -89,7 +89,7 @@ net.Receive(
 
 		local featsLabelCenter = vgui.Create("DLabel", frame)
 		featsLabelCenter:SetPos((frame:GetWide() - 200) / 2, 120)
-		featsLabelCenter:SetText("Feats")
+		featsLabelCenter:SetText("Traits")
 		featsLabelCenter:SetFont("CustomFontLarge")
 		featsLabelCenter:SizeToContents()
 		local featsPanelCenter = vgui.Create("DPanel", frame)

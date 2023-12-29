@@ -102,7 +102,7 @@ do
 			index = 6,
 			category = "lineages",
 			isLocal = true,
-			OnDisplay = function(self, container, payload)
+			OnDisplay = function(self, container, payload, client)
 				payload.lineage = "none"
 				local bgFeats = {}
 				local function addFeat(feat)
@@ -141,7 +141,10 @@ do
 				local bgdropdown = bgpanel:Add("DComboBox")
 				bgdropdown:Dock(FILL)
 				for k, v in SortedPairsByMemberValue(ix.lineages.list, "name") do
-					bgdropdown:AddChoice(L(v.name), v)
+
+					if not v.noStartSelection then
+						bgdropdown:AddChoice(L(v.name), v)
+					end 
 				end
 
 				local descPanel = bginfoLeft:Add("DPanel")
@@ -171,7 +174,10 @@ do
 					for k, v in pairs(data.feats) do
 						local feats = ix.feats.list
 						addFeat(v)
-						bgfeatList:AddFeat(feats[v], true, false)
+						if v.display == true then
+							bgfeatList:AddFeat(feats[v], true, false)
+						end 
+						
 					end
 				end
 
@@ -182,7 +188,7 @@ do
 					if not isstring(value) then return false, "unknownError" end
 				end
 			end,
-			ShouldDisplay = function(self, container, payload) return not table.IsEmpty(ix.feats.list) end
+			ShouldDisplay = function(self, container, payload) return not table.IsEmpty(ix.lineages.list) end
 		}
 	)
 

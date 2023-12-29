@@ -7,6 +7,13 @@ ITEM.category = "Electronics"
 ITEM.flag = "1"
 ITEM.repairCost = ITEM.price/100*1
 ITEM.weight = 0.25
+ITEM.exRender = true
+ITEM.iconCam = {
+	pos = Vector(8.27, 0.12, 107.68),
+	ang = Angle(85.6, 180.94, 0),
+	fov = 4.29
+}
+
 ITEM.flag = "1"
 
 local function getText(togga)
@@ -60,7 +67,7 @@ if (CLIENT) then
 	end
 end
 
-// On player uneqipped the item, Removes a weapon from the player and keep the ammo in the item.
+-- Radio Stuff --
 ITEM.functions.toggle = { -- sorry, for name order.
 	name = "Toggle",
 	tip = "useTip",
@@ -76,6 +83,22 @@ ITEM.functions.toggle = { -- sorry, for name order.
 	end
 }
 
+
+ITEM.functions.use = { -- sorry, for name order.
+	name = "Freq",
+	tip = "useTip",
+	icon = "icon16/wrench.png",
+	OnRun = function(item)
+		netstream.Start(item.player, "radioAdjust", item:GetData("freq", "000,0"), item.id)
+
+		return false
+	end,
+	OnCanRun = function(item)
+		return (!IsValid(item.entity))
+	end
+}
+
+-- Geiger Counter --
 ITEM.functions.Geiger = {
 	name = "Use Geiger Counter",
 	tip = "Check your rads.",
@@ -92,21 +115,152 @@ ITEM.functions.Geiger = {
 		end
 		return true
 	end
-}
+}  
 
-ITEM.functions.use = { -- sorry, for name order.
-	name = "Freq",
-	tip = "useTip",
-	icon = "icon16/wrench.png",
-	OnRun = function(item)
-		netstream.Start(item.player, "radioAdjust", item:GetData("freq", "000,0"), item.id)
 
+-- Music Player Stuff --
+
+ITEM.functions.play = {
+    name = "Play Tape",
+    tip = "useTip",
+    icon = "icon16/control_play.png",
+    OnCanRun = function(item)				
+		return (!IsValid(item.entity) and item:GetData("CurTape", nil) != nil)
+	end,
+    OnRun = function(item)
+    	local entity = item.player
+		local curtape = item:GetData("CurTape", nil)
+		local tape = ix.item.list[curtape]
+
+		if entity.sound then
+			entity.sound:Stop()
+		end
+
+		tape.options = {}
+		for k, v in pairs(tape.cassette_options) do
+			tape.options[#tape.options + 1] = k
+		end
+
+		entity.CurCassette = data
+		entity.sound = CreateSound(entity, table.Random(tape.options))
+		entity.sound:Play()
+		entity.sound:SetSoundLevel(0)
+		entity:EmitSound("stalkersound/inv_properties.mp3", 40)
+		
 		return false
 	end,
-	OnCanRun = function(item)
-		return (!IsValid(item.entity))
-	end
 }
+
+ITEM.functions.insert = {
+    name = "Insert Tape",
+    tip = "useTip",
+    icon = "icon16/arrow_up.png",
+    isMulti = true,
+    OnCanRun = function(item)				
+		return (!IsValid(item.entity) and item:GetData("CurTape", nil) == nil)
+	end,
+	multiOptions = function(item, client)
+		local targets = {}
+        local char = client:GetCharacter()
+		
+        if (char) then
+			local inv = char:GetInventory()
+
+			if (inv) then
+				local items = inv:GetItems()
+
+				for k, v in pairs(items) do
+					if v.isCassette then
+						table.insert(targets, {
+							name = v.name,
+							data = {v:GetID()},
+						})
+					else
+						continue
+					end
+				end
+			end
+		end
+
+        return targets
+	end,
+    OnRun = function(item, data)
+		if !data[1] then
+			return false
+		end
+
+		local target = data[1]
+		local items = item.player:GetCharacter():GetInventory():GetItems()
+
+		for k, invItem in pairs(items) do
+			if (data[1]) then
+				if (invItem:GetID() == data[1]) then
+					target = invItem
+
+					break
+				end
+			else
+				client:Notify("No item selected.")
+				return false
+			end
+		end
+
+		item:SetData("CurTape", target.uniqueID)
+		target:Remove()
+		item.player:EmitSound("stalkersound/inv_slot.mp3", 40)
+		
+		return false
+	end,
+}
+
+ITEM.functions.remove = {
+    name = "Remove Tape",
+    tip = "useTip",
+    icon = "icon16/arrow_down.png",
+    OnCanRun = function(item)				
+		return (!IsValid(item.entity) and item:GetData("CurTape", nil) != nil)
+	end,
+    OnRun = function(item, data)
+		local inv = item.player:GetCharacter():GetInventory()
+		local curtape = item:GetData("CurTape", nil)
+		item:StopSound()
+
+		inv:Add(curtape)
+		item:SetData("CurTape", nil)
+		item.player:EmitSound("stalkersound/inv_slot.mp3", 40)
+		
+		return false
+	end,
+}
+
+ITEM.functions.stopsound = {
+    name = "Stop Playing",
+    tip = "useTip",
+    icon = "icon16/control_stop.png",
+    OnCanRun = function(item)
+		return (!IsValid(item.entity) and item:GetData("CurTape", nil) != nil)
+	end,
+    OnRun = function(item, data)
+		item:StopSound()
+		item.player:EmitSound("stalkersound/inv_properties.mp3", 40)
+		
+		return false
+	end,
+}
+
+ITEM:Hook("drop", function(item)
+	item:StopSound()
+end)
+
+function ITEM:StopSound()
+	local entity = self.player
+	if entity.sound then
+		entity.sound:Stop()
+	end
+end
+
+-- Other Item Functions -- 
+
 
 ITEM.functions.Sell = {
 	name = "Sell",

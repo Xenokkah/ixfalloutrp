@@ -1,0 +1,10 @@
+ITEM.name = "On Fistfighting"
+ITEM.model = "models/props_lab/binderredlabel.mdl"
+ITEM.description = "A thoughtful essay written by head of the Legion's Praetorian Guard, Lucius, discussing the relevance of hand to hand combat in an age of firearms, and an insight into some of the MMA techniques used by the Guard. Required reading for Legion officers with each copy made by hand, making it quite uncommon to find outside the Legion's officer class."
+ITEM.category = "skillbooks"
+ITEM.flag = "1"
+ITEM.trait = "legionassault"
+ITEM.traitdisplay = "the Legion Assault unarmed technique"
+ITEM.price = 5
+ITEM.width = 1
+ITEM.height = 2

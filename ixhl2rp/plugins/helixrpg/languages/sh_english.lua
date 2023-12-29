@@ -3,6 +3,6 @@ LANGUAGE = {
 	chooseBackground = "shape your story",
 	background = "Background",
 	skills = "Skills",
-	feats = "Feats",
+	feats = "Traits",
 	errorInvalidStat = "Provided stat is invalid."
 }
