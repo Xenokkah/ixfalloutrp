@@ -1,5 +1,5 @@
 PLUGIN.name = 'Movement'
-PLUGIN.author = 'ZeMysticalTaco'
+PLUGIN.author = 'Scrat Knapp'
 PLUGIN.description = 'Adds a command to help players tell how much theyve moved for their turn.'
 
 
@@ -7,9 +7,7 @@ ix.command.Add( "Movement", {
     description = "Begin or Finish counting movement.",
     OnRun = function( self, client )
         char = client:GetCharacter()
-
         if char:GetVar("isMoving") then
-
             local startPos = char:GetVar("isMoving")
             local endPos = client:GetPos()
             local distance = endPos:Distance(startPos)
@@ -28,22 +26,12 @@ ix.command.Add( "Movement", {
 
         else 
             client:Notify("You're moving. Use again to calculate distance travelled.")
-
             local startPos = client:GetPos()
-
-
-
             char:SetVar("isMoving", startPos)
             ix.log.Add(client, "moveStart", client)
-            
         end 
-
-
-
-       
     end
 } )
-
 
 if (SERVER) then
     ix.log.AddType("moveStart", function(client)

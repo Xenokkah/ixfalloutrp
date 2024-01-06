@@ -1,6 +1,6 @@
 ﻿ITEM.name = "Galaxy News Radio: Greatest Hits '75"
 ITEM.description = "A collection of radio hits."
-ITEM.longdesc = "This casette contains the top (x) hits as voted by listeners of Galaxy New Radio in a 2075 poll. It stands to reason the tunes here appeal to city folk.\nTrack Listing:\n	• Way Back Home\n•A Wonderful Guy\n	• Butcher Pete\n	• Civilization\n	• Anything Goes\n	• Happy Times\n	• I Don't Want To Set The World On Fire\n	• Accentuate The Positive\n	•Keep A'Knockin\n	• The Wanderer"
+ITEM.longdesc = "This casette contains the top 10 hits as voted by listeners of Galaxy New Radio in a 2075 poll. It stands to reason the tunes here appeal to city folk.\nTrack Listing:\n	• Way Back Home\n•A Wonderful Guy\n	• Butcher Pete\n	• Civilization\n	• Anything Goes\n	• Happy Times\n	• I Don't Want To Set The World On Fire\n	• Accentuate The Positive\n	•Keep A'Knockin\n	• The Wanderer"
 ITEM.price = 500
 ITEM.model = "models/mosi/fallout4/props/junk/holotape.mdl"
 ITEM.exRender = true
