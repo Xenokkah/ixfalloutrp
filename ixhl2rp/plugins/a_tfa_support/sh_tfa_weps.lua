@@ -44,12 +44,6 @@ PLUGIN.GunData[ "aus_w_9mmpistol" ] = {
 	
 	Prim = {
 		Ammo = "9mmammo",
-		Damage = 31,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01
 	},
 	
 	--Sec == Secondary
@@ -77,12 +71,6 @@ PLUGIN.GunData["aus_w_9mmsmg"] = {
 	
 	Prim = {
 		Ammo = "9mmammo",
-		Damage = 31,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01
 	},
 	
 	--Sec == Secondary
@@ -92,6 +80,34 @@ PLUGIN.GunData["aus_w_9mmsmg"] = {
 
 
 --=== 22LR ===--
+
+PLUGIN.GunData["tfa_22mm_pistol"] = {
+	BlackList = false,
+	ID = "22pistol",
+	Name = "Silenced .22 Pistol",
+	Desc = "An integrally suppressed pistol with a very small report when firing. Its compact size and low noise make it very popular for assassinations, but it doesn't really hold up in open combat.",
+	Slot = "secondary",
+	Model = "models/weapons/tfa_fallout/w_fallout_silenced_22.mdl",
+	Width = 3,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 1,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	
+	Prim = {
+		Ammo = "22lrammo",
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
 PLUGIN.GunData["aus_w_22_smg"] = {
 	BlackList = false,
 	ID = "22lrsmg",
@@ -112,18 +128,15 @@ PLUGIN.GunData["aus_w_22_smg"] = {
 	
 	Prim = {
 		Ammo = "22lrammo",
-		Damage = 15,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01
+
 	},
 	
 	--Sec == Secondary
 	Sec = {
 	}
 }
+
+
 
 PLUGIN.GunData["aus_w_varmintrifle"] = {
 	BlackList = false,
@@ -146,12 +159,6 @@ PLUGIN.GunData["aus_w_varmintrifle"] = {
 	Prim = {
 		Ammo = "22lrammo",
 		ClipSize = 10,
-		Damage = 15,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01
 	},
 	
 	--Sec == Secondary
@@ -183,12 +190,6 @@ PLUGIN.GunData["aus_w_piperevolver"] = {
 	
 	Prim = {
 		Ammo = "38specialammo",
-		Damage = 25,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01
 	},
 	
 	--Sec == Secondary
@@ -219,12 +220,6 @@ PLUGIN.GunData["aus_w_pipebolt"] = {
 	
 	Prim = {
 		Ammo = "38specialammo",
-		Damage = 25,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01,
 		ClipSize = 10
 	},
 	
@@ -255,12 +250,6 @@ PLUGIN.GunData["aus_w_pipeboltscoped"] = {
 	
 	Prim = {
 		Ammo = "38specialammo",
-		Damage = 25,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01
 	},
 	
 	--Sec == Secondary
@@ -290,12 +279,6 @@ PLUGIN.GunData["aus_w_piperiflesemi"] = {
 	
 	Prim = {
 		Ammo = "38specialammo",
-		Damage = 25,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01,
 		ClipSize = 25
 	},
 	
@@ -326,12 +309,6 @@ PLUGIN.GunData["aus_w_piperifleauto"] = {
 	
 	Prim = {
 		Ammo = "38specialammo",
-		Damage = 25,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01,
 		ClipSize = 30
 	},
 	
@@ -365,12 +342,6 @@ PLUGIN.GunData["aus_w_45pistol"] = {
 	
 	Prim = {
 		Ammo = "45autoammo",
-		Damage = 35,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01,
 	},
 	
 	--Sec == Secondary
@@ -383,7 +354,7 @@ PLUGIN.GunData["aus_w_combatrifle"] = {
 	ID = "combatrifle",
 	Name = "Combat Rifle",
 	conditionDrainFactor = 1,
-	Desc = "A chunky, dependable rifle that was once popular primarily among civillian shooters, now having a niche as an accurate, but cheap to feed semi automatic.",
+	Desc = "A chunky, dependable rifle that was once popular primarily among civillian shooters and reserve troops, now having a niche as an accurate, but cheap to feed semi automatic.",
 	Slot = "primary",
 	Model = "models/illusion/fwp/w_combatrifle.mdl",
 	Width = 4,
@@ -399,12 +370,6 @@ PLUGIN.GunData["aus_w_combatrifle"] = {
 	
 	Prim = {
 		Ammo = "45autoammo",
-		Damage = 35,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01,
 	},
 	
 	--Sec == Secondary
@@ -433,12 +398,6 @@ PLUGIN.GunData["aus_w_submachinegun"] = {
 	
 	Prim = {
 		Ammo = "45autoammo",
-		Damage = 35,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01,
 	},
 	
 	--Sec == Secondary
@@ -469,12 +428,6 @@ PLUGIN.GunData["aus_w_10mmpistol"] = {
 	
 	Prim = {
 		Ammo = "10mmammo",
-		Damage = 35,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01,
 	},
 	
 	--Sec == Secondary
@@ -503,12 +456,6 @@ PLUGIN.GunData["aus_w_10mmsmg"] = {
 	
 	Prim = {
 		Ammo = "10mmammo",
-		Damage = 35,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01,
 	},
 	
 	--Sec == Secondary
@@ -537,12 +484,6 @@ PLUGIN.GunData["aus_w_smmg"] = {
 	
 	Prim = {
 		Ammo = "10mmammo",
-		Damage = 35,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01,
 	},
 	
 	--Sec == Secondary
@@ -572,12 +513,6 @@ PLUGIN.GunData["tfa_tfre_colt_peacemaker"] = {
 	
 	Prim = {
 		Ammo = "357magnumammo",
-		Damage = 35,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01,
 	},
 	
 	--Sec == Secondary
@@ -605,13 +540,7 @@ PLUGIN.GunData["tfa_tfre_yellowboy"] = {
 	
 	Prim = {
 		Ammo = "357magnumammo",
-		Damage = 35,
-		KickUp = 0.4,
-		KickDown = 0.4,
 		ClipSize = 7,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01,
 	},
 	
 	--Sec == Secondary
@@ -641,12 +570,6 @@ PLUGIN.GunData["aus_w_44magnum"] = {
 	condition = 100,
 	Prim = {
 		Ammo = "44magnumammo",
-		Damage = 35,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01,
 	},
 	
 	--Sec == Secondary
@@ -674,12 +597,6 @@ PLUGIN.GunData["aus_w_cowboyrepeater"] = {
 	condition = 100,
 	Prim = {
 		Ammo = "44magnumammo",
-		Damage = 35,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01,
 		ClipSize = 8,
 	},
 	
@@ -709,12 +626,6 @@ PLUGIN.GunData["aus_w_127pistol"] = {
 	condition = 100,
 	Prim = {
 		Ammo = "127mmammo",
-		Damage = 35,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01,
 	},
 	
 	--Sec == Secondary
@@ -745,12 +656,6 @@ PLUGIN.GunData["aus_w_servicerifle"] = {
 	condition = 100,
 	Prim = {
 		Ammo = "556ammo",
-		Damage = 35,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01,
 		ClipSize = 20,
 	},
 	
@@ -779,12 +684,6 @@ PLUGIN.GunData["aus_w_hmar"] = {
 	condition = 100,
 	Prim = {
 		Ammo = "556ammo",
-		Damage = 35,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01,
 	},
 	
 	--Sec == Secondary
@@ -812,12 +711,6 @@ PLUGIN.GunData["aus_w_r91"] = {
 	condition = 100,
 	Prim = {
 		Ammo = "556ammo",
-		Damage = 35,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01,
 	},
 	
 	--Sec == Secondary
@@ -845,12 +738,6 @@ PLUGIN.GunData["aus_w_chinesear"] = {
 	condition = 100,
 	Prim = {
 		Ammo = "556ammo",
-		Damage = 35,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01,
 	},
 	
 	--Sec == Secondary
@@ -878,12 +765,6 @@ PLUGIN.GunData["aus_w_marksmancarbine"] = {
 	condition = 100,
 	Prim = {
 		Ammo = "556ammo",
-		Damage = 35,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01,
 	},
 	
 	--Sec == Secondary
@@ -911,12 +792,6 @@ PLUGIN.GunData["aus_w_assaultrifle"] = {
 	condition = 100,
 	Prim = {
 		Ammo = "556ammo",
-		Damage = 35,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01,
 		ClipSize = 60,
 	},
 	
@@ -948,12 +823,6 @@ PLUGIN.GunData["aus_w_caravanshotgun"] = {
 	MultiAmmo = "true",
 	Prim = {
 		Ammo = "12gaugeammo",
-		Damage = 35,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01,
 	},
 	
 	--Sec == Secondary
@@ -981,12 +850,6 @@ PLUGIN.GunData["aus_w_huntingshotgun"] = {
 	condition = 100,
 	Prim = {
 		Ammo = "12gaugeammo",
-		Damage = 35,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01,
 	},
 	
 	--Sec == Secondary
@@ -1014,12 +877,6 @@ PLUGIN.GunData["aus_w_combatshotgundrum"] = {
 	condition = 100,
 	Prim = {
 		Ammo = "12gaugeammo",
-		Damage = 35,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01,
 	},
 	
 	--Sec == Secondary
@@ -1049,12 +906,6 @@ PLUGIN.GunData["aus_w_assaultcarbine"] = {
 	condition = 100,
 	Prim = {
 		Ammo = "5mmammo",
-		Damage = 35,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01,
 	},
 	
 	--Sec == Secondary
@@ -1067,7 +918,7 @@ PLUGIN.GunData["aus_w_minigun"] = {
 	ID = "minigun",
 	Name = "Minigun",
 	conditionDrainFactor = 0.50,
-	Desc = "A massive rotary cannon, capable of swiftly tearing through damn near anything. Nearly impossible to use without the use of power armor, or some other form of enhanced strength. Requires 5mm rounds linked together on a disintegrating belt to load." ,
+	Desc = "A massive rotary cannon, capable of swiftly tearing through damn near anything. Nearly impossible to use without power armor or some other form of enhanced strength. Requires 5mm rounds linked together on a disintegrating belt to load." ,
 	Slot = "primary",
 	Model = "models/weapons/w_ghost_minigun.mdl",
 	Width = 4,
@@ -1082,12 +933,6 @@ PLUGIN.GunData["aus_w_minigun"] = {
 	condition = 100,
 	Prim = {
 		Ammo = "5mmboxammo",
-		Damage = 35,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01,
 	},
 	
 	--Sec == Secondary
@@ -1116,12 +961,6 @@ PLUGIN.GunData["aus_w_huntingrifle"] = {
 	condition = 100,
 	Prim = {
 		Ammo = "308ammo",
-		Damage = 35,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01,
 	},
 	
 	--Sec == Secondary
@@ -1149,12 +988,6 @@ PLUGIN.GunData["aus_w_battle_rifle"] = {
 	condition = 100,
 	Prim = {
 		Ammo = "308ammo",
-		Damage = 35,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01,
 	},
 	
 	--Sec == Secondary
@@ -1182,12 +1015,6 @@ PLUGIN.GunData["aus_w_sniperrifle"] = {
 	condition = 100,
 	Prim = {
 		Ammo = "308ammo",
-		Damage = 35,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01,
 	},
 	
 	--Sec == Secondary
@@ -1215,12 +1042,6 @@ PLUGIN.GunData["aus_w_bar"] = {
 	condition = 100,
 	Prim = {
 		Ammo = "308ammo",
-		Damage = 35,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01,
 	},
 	
 	--Sec == Secondary
@@ -1250,12 +1071,6 @@ PLUGIN.GunData["aus_w_amr"] = {
 	condition = 100,
 	Prim = {
 		Ammo = "50mgammo",
-		Damage = 35,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01,
 	},
 	
 	--Sec == Secondary
@@ -1284,12 +1099,6 @@ PLUGIN.GunData["aus_w_gauss"] = {
 	condition = 100,
 	Prim = {
 		Ammo = "2mmecammo",
-		Damage = 35,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01,
 	},
 	
 	--Sec == Secondary
@@ -1319,12 +1128,6 @@ PLUGIN.GunData["aus_w_launcher_nade"] = {
 	condition = 100,
 	Prim = {
 		Ammo = "40mmammo",
-		Damage = 35,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01,
 	},
 	
 	--Sec == Secondary
@@ -1353,12 +1156,6 @@ PLUGIN.GunData["aus_w_laserpistol"] = {
 	condition = 100,
 	Prim = {
 		Ammo = "mfcammo",
-		Damage = 35,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01,
 	},
 	
 	--Sec == Secondary
@@ -1386,12 +1183,6 @@ PLUGIN.GunData["aus_w_lasermusket"] = {
 	condition = 100,
 	Prim = {
 		Ammo = "lasercanisterammo",
-		Damage = 35,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01,
 	},
 	
 	--Sec == Secondary
@@ -1419,12 +1210,6 @@ PLUGIN.GunData["aus_w_lasermusket_sixshot"] = {
 	condition = 100,
 	Prim = {
 		Ammo = "lasercanisterammo",
-		Damage = 35,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01,
 	},
 	
 	--Sec == Secondary
@@ -1453,12 +1238,6 @@ PLUGIN.GunData["aus_w_laserrifle"] = {
 	condition = 100,
 	Prim = {
 		Ammo = "mfcammo",
-		Damage = 35,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01,
 	},
 	
 	--Sec == Secondary
@@ -1486,12 +1265,6 @@ PLUGIN.GunData["aus_w_tribeam"] = {
 	condition = 100,
 	Prim = {
 		Ammo = "mfcammo",
-		Damage = 35,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01,
 	},
 	
 	--Sec == Secondary
@@ -1519,12 +1292,6 @@ PLUGIN.GunData["aus_w_wattzlasergun"] = {
 	condition = 100,
 	Prim = {
 		Ammo = "mfcammo",
-		Damage = 35,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01,
 	},
 	
 	--Sec == Secondary
@@ -1554,12 +1321,6 @@ PLUGIN.GunData["aus_w_rcw"] = {
 	condition = 100,
 	Prim = {
 		Ammo = "ecpammo",
-		Damage = 35,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01,
 		ClipSize = 35
 	},
 	
@@ -1588,9 +1349,6 @@ PLUGIN.GunData["aus_w_gatlinglaser"] = {
 	condition = 100,
 	Prim = {
 		Ammo = "ecpammo",
-		Damage = 35,
-		Spread = .021,
-		IronAccuracy = .01,
 
 	},
 	
@@ -1620,13 +1378,6 @@ PLUGIN.GunData["aus_w_plasmapistol"] = {
 	condition = 100,
 	Prim = {
 		Ammo = "plasmaammo",
-		Damage = 35,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01,
-	
 	},
 	
 	--Sec == Secondary
@@ -1654,13 +1405,6 @@ PLUGIN.GunData["aus_w_plasmarifle"] = {
 	condition = 100,
 	Prim = {
 		Ammo = "plasmaammo",
-		Damage = 35,
-		KickUp = 0.4,
-		KickDown = 0.4,
-		KickHorizontal = 0.35,
-		Spread = .021,
-		IronAccuracy = .01,
-	
 	},
 	
 	--Sec == Secondary
