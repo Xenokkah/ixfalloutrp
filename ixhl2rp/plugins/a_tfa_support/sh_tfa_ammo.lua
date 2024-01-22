@@ -105,6 +105,17 @@ PLUGIN.AmmoData[ "556ammo" ] = {
 	Height = 1
 }
 
+
+PLUGIN.AmmoData["20gaugeammo" ] = {
+	Name = "20 Gauge Buckshot",
+	Amount = 20,
+	Price = 2000,
+	Model = "models/mosi/fallout4/ammo/shotgunshells.mdl",
+	Width = 1,
+	Height = 1
+}
+
+
 PLUGIN.AmmoData["12gaugeammo" ] = {
 	Name = "12 Gauge Buckshot",
 	Amount = 20,

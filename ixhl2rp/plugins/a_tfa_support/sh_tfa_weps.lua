@@ -198,6 +198,36 @@ PLUGIN.GunData["aus_w_piperevolver"] = {
 	},
 }
 
+PLUGIN.GunData["tfa_32mm_pistol"] = {
+	BlackList = false,
+	Name = ".38 Revolver",
+	ID = "38revolver",
+	conditionDrainFactor = 1,
+	Desc = "A snubnose revolver chambering .38 Special, used as a close range self defense weapon. While only holding 5 shots, it offers a sturdier construction and much smaller size than other weapons of the caliber.",
+	Slot = "secondary",
+	Model = "models/weapons/tfa_fallout/w_fallout_32_snubnose.mdl",
+	Width = 1,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 1,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	NoAutomatic = true,
+	
+	Prim = {
+		Ammo = "38specialammo",
+	},
+	
+	--Sec == Secondary
+	Sec = {
+
+	},
+}
+
 PLUGIN.GunData["aus_w_pipebolt"] = {
 	BlackList = false,
 	Name = "Bolt Action Pipe Rifle",
@@ -492,14 +522,14 @@ PLUGIN.GunData["aus_w_smmg"] = {
 }
 
 --=== .357 ===--
-PLUGIN.GunData["tfa_tfre_colt_peacemaker"] = {
+PLUGIN.GunData["tfa_357mm_pistol"] = {
 	BlackList = false,
 	ID = "357magnumrevolver",
 	Name = ".357 Magnum Revolver",
 	conditionDrainFactor = 0.8,
 	Desc = "A reproduction Colt Single Action Army, an iconic firearm of the old west, chambered in the more modern .357 magnum. Though its fixed cynlinder and single action make it outdated compared to more modern weapons, it's still often carried for style and for self defense by farmers and townies.",
 	Slot = "secondary",
-	Model = "models/weapons/tfre/w_peacemaker.mdl",
+	Model = "models/weapons/tfa_fallout/w_fallout_357_revolver.mdl",
 	Width = 2,
 	iconCam = {
 		pos = Vector(2.75, 191.95, 56.09),
@@ -520,13 +550,13 @@ PLUGIN.GunData["tfa_tfre_colt_peacemaker"] = {
 	}
 }
 
-PLUGIN.GunData["tfa_tfre_yellowboy"] = {
+PLUGIN.GunData["tfa_cowboy_repeater"] = {
 	BlackList = false,
 	ID = "cowboyrepeater",
 	Name = "Cowboy Repeater",
 	conditionDrainFactor = 0.8,
 	Desc = "A lever action rifle firing .357 Magnum, a common fixture around homesteads, to both defend against opportunistic bandits and aggressive pests.",
-	Model = "models/weapons/tfre/w_henryrifle.mdl",
+	Model = "models/weapons/tfa_fallout/w_fallout_cowboy_repeater.mdl",
 	Width = 3,
 	iconCam = {
 		pos = Vector(2.75, 191.95, 56.09),
@@ -540,7 +570,6 @@ PLUGIN.GunData["tfa_tfre_yellowboy"] = {
 	
 	Prim = {
 		Ammo = "357magnumammo",
-		ClipSize = 7,
 	},
 	
 	--Sec == Secondary
@@ -577,14 +606,14 @@ PLUGIN.GunData["aus_w_44magnum"] = {
 	}
 }
 
-PLUGIN.GunData["aus_w_cowboyrepeater"] = {
+PLUGIN.GunData["tfa_trail_carbine"] = {
 	BlackList = false,
 	Name = "Trail Carbine",
 	ID = "trailcarbine",
 	conditionDrainFactor = 1,
-	Desc = "A lever action rifle with generous tube magazine. Once used for hunting bigger game like Bucks, it's now a favorite of the New California Republic Rangers.",
+	Desc = "A lever action rifle with generous tube magazine. Once used for hunting bigger game like Buck, it's now a favorite of the New California Republic Rangers.",
 	Slot = "primary",
-	Model = "models/illusion/fwp/w_cowboyrepeater.mdl",
+	Model = "models/weapons/tfa_fallout/w_fallout_trail_carbine.mdl",
 	Width = 4,
 	iconCam = {
 		pos = Vector(2.75, 191.95, 56.09),
@@ -597,7 +626,6 @@ PLUGIN.GunData["aus_w_cowboyrepeater"] = {
 	condition = 100,
 	Prim = {
 		Ammo = "44magnumammo",
-		ClipSize = 8,
 	},
 	
 	--Sec == Secondary
@@ -657,6 +685,33 @@ PLUGIN.GunData["aus_w_servicerifle"] = {
 	Prim = {
 		Ammo = "556ammo",
 		ClipSize = 20,
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
+PLUGIN.GunData["tfa_556mm_pistol"] = {
+	BlackList = false,
+	Name = "5.56 Pistol",
+	ID = "556pistol",
+	conditionDrainFactor = 1,
+	Desc = "An curious 5-shot revolver loading 5.56 rounds normally meant for rifles. Quite hard to find, but the end result is the power of the round in a compact package. Its small size and short barrel also translate to hefty recoil and less accuracy, however.",
+	Slot = "secondary",
+	Model = "models/weapons/tfa_fallout/w_fallout_556_pistol.mdl",
+	Width = 2,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 2,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	Prim = {
+		Ammo = "556ammo",
 	},
 	
 	--Sec == Secondary
@@ -800,14 +855,42 @@ PLUGIN.GunData["aus_w_assaultrifle"] = {
 	}
 }
 
+PLUGIN.GunData["tfa_bozar"] = {
+	BlackList = false,
+	Name = "Bozar",
+	ID = "bozar",
+	conditionDrainFactor = 1,
+	Desc = "A bizarre crossover of a weapon, this rarity offers the blazing fast fire rate of an LMG combined with the high-spec parts and scope of a sniper rifle, making it quite good at both tasks, but is offset by its rather standard magazine capacity." ,
+	Slot = "primary",
+	Model = "models/weapons/tfa_fallout/w_fallout_bozar.mdl",
+	Width = 4,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 2,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	Prim = {
+		Ammo = "556ammo",
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
 
 --=== Buckshot ===--
-PLUGIN.GunData["aus_w_caravanshotgun"] = {
+
+PLUGIN.GunData["tfa_single_shotgun"] = {
 	BlackList = false,
-	ID = "caravanshotgun",
-	Name = "Caravan Shotgun",
+	ID = "singleshotgun",
+	Name = "Single Shotgun",
 	conditionDrainFactor = 1,
-	Desc = "An under-over double barreled shotgun generaly used by trade caravan guards, bartenders, and farmers. Effective, and simple." ,
+	Desc = "An break action, single-shot shotgun using the smaller 20 Gauge shell. Tends to be used by homesteaders as a tool against critters or thieves on a strict budget." ,
 	Slot = "primary",
 	Model = "models/illusion/fwp/w_caravanshotgun.mdl",
 	Width = 4,
@@ -821,6 +904,87 @@ PLUGIN.GunData["aus_w_caravanshotgun"] = {
 	Price = 2000,
 	condition = 100,
 	MultiAmmo = "true",
+	Prim = {
+		Ammo = "20gaugeammo",
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
+PLUGIN.GunData["aus_w_caravanshotgun"] = {
+	BlackList = false,
+	ID = "caravanshotgun",
+	Name = "Caravan Shotgun",
+	conditionDrainFactor = 1,
+	Desc = "An under-over double barreled shotgun generaly used by trade caravan guards, bartenders, and farmers. Effective, and simple. Loads 20 Gauge buckshot." ,
+	Slot = "primary",
+	Model = "models/illusion/fwp/w_caravanshotgun.mdl",
+	Width = 4,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 1,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	Prim = {
+		Ammo = "20gaugeammo",
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
+PLUGIN.GunData["tfa_lever_action_shotgun"] = {
+	BlackList = false,
+	ID = "leveractionshotgun",
+	Name = "Lever Action Shotgun",
+	conditionDrainFactor = 1,
+	Desc = "An chunky but compact lever action shotgun that loads and dispenses 20 Gauge buckshot. Relatively easy to handle when you get used to it and dependable, it makes a fine addition to any loadout." ,
+	Slot = "primary",
+	Model = "models/weapons/tfa_fallout/w_fallout_lever_action_shotgun.mdl",
+	Width = 3,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 1,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	Prim = {
+		Ammo = "20gaugeammo",
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
+PLUGIN.GunData["tfa_sawedoff_shotgun"] = {
+	BlackList = false,
+	Name = "Sawnoff Shotgun",
+	ID = "sawnoffshotgun",
+	conditionDrainFactor = 1,
+	Desc = "A double barrel 12 gauge shotgun, cut down to about half length. The result is very concealable and even a solid backup weapon, but has horrible accuracy beyond very close range." ,
+	Slot = "secondary",
+	Model = "models/weapons/tfa_fallout/w_fallout_sawedoff_shotgun.mdl",
+	Width = 2,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 1,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
 	Prim = {
 		Ammo = "12gaugeammo",
 	},
@@ -1135,27 +1299,28 @@ PLUGIN.GunData["aus_w_launcher_nade"] = {
 	}
 }
 
---=== MFC ===--
-PLUGIN.GunData["aus_w_laserpistol"] = {
+--=== Laser Canister ===--
+
+PLUGIN.GunData["tfa_laser_revolver"] = {
 	BlackList = false,
-	Name = "Laser Pistol",
-	ID = "laserpistol",
-	conditionDrainFactor = 1.25,
-	Desc = "The AEP-7 laser pistol sports a smaller wattage than its larger siblings, but offers all the benefits of laser weaponry in a compact package." ,
-	Slot = "secondary",
-	Model = "models/halokiller38/fallout/weapons/energy weapons/laserpistol.mdl",
-	Width = 3,
+	ID = "homemadelaserpistol",
+	Name = "Homemade Laser Rifle",
+	conditionDrainFactor = 1.50,
+	Desc = "A homemade laser pistol fashioned from a conventional firearm, but made to expend low-wattage 'laser canisters'. Often in the hands of enterprising eggheads that have an interest in energy weapons but cannot find any manufactured options and thus make their own. " ,
+	Slot = "primary",
+	Model = "models/destiny/props/lasrev.mdl",
+	Width = 4,
 	iconCam = {
 		pos = Vector(2.75, 191.95, 56.09),
 		ang = Angle(16.18, -90.88, 0),
 		fov = 9.31
 	},
-	Height = 1,
+	Height = 2,
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
 	Prim = {
-		Ammo = "mfcammo",
+		Ammo = "lasercanisterammo",
 	},
 	
 	--Sec == Secondary
@@ -1217,6 +1382,33 @@ PLUGIN.GunData["aus_w_lasermusket_sixshot"] = {
 	}
 }
 
+--=== MFC ===--
+PLUGIN.GunData["tfa_laser_pistol"] = {
+	BlackList = false,
+	Name = "Laser Pistol",
+	ID = "laserpistol",
+	conditionDrainFactor = 1.25,
+	Desc = "The AEP-7 laser pistol sports a smaller wattage than its larger siblings, but offers all the benefits of laser weaponry in a compact package." ,
+	Slot = "secondary",
+	Model = "models/halokiller38/fallout/weapons/energy weapons/laserpistol.mdl",
+	Width = 3,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 1,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	Prim = {
+		Ammo = "mfcammo",
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
 
 PLUGIN.GunData["aus_w_laserrifle"] = {
 	BlackList = false,
@@ -1400,6 +1592,60 @@ PLUGIN.GunData["aus_w_plasmarifle"] = {
 		fov = 9.31
 	},
 	Height = 2,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	Prim = {
+		Ammo = "plasmaammo",
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
+PLUGIN.GunData["tfa_multiplas"] = {
+	BlackList = false,
+	ID = "multiplas",
+	Name = "Multiplas",
+	conditionDrainFactor = 1.35,
+	Desc = "The Plasma answer to the tri-beam laser rifle, the Multiplas splits a single plasma glob into several. Capable of putting out more damage than a typical plasma rifle, at the cost of spread rendering it quite inaccurate over longer distances.",
+	Slot = "primary",
+	Model = "models/fallout/fonv/plasmarifle/w_fallout_multiplas_rifle.mdl",
+	Width = 3,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 2,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	Prim = {
+		Ammo = "plasmaammo",
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
+PLUGIN.GunData["tfa_plasma_caster"] = {
+	BlackList = false,
+	ID = "plasmacaster",
+	Name = "Plasma Caster",
+	conditionDrainFactor = 1,
+	Desc = "The origonal plasma rifle, an industrial model. While it is very bulky and holds less shots per cartridge, its plasma projectiles are much more potent and fast. Not very common even among the few factions capable of fielding it due to its upsides being better served by other options.",
+	Slot = "primary",
+	Model = "models/fallout/fonv/plasmacaster/w_fallout_plasma_caster.mdl",
+	Width = 4,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 3,
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
