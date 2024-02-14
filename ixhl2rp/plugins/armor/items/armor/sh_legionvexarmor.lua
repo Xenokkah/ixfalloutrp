@@ -1,4 +1,4 @@
-ITEM.name = "Vexillarius Armor"
+ITEM.name = "Legion Vexillarius Armor"
 ITEM.model = "models/thespireroleplay/items/clothes/group057.mdl"
 ITEM.replacements = "models/player/cl/military/frumentarii.mdl"
 ITEM.description = "A set of armor issued to Vexillarius Standard Bearers."

@@ -1,4 +1,4 @@
-ITEM.name = "Decanus Armor"
+ITEM.name = "Legion Decanus Armor"
 ITEM.model = "models/thespireroleplay/items/clothes/group057.mdl"
 ITEM.replacements = "models/player/cl/military/legiondecanus.mdl"
 ITEM.description = "A set of armor issued to Decanii."

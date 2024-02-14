@@ -144,8 +144,8 @@ end
 
 function playerMeta:CalculateBaseHP()
 	local char = self:GetCharacter()
-    local hpboost = math.floor(char:GetAttribute("endurance") * 5)
-    local hp = 50 + hpboost
+    local hpboost = math.floor(char:GetAttribute("endurance") * 3)
+    local hp = 30 + hpboost
     return hp
 end
 

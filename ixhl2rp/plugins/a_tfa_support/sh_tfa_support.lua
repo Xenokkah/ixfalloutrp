@@ -24,6 +24,7 @@
 
 local PLUGIN = PLUGIN
 
+PLUGIN.DoAutoCreation = false
 PLUGIN.GunData = {}
 ix.util.Include("sh_tfa_weps.lua")
 

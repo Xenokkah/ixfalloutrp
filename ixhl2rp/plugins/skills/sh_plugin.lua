@@ -26,13 +26,14 @@ function PLUGIN:OnCharacterCreated(client, character)
     luckboost = math.ceil(luck / 2)
 
     character:SetSkill("meleeweapons", strength + luckboost)
-    character:SetSkill("unarmed", strength + luckboost)
+    
 
     character:SetSkill("energyweapons", perception + luckboost)
     character:SetSkill("explosives", perception + luckboost)
     character:SetSkill("lockpicking", perception + luckboost)
 
     character:SetSkill("survival", endurance + luckboost)
+    character:SetSkill("unarmed", endurance + luckboost)
 
     character:SetSkill("science", intelligence + luckboost)
     character:SetSkill("repair", intelligence + luckboost)

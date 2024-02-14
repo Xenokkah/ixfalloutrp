@@ -1307,7 +1307,7 @@ PLUGIN.GunData["tfa_laser_revolver"] = {
 	Name = "Homemade Laser Rifle",
 	conditionDrainFactor = 1.50,
 	Desc = "A homemade laser pistol fashioned from a conventional firearm, but made to expend low-wattage 'laser canisters'. Often in the hands of enterprising eggheads that have an interest in energy weapons but cannot find any manufactured options and thus make their own. " ,
-	Slot = "primary",
+	Slot = "secondary",
 	Model = "models/destiny/props/lasrev.mdl",
 	Width = 4,
 	iconCam = {
@@ -1624,6 +1624,7 @@ PLUGIN.GunData["tfa_multiplas"] = {
 	condition = 100,
 	Prim = {
 		Ammo = "plasmaammo",
+		ClipSize = 10
 	},
 	
 	--Sec == Secondary
