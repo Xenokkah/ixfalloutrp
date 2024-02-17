@@ -1,7 +1,7 @@
 ITEM.name = "Handheld Radio"
 ITEM.model = "models/mosi/fnv/props/junk/ncrradio.mdl"
 ITEM.width = 1
-ITEM.height = 1
+ITEM.height = 2
 ITEM.price = 1750
 ITEM.category = "Electronics"
 ITEM.flag = "1"

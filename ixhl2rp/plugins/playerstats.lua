@@ -108,6 +108,14 @@ ix.char.RegisterVar("charradresistboost", {
     bNoDisplay = true
 })
 
+ix.char.RegisterVar("charcritchance", {
+    field = "charcritchance",
+    fieldType = ix.type.number,
+    default = 0,
+    isLocal = true,
+    bNoDisplay = true
+})
+
 function playerMeta:GetTotalCharHp()
     local maxhp = self:GetCharacter():GetCharmaxhp() + self:GetCharacter():GetCharmaxhpboost()
    -- self:SetMaxHealth(maxhp)
@@ -303,6 +311,8 @@ function PLUGIN:OnCharacterCreated(client, character)
 
     local radresist =  math.floor(char:GetAttribute("endurance") * 2)
 
+    local critchance = char:GetAttribute("luck")
+
     char:SetCharmaxhp(hp)
     char:SetCharmaxhpboost(0)
     char:SetCharcurrenthp(hp)
@@ -318,6 +328,10 @@ function PLUGIN:OnCharacterCreated(client, character)
     char:SetCharetboost(0)
     char:SetChardr(0)
     char:SetChardrboost(0)
+
+    char:SetCharcritchance(critchance)
+
+
 
 
     if character:HasFeat("kamikaze") then
@@ -432,7 +446,7 @@ ix.command.Add("Damage", {
         local dr = player:GetTotalCharDr()
         local hp = player:GetTotalCharHp()
         local luck = target:GetAttribute("luck")
-        local minimumdamage = math.ceil(damage * 0.15)
+       
 
         -- Format entries so that they're ready to work with - lowercase damtype, chop off any decimal points
         local damtype = string.lower(damtype)
@@ -454,6 +468,8 @@ ix.command.Add("Damage", {
                 if damage < 0 then damage = 0 end
                 player:Notify("Your DR reduces the damage by " .. dr .. "%!")
             end 
+
+            local minimumdamage = math.ceil(damage * 0.15)
 
             if dt > 0 then 
                 damage = damage - dt
@@ -488,6 +504,8 @@ ix.command.Add("Damage", {
                 if damage < 0 then damage = 0 end
                 player:Notify("Your DR reduces the damage by " .. dr .. "%!")
             end 
+
+            local minimumdamage = math.ceil(damage * 0.15)
 
             if et > 0 then 
                 damage = damage - et
@@ -682,6 +700,16 @@ ix.command.Add("CharSetMaxHP", {
     OnRun = function(self, client, target, value)
         target:SetCharmaxhp(value)
         client:Notify("Set Max HP of " .. target:GetName() .. " to " .. value)
+    end
+})
+
+ix.command.Add("CharCritChance", {
+    description = "Set character's current Critical Hit chance % to the given number.",
+    adminOnly = true,
+    arguments = {ix.type.character, ix.type.number},
+    OnRun = function(self, client, target, value)
+        target:SetCharcritchance(value)
+        client:Notify("Set Crit Chance % of " .. target:GetName() .. " to " .. value)
     end
 })
 

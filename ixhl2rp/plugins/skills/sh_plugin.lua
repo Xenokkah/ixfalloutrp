@@ -27,7 +27,6 @@ function PLUGIN:OnCharacterCreated(client, character)
 
     character:SetSkill("meleeweapons", strength + luckboost)
     
-
     character:SetSkill("energyweapons", perception + luckboost)
     character:SetSkill("explosives", perception + luckboost)
     character:SetSkill("lockpicking", perception + luckboost)

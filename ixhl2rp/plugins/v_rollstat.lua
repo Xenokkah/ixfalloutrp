@@ -9,7 +9,7 @@ PLUGIN.description = "cheese.wav"
 
 -- Chat type for rolls
 ix.chat.Register("rollstat", {
-    format = "** %s rolled for %s: %s Roll + %s Stat Boost %s = %s",
+    format = "** %s rolled for %s: %s Roll + %s Stat Boost %s = %s %s",
     color = Color(155, 111, 176),
     CanHear = ix.config.Get("chatRange", 280),
     deadCanChat = true,
@@ -18,6 +18,7 @@ ix.chat.Register("rollstat", {
         local add = data.additive
         local mod = data.mod
         local total = data.initialroll + add + mod
+        local crit = data.crit or false
 
         if mod ~= 0 then
             mod = "with a Modifier of " .. mod .. " "
@@ -25,9 +26,14 @@ ix.chat.Register("rollstat", {
             mod = ""
         end
 
+        if crit then
+            crit = " !CRITICAL HIT!"
+        else 
+            crit = ""
+        end 
         local translated = L2(self.uniqueID.."Format", speaker:Name(), text)
 
-        chat.AddText(self.color, translated and "** "..translated or string.format(self.format,speaker:Name(), att, text, add, mod, total))
+        chat.AddText(self.color, translated and "** "..translated or string.format(self.format,speaker:Name(), att, text, add, mod, total, crit))
     end
 })
 
@@ -79,15 +85,24 @@ ix.command.Add("Unarmed", {
         local char = client:GetCharacter()
         local value = math.random(0, 10)
         local attr = "Unarmed"
-        local att =  math.floor(client:GetCharacter():GetAttribute("strength") / 2)
+        local att =  math.floor(client:GetCharacter():GetAttribute("endurance") / 2)
         local add = att + char:GetSkill("unarmed", 0)
         local modifier = modifier or 0
+
+        -- If rolled number between 0-100 is less than crit chance, it is a critical hit
+        local critical
+        local critchance = char:GetCharcritchance() or 0
+        local iscrit = math.random(1, 100)
+        if critchance >= iscrit then critical = true else critical = false end
+
+
         
         ix.chat.Send(client, "rollStat", tostring(value), nil, nil, {
             attr = attr,
             additive=add,
             initialroll = value,
-            mod = modifier
+            mod = modifier,
+            crit = critical
         })
 
        ix.log.Add(client, "rollStat", value, attr, add, modifier)
@@ -104,12 +119,19 @@ ix.command.Add("Melee", {
         local att = math.floor(client:GetCharacter():GetAttribute("strength") / 2)
         local add = att + char:GetSkill("meleeweapons", 0)
         local modifier = modifier or 0
+
+        -- If rolled number between 0-100 is less than crit chance, it is a critical hit
+        local critical
+        local critchance = char:GetCharcritchance() or 0
+        local iscrit = math.random(1, 100)
+        if critchance >= iscrit then critical = true else critical = false end
         
         ix.chat.Send(client, "rollStat", tostring(value), nil, nil, {
             attr = attr,
             additive=add,
             initialroll = value,
-            mod = modifier
+            mod = modifier,
+            crit = critical
         })
 
        ix.log.Add(client, "rollStat", value, attr, add, modifier)
@@ -127,12 +149,19 @@ ix.command.Add("Energy", {
         local att = math.floor(client:GetCharacter():GetAttribute("perception") / 2)
         local add = att + char:GetSkill("energyweapons", 0)
         local modifier = modifier or 0
+
+        -- If rolled number between 0-100 is less than crit chance, it is a critical hit
+        local critical
+        local critchance = char:GetCharcritchance() or 0
+        local iscrit = math.random(1, 100)
+        if critchance >= iscrit then critical = true else critical = false end
         
         ix.chat.Send(client, "rollStat", tostring(value), nil, nil, {
             attr = attr,
             additive=add,
             initialroll = value,
-            mod = modifier
+            mod = modifier,
+            crit = critical
         })
 
        ix.log.Add(client, "rollStat", value, attr, add, modifier)
@@ -149,12 +178,19 @@ ix.command.Add("Explosives", {
         local att = math.floor(client:GetCharacter():GetAttribute("perception") / 2)
         local add = att + char:GetSkill("explosives", 0)
         local modifier = modifier or 0
+
+        -- If rolled number between 0-100 is less than crit chance, it is a critical hit
+        local critical
+        local critchance = char:GetCharcritchance() or 0
+        local iscrit = math.random(1, 100)
+        if critchance >= iscrit then critical = true else critical = false end
         
         ix.chat.Send(client, "rollStat", tostring(value), nil, nil, {
             attr = attr,
             additive=add,
             initialroll = value,
-            mod = modifier
+            mod = modifier,
+            crit = critical
         })
 
        ix.log.Add(client, "rollStat", value, attr, add, modifier)
@@ -290,12 +326,19 @@ ix.command.Add("Guns", {
         local att = math.floor(client:GetCharacter():GetAttribute("agility") / 2)
         local add = att + char:GetSkill("guns", 0)
         local modifier = modifier or 0
+
+        -- If rolled number between 0-100 is less than crit chance, it is a critical hit
+        local critical
+        local critchance = char:GetCharcritchance() or 0
+        local iscrit = math.random(1, 100)
+        if critchance >= iscrit then critical = true else critical = false end
         
         ix.chat.Send(client, "rollStat", tostring(value), nil, nil, {
             attr = attr,
             additive=add,
             initialroll = value,
-            mod = modifier
+            mod = modifier,
+            crit = critical
         })
 
        ix.log.Add(client, "rollStat", value, attr, add, modifier)
