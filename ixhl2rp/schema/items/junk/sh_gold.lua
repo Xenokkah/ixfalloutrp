@@ -5,4 +5,4 @@ ITEM.category = "junk"
 ITEM.flag = "1"
 ITEM.price = 5
 ITEM.width = 2
-ITEM.height = 2
+ITEM.height = 1
