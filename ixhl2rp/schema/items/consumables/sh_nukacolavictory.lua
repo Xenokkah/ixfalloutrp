@@ -18,6 +18,6 @@ ITEM:Hook("use", function(item)
 	item.player:GetCharacter():GetInventory():Add("emptybottle", 1)
 end)
 ITEM.weight = 0.1
-ITEM.heal = 3
-ITEM.healot = 2
+
+
 ITEM:DecideFunction()

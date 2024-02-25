@@ -1,16 +1,16 @@
-RECIPE.name = "12 Gauge Buckshot"
-RECIPE.description = "Hand-load some buckshot shells."
+RECIPE.name = "10 Gauge Buckshot Breakdown"
+RECIPE.description = "Disassemble a full box of 20 gauge buckshot shells for their components."
 RECIPE.model = "models/mosi/fallout4/ammo/shotgunshells.mdl"
 RECIPE.category = "Ammo"
 RECIPE.requirements = {
-	["leadcan"] = 2,
-	["casingshotgun"] = 1,
-	["powderpistol"] = 2,
-	["primersmallpistol"] = 1,
+	["ammo_20gaugeammo"] = 1
 }
 
 RECIPE.results = {
-	["ammo_12gaugeammo"] = 1
+	["leadcan"] = 1,
+	["casingshotgun"] = 1,
+	["powderpistol"] = 1,
+	["primersmallpistol"] = 1,
 }
 
 

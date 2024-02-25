@@ -556,32 +556,16 @@ end
 
 
 ix.command.Add("Heal", {
-    description = "Heal all damages done to player.",
+    description = "Heal player by given amount.",
     adminOnly = true,
-    arguments = {ix.type.character},
-    OnRun = function(self, client, target, damtype, damage, ap)
+    arguments = {ix.type.character, ix.type.number},
+    OnRun = function(self, client, target, amount)
         local char = target
         local player = target:GetPlayer()
 
-        char:SetCharcurrenthp(player:GetTotalCharHp())
-        player:SetHealth(player:GetTotalCharHp())
-        player:SetMaxHealth(player:GetTotalCharHp())
+        player:AdjustHealth("heal", amount)
+        return "Healed " .. char:GetName() .. " by " .. amount .. " points."
 
-        char:RemoveBoost("incap", "endurance")
-        char:RemoveBoost("incap", "agility")
-        char:RemoveBoost("incap", "perception")
-        char:RemoveBoost("incap", "strength")
-        
-        char:RemoveBoost("stun", "endurance")
-        char:RemoveBoost("stun", "agility")
-        char:RemoveBoost("stun", "perception")
-        char:RemoveBoost("stun", "strength")
-
-        char:RemoveBoost("stagger", "endurance")
-        char:RemoveBoost("stagger", "agility")
-        char:RemoveBoost("stagger", "perception")
-        char:RemoveBoost("stagger", "strength")
-        
     end
 })
 

@@ -14,6 +14,6 @@ ITEM:Hook("use", function(item)
 	ix.chat.Send(item.player, "iteminternal", "takes a swig of their "..item.name..".", false)
 end)
 ITEM.weight = 0.1
-ITEM.heal = 3
-ITEM.healot = 2
+
+
 ITEM:DecideFunction()
