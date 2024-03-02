@@ -303,8 +303,8 @@ function PLUGIN:OnCharacterCreated(client, character)
 
     local char = character
 
-    local hpboost = math.floor(char:GetAttribute("endurance") * 5)
-    local hp = 50 + hpboost
+    local hpboost = math.floor(char:GetAttribute("endurance") * 3)
+    local hp = 30 + hpboost
 
     local apboost =  math.floor(char:GetAttribute("agility") / 2)
     local ap = 5 + apboost

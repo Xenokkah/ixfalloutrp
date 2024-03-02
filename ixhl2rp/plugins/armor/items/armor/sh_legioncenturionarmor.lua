@@ -15,6 +15,7 @@ ITEM.eT = 5
 ITEM.dR = 5
 ITEM.weight = 2
 ITEM.newSkin = 0
+ITEM.weightClass = 3
 ITEM.bodyGroups = {
 
 }

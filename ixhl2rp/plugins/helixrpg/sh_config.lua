@@ -1,7 +1,7 @@
 -- [[ CONFIGURATION OPTIONS ]] --
 
 ix.config.Add("startingAttributePoints", 10, "The starting amount of attribute points a character has on creation.", nil, {
-	data = { min = 0, max = 30 },
+	data = { min = 0, max = 99 },
 	category = "characters"
 })
 

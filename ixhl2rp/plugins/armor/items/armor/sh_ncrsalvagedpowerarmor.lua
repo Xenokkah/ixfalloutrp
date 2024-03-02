@@ -18,6 +18,7 @@ ITEM.attribBoosts = {
 	["agility"] = -2
 }
 ITEM.newSkin = 0
+ITEM.weightClass = 3
 ITEM.bodyGroups = {
 	["headgear"] = 4,
 	["outfit"] = 0,

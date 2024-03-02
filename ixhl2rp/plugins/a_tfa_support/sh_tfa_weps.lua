@@ -100,6 +100,7 @@ PLUGIN.GunData["tfa_22mm_pistol"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 1,
 	
 	Prim = {
 		Ammo = "22lrammo",
@@ -127,6 +128,7 @@ PLUGIN.GunData["aus_w_22_smg"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 3,
 	
 	Prim = {
 		Ammo = "22lrammo",
@@ -526,6 +528,7 @@ PLUGIN.GunData["aus_w_smmg"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 7,
 	
 	Prim = {
 		Ammo = "10mmammo",
@@ -555,6 +558,7 @@ PLUGIN.GunData["tfa_357mm_pistol"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 2,
 	
 	Prim = {
 		Ammo = "357magnumammo",
@@ -582,6 +586,7 @@ PLUGIN.GunData["tfa_cowboy_repeater"] = {
 	Weight = 4,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 3,
 	
 	Prim = {
 		Ammo = "357magnumammo",
@@ -612,6 +617,7 @@ PLUGIN.GunData["aus_w_44magnum"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 3,
 	Prim = {
 		Ammo = "44magnumammo",
 	},
@@ -639,6 +645,7 @@ PLUGIN.GunData["tfa_trail_carbine"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 4,
 	Prim = {
 		Ammo = "44magnumammo",
 	},
@@ -667,6 +674,7 @@ PLUGIN.GunData["aus_w_127pistol"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 6,
 	Prim = {
 		Ammo = "127mmammo",
 	},
@@ -697,6 +705,7 @@ PLUGIN.GunData["aus_w_servicerifle"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 2,
 	Prim = {
 		Ammo = "556ammo",
 		ClipSize = 20,
@@ -725,6 +734,7 @@ PLUGIN.GunData["tfa_556mm_pistol"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 3,
 	Prim = {
 		Ammo = "556ammo",
 	},
@@ -752,6 +762,7 @@ PLUGIN.GunData["aus_w_hmar"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 4,
 	Prim = {
 		Ammo = "556ammo",
 	},
@@ -779,6 +790,7 @@ PLUGIN.GunData["aus_w_r91"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 5,
 	Prim = {
 		Ammo = "556ammo",
 	},
@@ -806,6 +818,7 @@ PLUGIN.GunData["aus_w_chinesear"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 5,
 	Prim = {
 		Ammo = "556ammo",
 	},
@@ -833,6 +846,7 @@ PLUGIN.GunData["aus_w_marksmancarbine"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 4,
 	Prim = {
 		Ammo = "556ammo",
 	},
@@ -860,6 +874,7 @@ PLUGIN.GunData["aus_w_assaultrifle"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 7,
 	Prim = {
 		Ammo = "556ammo",
 		ClipSize = 60,
@@ -888,6 +903,7 @@ PLUGIN.GunData["tfa_bozar"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 6,
 	Prim = {
 		Ammo = "556ammo",
 	},
@@ -918,6 +934,7 @@ PLUGIN.GunData["tfa_single_shotgun"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 5,
 	MultiAmmo = "true",
 	Prim = {
 		Ammo = "20gaugeammo",
@@ -946,6 +963,7 @@ PLUGIN.GunData["aus_w_caravanshotgun"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 5,
 	Prim = {
 		Ammo = "20gaugeammo",
 	},
@@ -973,6 +991,7 @@ PLUGIN.GunData["tfa_lever_action_shotgun"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 5,
 	Prim = {
 		Ammo = "20gaugeammo",
 	},
@@ -1000,6 +1019,7 @@ PLUGIN.GunData["tfa_sawedoff_shotgun"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 4,
 	Prim = {
 		Ammo = "12gaugeammo",
 	},
@@ -1027,6 +1047,7 @@ PLUGIN.GunData["aus_w_huntingshotgun"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 5,
 	Prim = {
 		Ammo = "12gaugeammo",
 	},
@@ -1054,6 +1075,7 @@ PLUGIN.GunData["aus_w_combatshotgundrum"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 6,
 	Prim = {
 		Ammo = "12gaugeammo",
 	},
@@ -1083,6 +1105,7 @@ PLUGIN.GunData["aus_w_assaultcarbine"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 4,
 	Prim = {
 		Ammo = "5mmammo",
 	},
@@ -1110,6 +1133,7 @@ PLUGIN.GunData["aus_w_minigun"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 8,
 	Prim = {
 		Ammo = "5mmboxammo",
 	},
@@ -1138,6 +1162,7 @@ PLUGIN.GunData["aus_w_huntingrifle"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 6,
 	Prim = {
 		Ammo = "308ammo",
 	},
@@ -1165,6 +1190,7 @@ PLUGIN.GunData["aus_w_battle_rifle"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 6,
 	Prim = {
 		Ammo = "308ammo",
 	},
@@ -1192,6 +1218,7 @@ PLUGIN.GunData["aus_w_sniperrifle"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 6,
 	Prim = {
 		Ammo = "308ammo",
 	},
@@ -1219,6 +1246,7 @@ PLUGIN.GunData["aus_w_bar"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 6,
 	Prim = {
 		Ammo = "308ammo",
 	},
@@ -1248,6 +1276,7 @@ PLUGIN.GunData["aus_w_amr"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 7,
 	Prim = {
 		Ammo = "50mgammo",
 	},
@@ -1276,6 +1305,7 @@ PLUGIN.GunData["aus_w_gauss"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 5,
 	Prim = {
 		Ammo = "2mmecammo",
 	},
@@ -1319,7 +1349,7 @@ PLUGIN.GunData["aus_w_launcher_nade"] = {
 PLUGIN.GunData["tfa_laser_revolver"] = {
 	BlackList = false,
 	ID = "homemadelaserpistol",
-	Name = "Homemade Laser Rifle",
+	Name = "Homemade Laser Pistol",
 	conditionDrainFactor = 1.50,
 	Desc = "A homemade laser pistol fashioned from a conventional firearm, but made to expend low-wattage 'laser canisters'. Often in the hands of enterprising eggheads that have an interest in energy weapons but cannot find any manufactured options and thus make their own. " ,
 	Slot = "secondary",
@@ -1334,6 +1364,7 @@ PLUGIN.GunData["tfa_laser_revolver"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 2,
 	Prim = {
 		Ammo = "lasercanisterammo",
 	},
@@ -1361,6 +1392,7 @@ PLUGIN.GunData["aus_w_lasermusket"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 4,
 	Prim = {
 		Ammo = "lasercanisterammo",
 	},
@@ -1388,6 +1420,7 @@ PLUGIN.GunData["aus_w_lasermusket_sixshot"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 4,
 	Prim = {
 		Ammo = "lasercanisterammo",
 	},
@@ -1416,6 +1449,7 @@ PLUGIN.GunData["tfa_laser_pistol"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 2,
 	Prim = {
 		Ammo = "mfcammo",
 	},
@@ -1443,6 +1477,7 @@ PLUGIN.GunData["aus_w_laserrifle"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 4,
 	Prim = {
 		Ammo = "mfcammo",
 	},
@@ -1470,6 +1505,7 @@ PLUGIN.GunData["aus_w_tribeam"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 4,
 	Prim = {
 		Ammo = "mfcammo",
 	},
@@ -1497,6 +1533,7 @@ PLUGIN.GunData["aus_w_wattzlasergun"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 4,
 	Prim = {
 		Ammo = "mfcammo",
 	},
@@ -1526,6 +1563,7 @@ PLUGIN.GunData["aus_w_rcw"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 5,
 	Prim = {
 		Ammo = "ecpammo",
 		ClipSize = 35
@@ -1554,6 +1592,7 @@ PLUGIN.GunData["aus_w_gatlinglaser"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 7,
 	Prim = {
 		Ammo = "ecpammo",
 
@@ -1583,6 +1622,7 @@ PLUGIN.GunData["aus_w_plasmapistol"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 2,
 	Prim = {
 		Ammo = "plasmaammo",
 	},
@@ -1610,6 +1650,7 @@ PLUGIN.GunData["aus_w_plasmarifle"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 4,
 	Prim = {
 		Ammo = "plasmaammo",
 	},
@@ -1637,6 +1678,7 @@ PLUGIN.GunData["tfa_multiplas"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 5,
 	Prim = {
 		Ammo = "plasmaammo",
 		ClipSize = 10
@@ -1665,6 +1707,7 @@ PLUGIN.GunData["tfa_plasma_caster"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 8,
 	Prim = {
 		Ammo = "plasmaammo",
 	},

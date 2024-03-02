@@ -23,6 +23,7 @@ ITEM.attribBoosts = {
 }
 
 ITEM.newSkin = 0
+ITEM.weightClass = 3
 ITEM.bodyGroups = {
 	["headgear"] = 5,
 	["outfit"] = 0,

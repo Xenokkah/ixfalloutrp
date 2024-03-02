@@ -1,0 +1,8 @@
+
+database:
+  adapter: "mysqloo"
+  hostname: "gspdb-chi.hosthavoc.com"
+  username: "chris23_173730"
+  password: "Y!PIF58F5mSQ"
+  database: "chris23_helix"
+  port: 3306

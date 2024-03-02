@@ -16,7 +16,7 @@ ITEM.dT = 2
 ITEM.attribBoosts = {
 	["endurance"] = 1
 }
-ITEM.weight = 2
+ITEM.weightClass = 1
 
 
 ITEM.newSkin = 0

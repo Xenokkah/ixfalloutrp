@@ -20,6 +20,7 @@ ITEM.attribBoosts = {
 }
 ITEM.radResist = 15
 ITEM.newSkin = 0
+ITEM.weightClass = 1
 ITEM.bodyGroups = {
 	["outfit"] = 0,	
 }

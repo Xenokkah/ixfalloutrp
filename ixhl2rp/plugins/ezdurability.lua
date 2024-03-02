@@ -34,20 +34,20 @@ function playerMeta:DamageArmor(target, damage)
 		local maxET = v:GetData("maxEt")
 		local maxDR = v:GetData("maxDr")
 
-		if (curDT) then
+		if (curDT and curDT > 0) then
 			local newDT = curDT - damage 
 
 			v:SetData("dT", math.Clamp(newDT, 0, maxDT))
 			target:SetChardt(target:GetChardt() - damage)
 		end 
 
-		if (curET) then 
+		if (curET and curET > 0) then 
 			local newET = curET - damage 
 			v:SetData("eT", math.Clamp(newET, 0, maxET))
 			target:SetCharet(target:GetCharet() - damage)
 		end 
 
-		if (curDR) then
+		if (curDR and curDR > 0) then
 			local newDR = curDR - damage 
 			v:SetData("dR", math.Clamp(newDR, 0, maxDR))
 			target:SetChardr(target:GetChardr() - damage)

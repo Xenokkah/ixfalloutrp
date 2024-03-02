@@ -17,6 +17,7 @@ ITEM.eT = 4
 ITEM.radResist = 40
 ITEM.weight = 2
 ITEM.newSkin = 0
+ITEM.weightClass = 2
 ITEM.bodyGroups = {
 ["outfit"] = 1,
 }

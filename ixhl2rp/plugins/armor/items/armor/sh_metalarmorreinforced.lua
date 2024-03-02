@@ -16,6 +16,7 @@ ITEM.weight = 2
 ITEM.dT = 16
 ITEM.eT = 4
 ITEM.newSkin = 0
+ITEM.weightClass = 3
 ITEM.bodyGroups = {
 	["outfit"] = 1,
 }

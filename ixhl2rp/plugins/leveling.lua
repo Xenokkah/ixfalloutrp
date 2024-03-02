@@ -75,7 +75,7 @@ ix.command.Add("CharRewardXP", {
             target:SetXPToNextLevel(target:GetXPToNextLevel() * 1.20)
             target:SetXPToNextLevel(math.floor(target:GetXPToNextLevel()))
 
-            target:SetSkillPoints(target:GetSkillPoints() + math.floor((target:GetAttribute("intelligence")) / 2))
+            target:SetSkillPoints(target:GetSkillPoints() + 5)
 
             
 

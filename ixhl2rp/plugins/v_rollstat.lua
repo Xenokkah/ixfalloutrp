@@ -396,8 +396,6 @@ ix.command.Add("Rollstatmodifier", {
             tot = total
             
         })
-
-       ix.log.Add(client, "rollStatModifier", value, total, modifier, maximum)
     end
 })
 

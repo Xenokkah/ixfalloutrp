@@ -20,6 +20,7 @@ ITEM.attribBoosts = {
 
 
 ITEM.newSkin = 0
+ITEM.weightClass = 1
 ITEM.bodyGroups = {
 }
 ITEM.bodygroupsub = {0}

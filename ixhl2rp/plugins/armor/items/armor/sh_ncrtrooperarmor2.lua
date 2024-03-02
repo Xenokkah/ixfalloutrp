@@ -17,6 +17,7 @@ ITEM.dT = 8
 ITEM.eT = 4
 
 ITEM.newSkin = 0
+ITEM.weightClass = 1
 ITEM.bodyGroups = {
 	["headgear"] = 0,
 }

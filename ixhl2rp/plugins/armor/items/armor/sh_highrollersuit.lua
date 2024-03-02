@@ -18,6 +18,7 @@ ITEM.attribBoosts = {
 	["charisma"] = 1
 }
 ITEM.newSkin = 0
+ITEM.weightClass = 1
 ITEM.bodyGroups = {
 	["gear"] = 0,	
 }
