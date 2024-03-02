@@ -1,5 +1,5 @@
 ITEM.name = "Salisbury Steak"
-ITEM.model = "models/fnv/clutter/food/steakbox01.mdl"
+ITEM.model = "models/mosi/fallout4/props/food/salisburysteak.mdl"
 ITEM.hunger = 20
 ITEM.description = "A boxed salisbury steak meal."
 ITEM.longdesc = "A mush of ground beef, bread crumbs, onion, eggs, and gravy. It's something of a full meal, even with its unusual texture."

@@ -1,12 +1,13 @@
 ITEM.name = "Nuka Cola Victory"
-ITEM.model = "models/fnv/clutter/junk/nv/nvnukacolavictory.mdl"
+ITEM.model = "models/mosi/fallout4/props/drink/nukacola2.mdl"
 ITEM.thirst = 20
 ITEM.description = "A bottle of Nuka Cola Victory."
-ITEM.longdesc = "A warm, sealed bottle of Nuka Cola Quartz, a 'patriotic' flavor created to drum up public support for the war against China, with a distinct reddish-glow. Tastes like a bit of cherry and orange mixed together."
+ITEM.longdesc = "A warm, sealed bottle of Nuka Cola Victory, a 'patriotic' flavor created to drum up public support for the war against China, with a distinct reddish-orange glow. Tastes like a bit of cherry and orange mixed together."
 ITEM.quantity = 1
 ITEM.price = 5
 ITEM.width = 1
 ITEM.height = 2
+ITEM.skin = 2
 ITEM.sound = "fosounds/fix/npc_humandrinking_soda_01.mp3"
 ITEM.flag = "5"
 ITEM:Hook("use", function(item)

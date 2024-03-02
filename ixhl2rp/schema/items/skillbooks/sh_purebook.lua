@@ -1,0 +1,10 @@
+ITEM.name = "Vault Dweller's Survival Guide"
+ITEM.model = "models/props_lab/binderbluelabel.mdl"
+ITEM.description = "A manual prepared by Vault-Tec and issued to Vaults to prepare dwellers for living in the post-apocalypse."
+ITEM.category = "skillbooks"
+ITEM.flag = "1"
+ITEM.trait = "pure"
+ITEM.traitdisplay = "the Pure trait"
+ITEM.price = 5
+ITEM.width = 1
+ITEM.height = 2

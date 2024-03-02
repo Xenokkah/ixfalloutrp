@@ -1,5 +1,5 @@
 ITEM.name = "Wine"
-ITEM.model = "models/fnv/clutter/food/winebottle01.mdl"
+ITEM.model = "models/mosi/fallout4/props/alcohol/wine.mdl"
 ITEM.thirst = 18
 ITEM.description = "A bottle of red wine."
 ITEM.longdesc = "A tall bottle of some form of red wine, its label long worn off. Often drank to celebrate, or all the time by the most pretentious people of the wastes."

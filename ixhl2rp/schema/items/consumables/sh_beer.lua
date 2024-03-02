@@ -1,5 +1,5 @@
 ITEM.name = "Beer"
-ITEM.model = "models/fnv/clutter/food/beerbottle01.mdl"
+ITEM.model = "models/mosi/fallout4/props/alcohol/beer.mdl"
 ITEM.thirst = 15
 ITEM.description = "A bottle of beer."
 ITEM.longdesc = "A mainstay at just about any bar, good old fashioned beer, brewed from hops. What else is there to say that most of humanity's entire history already hasn't?"

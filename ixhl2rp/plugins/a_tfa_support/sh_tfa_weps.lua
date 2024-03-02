@@ -32,6 +32,7 @@ PLUGIN.GunData[ "aus_w_9mmpistol" ] = {
 	Slot = "secondary",
 	Model = "models/illusion/fwp/w_9mmpistol.mdl",
 	condition = 100,
+	strengthReq = 1,
 	iconCam = {
 		pos = Vector(2.75, 191.95, 56.09),
 		ang = Angle(16.18, -90.88, 0),
@@ -68,6 +69,7 @@ PLUGIN.GunData["aus_w_9mmsmg"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 3,
 	
 	Prim = {
 		Ammo = "9mmammo",
@@ -142,7 +144,7 @@ PLUGIN.GunData["aus_w_varmintrifle"] = {
 	BlackList = false,
 	ID = "varmintrifle",
 	Name = "Varmint .22",
-	Desc = "A bolt action, five shot rifle chambered in .22, primarily for use against critters around the farm and house, hence the 'varmint'.",
+	Desc = "A bolt action, ten shot rifle chambered in .22, primarily for use against critters around the farm and house, hence the 'varmint'.",
 	Slot = "primary",
 	Model = "models/illusion/fwp/w_varmintrifle.mdl",
 	Width = 3,
@@ -155,6 +157,7 @@ PLUGIN.GunData["aus_w_varmintrifle"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 2,
 	
 	Prim = {
 		Ammo = "22lrammo",
@@ -186,6 +189,7 @@ PLUGIN.GunData["aus_w_piperevolver"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 1,
 	NoAutomatic = true,
 	
 	Prim = {
@@ -216,6 +220,7 @@ PLUGIN.GunData["tfa_32mm_pistol"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 1,
 	NoAutomatic = true,
 	
 	Prim = {
@@ -246,6 +251,7 @@ PLUGIN.GunData["aus_w_pipebolt"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 3,
 	Automatic = false,
 	
 	Prim = {
@@ -276,6 +282,7 @@ PLUGIN.GunData["aus_w_pipeboltscoped"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 3,
 	Automatic = false,
 	
 	Prim = {
@@ -305,6 +312,7 @@ PLUGIN.GunData["aus_w_piperiflesemi"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 3,
 	NoAutomatic = true,
 	
 	Prim = {
@@ -335,6 +343,7 @@ PLUGIN.GunData["aus_w_piperifleauto"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 3,
 	NoAutomatic = true,
 	
 	Prim = {
@@ -369,6 +378,7 @@ PLUGIN.GunData["aus_w_45pistol"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 2,
 	
 	Prim = {
 		Ammo = "45autoammo",
@@ -397,6 +407,7 @@ PLUGIN.GunData["aus_w_combatrifle"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 3,
 	
 	Prim = {
 		Ammo = "45autoammo",
@@ -425,6 +436,8 @@ PLUGIN.GunData["aus_w_submachinegun"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 4,
+	
 	
 	Prim = {
 		Ammo = "45autoammo",
@@ -455,6 +468,7 @@ PLUGIN.GunData["aus_w_10mmpistol"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 2,
 	
 	Prim = {
 		Ammo = "10mmammo",
@@ -483,6 +497,7 @@ PLUGIN.GunData["aus_w_10mmsmg"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
+	strengthReq = 4,
 	
 	Prim = {
 		Ammo = "10mmammo",

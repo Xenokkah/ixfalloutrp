@@ -4,7 +4,7 @@ ITEM.replacements = {
 	{"group004", "group052"}
 }
 ITEM.description = "A set of lightweight leather armor with several improvements to its quality."
-ITEM.longdesc = "A set of leather armor reinforced with some less common animal hides and bits of metal, making it a sturdier piece of kit without sacrificing the benefits of the origonal."
+ITEM.longdesc = "A set of leather armor reinforced with some less common animal hides and bits of metal, making it a sturdier piece of kit without sacrificing the protective benefits of the origonal."
 ITEM.width = 2
 ITEM.height = 1
 ITEM.price = 230000

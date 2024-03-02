@@ -1,5 +1,5 @@
 ITEM.name = "Pork n' Beans"
-ITEM.model = "models/fnv/clutter/junk/porknbeans.mdl"
+ITEM.model = "models/mosi/fallout4/props/food/porknbeans.mdl"
 ITEM.hunger = 20
 ITEM.description = "A can of beans with chunks of pig fat."
 ITEM.longdesc = "A favorite and often at a low cost, the beans and chunks of pig fat will give you all you need for a filling meal."

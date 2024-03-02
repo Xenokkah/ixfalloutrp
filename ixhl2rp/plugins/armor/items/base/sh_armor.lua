@@ -345,6 +345,14 @@ ITEM:Hook("drop", function(item)
 		if(item.apBoost) then
 			character:SetCharapboost(character:GetCharapboost() - item.apBoost)
 		end 
+
+		
+		if(item.weightClass) then
+			character:RemoveSkillBoost("lightarmor", "evasion")
+			character:RemoveSkillBoost("mediumarmor", "evasion")
+			character:RemoveSkillBoost("heavyarmor", "evasion")
+		end 
+		
 		
 		item:RemoveOutfit(item:GetOwner())
 	end
@@ -396,6 +404,12 @@ ITEM.functions.EquipUn = { -- sorry, for name order.
 		if(item.apBoost) then
 			character:SetCharapboost(character:GetCharapboost() - item.apBoost)
 		end 
+
+		if(item.weightClass) then
+			character:RemoveSkillBoost("lightarmor", "evasion")
+			character:RemoveSkillBoost("mediumarmor", "evasion")
+			character:RemoveSkillBoost("heavyarmor", "evasion")
+		end 
 		
 		return false
 	end,
@@ -415,6 +429,14 @@ ITEM.functions.Equip = {
 		local client = item.player
 		local character = client:GetCharacter()
 		local items = character:GetInventory():GetItems()
+
+		if item.weightClass then
+			local strengthlevel = character:GetAttribute("strength") or 0
+			
+			if item.weightClass == 2 and strengthlevel < 2 then client:NewVegasNotify("You need a Strength of at least 2 to equip this armor.", "messageSad", 8) return false end
+			if item.weightClass == 3 and strengthlevel < 5 then client:NewVegasNotify("You need a Strength of at least 2 to equip this armor.", "messageSad", 8)  return false end
+			if item.weightClass == 4 and strengthlevel < 8 then client:NewVegasNotify("You need a Strength of at least 2 to equip this armor.", "messageSad", 8) return false end
+		end 
 		
 		for _, v in pairs(items) do
 			if (v.id != item.id) then
@@ -465,11 +487,13 @@ ITEM.functions.Equip = {
 		if(item.apBoost) then
 			character:SetCharapboost(character:GetCharapboost() + item.apBoost)
 		end 
-		
-		
 
-	
-
+		if(item.weightClass) then
+			if item.weightClass == 2 then character:AddSkillBoost("lightarmor", "evasion", -5) end
+			if item.weightClass == 3 then character:AddSkillBoost("lightarmor", "evasion", -10) end
+			if item.weightClass == 4 then character:AddSkillBoost("lightarmor", "evasion", -15) end
+		end 
+		
 		if (type(item.OnGetReplacement) == "function") then
 			character:SetData("oldModel" .. item.outfitCategory, character:GetData("oldModel" .. item.outfitCategory, item.player:GetModel()))
 			character:SetModel(item:OnGetReplacement())
@@ -705,6 +729,9 @@ function ITEM:GetDescription()
 		str = str.. "\n\n" ..customData.longdesc 
 	end
 	
+	if self.weightClass then
+		str = str .. "\nWeight Class: " .. self.weightClass
+	end 
 	
 	if self.dT then
 		str = str .. "\n\n DT: " .. self:GetData("dT") .. "/" .. self:GetData("maxDt")

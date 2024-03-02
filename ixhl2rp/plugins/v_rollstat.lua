@@ -52,7 +52,7 @@ for k, v in pairs(ix.attributes.list) do
         description = "Roll a " .. v.name .. " check on a d10 + Attribute. Optional modifier.",
         arguments = {bit.bor(ix.type.number, ix.type.optional)},
         OnRun = function(self, client, modifier)
-            local value = math.random(0, 10)
+            local value = math.random(1, 20)
             local attr = v.name
             local att = client:GetCharacter():GetAttribute(string.lower(v.name))
 
@@ -83,7 +83,7 @@ ix.command.Add("Unarmed", {
     arguments = {bit.bor(ix.type.number, ix.type.optional)},
     OnRun = function(self, client, modifier)
         local char = client:GetCharacter()
-        local value = math.random(0, 10)
+        local value = math.random(1, 20)
         local attr = "Unarmed"
         local att =  math.floor(client:GetCharacter():GetAttribute("endurance") / 2)
         local add = att + char:GetSkill("unarmed", 0)
@@ -114,7 +114,7 @@ ix.command.Add("Melee", {
     arguments = {bit.bor(ix.type.number, ix.type.optional)},
     OnRun = function(self, client, modifier)
         local char = client:GetCharacter()
-        local value = math.random(0, 10)
+        local value = math.random(1, 20)
         local attr = "Melee Weapons"
         local att = math.floor(client:GetCharacter():GetAttribute("strength") / 2)
         local add = att + char:GetSkill("meleeweapons", 0)
@@ -144,7 +144,7 @@ ix.command.Add("Energy", {
     arguments = {bit.bor(ix.type.number, ix.type.optional)},
     OnRun = function(self, client, modifier)
         local char = client:GetCharacter()
-        local value = math.random(0, 10)
+        local value = math.random(1, 20)
         local attr = "Energy Weapons"
         local att = math.floor(client:GetCharacter():GetAttribute("perception") / 2)
         local add = att + char:GetSkill("energyweapons", 0)
@@ -173,7 +173,7 @@ ix.command.Add("Explosives", {
     arguments = {bit.bor(ix.type.number, ix.type.optional)},
     OnRun = function(self, client, modifier)
         local char = client:GetCharacter()
-        local value = math.random(0, 10)
+        local value = math.random(1, 20)
         local attr = "Perception"
         local att = math.floor(client:GetCharacter():GetAttribute("perception") / 2)
         local add = att + char:GetSkill("explosives", 0)
@@ -202,7 +202,7 @@ ix.command.Add("Lockpick", {
     arguments = {bit.bor(ix.type.number, ix.type.optional)},
     OnRun = function(self, client, modifier)
         local char = client:GetCharacter()
-        local value = math.random(0, 10)
+        local value = math.random(1, 20)
         local attr = "Lockpicking"
         local att = math.floor(client:GetCharacter():GetAttribute("perception") / 2)
         local add = att + char:GetSkill("lockpicking", 0)
@@ -226,7 +226,7 @@ ix.command.Add("Survival", {
     arguments = {bit.bor(ix.type.number, ix.type.optional)},
     OnRun = function(self, client, modifier)
         local char = client:GetCharacter()
-        local value = math.random(0, 10)
+        local value = math.random(1, 20)
         local attr = "Survival"
         local att = math.floor(client:GetCharacter():GetAttribute("endurance") / 2)
         local add = att + char:GetSkill("survival", 0)
@@ -253,7 +253,7 @@ ix.command.Add("Science", {
     arguments = {bit.bor(ix.type.number, ix.type.optional)},
     OnRun = function(self, client, modifier)
         local char = client:GetCharacter()
-        local value = math.random(0, 10)
+        local value = math.random(1, 20)
         local attr = "Science"
         local att = math.floor(client:GetCharacter():GetAttribute("intelligence") / 2)
         local add = att + char:GetSkill("science", 0)
@@ -275,7 +275,7 @@ ix.command.Add("Medicine", {
     arguments = {bit.bor(ix.type.number, ix.type.optional)},
     OnRun = function(self, client, modifier)
         local char = client:GetCharacter()
-        local value = math.random(0, 10)
+        local value = math.random(1, 20)
         local attr = "Medicine"
         local att =math.floor(client:GetCharacter():GetAttribute("intelligence") / 2)
         local add = att + char:GetSkill("medicine", 0)
@@ -297,7 +297,7 @@ ix.command.Add("Repair", {
     arguments = {bit.bor(ix.type.number, ix.type.optional)},
     OnRun = function(self, client, modifier)
         local char = client:GetCharacter()
-        local value = math.random(0, 10)
+        local value = math.random(1, 20)
         local attr = "Repair"
         local att = math.floor(client:GetCharacter():GetAttribute("intelligence") / 2)
         local add = att + char:GetSkill("repair", 0)
@@ -321,7 +321,7 @@ ix.command.Add("Guns", {
     arguments = {bit.bor(ix.type.number, ix.type.optional)},
     OnRun = function(self, client, modifier)
         local char = client:GetCharacter()
-        local value = math.random(0, 10)
+        local value = math.random(1, 20)
         local attr = "Guns"
         local att = math.floor(client:GetCharacter():GetAttribute("agility") / 2)
         local add = att + char:GetSkill("guns", 0)
@@ -350,7 +350,7 @@ ix.command.Add("Evasion", {
     arguments = {bit.bor(ix.type.number, ix.type.optional)},
     OnRun = function(self, client, modifier)
         local char = client:GetCharacter()
-        local value = math.random(0, 10)
+        local value = math.random(1, 20)
         local attr = "Evasion"
         local att = math.floor(client:GetCharacter():GetAttribute("agility") / 2)
         local add = att + char:GetSkill("evasion", 0)

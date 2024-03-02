@@ -1,5 +1,5 @@
 ITEM.name = "Dirty Water"
-ITEM.model = "models/fnv/clutter/food/waterunpurified01.mdl"
+ITEM.model = "models/mosi/fallout4/props/drink/dirtywater.mdl"
 ITEM.thirst = 15
 ITEM.description = "A plastic bottle of unclean water."
 ITEM.longdesc = "A plastic bottle full of water collected from a radioactive or otherwise unclean water source. Preferable to death by dehydration, but not very quenching as a result."

@@ -1,5 +1,5 @@
 ITEM.name = "Dandy Boy Apples"
-ITEM.model = "models/fnv/clutter/junk/dandyboyapples.mdl"
+ITEM.model = "models/mosi/fallout4/props/food/dandyboyapples.mdl"
 ITEM.hunger = 10
 ITEM.description = "A box of sweet apple slices."
 ITEM.longdesc = "Once a common sight in a child's lunchbox, these sickeningly sweet apple slices aren't the worst snack item to choose from, if not very filling."

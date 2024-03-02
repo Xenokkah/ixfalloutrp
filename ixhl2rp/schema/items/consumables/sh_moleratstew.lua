@@ -1,5 +1,5 @@
 ITEM.name = "Mole Rat Stew"
-ITEM.model = "models/mosi/fnv/props/food/ratstew.mdl"
+ITEM.model = "models/mosi/fallout4/props/food/moleratstew.mdl"
 ITEM.hunger = 38
 ITEM.description = "A stew made from mole rat."
 ITEM.longdesc = "A stew made with mole rat meat, beer, and some veggies, overall fairly appealing and filling in equal measure."

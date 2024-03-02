@@ -1,8 +1,8 @@
 ITEM.name = "Potato Chips"
-ITEM.model = "models/fnv/clutter/junk/potatocrisps.mdl"
-ITEM.hunger = 10
-ITEM.description = "A box of crunchy chips, plain flavor."
-ITEM.longdesc = "Some boxed potato chips, plain. Fills the craving for salty foods, but not a very healthy meal."
+ITEM.model = "models/mosi/fallout4/props/food/potatocrisps.mdl"
+ITEM.hunger = 8
+ITEM.description = "A can of crunchy chips, plain flavor."
+ITEM.longdesc = "A can of potato chips, plain. Fills the craving for salty foods, but not a very healthy meal."
 ITEM.quantity = 1
 ITEM.price = 20
 ITEM.width = 1

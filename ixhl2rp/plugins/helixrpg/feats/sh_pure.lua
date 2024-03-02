@@ -3,4 +3,3 @@ FEAT.description = "You grew up with little to no radiation exposure, making you
 FEAT.icon = "fonvui/hud/icons/perks/Pure.png"
 FEAT.noStartSelection = true
 
-

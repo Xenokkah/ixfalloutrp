@@ -156,8 +156,6 @@ function ITEM:DecideFunction()
 				local hunger = player:GetCharacter():GetData("hunger", 100)
 				local thirst = player:GetCharacter():GetData("thirst", 100)
 				local quantity = itemtable:GetData("quantity", itemtable.quantity)
-				local newhealth = math.Clamp(player:Health() + itemtable.heal, 1, 100)
-				player:SetHealth(newhealth)
 				player:SetHunger(hunger + itemtable.hunger)
 				player:SetThirst(thirst + itemtable.thirst)
 				player:UpdateThirstState(itemtable.player)
@@ -166,17 +164,7 @@ function ITEM:DecideFunction()
 					inv:Add(itemtable.empty)
 				end
 				
-				if itemtable.healot and not timer.Exists("foodheal") then
-					timer.Create("foodheal", 3, 5, function()
-						local newhealth = math.Clamp(player:Health() + itemtable.heal, 1, 100)
-						player:SetHealth(newhealth)
-					end)
-				elseif itemtable.healot and timer.Exists("foodheal") then
-					timer.Adjust("foodheal", 3, 5, function()
-						local newhealth = math.Clamp(player:Health() + itemtable.heal, 1, 100)
-						player:SetHealth(newhealth)
-					end)
-				end
+			
 
 				quantity = quantity - 1
 				

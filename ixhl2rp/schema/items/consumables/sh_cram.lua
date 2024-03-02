@@ -1,5 +1,5 @@
 ITEM.name = "Cram"
-ITEM.model = "models/fnv/clutter/junk/cram01.mdl"
+ITEM.model = "models/mosi/fallout4/props/food/cram.mdl"
 ITEM.hunger = 15
 ITEM.description = "A blue tin can of Cram."
 ITEM.longdesc = "Salty, preserved meat served from a distinctive blue tin. You tend to either love it or hate it."

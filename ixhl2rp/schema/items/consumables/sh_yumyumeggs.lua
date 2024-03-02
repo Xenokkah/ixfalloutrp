@@ -1,5 +1,5 @@
 ITEM.name = "YumYum Deviled Eggs"
-ITEM.model = "models/fnv/clutter/junk/yumyumdeviledeggs.mdl"
+ITEM.model = "models/mosi/fallout4/props/food/yumyumdeviledeggs.mdl"
 ITEM.hunger = 10
 ITEM.description = "A box of preserved, deviled eggs."
 ITEM.longdesc = "Pre-war food is often seen lowly due to the poor taste and radiation, so god knows why people eat powdered eggs that've been sitting in a cardboard box for centuries."

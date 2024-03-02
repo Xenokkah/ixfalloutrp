@@ -1,5 +1,5 @@
 ITEM.name = "Dog Steak"
-ITEM.model = "models/fnv/clutter/food/dogmeat01.mdl"
+ITEM.model = "models/mosi/fallout4/props/food/dogmeat.mdl"
 ITEM.hunger = 20
 ITEM.description = "A chunk of cooked dog meat."
 ITEM.longdesc = "Meat taken from a canine, and cooked to remove bacteria, making it safe to eat."

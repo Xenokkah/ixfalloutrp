@@ -1,5 +1,5 @@
 ITEM.name = "Vodka"
-ITEM.model = "models/fnv/clutter/food/vodka01.mdl"
+ITEM.model = "models/mosi/fallout4/props/alcohol/vodka.mdl"
 ITEM.thirst = 18
 ITEM.description = "A bottle of Vodka."
 ITEM.longdesc = "A bottle of Red Star brand vodka. Was especially popular in the Soviet Union before the war, and has its fans today - especially as a mixer."

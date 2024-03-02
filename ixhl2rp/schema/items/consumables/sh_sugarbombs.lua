@@ -1,5 +1,5 @@
 ITEM.name = "Sugar Bombs"
-ITEM.model = "models/mosi/fnv/props/food/sugarbombs.mdl"
+ITEM.model = "models/mosi/fallout4/props/food/sugarbombs.mdl"
 ITEM.hunger = 10
 ITEM.description = "A box of a sugary breakfast cereal."
 ITEM.longdesc = "While enough to satisfy a sweet tooth, Sugar Bombs are almost entirely empty calories. Still has its fans."

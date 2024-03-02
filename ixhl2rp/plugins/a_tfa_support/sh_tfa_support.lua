@@ -159,6 +159,10 @@ function PLUGIN:InitializedPlugins()
 			ITEM.conditionDrainFactor = dat.conditionDrainFactor
 		end 
 
+		if dat.strengthReq then
+			ITEM.strengthReq = dat.strengthReq 
+		end 
+
 
 		ITEM:Hook( "drop", function( item )
 			item.player:EmitSound( "physics/metal/metal_box_footstep1.wav" ) 
@@ -169,6 +173,30 @@ function PLUGIN:InitializedPlugins()
 		ITEM.width = dat.Width or 1
 		ITEM.height = dat.Height or 1
 		ITEM.weaponCategory = dat.Slot or "primary"
+
+		ITEM.functions.Equip = {
+			name = "Equip",
+			tip = "equipTip",
+			icon = "icon16/tick.png",
+			OnRun = function(item)
+				charstr = item.player:GetCharacter():GetAttribute("strength", 0)
+
+				if item.strengthReq and charstr < item.strengthReq then 
+					item.player:NewVegasNotify("You need a Strength of at least " .. item.strengthReq .. " to use this weapon.", "messageSad", 8)
+					return false
+				end 
+				
+
+				item:Equip(item.player)
+				return false
+			end,
+			OnCanRun = function(item)
+				local client = item.player
+		
+				return !IsValid(item.entity) and IsValid(client) and item:GetData("equip") != true and
+					hook.Run("CanPlayerEquipItem", client, item) != false
+			end
+		}
 		
 
 

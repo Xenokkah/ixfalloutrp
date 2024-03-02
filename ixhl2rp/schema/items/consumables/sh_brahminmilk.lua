@@ -1,5 +1,5 @@
 ITEM.name = "Brahmin Milk"
-ITEM.model = "models/mosi/fnv/props/drink/milkbottle.mdl"
+ITEM.model = "models/mosi/fallout4/props/drink/milkbottle.mdl"
 ITEM.thirst = 15
 ITEM.hunger = 15
 ITEM.description = "A bottle of Brahmin milk."

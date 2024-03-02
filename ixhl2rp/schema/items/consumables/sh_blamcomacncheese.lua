@@ -1,5 +1,5 @@
 ITEM.name = "Blamco Mac n' Cheese"
-ITEM.model = "models/fnv/clutter/junk/blamcomacncheese.mdl"
+ITEM.model = "models/mosi/fallout4/props/food/macandcheese.mdl"
 ITEM.hunger = 15
 ITEM.description = "A box of Mac n Cheese noodles, with sauce packet."
 ITEM.longdesc = "A box of dry macaroni noodles with cheese sauce, one need just add water and cook for some tasty Mac."

@@ -59,10 +59,11 @@ if(SERVER) then
 			itemInfo.armor = true
 			
 			itemInfo.dura = item:GetData("durability", 100)
-			itemInfo.impact = customData.impact or item.res["Impact"]
-			itemInfo.shock = customData.shock or item.res["Shock"]
-			itemInfo.burn = customData.burn or item.res["Fire"]
-			itemInfo.chemical = customData.chemical or item.res["Toxic"]
+			itemInfo.dt = customData.dt or item.dT
+			itemInfo.maxdt = customData.maxdt or item.maxDt
+			itemInfo.et = customData.et or item.eT
+			itemInfo.maxet = customdata.maxet or item.maxEt
+			itemInfo.dr = customdata.dr or item.dr
 
 
 

@@ -1,4 +1,4 @@
-RECIPE.name = "Healing Poultice"
+RECIPE.name = "Hydra"
 RECIPE.description = "Create a dose of Hydra."
 RECIPE.model = "models/mosi/fnv/props/health/chems/hydra.mdl"
 RECIPE.category = "Medicine"
@@ -16,7 +16,7 @@ RECIPE.results = {
 
 
 RECIPE:PostHook("OnCanSee", function(recipeTable, client)
-	if (client:GetCharacter():GetSkill("survival", 0) <= 10) then 
+	if (client:GetCharacter():GetSkill("survival", 0) < 10) then 
 		return false
 	end 
 

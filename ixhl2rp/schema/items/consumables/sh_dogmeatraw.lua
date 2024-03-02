@@ -1,5 +1,5 @@
 ITEM.name = "Raw Dog Meat"
-ITEM.model = "models/fnv/clutter/food/dogmeat01.mdl"
+ITEM.model = "models/mosi/fallout4/props/food/dogmeat.mdl"
 ITEM.hunger = 8
 ITEM.description = "A chunk of uncooked dog."
 ITEM.longdesc = "Meat taken from a canine - wild or domesticated. Not a good idea to eat without cooking it first, moral implications aside."

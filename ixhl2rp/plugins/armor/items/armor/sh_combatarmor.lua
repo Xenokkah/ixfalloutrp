@@ -12,10 +12,10 @@ ITEM.flag = "A"
 ITEM.isArmor = true
 ITEM.isBodyArmor = true
 ITEM.noBusiness = true
-ITEM.weight = 2
 ITEM.dT = 15
 ITEM.eT = 10
 ITEM.newSkin = 0
+ITEM.weightClass = 3
 ITEM.bodyGroups = {
 ["outfit"] = 0,
 }

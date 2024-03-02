@@ -1,5 +1,5 @@
 ITEM.name = "Nuka Cola"
-ITEM.model = "models/fnv/clutter/junk/sodabottleclosed01.mdl"
+ITEM.model = "models/mosi/fallout4/props/drink/nukacola.mdl"
 ITEM.thirst = 20
 ITEM.description = "A bottle of Nuka Cola."
 ITEM.longdesc = "A warm, sealed bottle of Nuka Cola, an American treasure. Fairly refreshing, and adored by many."
