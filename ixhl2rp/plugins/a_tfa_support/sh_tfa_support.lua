@@ -331,6 +331,11 @@ function PLUGIN:InitializedPlugins()
 				text = text .. "\nDefault ammo: " .. ( ( ammo_itm and ammo_itm.name ) or v.Primary.Ammo ) .. ".\nMagazine capacity: " .. v.Primary.ClipSize .. "."
 			end
 
+			if dat.strengthReq then
+				text = text .. "\nStrength Required: " .. data.strengthReq
+			end 
+
+
 			if dat.condition then
 				text = text .. "\nCondition: " .. self:GetData("condition", 100) .. "% \n"
 			end 

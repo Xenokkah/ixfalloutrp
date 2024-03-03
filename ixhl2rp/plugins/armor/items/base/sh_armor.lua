@@ -434,8 +434,8 @@ ITEM.functions.Equip = {
 			local strengthlevel = character:GetAttribute("strength") or 0
 			
 			if item.weightClass == 2 and strengthlevel < 2 then client:NewVegasNotify("You need a Strength of at least 2 to equip this armor.", "messageSad", 8) return false end
-			if item.weightClass == 3 and strengthlevel < 5 then client:NewVegasNotify("You need a Strength of at least 2 to equip this armor.", "messageSad", 8)  return false end
-			if item.weightClass == 4 and strengthlevel < 8 then client:NewVegasNotify("You need a Strength of at least 2 to equip this armor.", "messageSad", 8) return false end
+			if item.weightClass == 3 and strengthlevel < 5 then client:NewVegasNotify("You need a Strength of at least 5 to equip this armor.", "messageSad", 8)  return false end
+			if item.weightClass == 4 and strengthlevel < 8 then client:NewVegasNotify("You need a Strength of at least 8 to equip this armor.", "messageSad", 8) return false end
 		end 
 		
 		for _, v in pairs(items) do
