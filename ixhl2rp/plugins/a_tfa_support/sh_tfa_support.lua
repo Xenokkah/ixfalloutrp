@@ -332,7 +332,7 @@ function PLUGIN:InitializedPlugins()
 			end
 
 			if dat.strengthReq then
-				text = text .. "\nStrength Required: " .. data.strengthReq
+				text = text .. "\nStrength Required: " .. dat.strengthReq
 			end 
 
 

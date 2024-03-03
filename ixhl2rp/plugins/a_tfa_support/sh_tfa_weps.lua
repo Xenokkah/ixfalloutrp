@@ -142,11 +142,11 @@ PLUGIN.GunData["aus_w_22_smg"] = {
 
 
 
-PLUGIN.GunData["aus_w_varmintrifle"] = {
+PLUGIN.GunData["aus_w_varmintrifle_22"] = {
 	BlackList = false,
-	ID = "varmintrifle",
-	Name = "Varmint .22",
-	Desc = "A bolt action, ten shot rifle chambered in .22, primarily for use against critters around the farm and house, hence the 'varmint'.",
+	ID = "22rifle",
+	Name = ".22 Rifle",
+	Desc = "A bolt action, ten shot rifle chambered in .22, used for hunting small critters before the war. Nowadays critters may be a bit too big for the small caliber, but its not without its uses.",
 	Slot = "primary",
 	Model = "models/illusion/fwp/w_varmintrifle.mdl",
 	Width = 3,
@@ -687,6 +687,35 @@ PLUGIN.GunData["aus_w_127pistol"] = {
 
 
 --=== 5.56 ===--
+
+PLUGIN.GunData["aus_w_varmintrifle"] = {
+	BlackList = false,
+	ID = "varmintrifle",
+	Name = "Varmint Rifle",
+	Desc = "A bolt action, five shot rifle chambered in 5.56. Effective as a defensive tool for the home.. or the body.",
+	Slot = "primary",
+	Model = "models/illusion/fwp/w_varmintrifle.mdl",
+	Width = 3,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 1,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	strengthReq = 2,
+	
+	Prim = {
+		Ammo = "556ammo",
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
 PLUGIN.GunData["aus_w_servicerifle"] = {
 	BlackList = false,
 	Name = "Service Rifle",

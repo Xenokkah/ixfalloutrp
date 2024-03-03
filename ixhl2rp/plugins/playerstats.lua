@@ -623,6 +623,7 @@ ix.command.Add("CharSetDT", {
     arguments = {ix.type.character, ix.type.number},
     OnRun = function(self, client, target, value)
         target:SetChardt(value)
+        target:SetChardtboost(0)
         client:Notify("Set DT of " .. target:GetName() .. " to " .. value)
     end
 })
@@ -633,6 +634,7 @@ ix.command.Add("CharSetET", {
     arguments = {ix.type.character, ix.type.number},
     OnRun = function(self, client, target, value)
         target:SetCharet(value)
+        target:SetCharetboost(0)
         client:Notify("Set ET of " .. target:GetName() .. " to " .. value)
     end
 })
@@ -643,6 +645,7 @@ ix.command.Add("CharSetDR", {
     arguments = {ix.type.character, ix.type.number},
     OnRun = function(self, client, target, value)
         target:SetChardr(value)
+        target:SetChardrboost(0)
         client:Notify("Set DR of " .. target:GetName() .. " to " .. value)
     end
 })
@@ -653,6 +656,7 @@ ix.command.Add("CharSetRadResist", {
     arguments = {ix.type.character, ix.type.number},
     OnRun = function(self, client, target, value)
         target:SetCharradresist(value)
+        target:SetCharradresistboost(0)
         client:Notify("Set Rad Resistance of " .. target:GetName() .. " to " .. value)
     end
 })
@@ -663,6 +667,7 @@ ix.command.Add("CharSetAP", {
     arguments = {ix.type.character, ix.type.number},
     OnRun = function(self, client, target, value)
         target:SetCharap(value)
+        target:SetCharapboost(0)
         client:Notify("Set AP of " .. target:GetName() .. " to " .. value)
     end
 })
@@ -683,11 +688,12 @@ ix.command.Add("CharSetMaxHP", {
     arguments = {ix.type.character, ix.type.number},
     OnRun = function(self, client, target, value)
         target:SetCharmaxhp(value)
+        target:SetCharmaxhpboost(0)
         client:Notify("Set Max HP of " .. target:GetName() .. " to " .. value)
     end
 })
 
-ix.command.Add("CharCritChance", {
+ix.command.Add("CharSetCritChance", {
     description = "Set character's current Critical Hit chance % to the given number.",
     adminOnly = true,
     arguments = {ix.type.character, ix.type.number},
