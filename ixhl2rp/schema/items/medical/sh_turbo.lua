@@ -1,6 +1,6 @@
 ITEM.name = "Turbo"
 ITEM.description = "An amphetamine in an inhaler."
-ITEM.longdesc = "A Jet inhaler with some extra chemicals to huff. The feeling is intense, much more so than Jet alone, but barely lasts any longer."
+ITEM.longdesc = "A Jet inhaler with some extra chemicals to huff. The feeling is intense, much more so than Jet alone, but barely lasts any longer.\n+1 AP\n+5 Evasion"
 ITEM.model = "models/mosi/fnv/props/health/chems/turbo.mdl"
 ITEM.width = 1
 ITEM.height = 2
@@ -24,11 +24,16 @@ ITEM.functions.use = {
 		itemname = item.name
 		duration = item.duration
 
-		curplayer:AddBoost("turbo", "agility", 2)
+		curplayer:SetCharapboost(curplayer:GetCharapboost() + 1)
+		curplayer:AddSkillBoost("turbo", "evasion", 5)
+		curplayer:SetData("usingJet", true)
+
 		timer.Simple(duration, function() 
-			curplayer:RemoveBoost("turbo", "agility")
+			curplayer:SetCharapboost(curplayer:GetCharapboost() - 1)
 			curplayer:GetPlayer():NewVegasNotify(itemname .. " has worn off.", "messageNeutral", 8)
 			curplayer:GetPlayer():EmitSound("cwfallout3/ui/medical/wear_off.wav" or "items/battery_pickup.wav")
+			curplayer:RemoveSkillBoost("turbo", "evasion")
+			curplayer:SetData("usingJet", false)
 		end)
 
 			quantity = quantity - 1
@@ -41,7 +46,13 @@ ITEM.functions.use = {
 		end,
 
 	OnCanRun = function(item)
-		return (!IsValid(item.entity))
+		curplayer = item.player:GetCharacter()
+		
+		if (curplayer:GetData("usingJet")) then 
+			return false
+		else 
+			return (!IsValid(item.entity))
+		end 
 	end
 }
 

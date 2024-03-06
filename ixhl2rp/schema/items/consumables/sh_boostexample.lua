@@ -22,11 +22,8 @@ ITEM:Hook("use", function(item)
 	print(curplayer:GetAttribute("end"))
 
 	timer.Simple(10, function() 
-			
-		
 		curplayer:RemoveBoost("endboost", "end")
 		print(curplayer:GetAttribute("end"))
-		
 	end)
 
 	

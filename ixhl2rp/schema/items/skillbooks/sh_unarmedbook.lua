@@ -1,0 +1,9 @@
+ITEM.name = "Pugilism Illustrated"
+ITEM.model = "models/fo3/misc/pugilism_0.mdl"
+ITEM.description = "An illustrated magazine featuring discussions, articles, and news on the sport of fighting like a true gentlemanne!"
+ITEM.category = "skillbooks"
+ITEM.flag = "1"
+ITEM.skill = "unarmed"
+ITEM.price = 5
+ITEM.width = 1
+ITEM.height = 2

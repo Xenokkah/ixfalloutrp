@@ -46,7 +46,7 @@ ITEM.functions.use = {
 	OnCanRun = function(item)
 		curplayer = item.player:GetCharacter()
 		
-		if (curplayer:GetData("usingBuffout")) then 
+		if (curplayer:GetData("usingJet")) then 
 			return false
 		else 
 			return (!IsValid(item.entity))

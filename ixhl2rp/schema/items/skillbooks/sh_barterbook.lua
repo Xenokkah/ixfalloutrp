@@ -1,0 +1,9 @@
+ITEM.name = "Tales of a Junktown Jerky Vendor"
+ITEM.model = "models/fo3/misc/bookjunkton.mdl"
+ITEM.description = "A novel written by a very successful Brahmin Jerky baron in Junktown, California, detailing his rise to the top from one man with dried meat, a wooden stand, and a dream. Bound to have tips and tricks for the hopeful jerky merchant."
+ITEM.category = "skillbooks"
+ITEM.flag = "1"
+ITEM.skill = "unarmed"
+ITEM.price = 5
+ITEM.width = 1
+ITEM.height = 2

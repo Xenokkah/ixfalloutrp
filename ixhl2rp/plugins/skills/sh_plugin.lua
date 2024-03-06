@@ -34,12 +34,17 @@ function PLUGIN:OnCharacterCreated(client, character)
     character:SetSkill("survival", endurance + luckboost)
     character:SetSkill("unarmed", endurance + luckboost)
 
+    character:SetSkill("speech", charisma + luckboost)
+    character:SetSkill("barter", charisma + luckboost)
+
     character:SetSkill("science", intelligence + luckboost)
     character:SetSkill("repair", intelligence + luckboost)
     character:SetSkill("medicine", intelligence + luckboost)
 
     character:SetSkill("guns", agility + luckboost)
     character:SetSkill("evasion", agility + luckboost)
+
+
 
 
     -- Background Traits --
