@@ -137,37 +137,37 @@ ix.container.Register("models/maxib123/dufflebag.mdl", {
 })
 
 ix.container.Register("models/maxib123/floorsafe.mdl", {
-	name = "Safe"
+	name = "Safe",
 	description = "A solid metal safe with a numeric keypad.",
 	width = 3,
 	height = 3
 })
 
 ix.container.Register("models/maxib123/suitcase.mdl", {
-	name = "Suitcase"
-	description = "A leather-covered traveling case."
+	name = "Suitcase",
+	description = "A leather-covered traveling case.",
 	width = 3,
 	height = 3
 })
 
 ix.container.Register("models/maxib123/trunk.mdl", {
-	name = "Trunk"
+	name = "Trunk",
 	description = "A hefty looking metal trunk with lots of room for goodies.",
-	width = 5
+	width = 5,
 	height = 5
 })
 
 ix.container.Register("models/maxib123/trunk.mdl", {
-	name = "Metal Box"
+	name = "Metal Box",
 	description = "A simple metal box.",
-	width = 3
+	width = 3,
 	height = 3
 })
 
 ix.container.Register("models/maxib123/medkit.mdl", {
-	name = "First Aid Kit""
+	name = "First Aid Kit",
 	description = "A hard case for holding medical supply.",
-	width = 2
-	height = 2
+	width = 2,
+	height = 2,
 })
 

@@ -35,6 +35,34 @@ ix.char.RegisterVar("LifetimeXP", {
     bNoDisplay = true
 })
 
+ix.char.RegisterVar("NoLevel", {
+    field = "nolevel",
+    fieldType = ix.type.boolean,
+    default = false,
+    isLocal = true,
+    bNoDisplay = true
+})
+
+ix.command.Add("CharSetNoLevel", {
+	adminOnly = true,
+	arguments = {
+		ix.type.character,
+		ix.type.bool,
+	},
+	OnRun = function(self, client, target, nolevel)
+		
+		target:SetNoLevel(nolevel)
+		
+		if (target:GetNoLevel() == true) then
+			return client:Notify(target:GetName() .. "has been set to be exempt from leveling.")
+		end
+
+		if (target:GetNoLevel() == false) then
+			return client:Notify(target:GetName() .. "has been set to allow leveling.")
+		end
+	end
+})
+
 ix.command.Add("CharRewardXP", {
     description = "Add XP to a character.",
     adminOnly = true,
@@ -42,6 +70,10 @@ ix.command.Add("CharRewardXP", {
     ix.type.character, 
     ix.type.number},
     OnRun = function(self, client, target, points)
+
+        if (target:GetNoLevel() == true) then 
+            return "Character is set to be exempt from experience and levelups."
+        end 
 
         if (points <= 0) then
             return "Cannot give zero or negative XP."

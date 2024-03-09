@@ -90,7 +90,7 @@ PLUGIN.GunData["tfa_22mm_pistol"] = {
 	Desc = "An integrally suppressed pistol with a very small report when firing. Its compact size and low noise make it very popular for assassinations, but it doesn't really hold up in open combat.",
 	Slot = "secondary",
 	Model = "models/weapons/tfa_fallout/w_fallout_silenced_22.mdl",
-	Width = 3,
+	Width = 1,
 	iconCam = {
 		pos = Vector(2.75, 191.95, 56.09),
 		ang = Angle(16.18, -90.88, 0),
@@ -1389,7 +1389,7 @@ PLUGIN.GunData["tfa_laser_revolver"] = {
 		ang = Angle(16.18, -90.88, 0),
 		fov = 9.31
 	},
-	Height = 2,
+	Height = 1,
 	Weight = 3,
 	Price = 2000,
 	condition = 100,

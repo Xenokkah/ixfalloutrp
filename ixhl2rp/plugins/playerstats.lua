@@ -431,6 +431,29 @@ ix.command.Add("CharGetStatus", {
 	end
 })
 
+ix.command.Add("CharGetAttributes", {
+	description = "Get all main SPECIAL attributes of given character.",
+    adminOnly = true,
+    arguments = {ix.type.character},
+	OnRun = function(self, client, target)
+		local str = target:GetName() .. " has the following SPECIAL stats:"
+        local char = target
+        local player = target:GetPlayer()
+        
+        str = str .. "Strength: " .. char:GetAttribute("strength")
+        str = str .. "Perception: " .. char:GetAttribute("perception")
+        str = str .. "Endurance: " .. char:GetAttribute("endurance")
+        str = str .. "Charisma: " .. char:GetAttribute("charisma")
+        str = str .. "Intelligence: " .. char:GetAttribute("intelligence")
+        str = str .. "Agility: " .. char:GetAttribute("agility")
+        str = str .. "Luck: " .. char:GetAttribute("luck")
+
+        
+        return str
+	end
+})
+
+
 
 ix.command.Add("Damage", {
     description = "Inflict damage on a player.",

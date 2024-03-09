@@ -17,7 +17,7 @@ ix.chat.Register("lev", {
 	end,
 	CanHear = ix.config.Get("chatRange", 280) * 8,
 	OnChatAdd = function(self, speaker, text)
-		chat.AddText(Color(225, 150, 20), text)
+		chat.AddText(Color(255, 230, 50), text)
 	end,
 	prefix = {"/eventlocal", "/levent", "/lev"}
 })

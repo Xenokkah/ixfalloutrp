@@ -15,7 +15,7 @@ ENT.HUDDesc = "A chemistry set."
 
 if (SERVER) then
     function ENT:Initialize()
-        self:SetModel("models/mosi/fnv/props/workstations/chemistrylab.mdl")
+        self:SetModel("models/mosi/fallout4/furniture/workstations/chemistrystation01.mdl")
         self:PhysicsInit(SOLID_VPHYSICS)
         self:SetMoveType(MOVETYPE_VPHYSICS)
         self:SetSolid(SOLID_VPHYSICS)

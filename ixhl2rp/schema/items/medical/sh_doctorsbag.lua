@@ -1,7 +1,7 @@
 ITEM.name = "Doctor's Bag"
 ITEM.description = "A leather bag with metal clasps holding a set of tools."
 ITEM.longdesc = "A bag of tools suitable for both surgery and field work. Comes with a yellowed book on basic procedures for staunching bleeding wounds and the like - making it valuable for stablizing a wounded teammate even with minimal training. \n\nMedical DC to Stabilize: 5"
-ITEM.model = "models/mosi/fnv/props/health/chems/hydra.mdl"
+ITEM.model = "models/maxib123/doctorsbag.mdl"
 ITEM.width = 1
 ITEM.height = 2
 ITEM.category = "Medical"

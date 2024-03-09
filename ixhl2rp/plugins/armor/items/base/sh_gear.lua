@@ -1,7 +1,7 @@
 ITEM.name = "Nice name"
 ITEM.description = "Nice desc"
 ITEM.width = 2
-ITEM.height = 2
+ITEM.height = 1
 ITEM.isArmor = true
 ITEM.isMisc = true
 ITEM.price = 1

@@ -1,7 +1,7 @@
 ITEM.name = "Radaway"
 ITEM.description = "Radiation treatment fluid."
 ITEM.longdesc = "An IV bag full of fluid. Purges some radiation from the body. Best used while resting.\n\n-50 Rads"
-ITEM.model = "models/mosi/fnv/props/health/radx.mdl"
+ITEM.model = "models/mosi/fnv/props/health/radaway.mdl"
 ITEM.width = 1
 ITEM.height = 2
 ITEM.category = "Medical"

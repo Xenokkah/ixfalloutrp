@@ -79,7 +79,7 @@ end
 
 -- Strength --
 ix.command.Add("Unarmed", {
-    description = "Roll an Unarmed check on a d20 + Strength. Optional modifier.",
+    description = "Roll an Unarmed check on a d20 + Endurance. Optional modifier.",
     arguments = {bit.bor(ix.type.number, ix.type.optional)},
     OnRun = function(self, client, modifier)
         local char = client:GetCharacter()
@@ -174,7 +174,7 @@ ix.command.Add("Explosives", {
     OnRun = function(self, client, modifier)
         local char = client:GetCharacter()
         local value = math.random(1, 20)
-        local attr = "Perception"
+        local attr = "Explosives"
         local att = math.floor(client:GetCharacter():GetAttribute("perception") / 2)
         local add = att + char:GetSkill("explosives", 0)
         local modifier = modifier or 0

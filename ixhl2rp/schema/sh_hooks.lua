@@ -4,6 +4,19 @@ function Schema:CanDrive()
 	return false
 end
 
+if SERVER then
+	local playerMeta = FindMetaTable("Player")
+
+	function playerMeta:requestQuery(title, subTitle, callback)
+		local time = math.floor(os.time())
+
+		self.nutQueReqs = self.nutQueReqs or {}
+		self.nutQueReqs[time] = callback
+
+		netstream.Start(self, "qurReq", time, title, subTitle)
+	end
+end
+
 
 do
 	hook.Add("InitializedConfig", "ixMoneyCommands", function()

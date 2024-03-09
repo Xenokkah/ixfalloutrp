@@ -80,7 +80,7 @@ function PLUGIN:OnCharacterCreated(client, character)
         local meleedebuff = math.Clamp(character:GetSkill("meleeweapons") -5, 0, 20)
         local unarmeddebuff = math.Clamp(character:GetSkill("unarmed")  -5, 0, 20)
         character:SetSkill("repair", repairboost)
-        character:SetSkill("energyweapons", energygunsdebuff)
+        character:SetSkill("energyweapons", energygunsboost)
         character:SetSkill("meleeweapons", meleedebuff)
         character:SetSkill("unarmed", unarmeddebuff)
     end 
