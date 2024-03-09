@@ -16,6 +16,7 @@ ix.chat.Register("narrate", {
 
 
 ix.command.Add("Narrate", {
+    adminOnly = true,
     description = "Narrate to a player.",
     arguments = {ix.type.player, ix.type.string},
     OnRun = function(self, client, target, message)
