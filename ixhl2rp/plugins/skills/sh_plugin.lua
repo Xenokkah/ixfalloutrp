@@ -49,12 +49,12 @@ function PLUGIN:OnCharacterCreated(client, character)
 
     -- Background Traits --
     if character:HasFeat("tribal") then
-        local unarmedboost = math.Clamp(character:GetSkill("unarmed") + 5, 0, 20)
-        local meleeboost = math.Clamp(character:GetSkill("meleeweapons") + 5, 0, 20)
-        local survivalboost = math.Clamp(character:GetSkill("survival") + 5, 0, 20)
-        local energygunsdebuff = math.Clamp(character:GetSkill("energyweapons") -5, 0, 20)
-        local sciencedebuff = math.Clamp(character:GetSkill("science")  -5, 0, 20)
-        local medicinedebuff = math.Clamp(character:GetSkill("medicine") -5, 0, 20)
+        local unarmedboost = math.Clamp(character:GetSkill("unarmed") + 5, 0, 50)
+        local meleeboost = math.Clamp(character:GetSkill("meleeweapons") + 5, 0, 50)
+        local survivalboost = math.Clamp(character:GetSkill("survival") + 5, 0, 50)
+        local energygunsdebuff = math.Clamp(character:GetSkill("energyweapons") -5, 0, 50)
+        local sciencedebuff = math.Clamp(character:GetSkill("science")  -5, 0, 50)
+        local medicinedebuff = math.Clamp(character:GetSkill("medicine") -5, 0, 50)
         character:SetSkill("unarmed", unarmedboost)
         character:SetSkill("meleeweapons", meleeboost)
         character:SetSkill("survival", survivalboost)
@@ -64,10 +64,10 @@ function PLUGIN:OnCharacterCreated(client, character)
     end 
 
     if character:HasFeat("cityslicker") then
-        local lockpickboost = math.Clamp(character:GetSkill("lockpicking") + 5, 0, 20)
-        local evasionboost = math.Clamp(character:GetSkill("evasion") + 5, 0, 20)
-        local sciendedebuff = math.Clamp(character:GetSkill("science") -5, 0, 20)
-        local explosivesdebuff = math.Clamp(character:GetSkill("explosives")  -5, 0, 20)
+        local lockpickboost = math.Clamp(character:GetSkill("lockpicking") + 5, 0, 50)
+        local evasionboost = math.Clamp(character:GetSkill("evasion") + 5, 0, 50)
+        local sciencedebuff = math.Clamp(character:GetSkill("science") -5, 0, 50)
+        local explosivesdebuff = math.Clamp(character:GetSkill("explosives")  -5, 0, 50)
         character:SetSkill("lockpicking", lockpickboost)
         character:SetSkill("evasion", evasionboost)
         character:SetSkill("science", sciencedebuff)
@@ -75,10 +75,10 @@ function PLUGIN:OnCharacterCreated(client, character)
     end 
 
     if character:HasFeat("mechanic") then
-        local repairboost = math.Clamp(character:GetSkill("repair") + 5, 0, 20)
-        local energygunsboost = math.Clamp(character:GetSkill("energyweapons") + 5, 0, 20)
-        local meleedebuff = math.Clamp(character:GetSkill("meleeweapons") -5, 0, 20)
-        local unarmeddebuff = math.Clamp(character:GetSkill("unarmed")  -5, 0, 20)
+        local repairboost = math.Clamp(character:GetSkill("repair") + 5, 0, 50)
+        local energygunsboost = math.Clamp(character:GetSkill("energyweapons") + 5, 0, 50)
+        local meleedebuff = math.Clamp(character:GetSkill("meleeweapons") -5, 0, 50)
+        local unarmeddebuff = math.Clamp(character:GetSkill("unarmed")  -5, 0, 50)
         character:SetSkill("repair", repairboost)
         character:SetSkill("energyweapons", energygunsboost)
         character:SetSkill("meleeweapons", meleedebuff)
@@ -86,10 +86,10 @@ function PLUGIN:OnCharacterCreated(client, character)
     end 
 
     if character:HasFeat("junkie") then
-        local gunsboost = math.Clamp(character:GetSkill("guns") + 5, 0, 20)
-        local scienceboost = math.Clamp(character:GetSkill("science") + 5, 0, 20)
-        local evasiondebuff = math.Clamp(character:GetSkill("evasion") -5, 0, 20)
-        local medicinedebuff = math.Clamp(character:GetSkill("medicine")  -5, 0, 20)
+        local gunsboost = math.Clamp(character:GetSkill("guns") + 5, 0, 50)
+        local scienceboost = math.Clamp(character:GetSkill("science") + 5, 0, 50)
+        local evasiondebuff = math.Clamp(character:GetSkill("evasion") -5, 0, 50)
+        local medicinedebuff = math.Clamp(character:GetSkill("medicine")  -5, 0, 50)
         character:SetSkill("guns", gunsboost)
         character:SetSkill("science", scienceboost)
         character:SetSkill("evasion", evasiondebuff)
@@ -97,10 +97,10 @@ function PLUGIN:OnCharacterCreated(client, character)
     end 
 
     if character:HasFeat("soldier") then
-        local gunsboost = math.Clamp(character:GetSkill("guns") + 5, 0, 20)
-        local explosivesboost = math.Clamp(character:GetSkill("explosives") + 5, 0, 20)
-        local survivaldebuff = math.Clamp(character:GetSkill("survival") -5, 0, 20)
-        local lockpickingdebuff = math.Clamp(character:GetSkill("lockpicking")  -5, 0, 20)
+        local gunsboost = math.Clamp(character:GetSkill("guns") + 5, 0, 50)
+        local explosivesboost = math.Clamp(character:GetSkill("explosives") + 5, 0, 50)
+        local survivaldebuff = math.Clamp(character:GetSkill("survival") -5, 0, 50)
+        local lockpickingdebuff = math.Clamp(character:GetSkill("lockpicking")  -5, 0, 50)
         character:SetSkill("guns", gunsboost)
         character:SetSkill("explosives", explosivesboost)
         character:SetSkill("survival", survivaldebuff)
@@ -108,10 +108,10 @@ function PLUGIN:OnCharacterCreated(client, character)
     end 
 
     if character:HasFeat("doctor") then
-        local medicineboost = math.Clamp(character:GetSkill("medicine") + 5, 0, 20)
-        local scienceboost = math.Clamp(character:GetSkill("science") + 5, 0, 20)
-        local gunsdebuff = math.Clamp(character:GetSkill("guns") -5, 0, 20)
-        local meleedebuff = math.Clamp(character:GetSkill("meleeweapons")  -5, 0, 20)
+        local medicineboost = math.Clamp(character:GetSkill("medicine") + 5, 0, 50)
+        local scienceboost = math.Clamp(character:GetSkill("science") + 5, 0, 50)
+        local gunsdebuff = math.Clamp(character:GetSkill("guns") -5, 0, 50)
+        local meleedebuff = math.Clamp(character:GetSkill("meleeweapons")  -5, 0, 50)
         character:SetSkill("medicine", medicineboost)
         character:SetSkill("science", scienceboost)
         character:SetSkill("guns", gunsdebuff)
@@ -132,17 +132,17 @@ ix.command.Add("CharGetSkills", {
         str = str .. "Level: " .. char:GetLevel() .. "\n"
         str = str .. "Next Level in: " .. char:GetXPToNextLevel() - char:GetXP() .. " XP \n"
         str = str .. "Skillpoints: " ..char:GetSkillPoints() .. "\n\n"
-        str =  str .. "Energy Weapons: " .. char:GetSkill("energyweapons", 0).. "/20\n"
-        str = str .. "Guns: " ..char:GetSkill("guns", 0).. "/20\n"
-        str = str .. "Melee Weapons: " ..char:GetSkill("meleeweapons", 0).. "/20\n"
-        str = str .. "Explosives: " ..char:GetSkill("explosives", 0).. "/20\n"
-        str = str .. "Medicine: " ..char:GetSkill("medicine", 0).. "/20\n"
-        str = str .. "Evasion: " ..char:GetSkill("evasion", 0).. "/20\n"
-        str = str .. "Survival: " ..char:GetSkill("survival", 0).. "/20\n"
-        str = str .. "Science: " ..char:GetSkill("science", 0).. "/20\n"
-        str = str .. "Repair: " ..char:GetSkill("repair", 0).. "/20\n"
-        str = str .. "Medicine: " ..char:GetSkill("medicine", 0).. "/20\n"
-        str = str .. "Lockpicking: " ..char:GetSkill("lockpicking", 0).. "/20\n"
+        str =  str .. "Energy Weapons: " .. char:GetSkill("energyweapons", 0).. "/50\n"
+        str = str .. "Guns: " ..char:GetSkill("guns", 0).. "/50\n"
+        str = str .. "Melee Weapons: " ..char:GetSkill("meleeweapons", 0).. "/50\n"
+        str = str .. "Explosives: " ..char:GetSkill("explosives", 0).. "/50\n"
+        str = str .. "Medicine: " ..char:GetSkill("medicine", 0).. "/50\n"
+        str = str .. "Evasion: " ..char:GetSkill("evasion", 0).. "/50\n"
+        str = str .. "Survival: " ..char:GetSkill("survival", 0).. "/50\n"
+        str = str .. "Science: " ..char:GetSkill("science", 0).. "/50\n"
+        str = str .. "Repair: " ..char:GetSkill("repair", 0).. "/50\n"
+        str = str .. "Medicine: " ..char:GetSkill("medicine", 0).. "/50\n"
+        str = str .. "Lockpicking: " ..char:GetSkill("lockpicking", 0).. "/50\n"
         return str
 	end
 })
@@ -192,8 +192,8 @@ ix.command.Add("SpendSkillpoints", {
 
         if not (skillLevel == nil) then
 
-            if (skillLevel + pointstospend > 20) then
-                client:NewVegasNotify("You cannot raise a skill above 20.", "messageSad", 8)
+            if (skillLevel + pointstospend > 50) then
+                client:NewVegasNotify("You cannot raise a skill above 50.", "messageSad", 8)
                 return
             end 
 

@@ -1,6 +1,6 @@
-ITEM.name = "Psycho"
-ITEM.description = "A pre-war attempt at a super soldier serum."
-ITEM.longdesc = "A pre-war combat drug meant to make soldiers more effective, it effectively immediately and extremely heightens aggression while dampening fear responses, making them a murderous animal that one cannot possibly reason with until its effects pass.\nAdd 25% of damage roll as extra damage"
+ITEM.name = "Slasher"
+ITEM.description = "A modification of the Psycho mixture."
+ITEM.longdesc = "With some modifications to the formula, a hit of Psycho can also dull the effects of pain while increasing aggression. Terrifying. \n+25% DR\nAdd 25% of damage roll as extra damage\nDoes not stack with Med-X or Psycho"
 ITEM.model = "models/fnv/clutter/health/psychochem01.mdl"
 ITEM.width = 2
 ITEM.height = 1
@@ -18,18 +18,11 @@ ITEM.functions.use = {
 	OnRun = function(item)
 		local quantity = item:GetData("quantity", item.quantity)
 	
-		ix.chat.Send(item.player, "iteminternal", "injects a dose of "..item.name..".", false)
+		ix.chat.Send(item.player, "iteminternal", "injects some "..item.name..".", false)
 		item.player:GetCharacter():GetInventory():Add("dirtysyringe", 1)
 
-		curplayer = item.player:GetCharacter()
-		itemname = item.name
-		duration = item.duration
-		
-
-		timer.Simple(duration, function() 
-			curplayer:GetPlayer():NewVegasNotify(itemname .. " has worn off.", "messageNeutral", 8)
-			curplayer:GetPlayer():EmitSound("cwfallout3/ui/medical/wear_off.wav" or "items/battery_pickup.wav")
-		end)
+		curplayer:SetChardrboost(curplayer:GetChardrboost() + 25)
+		curplayer:SetData("usingMedX", true)
 
 		quantity = quantity - 1
 		if (quantity >= 1) then
@@ -37,11 +30,26 @@ ITEM.functions.use = {
 			return false
 		end
 
+		timer.Simple(duration, function() 
+			curplayer:SetChardrboost(curplayer:GetChardrboost() - 25)
+			curplayer:GetPlayer():NewVegasNotify(itemname .. " has worn off.", "messageNeutral", 8)
+			curplayer:GetPlayer():EmitSound("cwfallout3/ui/medical/wear_off.wav" or "items/battery_pickup.wav")
+			curplayer:SetData("usingMedX", false)
+
+		end)
+
 		return true
+
 	end,
 
 	OnCanRun = function(item)
-		return (!IsValid(item.entity))
+		curplayer = item.player:GetCharacter()
+		
+		if (curplayer:GetData("usingMedX")) then 
+			return false
+		else 
+			return (!IsValid(item.entity))
+		end 
 	end
 }
 

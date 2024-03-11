@@ -1,6 +1,6 @@
 ITEM.name = "Mentats"
 ITEM.description = "A tin of mind aids."
-ITEM.longdesc = "A metallic tin full of tablets, with a mixture scientifically proven to sharpen the senses and increase the mind's comprehension. Favored by intellectuals needing the boost to power through their next breakthrough."
+ITEM.longdesc = "A metallic tin full of tablets, with a mixture scientifically proven to sharpen the senses and increase the mind's comprehension. Favored by intellectuals needing the boost to power through their next breakthrough.\n+2 INT\n+2 PER\n+1 CHR"
 ITEM.model = "models/mosi/fnv/props/health/chems/mentats.mdl"
 ITEM.width = 2
 ITEM.height = 1
@@ -19,8 +19,6 @@ ITEM.functions.use = {
 		local quantity = item:GetData("quantity", item.quantity)
 	
 		ix.chat.Send(item.player, "iteminternal", "takes some "..item.name..".", false)
-
-		item.player:NewVegasNotify("You practically feel your mind expanding! +2 INT, +2 PER, +1 CHR", "messageNeutral", 8)
 
 		curplayer = item.player:GetCharacter()
 		itemname = item.name

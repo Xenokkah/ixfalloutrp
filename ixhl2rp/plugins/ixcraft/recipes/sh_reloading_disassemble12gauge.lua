@@ -3,7 +3,7 @@ RECIPE.description = "Disassemble a full box of 12 gauge buckshot shells for the
 RECIPE.model = "models/mosi/fallout4/ammo/shotgunshells.mdl"
 RECIPE.category = "Ammo"
 RECIPE.requirements = {
-	["ammo_9mmammo"] = 1
+	["ammo_12gaugeammo"] = 1
 }
 
 RECIPE.results = {

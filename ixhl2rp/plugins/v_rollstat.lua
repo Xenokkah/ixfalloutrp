@@ -74,7 +74,7 @@ for k, v in pairs(ix.attributes.list) do
 end 
 
 
-
+-- math.floor(client:GetCharacter():GetAttribute("endurance") / 2)
 ----= Skills =----
 
 -- Strength --
@@ -85,8 +85,8 @@ ix.command.Add("Unarmed", {
         local char = client:GetCharacter()
         local value = math.random(1, 20)
         local attr = "Unarmed"
-        local att =  math.floor(client:GetCharacter():GetAttribute("endurance") / 2)
-        local add = att + char:GetSkill("unarmed", 0)
+        local att =  0
+        local add = att + math.floor(client:GetCharacter():GetSkill("unarmed") / 2)
         local modifier = modifier or 0
 
         -- If rolled number between 0-100 is less than crit chance, it is a critical hit
@@ -116,8 +116,8 @@ ix.command.Add("Melee", {
         local char = client:GetCharacter()
         local value = math.random(1, 20)
         local attr = "Melee Weapons"
-        local att = math.floor(client:GetCharacter():GetAttribute("strength") / 2)
-        local add = att + char:GetSkill("meleeweapons", 0)
+        local att = 0
+        local add = att + math.floor(client:GetCharacter():GetSkill("meleeweapons") / 2)
         local modifier = modifier or 0
 
         -- If rolled number between 0-100 is less than crit chance, it is a critical hit
@@ -146,8 +146,8 @@ ix.command.Add("Energy", {
         local char = client:GetCharacter()
         local value = math.random(1, 20)
         local attr = "Energy Weapons"
-        local att = math.floor(client:GetCharacter():GetAttribute("perception") / 2)
-        local add = att + char:GetSkill("energyweapons", 0)
+        local att = 0
+        local add = att + math.floor(client:GetCharacter():GetSkill("energyweapons") / 2)
         local modifier = modifier or 0
 
         -- If rolled number between 0-100 is less than crit chance, it is a critical hit
@@ -175,8 +175,8 @@ ix.command.Add("Explosives", {
         local char = client:GetCharacter()
         local value = math.random(1, 20)
         local attr = "Explosives"
-        local att = math.floor(client:GetCharacter():GetAttribute("perception") / 2)
-        local add = att + char:GetSkill("explosives", 0)
+        local att = 0
+        local add = att + math.floor(client:GetCharacter():GetSkill("explosives") / 2)
         local modifier = modifier or 0
 
         -- If rolled number between 0-100 is less than crit chance, it is a critical hit
@@ -204,8 +204,8 @@ ix.command.Add("Lockpick", {
         local char = client:GetCharacter()
         local value = math.random(1, 20)
         local attr = "Lockpicking"
-        local att = math.floor(client:GetCharacter():GetAttribute("perception") / 2)
-        local add = att + char:GetSkill("lockpicking", 0)
+        local att = 0
+        local add = att + math.floor(client:GetCharacter():GetSkill("lockpicking") / 2)
         local modifier = modifier or 0
         
         ix.chat.Send(client, "rollStat", tostring(value), nil, nil, {
@@ -228,8 +228,8 @@ ix.command.Add("Survival", {
         local char = client:GetCharacter()
         local value = math.random(1, 20)
         local attr = "Survival"
-        local att = math.floor(client:GetCharacter():GetAttribute("endurance") / 2)
-        local add = att + char:GetSkill("survival", 0)
+        local att = 0
+        local add = att + math.floor(client:GetCharacter():GetSkill("survival") / 2)
         local modifier = modifier or 0
         
         ix.chat.Send(client, "rollStat", tostring(value), nil, nil, {
@@ -253,8 +253,8 @@ ix.command.Add("Speech", {
         local char = client:GetCharacter()
         local value = math.random(1, 20)
         local attr = "Speech"
-        local att = math.floor(client:GetCharacter():GetAttribute("charisma") / 2)
-        local add = att + char:GetSkill("speech", 0)
+        local att = 0
+        local add = att + math.floor(client:GetCharacter():GetSkill("speech") / 2)
         local modifier = modifier or 0
         
         ix.chat.Send(client, "rollStat", tostring(value), nil, nil, {
@@ -275,8 +275,8 @@ ix.command.Add("Barter", {
         local char = client:GetCharacter()
         local value = math.random(1, 20)
         local attr = "Speech"
-        local att = math.floor(client:GetCharacter():GetAttribute("charisma") / 2)
-        local add = att + char:GetSkill("barter", 0)
+        local att = 0
+        local add = att + math.floor(client:GetCharacter():GetSkill("barter") / 2)
         local modifier = modifier or 0
         
         ix.chat.Send(client, "rollStat", tostring(value), nil, nil, {
@@ -298,8 +298,8 @@ ix.command.Add("Science", {
         local char = client:GetCharacter()
         local value = math.random(1, 20)
         local attr = "Science"
-        local att = math.floor(client:GetCharacter():GetAttribute("intelligence") / 2)
-        local add = att + char:GetSkill("science", 0)
+        local att = 0
+        local add = att + math.floor(client:GetCharacter():GetSkill("science") / 2)
         local modifier = modifier or 0
         
         ix.chat.Send(client, "rollStat", tostring(value), nil, nil, {
@@ -320,8 +320,8 @@ ix.command.Add("Medicine", {
         local char = client:GetCharacter()
         local value = math.random(1, 20)
         local attr = "Medicine"
-        local att =math.floor(client:GetCharacter():GetAttribute("intelligence") / 2)
-        local add = att + char:GetSkill("medicine", 0)
+        local att = 0
+        local add = att + math.floor(client:GetCharacter():GetSkill("medicine") / 2)
         local modifier = modifier or 0
         
         ix.chat.Send(client, "rollStat", tostring(value), nil, nil, {
@@ -342,8 +342,8 @@ ix.command.Add("Repair", {
         local char = client:GetCharacter()
         local value = math.random(1, 20)
         local attr = "Repair"
-        local att = math.floor(client:GetCharacter():GetAttribute("intelligence") / 2)
-        local add = att + char:GetSkill("repair", 0)
+        local att = 0
+        local add = att + math.floor(client:GetCharacter():GetSkill("repair") / 2)
         local modifier = modifier or 0
         
         ix.chat.Send(client, "rollStat", tostring(value), nil, nil, {
@@ -366,8 +366,8 @@ ix.command.Add("Guns", {
         local char = client:GetCharacter()
         local value = math.random(1, 20)
         local attr = "Guns"
-        local att = math.floor(client:GetCharacter():GetAttribute("agility") / 2)
-        local add = att + char:GetSkill("guns", 0)
+        local att = 0
+        local add = att + math.floor(client:GetCharacter():GetSkill("guns") / 2)
         local modifier = modifier or 0
 
         -- If rolled number between 0-100 is less than crit chance, it is a critical hit
@@ -395,8 +395,8 @@ ix.command.Add("Evasion", {
         local char = client:GetCharacter()
         local value = math.random(1, 20)
         local attr = "Evasion"
-        local att = math.floor(client:GetCharacter():GetAttribute("agility") / 2)
-        local add = att + char:GetSkill("evasion", 0)
+        local att = 0
+        local add = att + math.floor(client:GetCharacter():GetSkill("evasion") / 2)
         local modifier = modifier or 0
         
         ix.chat.Send(client, "rollStat", tostring(value), nil, nil, {

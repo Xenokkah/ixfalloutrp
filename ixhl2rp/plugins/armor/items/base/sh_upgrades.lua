@@ -40,6 +40,13 @@ local function attachment(item, data, combine)
         client:NotifyLocalized("noArmorTarget")
         return false
     else
+
+
+        -- Make sure armor is not currently on, to avoid fuckery of trying to modify protection values while someone's actively using it
+        if target:GetData("equip", false) then
+            client:NotifyLocalized("Unequip the armor before modifying it.")
+            return false
+        end 
              
         local mods = target:GetData("mod", {})
         -- Is the Armor Slot Filled?
@@ -68,6 +75,40 @@ local function attachment(item, data, combine)
 		local totweight = ((itemweight + targetweight) - weightreduc)
 		
         target:SetData("weight", totweight)
+
+        if item.dT then
+            local oldMax = target:GetData("maxDt", 0)
+            target:SetData("maxDt", oldMax + item.dT)
+            if target:GetData("dT") == oldMax then
+                target:SetData("dT", item.dT + oldMax)
+            end 
+        end 
+
+        if item.eT then
+            local oldMax = target:GetData("maxEt", 0)
+            target:SetData("maxEt", oldMax + item.eT)
+            if target:GetData("eT") == oldMax then
+                target:SetData("eT", item.eT + oldMax)
+            end 
+        end 
+
+        if item.dR then
+            local oldMax = target:GetData("maxDr", 0)
+            target:SetData("maxDr", oldMax + item.dR)
+            target:SetData("dR", oldMax + item.dR)
+            if target:GetData("dR") == oldMax then
+                target:SetData("dR", item.dR + oldMax)
+            end 
+        end 
+
+        if item.radResist then
+            target:SetData("radResist", target:GetData("radResist", 0) + item.radResist)
+        end 
+
+        if item.weightDebuff  then
+            target:SetData("weightClass", target:GetData("weightClass") + item.weightDebuff)
+            if target.weightClass > 4 then target.weightClass = 4 end
+        end 
         
 		client:EmitSound("cw/holster4.wav")
         return true
@@ -168,6 +209,24 @@ ITEM.functions.Value = {
 
 function ITEM:GetDescription()
 	local description = self.description
-	description = description.."\nWeight: "..self.weight.."kg"
+	
+    if self.dT then
+        description = description .. "\n+" .. self.dT .. " DT"
+    end 
+
+    if self.eT then
+        description = description .. "\n+" .. self.eT .. " ET"
+    end 
+
+    if self.dR then
+        description = description .. "\n+" .. self.dR .. "% DR"
+    end 
+    if self.radResist then
+        description = description .. "\n+" .. self.radResist .. "% Radiation Resistance"
+    end 
+
+    if self.weightDebuff then
+        description = description .. "\n+" .. self.weightDebuff .. " Weight Class"
+    end 
 	return description
 end

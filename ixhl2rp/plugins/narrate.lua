@@ -6,7 +6,7 @@ PLUGIN.author = "Scrat Knapp"
 
 ix.chat.Register("narrate", {
 	format = "%s:",
-	color = Color(125, 150, 75, 255),
+	color = Color(0, 0, 153, 255),
 	deadCanChat = true,
 
 	OnChatAdd = function(self, speaker, text, bAnonymous, data)
@@ -18,14 +18,15 @@ ix.chat.Register("narrate", {
 ix.command.Add("Narrate", {
     adminOnly = true,
     description = "Narrate to a player.",
-    arguments = {ix.type.player, ix.type.string},
+    arguments = {ix.type.player, ix.type.text},
     OnRun = function(self, client, target, message)
         
-        
-        ix.chat.Send(client, "narrate", message, true, target, {
+        ix.chat.Send(client, "narrate", message, true,  {client, target}, {
           target = target,
           message = message
         })
+
+           
 
       
     end

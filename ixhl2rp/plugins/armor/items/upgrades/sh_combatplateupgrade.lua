@@ -1,5 +1,5 @@
-ITEM.name = "Fiberglass Layer [Therm]"
-ITEM.description = "Provides a fiberglass layer which is rather effective at protecting the wearer from heat.\nOccupies Slot: Body \n\nThermal +1\nCannot raise above 3"
+ITEM.name = "Combat Plates"
+ITEM.description = "Ceramic-steel composite plates normally used in Combat Armor, offering even protection against most threats without going too far in either direction, but are a tad heavy."
 ITEM.category = "Upgrades"
 ITEM.model = "models/weapons/w_suitcase_passenger.mdl"
 ITEM.width = 2
@@ -12,7 +12,7 @@ ITEM.weight = 1.1
 ITEM.isArmorUpg = true
 ITEM.dT = 5
 ITEM.eT = 5
-ITEM.dR = 10
-ITEM.radResist = 50
+ITEM.dR = 5
 ITEM.weightDebuff = 1
+
 

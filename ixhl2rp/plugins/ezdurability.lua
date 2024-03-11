@@ -28,11 +28,11 @@ function playerMeta:DamageArmor(target, damage)
 	for k, v in pairs(resItems) do
 		local curDT = v:GetData("dT") 
 		local curET = v:GetData("eT") 
-		local curDR = v:GetData("dR") 
+	
 
 		local maxDT = v:GetData("maxDt")
 		local maxET = v:GetData("maxEt")
-		local maxDR = v:GetData("maxDr")
+
 
 		if (curDT and curDT > 0) then
 			local newDT = curDT - damage 
@@ -47,11 +47,6 @@ function playerMeta:DamageArmor(target, damage)
 			target:SetCharet(target:GetCharet() - damage)
 		end 
 
-		if (curDR and curDR > 0) then
-			local newDR = curDR - damage 
-			v:SetData("dR", math.Clamp(newDR, 0, maxDR))
-			target:SetChardr(target:GetChardr() - damage)
-		end 
 		
 		str = str.. "\nReduced the damage protection values of the " .. v.name.. " equipped by " ..target:GetName().. " by " .. damage
 	end
@@ -86,7 +81,7 @@ function playerMeta:RepairArmor(target, repair)
 
 		local maxDT = v:GetData("maxDt")
 		local maxET = v:GetData("maxEt")
-		local maxDR = v:GetData("maxDr")
+
 
 		
 		if (curDT) then
@@ -99,12 +94,6 @@ function playerMeta:RepairArmor(target, repair)
 			local newET = curET + repair
 			v:SetData("eT", math.Clamp(newET, 0, maxET))
 			target:SetCharet(target:GetCharet() + repair)
-		end 
-
-		if (curDR) then
-			local newDR = curDR + repair
-			v:SetData("dR", math.Clamp(newDR, 0, maxDR))
-			target:SetChardr(target:GetChardr() + repair)
 		end 
 
 		str = str.. "Increased the damage protection values of the " .. v.name.. " equipped by " ..target:GetName().. " by " .. repair

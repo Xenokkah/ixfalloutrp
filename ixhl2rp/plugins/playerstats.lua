@@ -440,18 +440,58 @@ ix.command.Add("CharGetAttributes", {
         local char = target
         local player = target:GetPlayer()
         
-        str = str .. "Strength: " .. char:GetAttribute("strength")
-        str = str .. "Perception: " .. char:GetAttribute("perception")
-        str = str .. "Endurance: " .. char:GetAttribute("endurance")
-        str = str .. "Charisma: " .. char:GetAttribute("charisma")
-        str = str .. "Intelligence: " .. char:GetAttribute("intelligence")
-        str = str .. "Agility: " .. char:GetAttribute("agility")
-        str = str .. "Luck: " .. char:GetAttribute("luck")
+        str = str .. "\nStrength: " .. char:GetAttribute("strength")
+        str = str .. "\nPerception: " .. char:GetAttribute("perception")
+        str = str .. "\nEndurance: " .. char:GetAttribute("endurance")
+        str = str .. "\nCharisma: " .. char:GetAttribute("charisma")
+        str = str .. "\nIntelligence: " .. char:GetAttribute("intelligence")
+        str = str .. "\nAgility: " .. char:GetAttribute("agility")
+        str = str .. "\nLuck: " .. char:GetAttribute("luck")
 
         
         return str
 	end
 })
+
+ix.command.Add("CharGetTraits", {
+	description = "Get all traits given character has.",
+    adminOnly = true,
+    arguments = {ix.type.character},
+	OnRun = function(self, client, target)
+		local str = target:GetName() .. " has the following traits:"
+        local char = target
+        local player = target:GetPlayer()
+        local featTable = char:GetFeats()
+
+        for k, v in pairs(featTable) do
+            str = str .. "\n" .. k
+        end 
+
+        return str
+	end
+})
+
+ix.command.Add("CharGiveTrait", {
+	description = "Give trait to character.",
+    adminOnly = true,
+    arguments = {ix.type.character, ix.type.string},
+	OnRun = function(self, client, target, trait)
+        target:AddFeat(trait)
+        return "Gave " .. trait .. " to " ..target:GetName()
+	end
+})
+
+ix.command.Add("CharTakeTrait", {
+	description = "Take a trait from a character.",
+    adminOnly = true,
+    arguments = {ix.type.character, ix.type.string},
+	OnRun = function(self, client, target, trait)
+        target:RemoveFeat(trait)
+        return "Removed " .. trait .. " from " ..target:GetName()
+	end
+})
+
+
 
 
 

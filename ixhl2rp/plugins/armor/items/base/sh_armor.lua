@@ -102,6 +102,42 @@ end,
 						
                         local totweight = itemweight - targetweight + weightreduc
                         item:SetData("weight", totweight)
+
+						if targetitem.dT then
+							local oldMax = item.maxDt
+							item:SetData("maxDt", item:GetData("maxDt") - targetitem.dT)
+
+							if item:GetData("dT") > item:GetData("maxDt") then
+								item:SetData("dT", item:GetData("maxDt"))
+							end 
+						end 
+
+						if targetitem.eT then
+							local oldMax = item.maEt or 0
+							item:SetData("maxEt", item:GetData("maxEt") - targetitem.eT)
+
+							if item:GetData("eT") > item:GetData("maxEt") then
+								item:SetData("eT", item:GetData("maxEt"))
+							end 
+						end 
+
+						if targetitem.dR then
+							local oldMax = item.maxDr or 0
+							item:SetData("maxDr", item:GetData("maxDr", 0) - targetitem.dR)
+
+							if item:GetData("dR", 0) > item:GetData("maxDr", 0) then
+								item:SetData("dR", item:GetData("maxDr"))
+							end 
+						end 
+
+						if targetitem.radResist then
+							item:SetData("radResist", item:GetData("radResist") - targetitem.radResist)
+						end 
+
+
+						if item:GetData("weightClass") <= 4 then
+							item:SetData("weightClass", item:GetData("weightClass") - targetitem.weightDebuff )
+						end 
 						
 						client:EmitSound("cw/holster4.wav")
 					else
@@ -253,10 +289,12 @@ function ITEM:OnInstanced()
 	self:SetData("durability", 100)
 	self:SetData("maxDt", self.dT)
 	self:SetData("maxEt", self.eT)
-	self:SetData("maxDr", self.dR)
+	self:SetData("maxDr", self.dR or 0)
 	self:SetData("dT", self.dT)
 	self:SetData("eT", self.eT)
-	self:SetData("dR", self.dR)
+	self:SetData("dR", self.dR or 0)
+	self:SetData("weightClass", self.weightClass)
+	self:SetData("radResist", self.radResist or 0)
 end
 
 local function skinset(item, data)
@@ -330,12 +368,12 @@ ITEM:Hook("drop", function(item)
 			character:SetCharet(character:GetCharet() - item:GetData("eT"))
 		end 
 
-		if(item.dR) then
+		if(item:GetData("dR", 0)) then
 			character:SetChardr(character:GetChardr() - item:GetData("dR"))
 		end 
 	
-		if(item.radResist) then
-			character:SetCharradresist(character:GetCharradresist() - item.radResist)
+		if(item:GetData("radResist")) then
+			character:SetCharradresist(character:GetCharradresist() - item:GetData("radResist"))
 		end 
 
 		if(item.healthBoost) then
@@ -347,7 +385,7 @@ ITEM:Hook("drop", function(item)
 		end 
 
 		
-		if(item.weightClass) then
+		if(item:GetData("weightClass")) then
 			character:RemoveSkillBoost("lightarmor", "evasion")
 			character:RemoveSkillBoost("mediumarmor", "evasion")
 			character:RemoveSkillBoost("heavyarmor", "evasion")
@@ -389,12 +427,12 @@ ITEM.functions.EquipUn = { -- sorry, for name order.
 			character:SetCharet(character:GetCharet() - item:GetData("eT"))
 		end 
 
-		if(item.dR) then
+		if(item:GetData("dR")) then
 			character:SetChardr(character:GetChardr() - item:GetData("dR"))
 		end 
 
-		if(item.radResist) then
-			character:SetCharradresist(character:GetCharradresist() - item.radResist)
+		if(item:GetData("radResist")) then
+			character:SetCharradresist(character:GetCharradresist() - item:GetData("radResist"))
 		end 
 
 		if(item.healthBoost) then
@@ -405,7 +443,7 @@ ITEM.functions.EquipUn = { -- sorry, for name order.
 			character:SetCharapboost(character:GetCharapboost() - item.apBoost)
 		end 
 
-		if(item.weightClass) then
+		if(item:GetData("weightClass")) then
 			character:RemoveSkillBoost("lightarmor", "evasion")
 			character:RemoveSkillBoost("mediumarmor", "evasion")
 			character:RemoveSkillBoost("heavyarmor", "evasion")
@@ -430,12 +468,12 @@ ITEM.functions.Equip = {
 		local character = client:GetCharacter()
 		local items = character:GetInventory():GetItems()
 
-		if item.weightClass then
+		if item:GetData("weightClass") then
 			local strengthlevel = character:GetAttribute("strength") or 0
 			
-			if item.weightClass == 2 and strengthlevel < 2 then client:NewVegasNotify("You need a Strength of at least 2 to equip this armor.", "messageSad", 8) return false end
-			if item.weightClass == 3 and strengthlevel < 5 then client:NewVegasNotify("You need a Strength of at least 5 to equip this armor.", "messageSad", 8)  return false end
-			if item.weightClass == 4 and strengthlevel < 8 then client:NewVegasNotify("You need a Strength of at least 8 to equip this armor.", "messageSad", 8) return false end
+			if item:GetData("weightClass") == 2 and strengthlevel < 2 then client:NewVegasNotify("You need a Strength of at least 2 to equip this armor.", "messageSad", 8) return false end
+			if item:GetData("weightClass") == 3 and strengthlevel < 5 then client:NewVegasNotify("You need a Strength of at least 5 to equip this armor.", "messageSad", 8)  return false end
+			if item:GetData("weightClass") == 4 and strengthlevel < 8 then client:NewVegasNotify("You need a Strength of at least 8 to equip this armor.", "messageSad", 8) return false end
 		end 
 		
 		for _, v in pairs(items) do
@@ -472,12 +510,12 @@ ITEM.functions.Equip = {
 			character:SetCharet(character:GetCharet() + item:GetData("eT"))
 		end 
 
-		if(item.dR) then
+		if(item:GetData("dR", 0)) > 0 then
 			character:SetChardr(character:GetChardr() + item:GetData("dR"))
 		end 
 				
-		if(item.radResist) then
-			character:SetCharradresist(character:GetCharradresist() + item.radResist)
+		if(item:GetData("radResist")) > 0 then
+			character:SetCharradresist(character:GetCharradresist() + item:GetData("radResist"))
 		end 
 
 		if(item.healthBoost) then
@@ -488,10 +526,10 @@ ITEM.functions.Equip = {
 			character:SetCharapboost(character:GetCharapboost() + item.apBoost)
 		end 
 
-		if(item.weightClass) then
-			if item.weightClass == 2 then character:AddSkillBoost("lightarmor", "evasion", -5) end
-			if item.weightClass == 3 then character:AddSkillBoost("lightarmor", "evasion", -10) end
-			if item.weightClass == 4 then character:AddSkillBoost("lightarmor", "evasion", -15) end
+		if(item:GetData("weightClass")) then
+			if item:GetData("weightClass") == 2 then character:AddSkillBoost("lightarmor", "evasion", -5) end
+			if item:GetData("weightClass") == 3 then character:AddSkillBoost("lightarmor", "evasion", -10) end
+			if item:GetData("weightClass") == 4 then character:AddSkillBoost("lightarmor", "evasion", -15) end
 		end 
 		
 		if (type(item.OnGetReplacement) == "function") then
@@ -729,8 +767,8 @@ function ITEM:GetDescription()
 		str = str.. "\n\n" ..customData.longdesc 
 	end
 	
-	if self.weightClass then
-		str = str .. "\nWeight Class: " .. self.weightClass
+	if self:GetData("weightClass") then
+		str = str .. "\nWeight Class: " .. self:GetData("weightClass")
 	end 
 	
 	if self.dT then
@@ -741,12 +779,12 @@ function ITEM:GetDescription()
 		str = str .. "\nET: " .. self:GetData("eT") .. "/" ..self:GetData("maxEt")
 	end 
 
-	if self.dR then
+	if self:GetData("dR", 0) > 0 then
 		str = str .. "\nDR: " .. self:GetData("dR") .. "/" .. self:GetData("maxDr") .. "%"
 	end 
 
-	if self.radResist then
-		str = str .. "\nRadiation Resistance: " .. self.radResist .. "%"
+	if self:GetData("radResist", 0) > 0 then
+		str = str .. "\nRadiation Resistance: " .. self:GetData("radResist") .. "%"
 	end 
 
 	if self.healthBoost then

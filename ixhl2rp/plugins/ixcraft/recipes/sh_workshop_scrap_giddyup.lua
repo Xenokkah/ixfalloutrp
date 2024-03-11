@@ -1,14 +1,18 @@
-RECIPE.name = "Large Wonderglue"
+RECIPE.name = "Giddyup Buttercup"
 RECIPE.description = "Break some wasteland junk down into components."
-RECIPE.model = "models/mosi/fallout4/props/junk/wonderglue_large.mdl"
+RECIPE.model = "models/mosi/fallout4/props/junk/ovenmitt.mdl"
 RECIPE.category = "Scrap Junk"
 RECIPE.requirements = {
-	["wondergluelarge"] = 1,
+	["buttercuptoy"] = 1,
 }
 
 RECIPE.results = {
-	["adhesive"] = 4,
+	["steel"] = 3,
+	["gears"] = 3,
+	["screws"] = 3,
+	["circuitry"] = 2,
 }
+
 
 
 RECIPE:PostHook("OnCanSee", function(recipeTable, client)

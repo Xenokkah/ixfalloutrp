@@ -248,7 +248,7 @@ ix.command.Add("CharSetRadiation", {
 	end
 })
 
-ix.command.Add("irradiate", {
+ix.command.Add("Irradiate", {
 	description = "Add radiation to a character, taking their rad resist into account.",
 	adminOnly = true,
 	arguments = {

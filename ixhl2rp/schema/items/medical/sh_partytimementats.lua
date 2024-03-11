@@ -1,6 +1,6 @@
 ITEM.name = "Mentats"
 ITEM.description = "A homemade flavor of Mentat."
-ITEM.longdesc = "A metallic tin full of Mentats, that have been mixed with an improved recipe that is known to improve one's sense of empathy, making them more receptive to the feelings of those around them. Great for parties or a confidence booster, but lasts drastically less than the normal flavor."
+ITEM.longdesc = "A metallic tin full of Mentats, that have been mixed with an improved recipe that is known to improve one's sense of empathy, making them more receptive to the feelings of those around them. Great for parties or a confidence booster, but lasts drastically less than the normal flavor.\n+2 INT\n+2 PER\n+4 CHR"
 ITEM.model = "models/mosi/fnv/props/health/chems/mentats.mdl"
 ITEM.width = 2
 ITEM.height = 1
