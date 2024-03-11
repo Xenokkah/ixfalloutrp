@@ -163,6 +163,12 @@ function ITEM:DecideFunction()
 					local inv = player:GetCharacter():GetInventory()
 					inv:Add(itemtable.empty)
 				end
+
+				local survivalbuff = player:GetCharacter():GetSkill("survival", 0) / 100 
+				local foodheal = math.Clamp(itemtable.thirst, 1, 10)
+				foodheal = math.floor(foodheal + (foodheal * survivalbuff))
+				player:AdjustHealth("heal", foodheal)
+
 				
 			
 
@@ -206,17 +212,11 @@ function ITEM:DecideFunction()
 					inv:Add(itemtable.empty)
 				end
 				
-				if itemtable.healot and not timer.Exists("foodheal") then
-					timer.Create("foodheal", 3, 5, function()
-						local newhealth = math.Clamp(player:Health() + itemtable.heal, 1, 100)
-						player:SetHealth(newhealth)
-					end)
-				elseif itemtable.healot and timer.Exists("foodheal") then
-					timer.Adjust("foodheal", 3, 5, function()
-						local newhealth = math.Clamp(player:Health() + itemtable.heal, 1, 100)
-						player:SetHealth(newhealth)
-					end)
-				end
+				
+				local survivalbuff = player:GetCharacter():GetSkill("survival", 0) / 100 
+				local foodheal = math.Clamp(itemtable.hunger, 1, 10)
+				foodheal = math.floor(foodheal + (foodheal * survivalbuff))
+				player:AdjustHealth("heal", foodheal)
 
 				quantity = quantity - 1
 				
@@ -259,18 +259,14 @@ function ITEM:DecideFunction()
 					local inv = player:GetCharacter():GetInventory()
 					inv:Add(itemtable.empty)
 				end
+
 				
-				if itemtable.healot and not timer.Exists("foodheal") then
-					timer.Create("foodheal", 3, 5, function()
-						local newhealth = math.Clamp(player:Health() + itemtable.heal, 1, 100)
-						player:SetHealth(newhealth)
-					end)
-				elseif itemtable.healot and timer.Exists("foodheal") then
-					timer.Adjust("foodheal", 3, 5, function()
-						local newhealth = math.Clamp(player:Health() + itemtable.heal, 1, 100)
-						player:SetHealth(newhealth)
-					end)
-				end
+				local survivalbuff = player:GetCharacter():GetSkill("survival", 0) / 100 
+				local foodheal = math.Clamp(itemtable.thirst, 1, 5) + math.Clamp(itemtable.hunger, 1, 5)
+				foodheal = math.floor(foodheal + (foodheal * survivalbuff))
+				player:AdjustHealth("heal", foodheal)
+				
+				
 
 
 	

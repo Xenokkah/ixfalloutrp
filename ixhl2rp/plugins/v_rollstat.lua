@@ -79,7 +79,7 @@ end
 
 -- Strength --
 ix.command.Add("Unarmed", {
-    description = "Roll an Unarmed check on a d20 + Endurance. Optional modifier.",
+    description = "Roll an Unarmed check on a d20 . Optional modifier.",
     arguments = {bit.bor(ix.type.number, ix.type.optional)},
     OnRun = function(self, client, modifier)
         local char = client:GetCharacter()
@@ -110,7 +110,7 @@ ix.command.Add("Unarmed", {
 })
 
 ix.command.Add("Melee", {
-    description = "Roll a Melee Weapons check on a d20 + Strength. Optional modifier.",
+    description = "Roll a Melee Weapons check on a d20 . Optional modifier.",
     arguments = {bit.bor(ix.type.number, ix.type.optional)},
     OnRun = function(self, client, modifier)
         local char = client:GetCharacter()
@@ -140,7 +140,7 @@ ix.command.Add("Melee", {
 
 -- Perception --
 ix.command.Add("Energy", {
-    description = "Roll an Energy Weapons check on a d20 + Perception. Optional modifier.",
+    description = "Roll an Energy Weapons check on a d20 . Optional modifier.",
     arguments = {bit.bor(ix.type.number, ix.type.optional)},
     OnRun = function(self, client, modifier)
         local char = client:GetCharacter()
@@ -169,7 +169,7 @@ ix.command.Add("Energy", {
 })
 
 ix.command.Add("Explosives", {
-    description = "Roll an Explosives check on a d20 + Perception. Optional modifier.",
+    description = "Roll an Explosives check on a d20 . Optional modifier.",
     arguments = {bit.bor(ix.type.number, ix.type.optional)},
     OnRun = function(self, client, modifier)
         local char = client:GetCharacter()
@@ -198,7 +198,7 @@ ix.command.Add("Explosives", {
 })
 
 ix.command.Add("Lockpick", {
-    description = "Roll a Lockpick check on a d20 + Perception. Optional modifier.",
+    description = "Roll a Lockpick check on a d20 . Optional modifier.",
     arguments = {bit.bor(ix.type.number, ix.type.optional)},
     OnRun = function(self, client, modifier)
         local char = client:GetCharacter()
@@ -222,7 +222,7 @@ ix.command.Add("Lockpick", {
 
 -- Endurance --
 ix.command.Add("Survival", {
-    description = "Roll a Survival check on a d20 + Endurance. Optional modifier.",
+    description = "Roll a Survival check on a d20 . Optional modifier.",
     arguments = {bit.bor(ix.type.number, ix.type.optional)},
     OnRun = function(self, client, modifier)
         local char = client:GetCharacter()
@@ -247,7 +247,7 @@ ix.command.Add("Survival", {
 -- Charisma --
 
 ix.command.Add("Speech", {
-    description = "Roll a Speech check on a d10 + Perception. Optional modifier.",
+    description = "Roll a Speech check on a d20. Optional modifier.",
     arguments = {bit.bor(ix.type.number, ix.type.optional)},
     OnRun = function(self, client, modifier)
         local char = client:GetCharacter()
@@ -269,7 +269,7 @@ ix.command.Add("Speech", {
 })
 
 ix.command.Add("Barter", {
-    description = "Roll a Barter check on a d10 + Perception. Optional modifier.",
+    description = "Roll a Barter check on a d20. Optional modifier.",
     arguments = {bit.bor(ix.type.number, ix.type.optional)},
     OnRun = function(self, client, modifier)
         local char = client:GetCharacter()
@@ -292,7 +292,7 @@ ix.command.Add("Barter", {
 
 -- Intelligence --
 ix.command.Add("Science", {
-    description = "Roll a Science check on a d20 + Intelligence. Optional modifier.",
+    description = "Roll a Science check on a d20 . Optional modifier.",
     arguments = {bit.bor(ix.type.number, ix.type.optional)},
     OnRun = function(self, client, modifier)
         local char = client:GetCharacter()
@@ -314,7 +314,7 @@ ix.command.Add("Science", {
 })
 
 ix.command.Add("Medicine", {
-    description = "Roll a Medicine check on a d20 + Intelligence. Optional modifier.",
+    description = "Roll a Medicine check on a d20 . Optional modifier.",
     arguments = {bit.bor(ix.type.number, ix.type.optional)},
     OnRun = function(self, client, modifier)
         local char = client:GetCharacter()
@@ -336,7 +336,7 @@ ix.command.Add("Medicine", {
 })
 
 ix.command.Add("Repair", {
-    description = "Roll a Repair check on a d20 + Intelligence. Optional modifier.",
+    description = "Roll a Repair check on a d20 . Optional modifier.",
     arguments = {bit.bor(ix.type.number, ix.type.optional)},
     OnRun = function(self, client, modifier)
         local char = client:GetCharacter()
@@ -360,7 +360,7 @@ ix.command.Add("Repair", {
 
 -- Agility --
 ix.command.Add("Guns", {
-    description = "Roll a Guns check on a d20 + Agility. Optional modifier.",
+    description = "Roll a Guns check on a d20 . Optional modifier.",
     arguments = {bit.bor(ix.type.number, ix.type.optional)},
     OnRun = function(self, client, modifier)
         local char = client:GetCharacter()
@@ -389,7 +389,7 @@ ix.command.Add("Guns", {
 })
 
 ix.command.Add("Evasion", {
-    description = "Roll an Evasion check on a d20 + Agility. Optional modifier.",
+    description = "Roll an Evasion check on a d20 . Optional modifier.",
     arguments = {bit.bor(ix.type.number, ix.type.optional)},
     OnRun = function(self, client, modifier)
         local char = client:GetCharacter()

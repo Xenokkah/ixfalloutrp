@@ -4,7 +4,7 @@ local PLUGIN = PLUGIN
 local PANEL = {}
 
 function PANEL:Init()
-	self:SetSize(600, 240)
+	self:SetSize(600, 350)
 	self:Center()
 	self:SetBackgroundBlur(true)
 	self:SetDeleteOnClose(true)
@@ -28,6 +28,11 @@ function PANEL:Setup(item)
 	self.rare:Dock(TOP)
 	self.rare:SetHeight(40)
 	self.rare:DockMargin(10, 10, 10, 10)
+
+	self.type = self:Add("DPanel")
+	self.type:Dock(TOP)
+	self.type:SetHeight(40)
+	self.type:DockMargin(10, 10, 10, 10)
 
 	self.save = self:Add("DPanel")
 	self.save:Dock(BOTTOM)
@@ -68,6 +73,18 @@ function PANEL:Setup(item)
 	self.rare.input:SetFont("ixMediumFont")
 	self.rare.input:Dock(FILL)
 
+	self.type.label = self.type:Add("DLabel")
+	self.type.label:SetWide(80)
+	self.type.label:DockMargin(20, 0, 0, 0)
+	self.type.label:SetText("Type:")
+	self.type.label:Dock(LEFT)
+	self.type.label:SetFont("ixMediumFont")
+
+	self.type.input = self.type:Add("DTextEntry")
+	self.type.input:SetText(item.type)
+	self.type.input:SetFont("ixMediumFont")
+	self.type.input:Dock(FILL)
+
 	self.save.button = self.save:Add("DButton")
 	self.save.button:SetText("Save Changes")
 	self.save.button:Dock(FILL)
@@ -76,7 +93,8 @@ function PANEL:Setup(item)
 			item.ID,
 			self.title.input:GetValue(),
 			self.delay.input:GetValue(),
-			self.rare.input:GetValue()
+			self.rare.input:GetValue(),
+			self.type.input:GetValue()
 		}
 		net.Start("ixItemSpawnerChanges")
 			net.WriteTable(changes)

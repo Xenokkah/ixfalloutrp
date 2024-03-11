@@ -12,13 +12,11 @@ RECIPE.requirements = {
 
 RECIPE.results = {
 	["stimpakauto"] = 1
-	
-
 }
 
 
 RECIPE:PostHook("OnCanSee", function(recipeTable, client)
-	if (client:GetCharacter():GetSkill("medicine", 0) < 10) then 
+	if (client:GetCharacter():GetSkill("medicine", 0) < 30) then 
 		return false
 	end 
 

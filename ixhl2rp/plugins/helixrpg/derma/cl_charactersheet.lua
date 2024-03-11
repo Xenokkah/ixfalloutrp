@@ -135,7 +135,7 @@ function PANEL:Init()
 	-- Iterate through skills and create labels
 	for id, skill in pairs(ix.skills.list) do
 		local label = vgui.Create("DLabel", skillsPanel)
-		label:SetText(skill.name .. ": " .. character:GetSkill(id, 0) .. "/20")
+		label:SetText(skill.name .. ": " .. character:GetSkill(id, 0) .. "/50")
 		label:SetFont("CustomFontDefault")
 		label:SetTextColor( Color( 0, 153, 0) )
 		label:SizeToContents()

@@ -1,5 +1,5 @@
 RECIPE.name = "Black Coffee"
-RECIPE.description = "Brew up a fresh bottle of a classic, emulating its recipe with post-war herbs and fruit. Requires at least one cap to seal the bottle."
+RECIPE.description = "Brew up a fresh mug of bitter but strong coffee."
 RECIPE.model = "models/mosi/fnv/props/junk/coffeemug.mdl"
 RECIPE.category = "Food"
 RECIPE.requirements = {

@@ -22,7 +22,7 @@ function PANEL:Populate(items)
 	for index, item in ipairs(items) do
 		self.index = self.container:Add("DPanel")
 		self.index:Dock(TOP)
-		self.index:SetHeight(64)
+		self.index:SetHeight(85)
 		self.index:DockMargin(20, 20, 20, 0)
 
 		self.index.leftPanel = self.index:Add("DPanel")
@@ -41,6 +41,12 @@ function PANEL:Populate(items)
 		self.index.update:Dock(TOP)
 		self.index.update:SetFont("ixGenericFont")
 		self.index.update:DockMargin(10, 10, 0, 0)
+
+		self.index.type = self.index.leftPanel:Add("DLabel")
+		self.index.type:SetText("Type: "..item.type)
+		self.index.type:Dock(BOTTOM)
+		self.index.type:SetFont("ixGenericFont")
+		self.index.type:DockMargin(10, -40, 0, 0)
 
 		self.index.rarity = self.index.leftPanel:Add("DLabel")
 		self.index.rarity:SetText(item.rarity .. "%")

@@ -23,6 +23,8 @@ function PLUGIN:OnCharacterCreated(client, character)
     local agility = character:GetAttribute("agility")
     local luck = character:GetAttribute("luck")
 
+    character:SetSkillPoints(10)
+
     luckboost = math.ceil(luck / 2)
 
     character:SetSkill("meleeweapons", strength + luckboost)

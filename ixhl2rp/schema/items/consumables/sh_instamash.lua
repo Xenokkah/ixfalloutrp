@@ -1,6 +1,6 @@
 ITEM.name = "Instamash"
 ITEM.model = "models/fnv/clutter/junk/instamash01.mdl"
-ITEM.hunger = 15
+ITEM.hunger = 10
 ITEM.description = "A box of mash potato mix."
 ITEM.longdesc = "Just add water and you've got surprisingly tasty mashed taters."
 ITEM.quantity = 1

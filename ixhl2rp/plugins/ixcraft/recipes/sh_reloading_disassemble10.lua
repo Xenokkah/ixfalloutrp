@@ -3,7 +3,7 @@ RECIPE.description = "Disassemble some 10mm."
 RECIPE.model = "models/mosi/fallout4/ammo/10mm.mdl"
 RECIPE.category = "Ammo"
 RECIPE.requirements = {
-	["ammo_45autoammo"] = 1
+	["ammo_10mmammo"] = 1
 }
 
 RECIPE.results = {
@@ -15,7 +15,7 @@ RECIPE.results = {
 
 
 RECIPE:PostHook("OnCanSee", function(recipeTable, client)
-	if (client:GetCharacter():GetSkill("repair", 0) < 5) then 
+	if (client:GetCharacter():GetSkill("repair", 0) < 15) then 
 		return false
 	end 
 

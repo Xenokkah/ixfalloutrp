@@ -15,7 +15,7 @@ RECIPE.results = {
 
 
 RECIPE:PostHook("OnCanSee", function(recipeTable, client)
-	if (client:GetCharacter():GetSkill("repair", 0) < 5) then 
+	if (client:GetCharacter():GetSkill("repair", 0) < 10) then 
 		return false
 	end 
 

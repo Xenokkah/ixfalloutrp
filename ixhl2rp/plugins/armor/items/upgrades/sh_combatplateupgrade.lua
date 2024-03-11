@@ -12,7 +12,7 @@ ITEM.weight = 1.1
 ITEM.isArmorUpg = true
 ITEM.dT = 5
 ITEM.eT = 5
-ITEM.dR = 5
+ITEM.dR = 10
 ITEM.weightDebuff = 1
 
 

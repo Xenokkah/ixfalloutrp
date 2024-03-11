@@ -6,13 +6,17 @@ ix.command.Add("ItemSpawnerAdd", {
 	privilege = "Item Spawner",
 	superAdminOnly = true,
 	arguments = {
-		ix.type.string
+		ix.type.string, ix.type.string
 	},
-	OnRun = function(self, client, title)
+	OnRun = function(self, client, title, type)
 		local location = client:GetEyeTrace().HitPos
 		location.z = location.z + 10
 
-		PLUGIN:AddSpawner(client, location, title)
+		type = string.lower(type)
+		-- could create an array and iterate through it to check if type is one of them, but i'm not gonna
+		if type ~= "food"  and type ~= "handloading" and type ~= "junk" then return "Must be one of type: Food, Handloading, Junk" end
+
+		PLUGIN:AddSpawner(client, location, title, type)
 	end
 })
 

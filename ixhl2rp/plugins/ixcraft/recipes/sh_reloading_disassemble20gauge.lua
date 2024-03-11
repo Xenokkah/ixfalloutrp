@@ -1,4 +1,4 @@
-RECIPE.name = "10 Gauge Buckshot Breakdown"
+RECIPE.name = "20 Gauge Buckshot Breakdown"
 RECIPE.description = "Disassemble a full box of 20 gauge buckshot shells for their components."
 RECIPE.model = "models/mosi/fallout4/ammo/shotgunshells.mdl"
 RECIPE.category = "Ammo"
@@ -15,6 +15,10 @@ RECIPE.results = {
 
 
 RECIPE:PostHook("OnCanSee", function(recipeTable, client)
+	if (client:GetCharacter():GetSkill("repair", 0) < 15) then 
+		return false
+	end 
+
 	for _, v in pairs(ents.FindByClass("ix_station_reloadingbench")) do
 		if (client:GetPos():DistToSqr(v:GetPos()) < 200 * 40) then
 			return true

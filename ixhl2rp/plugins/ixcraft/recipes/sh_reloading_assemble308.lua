@@ -1,5 +1,5 @@
 RECIPE.name = ".308"
-RECIPE.description = "Hand-load some 5.56."
+RECIPE.description = "Hand-load some .308."
 RECIPE.model = "models/mosi/fallout4/ammo/308.mdl"
 RECIPE.category = "Ammo"
 RECIPE.requirements = {
@@ -15,7 +15,7 @@ RECIPE.results = {
 
 
 RECIPE:PostHook("OnCanSee", function(recipeTable, client)
-	if (client:GetCharacter():GetSkill("repair", 0) < 15) then 
+	if (client:GetCharacter():GetSkill("repair", 0) < 35) then 
 		return false
 	end 
 

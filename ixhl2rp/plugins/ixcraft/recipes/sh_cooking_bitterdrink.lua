@@ -17,7 +17,7 @@ RECIPE.blueprint = "blueprintbitterdrink"
 
 
 RECIPE:PostHook("OnCanSee", function(recipeTable, client)
-	if (client:GetCharacter():GetSkill("survival", 0) < 5) then 
+	if (client:GetCharacter():GetSkill("survival", 0) < 25) then 
 		return false
 	end 
 

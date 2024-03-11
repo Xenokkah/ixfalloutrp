@@ -1,7 +1,7 @@
 RECIPE.name = "Slasher"
-RECIPE.description = "Produce a dosage of Stimpak with some common herbs, but properly refined and injected directly into the body instead of applied externally to a wound."
-RECIPE.model = "models/mosi/fnv/props/health/stimpak.mdl"
-RECIPE.category = "Medicine"
+RECIPE.description = "Mix a dosage of Psycho with ingredients holding potent pain-killing effects."
+RECIPE.model = "models/fnv/clutter/health/psychochem01.mdl"
+RECIPE.category = "Chems"
 RECIPE.requirements = {
 	["stimpak"] = 2,
 	["psycho"] = 1,
@@ -16,7 +16,7 @@ RECIPE.results = {
 
 
 RECIPE:PostHook("OnCanSee", function(recipeTable, client)
-	if (client:GetCharacter():GetSkill("science", 0) < 10) then 
+	if (client:GetCharacter():GetSkill("science", 0) < 25) then 
 		return false
 	end 
 

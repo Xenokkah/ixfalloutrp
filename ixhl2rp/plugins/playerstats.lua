@@ -336,6 +336,9 @@ function PLUGIN:OnCharacterCreated(client, character)
 
     if character:HasFeat("kamikaze") then
         character:SetChardt(character:GetChardt() - 5)
+        character:SetCharet(character:GetCharet() - 5)
+        character:SetChardr(character:GetChardr() - 15)
+        
         character:SetCharap(character:GetCharap() + 2)
     end 
 
@@ -523,9 +526,9 @@ ix.command.Add("Damage", {
 
             -- Subtract DR percentage from damage. Will always be at least 1 point of damage blocked if you have any DR.
             dt = dt - ap 
-            if dt < 0 then dt = 0 end
+           -- if dt < 0 then dt = 0 end
 
-            if dr > 0 then 
+            if dr ~= 0 then 
                 local reduction = damage * (dr / 100)
                 damage = math.ceil(damage - reduction)
                 if damage < 0 then damage = 0 end
@@ -534,7 +537,7 @@ ix.command.Add("Damage", {
 
             local minimumdamage = math.ceil(damage * 0.15)
 
-            if dt > 0 then 
+            if dt ~= 0 then 
                 damage = damage - dt
                 if damage < 0 then damage = 0 end
                 player:Notify("Your DT reduces the damage by " .. dt .. " points!")
@@ -559,9 +562,9 @@ ix.command.Add("Damage", {
 
             -- Subtract AP value from ET value. Since you can't have negative protection, if below 0, make 0.
             et = et - ap 
-            if et < 0 then et = 0 end
+            --if et < 0 then et = 0 end
 
-            if dr > 0 then 
+            if dr ~= 0 then 
                 local reduction = damage * (dr / 100)
                 damage = math.ceil(damage - reduction)
                 if damage < 0 then damage = 0 end
@@ -570,7 +573,7 @@ ix.command.Add("Damage", {
 
             local minimumdamage = math.ceil(damage * 0.15)
 
-            if et > 0 then 
+            if et ~= 0 then 
                 damage = damage - et
                 if damage < 0 then damage = 0 end
                 player:Notify("Your ET reduces the damage by " .. et .. " points!")

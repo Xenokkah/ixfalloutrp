@@ -15,6 +15,7 @@ RECIPE.results = {
 
 
 RECIPE:PostHook("OnCanSee", function(recipeTable, client)
+	
 	for _, v in pairs(ents.FindByClass("ix_station_workbench")) do
 		if (client:GetPos():DistToSqr(v:GetPos()) < 200 * 40) then
 			return true
