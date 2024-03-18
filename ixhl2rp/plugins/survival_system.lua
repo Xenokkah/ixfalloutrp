@@ -108,12 +108,12 @@ if SERVER then
 		end
 	
 		if ply:GetNetVar("hungertick", 0) <= CurTime() then
-			ply:SetNetVar("hungertick", 300 + CurTime())
+			ply:SetNetVar("hungertick", 600 + CurTime())
 			ply:TickHunger(1)
 		end
 
 		if ply:GetNetVar("thirsttick", 0) <= CurTime() then
-			ply:SetNetVar("thirsttick", 300 + CurTime())
+			ply:SetNetVar("thirsttick", 600 + CurTime())
 			ply:TickThirst(1)
 		end
 	end

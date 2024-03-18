@@ -86,7 +86,7 @@ ITEM.functions.Equip = {
 
 		if (item.attribBoosts) then
 			for k, v in pairs(item.attribBoosts) do
-				char:AddBoost(item.uniqueID, k, v)
+				char:BuffStat(item.uniqueID, k, v)
 			end
 		end
 
@@ -320,7 +320,7 @@ function ITEM:RemovePart(client)
 
 	if (self.attribBoosts) then
 		for k, _ in pairs(self.attribBoosts) do
-			char:RemoveBoost(self.uniqueID, k)
+			char:RemoveBuff(self.uniqueID, k)
 		end
 	end
 

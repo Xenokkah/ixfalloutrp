@@ -25,15 +25,15 @@ ITEM.functions.use = {
 		curplayer = item.player:GetCharacter()
 		itemname = item.name
 		duration = item.duration
-		curplayer:AddBoost("buffout", "strength", 2)
-		curplayer:AddBoost("buffout", "endurance", 2)
+		curplayer:BuffStat("buffout", "strength", 2)
+		curplayer:BuffStat("buffout", "endurance", 2)
 		curplayer:SetCharmaxhpboost(curplayer:GetCharmaxhpboost() + 25)
 		curplayer:SetData("usingBuffout", true)
 
 
 		timer.Simple(duration, function() 
-			curplayer:RemoveBoost("buffout", "strength")
-			curplayer:RemoveBoost("buffout", "endurance")
+			curplayer:RemoveBuff("buffout", "strength")
+			curplayer:RemoveBuff("buffout", "endurance")
 			curplayer:SetCharmaxhpboost(curplayer:GetCharmaxhpboost() - 25)
 			curplayer:GetPlayer():NewVegasNotify(itemname .. " has worn off.", "messageNeutral", 8)
 			curplayer:GetPlayer():EmitSound("cwfallout3/ui/medical/wear_off.wav" or "items/battery_pickup.wav")

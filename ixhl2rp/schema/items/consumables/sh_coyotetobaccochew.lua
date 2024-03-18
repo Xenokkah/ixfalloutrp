@@ -14,12 +14,12 @@ ITEM:Hook("use", function(item)
 	ix.chat.Send(item.player, "iteminternal", "chews their "..item.name..".", false)
 
 	curplayer = item.player:GetCharacter()
-	curplayer:AddBoost("chew", "perception", 1)
-	curplayer:AddBoost("chew", "agility", 1)
+	curplayer:BuffStat("chew", "perception", 1)
+	curplayer:BuffStat("chew", "agility", 1)
 
 	timer.Simple(60, function() 
-		curplayer:RemoveBoost("chew", "perception")
-		curplayer:RemoveBoost("chew", "agility")
+		curplayer:RemoveBuff("chew", "perception")
+		curplayer:RemoveBuff("chew", "agility")
 	end)
 
 

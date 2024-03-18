@@ -15,6 +15,7 @@ ITEM.noBusiness = true
 ITEM.weight = 2
 ITEM.dT = 10
 ITEM.eT = 6
+ITEM.dR = 5
 ITEM.newSkin = 0
 ITEM.bodyGroups = {
 	["headgear"] = 0,

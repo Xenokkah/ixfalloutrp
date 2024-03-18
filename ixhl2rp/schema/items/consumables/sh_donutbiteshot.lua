@@ -16,11 +16,11 @@ ITEM:Hook("use", function(item)
 	curplayer = item.player:GetCharacter()
 
 	item.player:AdjustHealth("hurt", 5)
-	curplayer:AddBoost("blackcoffee", "intelligence", 2)
+	curplayer:BuffStat("blackcoffee", "intelligence", 2)
 
 
 	timer.Simple(175, function() 
-		curplayer:RemoveBoost("blackcoffee", "intelligence")
+		curplayer:RemoveBuff("blackcoffee", "intelligence")
 	end)
 
 end)

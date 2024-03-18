@@ -7,7 +7,7 @@ RECIPE.requirements = {
 }
 
 RECIPE.results = {
-	["lead"] = 6,
+	["lead"] = 2,
 }
 
 

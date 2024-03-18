@@ -1,13 +1,13 @@
 ITEM.name = "Bitter Drink"
 ITEM.description = "An uncommonly seen tribal curative."
-ITEM.longdesc = "With a special process invented by the Twin Mothers tribe, common herbs can be prepared in a way that provides almost immediate pain relief with only a bitter taste. More commonly carried by Caesar's Legion, who adopted the recipe after wiping out Twin Mothers.\n\nSurvival DC to Stabilize: 20"
+ITEM.longdesc = "With a special process invented by the Twin Mothers tribe, common herbs can be prepared in a way that provides almost immediate pain relief with only a bitter taste. More commonly carried by Caesar's Legion, who adopted the recipe after wiping out Twin Mothers.\n\n+40 HP\nSurvival DC to Stabilize: 20"
 ITEM.model = "models/mosi/fnv/props/health/antivenom.mdl"
 ITEM.width = 1
 ITEM.height = 2
 ITEM.category = "Medical"
 ITEM.price = "4000"
 ITEM.flag = "1"
-ITEM.heal = 50
+ITEM.heal = 40
 ITEM.quantity = 1
 ITEM.sound = "fosounds/fix/npc_humandrinking_soda_01.mp3"
 ITEM.weight = 0.05

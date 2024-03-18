@@ -13,7 +13,7 @@ ITEM.noBusiness = true
 ITEM.weight = 2
 ITEM.dT = 20
 ITEM.eT = 15
-ITEM.dR = 5
+ITEM.dR = 20
 ITEM.attribBoosts = {
 	["agility"] = -2
 }

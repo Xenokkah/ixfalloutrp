@@ -5,7 +5,7 @@ PLUGIN.spawner = PLUGIN.spawner or {}
 PLUGIN.items = PLUGIN.items or {}
 PLUGIN.items.junk = PLUGIN.items.junk or {}
 PLUGIN.items.handloading = PLUGIN.items.handloading or {}
-PLUGIN.items.food = PLUGIN.items.handloading or {}
+PLUGIN.items.food = PLUGIN.items.food or {}
 PLUGIN.spawner.positions = PLUGIN.spawner.positions or {}
 
 PLUGIN.items.junk.common = {
@@ -14,9 +14,12 @@ PLUGIN.items.junk.common = {
 	"leather",
 	"glass",
 	"kitscrapboxbasic",
+	"emptybottle",
 	"ducttape",
 	"dishrag",
 	"soap",
+	"rustedcannister",
+	"prewarmoney",
 	"coffeecup",
 	"blastradius",
 	"homemadebattery",
@@ -41,10 +44,13 @@ PLUGIN.items.junk.common = {
 	"kitmodelrobots",
 	"rustedcannister",
 	"medicalsaw",
+	"teddybear",
 	"fuse",
 	"antifreeze",
+	"blowtorch",
+	"babybottle",
 	"ashtray",
-
+	"ovenmitt",
 }
 
 PLUGIN.items.junk.rare = {
@@ -54,7 +60,8 @@ PLUGIN.items.junk.rare = {
 	"drainedmfc",
 	"biometricscanner",
 	"distresspulser",
-	"kitmodelrobots"
+	"kitmodelrobots",
+	"microscope",
 
 }
 

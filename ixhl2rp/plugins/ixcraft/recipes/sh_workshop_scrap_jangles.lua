@@ -7,11 +7,10 @@ RECIPE.requirements = {
 }
 
 RECIPE.results = {
-	["screws"] = 2,
-	["springs"] = 2,
-	["cloth"] = 4,
-	["aluminum"] = 2,
-	["circuitry"] = 2,
+	["cloth"] = 3,
+	["plastic"] = 1,
+	["fiberglass"] = 1,
+
 }
 
 

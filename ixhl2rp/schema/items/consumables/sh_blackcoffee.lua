@@ -14,13 +14,13 @@ ITEM:Hook("use", function(item)
 	ix.chat.Send(item.player, "iteminternal", "drinks their "..item.name..".", false)
 
 	curplayer = item.player:GetCharacter()
-	curplayer:AddBoost("blackcoffee", "intelligence", 2)
-	curplayer:AddBoost("blackcoffee", "agility", -1)
+	curplayer:BuffStat("blackcoffee", "intelligence", 2)
+	curplayer:BuffStat("blackcoffee", "agility", -1)
 	item.player:GetCharacter():GetInventory():Add("coffeecup", 1)
 
 	timer.Simple(175, function() 
-		curplayer:RemoveBoost("blackcoffee", "intelligence")
-		curplayer:RemoveBoost("blackcoffee", "agility")
+		curplayer:RemoveBuff("blackcoffee", "intelligence")
+		curplayer:RemoveBuff("blackcoffee", "agility")
 	end)
 
 

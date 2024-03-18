@@ -13,6 +13,12 @@ ITEM.longdesc = "No longer description available."
 ITEM.category = "Armor"
 ITEM.skincustom = {}
 ITEM.outfitCategory = "model"
+ITEM.dR = 0
+ITEM.radResist = 0
+ITEM.dT = 0
+ITEM.eT = 0
+ITEM.weightClass = 1
+
 
 ITEM:Hook("drop", function(item)
 	if (item:GetData("equip")) then
@@ -207,9 +213,16 @@ function ITEM:RemoveOutfit(client)
 
 	if (self.attribBoosts) then
 		for k, _ in pairs(self.attribBoosts) do
-			character:RemoveBoost(self.uniqueID, k)
+			character:RemoveBuff(self.uniqueID, k)
 		end
 	end
+
+	if (self.skillBoosts) then
+		for k, _ in pairs(self.skillBoosts) do
+			character:RemoveSkillBoost(self.uniqueID, k)
+		end
+	end
+
 
 	for k, _ in pairs(self:GetData("outfitAttachments", {})) do
 		self:RemoveAttachment(k, client)
@@ -253,11 +266,7 @@ function ITEM:ModelOff(client)
 
 	self.player:GetCharacter():SetData("groups", bgroups)
 
-	if (self.attribBoosts) then
-		for k, _ in pairs(self.attribBoosts) do
-			character:RemoveBoost(self.uniqueID, k)
-		end
-	end
+	
 
 	for k, _ in pairs(self:GetData("outfitAttachments", {})) do
 		self:RemoveAttachment(k, client)
@@ -372,7 +381,7 @@ ITEM:Hook("drop", function(item)
 			character:SetChardr(character:GetChardr() - item:GetData("dR"))
 		end 
 	
-		if(item:GetData("radResist")) then
+		if(item:GetData("radResist", 0)  > 0) then
 			character:SetCharradresist(character:GetCharradresist() - item:GetData("radResist"))
 		end 
 
@@ -404,7 +413,14 @@ function ITEM:RemovePart(client)
 
 	if (self.attribBoosts) then
 		for k, _ in pairs(self.attribBoosts) do
-			char:RemoveBoost(self.uniqueID, k)
+			char:RemoveBuff(self.uniqueID, k)
+		end
+	end
+
+	
+	if (self.skillBoosts) then
+		for k, _ in pairs(self.skillBoosts) do
+			char:RemoveSkillBoost(self.uniqueID, k)
 		end
 	end
 end
@@ -514,7 +530,7 @@ ITEM.functions.Equip = {
 			character:SetChardr(character:GetChardr() + item:GetData("dR"))
 		end 
 				
-		if(item:GetData("radResist")) > 0 then
+		if(item:GetData("radResist", 0)) > 0 then
 			character:SetCharradresist(character:GetCharradresist() + item:GetData("radResist"))
 		end 
 
@@ -585,7 +601,14 @@ ITEM.functions.Equip = {
 
 		if (item.attribBoosts) then
 			for k, v in pairs(item.attribBoosts) do
-				character:AddBoost(item.uniqueID, k, v)
+				character:BuffStat(item.uniqueID, k, v)
+			end
+		end
+
+			
+		if (item.skillBoosts) then
+			for k, v in pairs(item.skillBoosts) do
+				character:AddSkillBoost(item.uniqueID, k, v)
 			end
 		end
 

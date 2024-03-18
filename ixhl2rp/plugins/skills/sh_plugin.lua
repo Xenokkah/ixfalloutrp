@@ -213,3 +213,142 @@ ix.command.Add("SpendSkillpoints", {
 })
 
 
+
+local charMeta = ix.meta.character
+
+function charMeta:BuffStat(id, stat, amt)
+    if stat == "strength" then
+        self:AddBoost(id, "strength", amt)
+        self:AddSkillBoost(id, "meleeweapons", amt *2)
+    end
+
+    if stat == "perception" then
+        self:AddBoost(id, "perception", amt)
+        self:AddSkillBoost(id, "energyweapons", amt *2)
+        self:AddSkillBoost(id, "lockpicking", amt *2)
+        self:AddSkillBoost(id, "explosives", amt *2)
+    end 
+
+    if stat == "endurance" then
+        self:AddBoost(id, "endurance", amt)
+        self:AddSkillBoost(id, "survival", amt *2)
+        self:AddSkillBoost(id, "unarmed", amt *2)
+    end     
+
+    if stat == "charisma" then
+        self:AddBoost(id, "charisma", amt)
+        self:AddSkillBoost(id, "barter", amt *2)
+        self:AddSkillBoost(id, "speech", amt *2)
+    end     
+
+    if stat == "intelligence" then
+        self:AddBoost(id, "intelligence", amt)
+        self:AddSkillBoost(id, "science", amt *2)
+        self:AddSkillBoost(id, "medicine", amt *2)
+        self:AddSkillBoost(id, "repair", amt *2)
+    end     
+    
+    if stat == "agility" then
+        self:AddBoost(id, "agility", amt)
+        self:AddSkillBoost(id, "guns", amt *2)
+        self:AddSkillBoost(id, "evasion", amt *2)
+    end    
+
+    if stat == "luck" then
+        self:AddBoost(id, "luck", amt)
+        self:AddSkillBoost(id, "guns", amt)
+        self:AddSkillBoost(id, "evasion", amt)
+        self:AddSkillBoost(id, "meleeweapons", amt)
+        self:AddSkillBoost(id, "science", amt)
+        self:AddSkillBoost(id, "medicine", amt)
+        self:AddSkillBoost(id, "repair", amt)
+        self:AddSkillBoost(id, "barter", amt)
+        self:AddSkillBoost(id, "survival", amt)
+        self:AddSkillBoost(id, "unarmed", amt)
+        self:AddSkillBoost(id, "energyweapons", amt)
+        self:AddSkillBoost(id, "lockpicking", amt)
+        self:AddSkillBoost(id, "explosives", amt)
+        self:AddSkillBoost(id, "speech", amt)
+    end   
+end 
+
+function charMeta:RemoveBuff(id, stat)
+    if stat == "strength" then
+        self:RemoveBoost(id, "strength")
+        self:RemoveSkillBoost(id, "meleeweapons")
+    end
+
+    if stat == "perception" then
+        self:RemoveBoost(id, "perception")
+        self:RemoveSkillBoost(id, "energyweapons")
+        self:RemoveSkillBoost(id, "lockpicking")
+        self:RemoveSkillBoost(id, "explosives")
+    end 
+
+    if stat == "endurance" then
+        self:RemoveBoost(id, "endurance")
+        self:RemoveSkillBoost(id, "survival")
+        self:RemoveSkillBoost(id, "unarmed")
+    end     
+
+    if stat == "charisma" then
+        self:RemoveBoost(id, "charisma")
+        self:RemoveSkillBoost(id, "barter")
+        self:RemoveSkillBoost(id, "speech")
+    end     
+
+    if stat == "intelligence" then
+        self:RemoveBoost(id, "intelligence")
+        self:RemoveSkillBoost(id, "science")
+        self:RemoveSkillBoost(id, "medicine")
+        self:RemoveSkillBoost(id, "repair")
+    end     
+    
+    if stat == "agility" then
+        self:RemoveBoost(id, "agility")
+        self:RemoveSkillBoost(id, "guns")
+        self:RemoveSkillBoost(id, "evasion")
+    end    
+
+    if stat == "luck" then
+        self:RemoveBoost(id, "luck")
+        self:RemoveSkillBoost(id, "guns")
+        self:RemoveSkillBoost(id, "evasion")
+        self:RemoveSkillBoost(id, "meleeweapons")
+        self:RemoveSkillBoost(id, "science")
+        self:RemoveSkillBoost(id, "medicine")
+        self:RemoveSkillBoost(id, "repair")
+        self:RemoveSkillBoost(id, "barter")
+        self:RemoveSkillBoost(id, "survival")
+        self:RemoveSkillBoost(id, "unarmed")
+        self:RemoveSkillBoost(id, "energyweapons")
+        self:RemoveSkillBoost(id, "lockpick")
+        self:RemoveSkillBoost(id, "explosives")
+        self:RemoveSkillBoost(id, "speech")
+    end      
+end 
+
+
+ix.command.Add("CharAddStatBuff", {
+    description = "Add a buff to a player's primary statistic that also effects related skills.",
+    adminOnly = true,
+    arguments = {
+    ix.type.character, ix.type.string, ix.type.string, ix.type.number},
+    OnRun = function(self, client, target, id, attribute, amount)
+        if not target:GetAttribute(attribute) then return "Invalid attribute." end
+
+        target:BuffStat(id, attribute, amount)
+    end
+})
+
+ix.command.Add("CharRemoveStatBuff", {
+    description = "Remove a previously set stat buff.",
+    adminOnly = true,
+    arguments = {
+    ix.type.character, ix.type.string, ix.type.string},
+    OnRun = function(self, client, target, id, attribute)
+        if not target:GetAttribute(attribute) then return "Invalid attribute." end
+
+        target:RemoveBuff(id, attribute)
+    end
+})

@@ -25,14 +25,14 @@ ITEM.functions.use = {
 		curplayer = item.player:GetCharacter()
 		itemname = item.name
 		duration = item.duration
-		curplayer:AddBoost("partytimementats", "perception", 2)
-		curplayer:AddBoost("partytimementats", "intelligence", 2)
-		curplayer:AddBoost("partytimementats", "charisma", 4)
+		curplayer:BuffStat("partytimementats", "perception", 2)
+		curplayer:BuffStat("partytimementats", "intelligence", 2)
+		curplayer:BuffStat("partytimementats", "charisma", 4)
 
 		timer.Simple(duration, function() 
-			curplayer:RemoveBoost("partytimementats", "perception")
-			curplayer:RemoveBoost("partytimementats", "intelligence")
-			curplayer:RemoveBoost("partytimementats", "charisma")
+			curplayer:RemoveBuff("partytimementats", "perception")
+			curplayer:RemoveBuff("partytimementats", "intelligence")
+			curplayer:RemoveBuff("partytimementats", "charisma")
 			curplayer:GetPlayer():NewVegasNotify(itemname .. " has worn off.", "messageNeutral", 8)
 			curplayer:GetPlayer():EmitSound("cwfallout3/ui/medical/wear_off.wav" or "items/battery_pickup.wav")
 		end)

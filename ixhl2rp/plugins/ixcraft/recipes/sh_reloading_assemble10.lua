@@ -10,7 +10,7 @@ RECIPE.requirements = {
 }
 
 RECIPE.results = {
-	["ammo_45autoammo"] = 1
+	["ammo_10mmammo"] = 1
 }
 
 

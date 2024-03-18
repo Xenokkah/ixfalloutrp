@@ -14,6 +14,7 @@ ITEM.isBodyArmor = true
 ITEM.noBusiness = true
 ITEM.dT = 15
 ITEM.eT = 22
+ITEM.dR = 9
 ITEM.weightClass = 3
 ITEM.radResist = 5
 ITEM.newSkin = 0

@@ -132,12 +132,12 @@ ITEM.functions.use = {
 
 		if (item.skill) then
 
-			if char:GetSkill(item.skill) >= 20 then
+			if char:GetSkill(item.skill) >= 50 then
 				item.player:NewVegasNotify("Your skill is already at maximum, this book can't possibly teach you anything more!", "messageNeutral", 5)
 				return false
 			else 
-				char:SetSkill(item.skill, char:GetSkill(item.skill, 0) + 1)
-				item.player:NewVegasNotify(item.skill .. " increased by 1.", "messageNeutral", 5)
+				char:SetSkill(item.skill, char:GetSkill(item.skill, 0) + 2)
+				item.player:NewVegasNotify(item.skill .. " increased by 2.", "messageNeutral", 5)
 			end 
 		end 
 

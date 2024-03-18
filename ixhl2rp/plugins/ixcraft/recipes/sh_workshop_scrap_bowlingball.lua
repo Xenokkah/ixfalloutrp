@@ -1,13 +1,13 @@
-RECIPE.name = "5lb Weight"
+RECIPE.name = "Bowling Ball"
 RECIPE.description = "Break some wasteland junk down into components."
-RECIPE.model = "models/mosi/fallout4/props/junk/5lb.mdl"
+RECIPE.model = "models/mosi/fallout4/props/junk/bowlingball.mdl"
 RECIPE.category = "Scrap Junk"
 RECIPE.requirements = {
-	["5lbweight"] = 1,
+	["bowlingball"] = 1,
 }
 
 RECIPE.results = {
-	["lead"] = 1,
+	["plastic"] = 2,
 }
 
 

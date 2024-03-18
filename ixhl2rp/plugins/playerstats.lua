@@ -211,15 +211,15 @@ function playerMeta:AdjustHealth(type, amount)
             ix.log.Add(client, "damage", char, "taken", amount, "and is currently Incapacitated.")
         end 
 
-        char:AddBoost("incap", "endurance", -4)
-        char:AddBoost("incap", "agility", -4)
-        char:AddBoost("incap", "perception", -4)
-        char:AddBoost("incap", "strength", -4)
+        char:BuffStat("incap", "endurance", -4)
+        char:BuffStat("incap", "agility", -4)
+        char:BuffStat("incap", "perception", -4)
+        char:BuffStat("incap", "strength", -4)
 
-        char:RemoveBoost("stun", "endurance")
-        char:RemoveBoost("stun", "agility")
-        char:RemoveBoost("stun", "perception")
-        char:RemoveBoost("stun", "strength")
+        char:RemoveBuff("stun", "endurance")
+        char:RemoveBuff("stun", "agility")
+        char:RemoveBuff("stun", "perception")
+        char:RemoveBuff("stun", "strength")
         return
 
     elseif newhp <= stun then
@@ -231,20 +231,20 @@ function playerMeta:AdjustHealth(type, amount)
             ix.log.Add(client, "damage", char, "taken", amount, "and is currently Stunned.")
         end 
 
-        char:AddBoost("stun", "endurance", -3)
-        char:AddBoost("stun", "agility", -3)
-        char:AddBoost("stun", "perception", -3)
-        char:AddBoost("stun", "strength", -3)
+        char:BuffStat("stun", "endurance", -3)
+        char:BuffStat("stun", "agility", -3)
+        char:BuffStat("stun", "perception", -3)
+        char:BuffStat("stun", "strength", -3)
 
-        char:RemoveBoost("stagger", "endurance")
-        char:RemoveBoost("stagger", "agility")
-        char:RemoveBoost("stagger", "perception")
-        char:RemoveBoost("stagger", "strength")
+        char:RemoveBuff("stagger", "endurance")
+        char:RemoveBuff("stagger", "agility")
+        char:RemoveBuff("stagger", "perception")
+        char:RemoveBuff("stagger", "strength")
         
-        char:RemoveBoost("incap", "endurance")
-        char:RemoveBoost("incap", "agility")
-        char:RemoveBoost("incap", "perception")
-        char:RemoveBoost("incap", "strength")
+        char:RemoveBuff("incap", "endurance")
+        char:RemoveBuff("incap", "agility")
+        char:RemoveBuff("incap", "perception")
+        char:RemoveBuff("incap", "strength")
         
         return
 
@@ -257,20 +257,20 @@ function playerMeta:AdjustHealth(type, amount)
             ix.log.Add(client, "damage", char, "taken", amount, "and is currently Staggered.")
         end 
 
-        char:AddBoost("stagger", "endurance", -1)
-        char:AddBoost("stagger", "agility", -1)
-        char:AddBoost("stagger", "perception", -1)
-        char:AddBoost("stagger", "strength", -1)
+        char:BuffStat("stagger", "endurance", -1)
+        char:BuffStat("stagger", "agility", -1)
+        char:BuffStat("stagger", "perception", -1)
+        char:BuffStat("stagger", "strength", -1)
 
-        char:RemoveBoost("incap", "endurance")
-        char:RemoveBoost("incap", "agility")
-        char:RemoveBoost("incap", "perception")
-        char:RemoveBoost("incap", "strength")
+        char:RemoveBuff("incap", "endurance")
+        char:RemoveBuff("incap", "agility")
+        char:RemoveBuff("incap", "perception")
+        char:RemoveBuff("incap", "strength")
         
-        char:RemoveBoost("stun", "endurance")
-        char:RemoveBoost("stun", "agility")
-        char:RemoveBoost("stun", "perception")
-        char:RemoveBoost("stun", "strength")
+        char:RemoveBuff("stun", "endurance")
+        char:RemoveBuff("stun", "agility")
+        char:RemoveBuff("stun", "perception")
+        char:RemoveBuff("stun", "strength")
     
         return
 
@@ -281,20 +281,20 @@ function playerMeta:AdjustHealth(type, amount)
             ix.log.Add(client, "damage", char, "taken", amount, ".")
         end 
 
-        char:RemoveBoost("incap", "endurance")
-        char:RemoveBoost("incap", "agility")
-        char:RemoveBoost("incap", "perception")
-        char:RemoveBoost("incap", "strength")
+        char:RemoveBuff("incap", "endurance")
+        char:RemoveBuff("incap", "agility")
+        char:RemoveBuff("incap", "perception")
+        char:RemoveBuff("incap", "strength")
         
-        char:RemoveBoost("stun", "endurance")
-        char:RemoveBoost("stun", "agility")
-        char:RemoveBoost("stun", "perception")
-        char:RemoveBoost("stun", "strength")
+        char:RemoveBuff("stun", "endurance")
+        char:RemoveBuff("stun", "agility")
+        char:RemoveBuff("stun", "perception")
+        char:RemoveBuff("stun", "strength")
 
-        char:RemoveBoost("stagger", "endurance")
-        char:RemoveBoost("stagger", "agility")
-        char:RemoveBoost("stagger", "perception")
-        char:RemoveBoost("stagger", "strength")
+        char:RemoveBuff("stagger", "endurance")
+        char:RemoveBuff("stagger", "agility")
+        char:RemoveBuff("stagger", "perception")
+        char:RemoveBuff("stagger", "strength")
     end 
 end 
 
@@ -549,10 +549,10 @@ ix.command.Add("Damage", {
                 player:Notify("You take " .. damage  .. " minimum damage!")
                 player:AdjustHealth("hurt", damage)
             else 
-                client:Notify(target:GetName() .. " has taken " .. damage .. " physical damage, damaging their armor.")
-                player:Notify("You take " .. damage  .. " damage! Your armor is damaged.")
+                client:Notify(target:GetName() .. " has taken " .. damage .. " physical damage, piercing their armor.")
+                player:Notify("You take " .. damage  .. " damage! Your armor is pierced.")
                 player:AdjustHealth("hurt", damage)
-                player:DamageArmor(target, 1)
+              --  player:DamageArmor(target, 1)
             end 
 
         -- Laser, Plasma, Fire 
@@ -585,10 +585,10 @@ ix.command.Add("Damage", {
                 player:Notify("You take " .. damage  .. " minimum damage!")
                 player:AdjustHealth("hurt", damage)
             else 
-                client:Notify(target:GetName() .. " has taken " .. damage .. " physical damage, damaging their armor.")
-                player:Notify("You take " .. damage  .. " damage! Your armor is damaged.")
+                client:Notify(target:GetName() .. " has taken " .. damage .. " physical damage, piercing their armor.")
+                player:Notify("You take " .. damage  .. " damage! Your armor is pierced.")
                 player:AdjustHealth("hurt", damage)
-                player:DamageArmor(target, 1)
+               -- player:DamageArmor(target, 1)
             end 
         
         -- Bleeding damage. Bypasses armor
@@ -673,7 +673,7 @@ ix.command.Add("ResetStats", {
 
 		for attribID, v in pairs(boosts) do
 			for boostID, _ in pairs(v) do
-				item.player:GetCharacter():RemoveBoost(boostID, attribID)
+				item.player:GetCharacter():RemoveBuff(boostID, attribID)
 			end
 		end
 
@@ -768,6 +768,17 @@ ix.command.Add("CharSetCritChance", {
         client:Notify("Set Crit Chance % of " .. target:GetName() .. " to " .. value)
     end
 })
+
+ix.command.Add("CharGetCritChance", {
+    description = "Get character's current Critical Hit chance %.",
+    adminOnly = true,
+    arguments = {ix.type.character, ix.type.number},
+    OnRun = function(self, client, target, value)
+        target:GetCharcritchance()
+        client:Notify("Crit Chance % of " .. target:GetName() .. " is " .. value)
+    end
+})
+
 
 
 

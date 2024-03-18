@@ -42,78 +42,78 @@ function playerMeta:radDebuffHandler(debuff)
 	char = self:GetCharacter()
 	-- Handle all buffs/debuffs here and call in each rad level check further down.
 	if debuff == "NONE" then
-		char:RemoveBoost("minorrad", "endurance")
+		char:RemoveBuff("minorrad", "endurance")
 
-		char:RemoveBoost("advancedrad", "endurance")
-		char:RemoveBoost("advancedrad", "agility")
+		char:RemoveBuff("advancedrad", "endurance")
+		char:RemoveBuff("advancedrad", "agility")
 
-		char:RemoveBoost("criticalrad", "endurance")
-		char:RemoveBoost("criticalrad", "agility")
-		char:RemoveBoost("criticalrad", "strength")
+		char:RemoveBuff("criticalrad", "endurance")
+		char:RemoveBuff("criticalrad", "agility")
+		char:RemoveBuff("criticalrad", "strength")
 
-		char:RemoveBoost("deadlyrad", "endurance")
-		char:RemoveBoost("deadlyrad", "agility")
-		char:RemoveBoost("deadlyrad", "strength")
+		char:RemoveBuff("deadlyrad", "endurance")
+		char:RemoveBuff("deadlyrad", "agility")
+		char:RemoveBuff("deadlyrad", "strength")
 	end
 
 	if debuff == "MINOR" then
-		char:AddBoost("minorrad", "endurance", -1)
+		char:BuffStat("minorrad", "endurance", -1)
 
-		char:RemoveBoost("advancedrad", "endurance")
-		char:RemoveBoost("advancedrad", "agility")
+		char:RemoveBuff("advancedrad", "endurance")
+		char:RemoveBuff("advancedrad", "agility")
 
-		char:RemoveBoost("criticalrad", "endurance")
-		char:RemoveBoost("criticalrad", "agility")
-		char:RemoveBoost("criticalrad", "strength")
+		char:RemoveBuff("criticalrad", "endurance")
+		char:RemoveBuff("criticalrad", "agility")
+		char:RemoveBuff("criticalrad", "strength")
 
-		char:RemoveBoost("deadlyrad", "endurance")
-		char:RemoveBoost("deadlyrad", "agility")
-		char:RemoveBoost("deadlyrad", "strength")
+		char:RemoveBuff("deadlyrad", "endurance")
+		char:RemoveBuff("deadlyrad", "agility")
+		char:RemoveBuff("deadlyrad", "strength")
 	end
 
 	if debuff == "ADVANCED" then
-		char:RemoveBoost("minorrad", "endurance")
+		char:RemoveBuff("minorrad", "endurance")
 
-		char:AddBoost("advancedrad", "endurance", -2)
-		char:AddBoost("advancedrad", "agility", -1)
+		char:BuffStat("advancedrad", "endurance", -2)
+		char:BuffStat("advancedrad", "agility", -1)
 
-		char:RemoveBoost("criticalrad", "endurance")
-		char:RemoveBoost("criticalrad", "agility")
-		char:RemoveBoost("criticalrad", "strength")
+		char:RemoveBuff("criticalrad", "endurance")
+		char:RemoveBuff("criticalrad", "agility")
+		char:RemoveBuff("criticalrad", "strength")
 
-		char:RemoveBoost("deadlyrad", "endurance")
-		char:RemoveBoost("deadlyrad", "agility")
-		char:RemoveBoost("deadlyrad", "strength")
+		char:RemoveBuff("deadlyrad", "endurance")
+		char:RemoveBuff("deadlyrad", "agility")
+		char:RemoveBuff("deadlyrad", "strength")
 	end
 
 	if debuff == "CRITICAL" then
-		char:RemoveBoost("minorrad", "endurance")
+		char:RemoveBuff("minorrad", "endurance")
 
-		char:RemoveBoost("advancedrad", "endurance")
-		char:RemoveBoost("advancedrad", "agility")
+		char:RemoveBuff("advancedrad", "endurance")
+		char:RemoveBuff("advancedrad", "agility")
 
-		char:AddBoost("criticalrad", "endurance", -3)
-		char:AddBoost("criticalrad", "agility", -2)
-		char:AddBoost("criticalrad", "strength", -1)
+		char:BuffStat("criticalrad", "endurance", -3)
+		char:BuffStat("criticalrad", "agility", -2)
+		char:BuffStat("criticalrad", "strength", -1)
 
-		char:RemoveBoost("deadlyrad", "endurance")
-		char:RemoveBoost("deadlyrad", "agility")
-		char:RemoveBoost("deadlyrad", "strength")
+		char:RemoveBuff("deadlyrad", "endurance")
+		char:RemoveBuff("deadlyrad", "agility")
+		char:RemoveBuff("deadlyrad", "strength")
 	end
 
 	if debuff == "DEADLY" then
-		char:RemoveBoost("minorrad", "endurance")
+		char:RemoveBuff("minorrad", "endurance")
 
-		char:RemoveBoost("advancedrad", "endurance")
-		char:RemoveBoost("advancedrad", "agility")
+		char:RemoveBuff("advancedrad", "endurance")
+		char:RemoveBuff("advancedrad", "agility")
 
-		char:RemoveBoost("criticalrad", "endurance")
-		char:RemoveBoost("criticalrad", "agility")
-		char:RemoveBoost("criticalrad", "strength")
+		char:RemoveBuff("criticalrad", "endurance")
+		char:RemoveBuff("criticalrad", "agility")
+		char:RemoveBuff("criticalrad", "strength")
 
-		char:AddBoost("deadlyrad", "endurance", -3)
-		char:AddBoost("deadlyrad", "agility", -2)
-		char:AddBoost("deadlyrad", "strength", -2)
+		char:BuffStat("deadlyrad", "endurance", -3)
+		char:BuffStat("deadlyrad", "agility", -2)
+		char:BuffStat("deadlyrad", "strength", -2)
 	end
 
 

@@ -49,10 +49,10 @@ end
 for k, v in pairs(ix.attributes.list) do
 
     ix.command.Add(string.lower(v.name), {
-        description = "Roll a " .. v.name .. " check on a d20 + Attribute. Optional modifier.",
+        description = "Roll a " .. v.name .. " check on a d25 + Attribute * 2. Optional modifier.",
         arguments = {bit.bor(ix.type.number, ix.type.optional)},
         OnRun = function(self, client, modifier)
-            local value = math.random(1, 20)
+            local value = math.random(1, 25)
             local attr = v.name
             local att = client:GetCharacter():GetAttribute(string.lower(v.name))
 
@@ -274,7 +274,7 @@ ix.command.Add("Barter", {
     OnRun = function(self, client, modifier)
         local char = client:GetCharacter()
         local value = math.random(1, 20)
-        local attr = "Speech"
+        local attr = "Barter"
         local att = 0
         local add = att + math.floor(client:GetCharacter():GetSkill("barter") / 2)
         local modifier = modifier or 0

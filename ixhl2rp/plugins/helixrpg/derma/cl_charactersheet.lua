@@ -14,7 +14,7 @@ function PANEL:Init()
 
 	local moneyLabel = vgui.Create("DLabel", self)
 	moneyLabel:SetPos(20, 50)
-	moneyLabel:SetText("Caps: " .. character:GetData("money", 0))
+	moneyLabel:SetText("Caps: " .. character:GetMoney())
 	moneyLabel:SetFont("CustomFontLarge")
 	moneyLabel:SetTextColor( Color( 0, 153, 0) )
 	moneyLabel:SizeToContents()

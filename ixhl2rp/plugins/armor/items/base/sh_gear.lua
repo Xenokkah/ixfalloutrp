@@ -7,8 +7,9 @@ ITEM.isMisc = true
 ITEM.price = 1
 ITEM.model = "models/props_c17/BriefCase001a.mdl"
 ITEM.playermodel = nil
-ITEM.isBodyArmor = true
+ITEM.isBodyArmor = false
 ITEM.resistance = true
+ITEM.outfitCategory = "hat"
 ITEM.longdesc = "No longer description available."
 ITEM.category = "Armor"
 ITEM.res = {
@@ -186,9 +187,16 @@ function ITEM:RemoveOutfit(client)
 
 	if (self.attribBoosts) then
 		for k, _ in pairs(self.attribBoosts) do
-			character:RemoveBoost(self.uniqueID, k)
+			character:RemoveBuff(self.uniqueID, k)
 		end
 	end
+
+	if (self.skillBoosts) then
+		for k, _ in pairs(self.skillBoosts) do
+			character:RemoveSkillBoost(self.uniqueID, k)
+		end
+	end
+
 
 	for k, _ in pairs(self:GetData("outfitAttachments", {})) do
 		self:RemoveAttachment(k, client)
@@ -234,7 +242,13 @@ function ITEM:ModelOff(client)
 
 	if (self.attribBoosts) then
 		for k, _ in pairs(self.attribBoosts) do
-			character:RemoveBoost(self.uniqueID, k)
+			character:RemoveBuff(self.uniqueID, k)
+		end
+	end
+
+	if (self.skillBoosts) then
+		for k, _ in pairs(self.skillBoosts) do
+			character:RemoveSkillBoost(self.uniqueID, k)
 		end
 	end
 
@@ -370,7 +384,13 @@ function ITEM:RemovePart(client)
 
 	if (self.attribBoosts) then
 		for k, _ in pairs(self.attribBoosts) do
-			char:RemoveBoost(self.uniqueID, k)
+			char:RemoveBuff(self.uniqueID, k)
+		end
+	end
+
+	if (self.skillBoosts) then
+		for k, _ in pairs(self.skillBoosts) do
+			char:RemoveSkillBoost(self.uniqueID, k)
 		end
 	end
 end
@@ -381,6 +401,7 @@ ITEM.functions.EquipUn = { -- sorry, for name order.
 	icon = "icon16/cancel.png",
 	OnRun = function(item)
 		local client = item.player
+		local character = item.player:GetCharacter()
 				
 		item:RemoveOutfit(item.player)
 
@@ -536,7 +557,13 @@ ITEM.functions.Equip = {
 
 		if (item.attribBoosts) then
 			for k, v in pairs(item.attribBoosts) do
-				character:AddBoost(item.uniqueID, k, v)
+				character:BuffStat(item.uniqueID, k, v)
+			end
+		end
+
+		if (item.skillBoosts) then
+			for k, v in pairs(item.skillBoosts) do
+				character:AddSkillBoost(item.uniqueID, k, v)
 			end
 		end
 		

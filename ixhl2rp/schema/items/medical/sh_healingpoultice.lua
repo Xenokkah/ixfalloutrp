@@ -27,10 +27,10 @@ ITEM.functions.use = {
 		itemname = item.name
 		duration = item.duration
 
-		curplayer:AddBoost("poulticepain", "agility", -1)
+		curplayer:BuffStat("poulticepain", "agility", -1)
 
 		timer.Simple(duration, function()
-			curplayer:RemoveBoost("poulticepain", "agility")
+			curplayer:RemoveBuff("poulticepain", "agility")
 			curplayer:GetPlayer():NewVegasNotify(itemname .. " has worn off.", "messageNeutral", 8)
 			curplayer:GetPlayer():EmitSound("cwfallout3/ui/medical/wear_off.wav" or "items/battery_pickup.wav")
 		end)

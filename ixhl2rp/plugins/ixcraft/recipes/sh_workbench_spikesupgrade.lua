@@ -12,6 +12,8 @@ RECIPE.results = {
 	["spikesupgrade"] = 1
 }
 
+RECIPE.blueprint = "spikesblueprint"
+
 
 RECIPE:PostHook("OnCanSee", function(recipeTable, client)
 

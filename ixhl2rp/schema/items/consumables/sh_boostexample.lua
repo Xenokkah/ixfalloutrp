@@ -18,11 +18,11 @@ ITEM:Hook("use", function(item)
 
 
 	curplayer = item.player:GetCharacter()
-	curplayer:AddBoost("endboost", "end", -5)
+	curplayer:BuffStat("endboost", "end", -5)
 	print(curplayer:GetAttribute("end"))
 
 	timer.Simple(10, function() 
-		curplayer:RemoveBoost("endboost", "end")
+		curplayer:RemoveBuff("endboost", "end")
 		print(curplayer:GetAttribute("end"))
 	end)
 

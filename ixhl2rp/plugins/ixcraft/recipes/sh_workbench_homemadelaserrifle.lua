@@ -21,7 +21,7 @@ RECIPE.results = {
 
 RECIPE:PostHook("OnCanSee", function(recipeTable, client)
 
-	if (client:GetCharacter():GetSkill("science", 0) < 20) then 
+	if (client:GetCharacter():GetSkill("science", 0) < 15) then 
 		return false
 	end 
 

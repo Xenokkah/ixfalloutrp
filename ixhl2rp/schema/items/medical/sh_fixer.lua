@@ -24,7 +24,7 @@ ITEM.functions.use = {
 
 		for attribID, v in pairs(boosts) do
 			for boostID, _ in pairs(v) do
-				item.player:GetCharacter():RemoveBoost(boostID, attribID)
+				item.player:GetCharacter():RemoveBuff(boostID, attribID)
 			end
 		end
 

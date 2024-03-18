@@ -26,7 +26,7 @@ ITEM.functions._use = {
         if char and client:Alive() then
             if item.attribBoosts then
                 for k, v in pairs(item.attribBoosts) do
-                    char:AddBoost(item.uniqueID, k, v)
+                    char:BuffStat(item.uniqueID, k, v)
                 end
             end
 
@@ -43,7 +43,7 @@ ITEM.functions._use = {
                             client:notify(Format("%s has worn off.", name))
                             if item.attribBoosts then
                                 for k, v in pairs(item.attribBoosts) do
-                                    char:RemoveBoost(item.uniqueID, k)
+                                    char:RemoveBuff(item.uniqueID, k)
                                 end
                             end
                         end

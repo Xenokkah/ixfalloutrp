@@ -27,12 +27,12 @@ ITEM.functions.use = {
 		item.player:NewVegasNotify("You are suffering from Powder Haze! -1 PER", "messageSad", 4)
 
 		curplayer = item.player:GetCharacter()
-		curplayer:AddBoost("powderhaze", "perception", -1)
+		curplayer:BuffStat("powderhaze", "perception", -1)
 		itemname = item.name
 		duration = item.duration
 
 		timer.Simple(duration, function() 
-			curplayer:RemoveBoost("powderhaze", "perception")
+			curplayer:RemoveBuff("powderhaze", "perception")
 			curplayer:GetPlayer():NewVegasNotify(itemname .. " has worn off.", "messageNeutral", 8)
 			curplayer:GetPlayer():EmitSound("cwfallout3/ui/medical/wear_off.wav" or "items/battery_pickup.wav")
 		end)

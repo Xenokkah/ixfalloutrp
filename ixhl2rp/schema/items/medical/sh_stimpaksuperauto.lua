@@ -27,12 +27,12 @@ ITEM.functions.use = {
 		itemname = ITEM.name
 		item.player:AdjustHealth("heal", item.heal)
 		item.player:NewVegasNotify("Restored " .. item.heal .. " health.", "messageNeutral", 4)
-		curplayer:AddBoost("stimpaksickness", "endurance", -1)
-		curplayer:AddBoost("stimpaksickness", "agility", -1)
+		curplayer:BuffStat("stimpaksickness", "endurance", -1)
+		curplayer:BuffStat("stimpaksickness", "agility", -1)
 
 		timer.Simple(duration, function() 
-			curplayer:RemoveBoost("stimpaksickness", "endurance")
-			curplayer:RemoveBoost("stimpaksickness", "agility")
+			curplayer:RemoveBuff("stimpaksickness", "endurance")
+			curplayer:RemoveBuff("stimpaksickness", "agility")
 			curplayer:GetPlayer():NewVegasNotify(itemname .. " has worn off.", "messageNeutral", 8)
 			curplayer:GetPlayer():EmitSound("cwfallout3/ui/medical/wear_off.wav" or "items/battery_pickup.wav")
 		end)

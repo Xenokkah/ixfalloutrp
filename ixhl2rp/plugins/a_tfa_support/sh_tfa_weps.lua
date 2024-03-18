@@ -51,7 +51,7 @@ PLUGIN.GunData[ "aus_w_9mmpistol" ] = {
 	Sec = {}
 }
 
-PLUGIN.GunData["aus_w_9mmsmg"] = {
+PLUGIN.GunData["tfa_9mm_smg"] = {
 	BlackList = false,
 	ID = "9mmsmg",
 	Name = "9mm Submachine Gun",
@@ -452,7 +452,7 @@ PLUGIN.GunData["aus_w_submachinegun"] = {
 
 
 --=== 10mm ===--
-PLUGIN.GunData["aus_w_10mmpistol"] = {
+PLUGIN.GunData["tfa_10mm_pistol"] = {
 	BlackList = false,
 	ID = "10mmpistol",
 	Name = "10mm Pistol",
@@ -481,7 +481,7 @@ PLUGIN.GunData["aus_w_10mmpistol"] = {
 	}
 }
 
-PLUGIN.GunData["aus_w_10mmsmg"] = {
+PLUGIN.GunData["tfaat_10mm_smg"] = {
 	BlackList = false,
 	Name = "10mm Submachine Gun",
 	ID = "10mmsmg",
@@ -548,6 +548,36 @@ PLUGIN.GunData["tfa_357mm_pistol"] = {
 	Desc = "A reproduction Colt Single Action Army, an iconic firearm of the old west, chambered in the more modern .357 magnum. Though its fixed cynlinder and single action make it outdated compared to more modern weapons, it's still often carried for style and for self defense by farmers and townies.",
 	Slot = "secondary",
 	Model = "models/weapons/tfa_fallout/w_fallout_357_revolver.mdl",
+	Width = 2,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 1,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	strengthReq = 2,
+	
+	Prim = {
+		Ammo = "357magnumammo",
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
+--=== .357 ===--
+PLUGIN.GunData["tfa_police_pistol"] = {
+	BlackList = false,
+	ID = "policepistol",
+	Name = "Police Pistol",
+	conditionDrainFactor = 0.8,
+	Desc = "A double-action revolver often used by American police departments. It is known for its reliability, accuracy, and compact size.",
+	Slot = "secondary",
+	Model = "models/halokiller38/fallout/weapons/pistols/policepistol.mdl",
 	Width = 2,
 	iconCam = {
 		pos = Vector(2.75, 191.95, 56.09),
