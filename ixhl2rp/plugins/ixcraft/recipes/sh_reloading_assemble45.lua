@@ -4,9 +4,9 @@ RECIPE.model = "models/mosi/fallout4/ammo/45.mdl"
 RECIPE.category = "Ammo"
 RECIPE.requirements = {
 	["leadcan"] = 1,
-	["casinglargepistol"] = 1,
+	["casingsmallpistol"] = 1,
 	["powderpistol"] = 1,
-	["primerlargepistol"] = 1,
+	["primersmallpistol"] = 1,
 }
 
 RECIPE.results = {

@@ -1,6 +1,6 @@
 ITEM.name = "Bobby Pin Box"
 ITEM.description = "A wooden box of bobby pins."
-ITEM.longdesc = "A box of bobby pins, origonally meant for pinning hair in place or similar daily tasks. More often, it's used as a makeshift lockpick for mechanicsl locks."
+ITEM.longdesc = "A box of bobby pins, origonally meant for pinning hair in place or similar daily tasks. More often, it's used as a makeshift lockpick for mechanical locks."
 ITEM.model = "models/mosi/fallout4/props/junk/bobbypinbox.mdl"
 ITEM.width = 1
 ITEM.height = 1

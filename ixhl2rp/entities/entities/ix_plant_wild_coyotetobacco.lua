@@ -34,7 +34,7 @@ function ENT:Use(activator)
         
         if (bHarvested == false) then
             target = activator:GetCharacter()
-            target:GetInventory():Add("coyotetobaccochew", 1)
+            target:GetInventory():Add("coyotetobaccochew", 2)
             self:SetVar("bHarvested", true)
             activator:NewVegasNotify("You pick some tobacco leaves.", "messageNeutral", 5)
             activator:EmitSound("fosounds/fix/ui_items_generic_up_02.mp3")

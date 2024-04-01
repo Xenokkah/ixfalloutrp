@@ -6,7 +6,7 @@ PLUGIN.author = "Scrat Knapp"
 
 ix.chat.Register("narrate", {
 	format = "%s:",
-	color = Color(0, 0, 153, 255),
+	color = Color(0, 255, 255, 255),
 	deadCanChat = true,
 
 	OnChatAdd = function(self, speaker, text, bAnonymous, data)

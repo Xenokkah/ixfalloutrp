@@ -34,7 +34,7 @@ function ENT:Use(activator)
         
         if (bHarvested == false) then
             target = activator:GetCharacter()
-            target:GetInventory():Add("xanderroot", 1)
+            target:GetInventory():Add("xanderroot", 2)
             self:SetVar("bHarvested", true)
             activator:NewVegasNotify("You pick a Xander Root.", "messageNeutral", 5)
             activator:EmitSound("fosounds/fix/ui_items_generic_up_02.mp3")

@@ -3,15 +3,17 @@ RECIPE.description = "With some know-how regarding existing laser technology, yo
 RECIPE.model = "models/illusion/fwp/w_lasermusket.mdl"
 RECIPE.category = "Energy Weapons"
 RECIPE.requirements = {
-	["steel"] = 3,
-	["adhesive"] = 3,
-	["screws"] = 2,	
-	["gears"] = 2,	
-	["glass"] = 2,	
-	["crystal"] = 2,	
+	["wood"] = 2,
+	["steel"] = 2,
+	["adhesive"] = 2,
+	["screws"] = 1,	
+	["gears"] = 1,	
+	["glass"] = 1,	
+	["crystal"] = 1,	
 	["nuclearmaterial"] = 1,	
 	["circuitry"] = 1,	
 	["copper"] = 1,	
+	["homemadelaserpistol"] = 1,	
 }
 
 RECIPE.results = {
@@ -21,7 +23,7 @@ RECIPE.results = {
 
 RECIPE:PostHook("OnCanSee", function(recipeTable, client)
 
-	if (client:GetCharacter():GetSkill("science", 0) < 15) then 
+	if (client:GetCharacter():GetSkill("science", 0) < 10) then 
 		return false
 	end 
 

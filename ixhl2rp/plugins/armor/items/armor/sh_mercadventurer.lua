@@ -17,6 +17,10 @@ ITEM.dT = 7
 ITEM.eT = 4
 ITEM.newSkin = 0
 ITEM.weightClass = 1
+ITEM.skillBoosts = {
+	["guns"] = 2,
+	["barter"] = 2,
+}
 ITEM.bodyGroups = {
 	["gear"] = 0,	
 }

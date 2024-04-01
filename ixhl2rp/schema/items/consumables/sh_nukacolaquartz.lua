@@ -1,5 +1,5 @@
 ITEM.name = "Nuka Cola Quartz"
-ITEM.model = "models/mosi/fallout4/props/drink/nukacola.mdl"
+ITEM.model = "models/maxib123/nukaquartz.mdl"
 ITEM.thirst = 25
 ITEM.description = "A bottle of Nuka Cola Quartz."
 ITEM.longdesc = "A warm, sealed bottle of Nuka Cola Quartz, a 'clear' flavor that tastes effectively the same, but with even more caffeine. Used to be advertised as a 'healthy' alternative to the main flavor."
@@ -9,7 +9,6 @@ ITEM.width = 1
 ITEM.height = 2
 ITEM.sound = "fosounds/fix/npc_humandrinking_soda_01.mp3"
 ITEM.flag = "5"
-ITEM.skin = 6
 ITEM:Hook("use", function(item)
 	item.player:addRadiation(10)
 	item.player:EmitSound(item.sound or "items/battery_pickup.wav")

@@ -16,6 +16,9 @@ ITEM.weight = 2
 ITEM.dT = 3
 ITEM.radResist = 5
 ITEM.newSkin = 0
+ITEM.skillBoosts = {
+	["repair"] = 3
+}
 ITEM.weightClass = 1
 ITEM.bodyGroups = {
 	["outfit"] = 1,	

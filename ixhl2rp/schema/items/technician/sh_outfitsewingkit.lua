@@ -1,7 +1,7 @@
-ITEM.name = "Armor Repair Kit"
+ITEM.name = "Sewing Kit"
 ITEM.model = "models/mosi/fallout4/props/junk/ammobag.mdl"
 ITEM.description = "A set of sewing needles, thread, and replacement fabric pouches."
-ITEM.longdesc = "With some patches, high strength thread, and needles one can touch up a suit that's taken some heavy damage with ease."
+ITEM.longdesc = "With some patches, high strength thread, and needles one can touch up a suit that's taken some notable damage with ease."
 ITEM.flag = "3"
 ITEM.category = "Repair"
 ITEM.price = 15000

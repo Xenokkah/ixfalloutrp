@@ -1,6 +1,6 @@
 ITEM.name = "Radaway"
 ITEM.description = "Radiation treatment fluid."
-ITEM.longdesc = "An IV bag full of fluid. Purges some radiation from the body. Best used while resting.\n\n-50 Rads"
+ITEM.longdesc = "An IV bag full of fluid. Purges some radiation from the body. Best used while resting.\n\n-150 Rads"
 ITEM.model = "models/mosi/fnv/props/health/radaway.mdl"
 ITEM.width = 1
 ITEM.height = 2
@@ -24,7 +24,7 @@ ITEM.functions.use = {
 		curplayer = item.player:GetCharacter()
 		itemname = item.name
 		duration = item.duration
-		item.player:addRadiation(-50)
+		item.player:addRadiation(-150)
 
 		quantity = quantity - 1
 		if (quantity >= 1) then

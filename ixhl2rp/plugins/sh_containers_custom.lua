@@ -157,7 +157,7 @@ ix.container.Register("models/maxib123/trunk.mdl", {
 	height = 5
 })
 
-ix.container.Register("models/maxib123/trunk.mdl", {
+ix.container.Register("models/maxib123/metalstoragecontainer.mdl", {
 	name = "Metal Box",
 	description = "A simple metal box.",
 	width = 3,

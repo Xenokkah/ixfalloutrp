@@ -36,7 +36,7 @@ function ENT:Use(activator)
         
         if (bHarvested == false) then
             target = activator:GetCharacter()
-            target:GetInventory():Add("nevadaagave", 1)
+            target:GetInventory():Add("nevadaagave", 2)
             self:SetVar("bHarvested", true)
             activator:NewVegasNotify("You pick a Nevada Agave fruit.", "messageNeutral", 5)
             activator:EmitSound("fosounds/fix/ui_items_generic_up_02.mp3")

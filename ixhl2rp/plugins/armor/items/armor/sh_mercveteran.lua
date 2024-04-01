@@ -16,6 +16,11 @@ ITEM.dT = 6
 ITEM.eT = 5
 ITEM.radResist = 5
 ITEM.newSkin = 0
+ITEM.skillBoosts = {
+	["energyweapons"] = 2,
+	["barter"] = 2,
+	
+}
 ITEM.weightClass = 1
 ITEM.bodyGroups = {
 }

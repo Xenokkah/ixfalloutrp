@@ -1,7 +1,7 @@
 RECIPE.name = "Emergency Armor Patch Kit"
 RECIPE.description = "Assemble a kit of adhesive patches used for repairing simple damage on a piece of armor. "
 RECIPE.model = "models/mosi/fallout4/props/junk/modcrate.mdl"
-RECIPE.category = "Energy Ammo"
+RECIPE.category = "Armor Repair"
 RECIPE.requirements = {
 	["adhesive"] = 1,
 	["cloth"] = 1,

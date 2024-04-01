@@ -23,7 +23,7 @@ function PLUGIN:OnCharacterCreated(client, character)
     local agility = character:GetAttribute("agility")
     local luck = character:GetAttribute("luck")
 
-    character:SetSkillPoints(10)
+    character:SetSkillPoints(15)
 
     luckboost = math.ceil(luck / 2)
 
@@ -159,6 +159,22 @@ ix.command.Add("CharAddSkillpoints", {
         local currentpoints = target:GetSkillPoints()
         target:SetSkillPoints(currentpoints + points)
         client:Notify(target:GetName() .. " now has " .. tostring(currentpoints + points .. " skill points."))
+    end
+})
+
+ix.command.Add("CharSetSkill", {
+    description = "Set char's given skill to given level directly.",
+    adminOnly = true,
+    arguments = {
+    ix.type.character, 
+    ix.type.string,
+    ix.type.number},
+    OnRun = function(self, client, target, skill, level)
+
+        if not target:GetSkill(skill) then return "Invalid skill." end
+
+        target:SetSkill(skill, level)
+        client:Notify(target:GetName() .. " now has a " ..skill.. " level of " .. target:GetSkill(skill) )
     end
 })
 

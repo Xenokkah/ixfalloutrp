@@ -10,7 +10,8 @@ RECIPE.results = {
 	["steel"] = 3,
 	["gears"] = 3,
 	["screws"] = 3,
-	["circuitry"] = 2,
+	["circuitry"] = 1,
+	["rubber"] = 1,
 }
 
 

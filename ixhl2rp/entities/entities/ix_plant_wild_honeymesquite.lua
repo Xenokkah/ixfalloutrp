@@ -34,7 +34,7 @@ function ENT:Use(activator)
         
         if (bHarvested == false) then
             target = activator:GetCharacter()
-            target:GetInventory():Add("honeymesquitepod", 1)
+            target:GetInventory():Add("honeymesquitepod", 2)
             self:SetVar("bHarvested", true)
             activator:NewVegasNotify("You pick a Honey Mesquite Pod.", "messageNeutral", 5)
             activator:EmitSound("fosounds/fix/ui_items_generic_up_02.mp3")

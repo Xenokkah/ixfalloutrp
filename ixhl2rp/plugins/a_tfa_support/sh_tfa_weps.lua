@@ -391,6 +391,35 @@ PLUGIN.GunData["aus_w_45pistol"] = {
 	}
 }
 
+PLUGIN.GunData["tfaat_dual_45mm_pistol"] = {
+	BlackList = false,
+	ID = "45autopistoldual",
+	Name = "Truth and Consequences",
+	conditionDrainFactor = 1,
+	Desc = "A pair of customized 1911s, with a shorter barrel and curved frame so as to not get snagged on clothing. Fine pieces of gunsmithing that look as great as they function. You simply cannot imagine using them seperately.",
+	Slot = "secondary",
+	Model = "models/halokiller38/fallout/weapons/pistols/45autopistolunique.mdl",
+	Width = 2,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 2,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	strengthReq = 3,
+	
+	Prim = {
+		Ammo = "45autoammo",
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
 PLUGIN.GunData["aus_w_combatrifle"] = {
 	BlackList = false,
 	ID = "combatrifle",
@@ -1574,6 +1603,34 @@ PLUGIN.GunData["aus_w_tribeam"] = {
 	}
 }
 
+PLUGIN.GunData["tfa_laer"] = {
+	BlackList = false,
+	ID = "laer",
+	Name = "LAER",
+	conditionDrainFactor = 2.25,
+	Desc = "The LAER, or Laser-Assisted Electrical Rifle, is a rare energy rifle that fires a much more intense beam than the common laser rifle, but tends to be less accurate. It's also extremely finicky with repairs." ,
+	Slot = "primary",
+	Model = "models/fallout/fonv/laer/w_fallout_laer.mdl",
+	Width = 3,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 2,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	strengthReq = 4,
+	Prim = {
+		Ammo = "mfcammo",
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
 PLUGIN.GunData["aus_w_wattzlasergun"] = {
 	BlackList = false,
 	ID = "wattzlasersniperrifle",
@@ -1600,6 +1657,74 @@ PLUGIN.GunData["aus_w_wattzlasergun"] = {
 	--Sec == Secondary
 	Sec = {
 	}
+}
+
+--=== MFC Breeder ===--
+PLUGIN.GunData["tfa_recharger_rifle"] = {
+	BlackList = false,
+	Name = "Recharger Rifle",
+	ID = "rechargerrifle",
+	conditionDrainFactor = 1.50,
+	Desc = "The Recharger Rifle is the first of a line of self-charging rifles. Though having theoretically infinite ammo, it cannot be quickly reloaded and sports a low wattage for a commercially made laser weapon." ,
+	Slot = "primary",
+	Model = "models/fallout/fonv/rechargerrifle/c_fallout_recharger_rifle.mdl",
+	Width = 3,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 2,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	strengthReq = 4,
+	Prim = {
+		ClipSize = 7
+	},
+	
+}
+
+PLUGIN.GunData["tfa_recharger_pistol"] = {
+	BlackList = false,
+	Name = "Recharger Pistol",
+	ID = "rechargerpistol",
+	conditionDrainFactor = 1.50,
+	Desc = "The second in a line of self-charging rifles, the Recharger Pistol offers acceptable laserpower in a smaller package comparable to an AEP-7, but the lack of stock to steady one's aim make it less viable over range compared to the older Rifle model.",
+	Slot = "secondary",
+	Model = "models/fallout/fonv/rechargerpistol/w_fallout_recharger_pistol.mdl",
+	Width = 3,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 1,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	strengthReq = 2,
+}
+
+PLUGIN.GunData["tfa_hyperbreeder"] = {
+	BlackList = false,
+	Name = "MF Hyperbreeder Alpha",
+	ID = "hyperbreeder",
+	conditionDrainFactor = 1.50,
+	Desc = "The newest and rarest version of the self-charging weapon line, the Hyperbreeder is able to fire in automatic and sports a higher wattage than even its regular counterpart, but has a small, quicker charging capacity, almost serving as an energy machine pistol.",
+	Slot = "secondary",
+	Model = "models/fallout/fonv/rechargerpistol/w_fallout_fhyperbreeder.mdl",
+	Width = 3,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 1,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	strengthReq = 3,
 }
 
 

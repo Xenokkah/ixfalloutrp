@@ -106,7 +106,7 @@ if SERVER then
 				char:SetData("lastpos",ply:GetPos())
 			end
 		end
-	
+
 		if ply:GetNetVar("hungertick", 0) <= CurTime() then
 			ply:SetNetVar("hungertick", 600 + CurTime())
 			ply:TickHunger(1)
@@ -116,6 +116,8 @@ if SERVER then
 			ply:SetNetVar("thirsttick", 600 + CurTime())
 			ply:TickThirst(1)
 		end
+		
+	
 	end
 
 	function playerMeta:UpdateHungerState(client)

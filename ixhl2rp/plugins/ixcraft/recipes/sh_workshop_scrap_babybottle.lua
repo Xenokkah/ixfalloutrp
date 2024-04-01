@@ -8,7 +8,7 @@ RECIPE.requirements = {
 
 RECIPE.results = {
 	["plastic"] = 1,
-        ["rubber"] = 1,
+    ["rubber"] = 1,
 }
 
 

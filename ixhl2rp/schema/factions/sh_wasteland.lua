@@ -36,3 +36,10 @@ FACTION.models = {
 }
 
 FACTION_WASTELAND = FACTION.index
+
+
+function FACTION:OnCharacterCreated(client, character)
+	local inventory = character:GetInventory()
+	inventory:Add("paper", 1)
+
+end

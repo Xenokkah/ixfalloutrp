@@ -51,6 +51,7 @@ PLUGIN.items.junk.common = {
 	"babybottle",
 	"ashtray",
 	"ovenmitt",
+	"turpentine",
 }
 
 PLUGIN.items.junk.rare = {

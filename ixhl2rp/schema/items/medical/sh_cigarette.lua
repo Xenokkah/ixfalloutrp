@@ -23,8 +23,8 @@ ITEM.functions.use = {
 		curplayer = item.player:GetCharacter()
 		itemname = item.name
 		duration = item.duration
-		curplayer:Buffstat("cigarette", "endurance", 1)
-		curplayer:Buffstat("cigarette", "charisma", 1)
+		curplayer:BuffStat("cigarette", "endurance", 1)
+		curplayer:BuffStat("cigarette", "charisma", 1)
 
 		timer.Simple(duration, function() 
 			curplayer:RemoveBuff("cigarette", "charisma")
