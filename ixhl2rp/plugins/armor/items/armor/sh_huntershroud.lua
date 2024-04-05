@@ -20,7 +20,7 @@ ITEM.skillBoosts = {
 	["survival"] = 5
 }
 ITEM.newSkin = 0
-ITEM.weightClass = 1
+ITEM.weightClass = 2
 ITEM.bodyGroups = {
 
 }
