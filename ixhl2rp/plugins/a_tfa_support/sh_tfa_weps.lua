@@ -51,6 +51,33 @@ PLUGIN.GunData[ "aus_w_9mmpistol" ] = {
 	Sec = {}
 }
 
+PLUGIN.GunData[ "tfa_maria" ] = {
+	BlackList = false,
+	ID = "9mmpistolunqiue",
+	Name = "La Santa",
+	Desc = "A Browning Hi-Power, common among civillians and law enforcement before the war, and these days wastelanders looking for protection. Also the service pistol for the NCRA.\nA truly exquisite handgun plated with fine nickel, sporting decorated pearl grips, and bearing fine engraving work, this pistol is the definition of perfection. Match sights and a custom barrel make this true work of art into a deadly weapon; truly, a one of a kind piece.",
+	Slot = "secondary",
+	Model = "models/illusion/fwp/w_9mmpistol.mdl",
+	condition = 100,
+	strengthReq = 1,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 3.31
+	},
+	Width = 2,
+	Height = 1,
+	Weight = 3,
+	Price = 2000,
+	
+	Prim = {
+		Ammo = "9mmammo",
+	},
+	
+	--Sec == Secondary
+	Sec = {}
+}
+
 PLUGIN.GunData["tfa_9mm_smg"] = {
 	BlackList = false,
 	ID = "9mmsmg",
