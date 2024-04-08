@@ -12,3 +12,4 @@ ITEM.weight = 1.1
 ITEM.isArmorUpg = true
 ITEM.radResist = 15
 ITEM.weightDebuff = 1
+ITEM.eT = 4
