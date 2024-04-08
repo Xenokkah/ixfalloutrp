@@ -11,3 +11,4 @@ ITEM.isUpgrade = true
 ITEM.weight = 1.1
 ITEM.isArmorUpg = true
 ITEM.radResist = 5
+ITEM.eT = 2
