@@ -121,7 +121,7 @@ ITEM.functions.Clone = {
 }
 
 ITEM.functions.use = {
-	name = "Read",
+	name = "Read Skillbook",
 	icon = "icon16/book.png",
 	OnRun = function(item)
 		local quantity = item:GetData("quantity", item.quantity)
@@ -132,11 +132,11 @@ ITEM.functions.use = {
 
 		if (item.skill) then
 
-			if char:GetSkill(item.skill) >= 50 then
+			if char:GetSkills()[item.skill] >= 50 then
 				item.player:NewVegasNotify("Your skill is already at maximum, this book can't possibly teach you anything more!", "messageNeutral", 5)
 				return false
 			else 
-				char:SetSkill(item.skill, char:GetSkill(item.skill, 0) + 2)
+				char:UpdateSkill(item.skill, 2)
 				item.player:NewVegasNotify(item.skill .. " increased by 2.", "messageNeutral", 5)
 			end 
 		end 

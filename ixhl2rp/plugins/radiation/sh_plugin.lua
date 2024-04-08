@@ -304,6 +304,17 @@ ix.command.Add("CharAddRadiation", {
 	end
 })
 
+ix.command.Add("CharGetRadiation", {
+	description = "Get rad count of player",
+	adminOnly = true,
+	arguments = {
+		ix.type.character,
+	},
+	OnRun = function(self, client, target, radiation)
+		return target:GetName() .. " has " .. target:GetRads() .. " rads."
+	end
+})
+
 ix.command.Add("CharSetRadImmune", {
 	adminOnly = true,
 	arguments = {

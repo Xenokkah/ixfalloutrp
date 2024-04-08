@@ -10,7 +10,7 @@ RECIPE.requirements = {
 }
 
 RECIPE.results = {
-	["powdercharge"] = 1
+	["tincangrenade"] = 1
 }
 
 

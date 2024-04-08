@@ -115,6 +115,15 @@ PLUGIN.AmmoData["20gaugeammo" ] = {
 	Height = 1
 }
 
+PLUGIN.AmmoData["20gaugeammo_alt" ] = {
+	Name = "20 Gauge Slug",
+	Amount = 20,
+	Price = 2000,
+	Model = "models/mosi/fallout4/ammo/shotgunshells.mdl",
+	Width = 1,
+	Height = 1
+}
+
 
 PLUGIN.AmmoData["12gaugeammo" ] = {
 	Name = "12 Gauge Buckshot",
@@ -207,8 +216,26 @@ PLUGIN.AmmoData["mfcammo" ] = {
 	Height = 1
 }
 
+PLUGIN.AmmoData["mfcammo_alt" ] = {
+	Name = "Microfusion Cells, Overcharge",
+	Amount = 30,
+	Price = 2000,
+	Model = "models/mosi/fallout4/ammo/microfusioncell.mdl",
+	Width = 1,
+	Height = 1
+}
+
 PLUGIN.AmmoData["ecpammo" ] = {
 	Name = "Electron Charge Pack",
+	Amount = 50,
+	Price = 2000,
+	Model = "models/fallout new vegas/electron_charge_pack.mdl",
+	Width = 1,
+	Height = 1
+}
+
+PLUGIN.AmmoData["ecpammo_alt" ] = {
+	Name = "Electron Charge Pack, Overcharge",
 	Amount = 50,
 	Price = 2000,
 	Model = "models/fallout new vegas/electron_charge_pack.mdl",

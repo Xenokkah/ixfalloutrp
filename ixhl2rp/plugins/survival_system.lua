@@ -108,12 +108,12 @@ if SERVER then
 		end
 
 		if ply:GetNetVar("hungertick", 0) <= CurTime() then
-			ply:SetNetVar("hungertick", 600 + CurTime())
+			ply:SetNetVar("hungertick", 400 + CurTime())
 			ply:TickHunger(1)
 		end
 
 		if ply:GetNetVar("thirsttick", 0) <= CurTime() then
-			ply:SetNetVar("thirsttick", 600 + CurTime())
+			ply:SetNetVar("thirsttick", 400 + CurTime())
 			ply:TickThirst(1)
 		end
 		
@@ -283,6 +283,17 @@ ix.command.Add("charsetthirst", {
 	end
 })
 
+ix.command.Add("chargetneeds", {
+	adminOnly = true,
+	arguments = {
+		ix.type.character
+	},
+	OnRun = function(self, client, target)
+		target = target:GetPlayer()
+		return target:GetName() .. " has " .. target:GetHunger() .. "/100 Hunger and " .. target:GetThirst() .. "/100 thirst."
+	end
+})
+
 ix.command.Add("charsethunger", {
 	adminOnly = true,
 	arguments = {
@@ -307,5 +318,32 @@ ix.command.Add("charsethunger", {
             target:Notify(client:Name().." has set your hunger to "..hunger)
         end
         target:UpdateHungerState(target)
+	end
+})
+
+ix.command.Add("charfixneeds", {
+	adminOnly = true,
+	arguments = {
+		ix.type.string,
+	},
+	OnRun = function(self, client, target)
+		local target = ix.util.FindPlayer(target)
+	
+
+		if target:GetHunger() > 99 then
+			target:SetHunger(99)
+			target:UpdateHungerState(target)
+			client:Notify("You have set "..target:Name().."'s hunger to 99.")
+		end 
+
+		
+		
+		if target:GetThirst() > 99 then
+			target:SetThirst(99)
+			target:UpdateThirstState(target)
+			client:Notify("You have set "..target:Name().."'s thirst to 99.")
+		end 
+
+	
 	end
 })

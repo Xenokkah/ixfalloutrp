@@ -15,8 +15,9 @@ ITEM.noBusiness = true
 ITEM.weight = 2
 ITEM.dT = 5
 ITEM.eT = 3
-ITEM.attribBoosts = {
-	["intelligence"] = 1
+ITEM.skillBoosts = {
+	["medicine"] = 5,
+	["science"] = 5,
 }
 ITEM.radResist = 15
 ITEM.newSkin = 0

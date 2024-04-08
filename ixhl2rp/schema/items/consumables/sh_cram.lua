@@ -13,6 +13,7 @@ ITEM:Hook("use", function(item)
 	item.player:EmitSound(item.sound or "items/battery_pickup.wav")
 	item.player:addRadiation(5)
 	ix.chat.Send(item.player, "iteminternal", "takes a bite of their "..item.name..".", false)
+	item.player:GetCharacter():GetInventory():Add("tincan", 1)
 end)
 ITEM.weight = 0.1
 

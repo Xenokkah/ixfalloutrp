@@ -526,7 +526,7 @@ ix.command.Add("Damage", {
 
             -- Subtract DR percentage from damage. Will always be at least 1 point of damage blocked if you have any DR.
             dt = dt - ap 
-           -- if dt < 0 then dt = 0 end
+            if dt < 0 then dt = 0 end
 
             if dr ~= 0 then 
                 local reduction = damage * (dr / 100)
@@ -562,7 +562,7 @@ ix.command.Add("Damage", {
 
             -- Subtract AP value from ET value. Since you can't have negative protection, if below 0, make 0.
             et = et - ap 
-            --if et < 0 then et = 0 end
+            if et < 0 then et = 0 end
 
             if dr ~= 0 then 
                 local reduction = damage * (dr / 100)
@@ -772,7 +772,7 @@ ix.command.Add("CharSetCritChance", {
 ix.command.Add("CharGetCritChance", {
     description = "Get character's current Critical Hit chance %.",
     adminOnly = true,
-    arguments = {ix.type.character, ix.type.number},
+    arguments = {ix.type.character},
     OnRun = function(self, client, target, value)
         target:GetCharcritchance()
         client:Notify("Crit Chance % of " .. target:GetName() .. " is " .. value)

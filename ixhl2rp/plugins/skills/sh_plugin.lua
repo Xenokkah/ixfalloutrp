@@ -206,7 +206,7 @@ ix.command.Add("SpendSkillpoints", {
             return
         end 
 
-        local skillLevel = char:GetSkill(skill)
+        local skillLevel = char:GetSkills()[skill]
 
         if not (skillLevel == nil) then
 
@@ -215,8 +215,8 @@ ix.command.Add("SpendSkillpoints", {
                 return
             end 
 
-            char:SetSkill(skill, skillLevel + pointstospend)
-            local newlevel = char:GetSkill(skill, 0)
+            char:UpdateSkill(skill, pointstospend)
+            local newlevel = char:GetSkills()[skill]
             char:SetSkillPoints(char:GetSkillPoints() - pointstospend)
             client:NewVegasNotify("Your " .. skill .. " skill has been increased from " ..skillLevel.. " to " ..newlevel.. ". \n Skillpoints Remaining: " .. char:GetSkillPoints(), "messageNeutral", 8)
         else 
@@ -354,6 +354,18 @@ ix.command.Add("CharAddStatBuff", {
         if not target:GetAttribute(attribute) then return "Invalid attribute." end
 
         target:BuffStat(id, attribute, amount)
+    end
+})
+
+ix.command.Add("CharAddSkillBoost", {
+    description = "Add a buff to a player's skill.",
+    adminOnly = true,
+    arguments = {
+    ix.type.character, ix.type.string, ix.type.string, ix.type.number},
+    OnRun = function(self, client, target, id, skill, amount)
+        if not target:GetSkill(skill) then return "Invalid skill." end
+
+        target:AddSkillBoost(id, skill, amount)
     end
 })
 

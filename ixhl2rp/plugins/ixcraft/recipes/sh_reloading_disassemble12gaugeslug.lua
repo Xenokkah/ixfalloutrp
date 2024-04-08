@@ -1,21 +1,21 @@
-RECIPE.name = "20 Gauge Buckshot"
-RECIPE.description = "Hand-load some buckshot shells."
+RECIPE.name = "12 Gauge Slug Breakdown"
+RECIPE.description = "Disassemble a full box of 12 gauge slugs for their components."
 RECIPE.model = "models/mosi/fallout4/ammo/shotgunshells.mdl"
 RECIPE.category = "Ammo"
 RECIPE.requirements = {
-	["leadcan"] = 1,
-	["casingshotgun"] = 1,
-	["powderpistol"] = 1,
-	["primersmallpistol"] = 1,
+	["ammo_12gaugeammo_alt"] = 1
 }
 
 RECIPE.results = {
-	["ammo_20gaugeammo"] = 1
+	["leadcan"] = 3,
+	["casingshotgun"] = 1,
+	["powderpistol"] = 3,
+	["primersmallpistol"] = 1,
 }
 
 
 RECIPE:PostHook("OnCanSee", function(recipeTable, client)
-	if (client:GetCharacter():GetSkill("repair", 0) < 10) then 
+	if (client:GetCharacter():GetSkill("repair", 0) < 20) then 
 		return false
 	end 
 

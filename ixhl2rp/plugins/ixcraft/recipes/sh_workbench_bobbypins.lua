@@ -7,13 +7,13 @@ RECIPE.requirements = {
 }
 
 RECIPE.results = {
-	["lockpicking"] = 1
+	["bobbypins"] = 1
 }
 
 
 RECIPE:PostHook("OnCanSee", function(recipeTable, client)
 
-	if (client:GetCharacter():GetSkill("repair", 0) < 35) then 
+	if (client:GetCharacter():GetSkill("lockpicking", 0) < 5) then 
 		return false
 	end 
 

@@ -43,5 +43,37 @@ PLUGIN.AttachData[ "12gaugeammo_alt" ] = {
 	Slot = 2
 }
 
+PLUGIN.AttachData[ "mfcammo_alt" ] = {
+	Name = "Microfusion Cell, Overcharge",
+	Desc = "You shouldn't be seeing this.",
+	Price = 2000,
+	Model = "models/Items/BoxSRounds.mdl",
+	Width = 1,
+	Height = 1,
+	Slot = 2
+}
+
+PLUGIN.AttachData[ "ecpammo_alt" ] = {
+	Name = "Electron Charge Pack, Overcharge",
+	Desc = "You shouldn't be seeing this.",
+	Price = 2000,
+	Model = "models/Items/BoxSRounds.mdl",
+	Width = 1,
+	Height = 1,
+	Slot = 2
+}
+
+PLUGIN.AttachData[ "20gaugeammo_alt" ] = {
+	Name = "20 Gauge Slug",
+	Desc = "You shouldn't be seeing this.",
+	Price = 2000,
+	Model = "models/Items/BoxSRounds.mdl",
+	Width = 1,
+	Height = 1,
+	Slot = 2
+}
+
+
+
 
 
