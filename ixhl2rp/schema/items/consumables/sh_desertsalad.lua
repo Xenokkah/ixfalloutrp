@@ -1,5 +1,5 @@
 ITEM.name = "Desert Salad"
-ITEM.model = "models/fnv/clutter/food/desertsalad.mdlw"
+ITEM.model = "models/fnv/clutter/food/desertsalad.mdl"
 ITEM.hunger = 40
 ITEM.thirst = 40
 ITEM.description = "A delicious meal prepared from meat and fruit."
