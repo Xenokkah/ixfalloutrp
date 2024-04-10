@@ -1,11 +1,11 @@
 RECIPE.name = "Crude Plates"
-RECIPE.description = "Fashion steel and aluminium into steel plates to reinforce a suit of armor with."
+RECIPE.description = "Fashion steel and aluminum into steel plates to reinforce a suit of armor with."
 RECIPE.model = "models/weapons/w_suitcase_passenger.mdl"
 RECIPE.category = "Armor"
 RECIPE.requirements = {
 	["steel"] = 4,
 	["screws"] = 4,
-	["aluminium"] = 4,
+	["aluminum"] = 4,
 	["adhesive"] = 4,
 }
 
