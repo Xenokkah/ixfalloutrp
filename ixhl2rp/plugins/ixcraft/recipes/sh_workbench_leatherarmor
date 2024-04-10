@@ -3,7 +3,7 @@ RECIPE.description = "Fabricate a set of leather armor. One of the most basic fo
 RECIPE.model = "models/thespireroleplay/items/clothes/group052.mdl"
 RECIPE.category = "Armor"
 RECIPE.requirements = {
-	["leatherupgrade1"] = 2,
+	["leather"] = 6,
 	["cloth"] = 2,
 	["adhesive"] = 4,
 }
