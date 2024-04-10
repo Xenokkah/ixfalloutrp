@@ -9,7 +9,7 @@ RECIPE.requirements = {
 }
 
 RECIPE.results = {
-	["metalarmor"] = 1
+	["metalhelmet"] = 1
 }
 
 
