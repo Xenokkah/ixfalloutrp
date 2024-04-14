@@ -41,7 +41,7 @@ ix.container.Register("models/props_wasteland/controlroom_storagecloset001b.mdl"
 	height = 10,
 })
 
-ix.container.Register("models/props_fallout/cabinet.mdl", {
+ix.container.Register("models/props_wasteland/controlroom_filecabinet001a.mdl", {
 	name = "File Cabinet",
 	description = "A metal filing cabinet.",
 	width = 5,
@@ -62,28 +62,28 @@ ix.container.Register("models/props_lab/filecabinet02.mdl", {
 	height = 3
 })
 
-ix.container.Register("models/maxib123/fridgedirty.mdl", {
+ix.container.Register("models/props_c17/furniturefridge001a.mdl", {
 	name = "Refrigerator",
 	description = "A metal box for keeping food in.",
 	width = 6,
 	height = 8,
 })
 
-ix.container.Register("models/models/fallout4/player_home_fridge.mdl", {
+ix.container.Register("models/props_wasteland/kitchen_fridge001a.mdl", {
 	name = "Large Refrigerator",
 	description = "A large metal box for storing even more food in.",
 	width = 6,
 	height = 8,
 })
 
-ix.container.Register("models/maxib123/trashcan.mdl", {
+ix.container.Register("models/props_junk/trashbin01a.mdl", {
 	name = "Trash Bin",
 	description = "What do you expect to find in here?",
 	width =4,
 	height =6,
 })
 
-ix.container.Register("models/llama/dumpster.mdl", {
+ix.container.Register("models/props_junk/trashdumpster01a.mdl", {
 	name = "Dumpster",
 	description = "A dumpster meant to stow away trash. It emanates an unpleasant smell.",
 	width = 14,
@@ -143,7 +143,7 @@ ix.container.Register("models/maxib123/floorsafe.mdl", {
 	height = 3
 })
 
-ix.container.Register("models/models/fallout4/prewar_suitcase.mdl", {
+ix.container.Register("models/maxib123/suitcase.mdl", {
 	name = "Suitcase",
 	description = "A leather-covered traveling case.",
 	width = 3,
@@ -169,60 +169,4 @@ ix.container.Register("models/maxib123/medkit.mdl", {
 	description = "A hard case for holding medical supply.",
 	width = 2,
 	height = 2,
-})
-
-ix.container.Register("models/vex/seventysix/vending/nukacolamachine.mdl", {
-	name = "Busted Nuka Cola Machine",
-	description = "An Out-Of-Order Nuka Cola Machine.",
-	width = 6,
-	height = 6,
-})
-
-ix.container.Register("models/models/fallout4/steamer_trunk.mdl", {
-	name = "Decayed Trunk",
-	description = "An old trunk with rusted clips.",
-	width = 5,
-	height = 5,
-})
-
-ix.container.Register("models/models/fallout4/safe_standing.mdl", {
-	name = "Heavy Metal Safe",
-	description = "A reinforced safe with a complicated lock.",
-	width = 4,
-	height = 4,
-})
-
-ix.container.Register("models/maxib123/ashes.mdl", {
-	name = "Ash Pile",
-	description = "The vaporized remains of a one organic being.",
-	width = 5,
-	height = 5,
-})
-
-ix.container.Register("models/mosi/fallout4/ammo/5mm.mdl", {
-	name = "Ammunition Can",
-	description = "A metallic container fit for safely storing munitions.",
-	width = 3,
-	height = 3,
-})
-
-ix.container.Register("models/props_fallout/cabinet01.mdl", {
-	name = "Clothing Wardrobe",
-	description = "An old, wooden wardrobe.",
-	width = 4,
-	height = 6,
-})
-
-ix.container.Register("models/props_fallout/trunk01.mdl", {
-	name = "Lockbox",
-	description = "A small, metallic lockbox",
-	width = 4,
-	height = 3,
-})
-
-ix.container.Register("models/fallout3/clutter/toolbox.mdl", {
-	name = "Toolbox",
-	description = "A small, metallic toolbox",
-	width = 3,
-	height = 3,
 })
