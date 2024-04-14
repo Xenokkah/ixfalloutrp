@@ -10,7 +10,7 @@ ITEM.flag = "1"
 ITEM.isUpgrade = true
 ITEM.weight = 1.1
 ITEM.isArmorUpg = true
-ITEM.dT = 6
+ITEM.dT = 4
 ITEM.weightDebuff = 1
 
 

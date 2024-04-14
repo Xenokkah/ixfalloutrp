@@ -8,7 +8,7 @@ RECIPE.requirements = {
 
 RECIPE.results = {
 	["antiseptic"] = 1,
-    ["plastic"] = 1
+    ["plastic"] = 1,
 	["acid"] = 1
 }
 

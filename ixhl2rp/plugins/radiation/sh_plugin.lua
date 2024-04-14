@@ -274,8 +274,7 @@ ix.command.Add("Irradiate", {
 		if client == target:GetPlayer() then
             client:Notify("You have taken " ..radstoadd.. " rads with " ..resistance.. "% rad resistance. You now have " .. client:GetRads() .. " rads.")
         else
-			client:Notify(client:Name().. "has taken " ..radstoadd.. " rads with " ..resistance.. "% rad resistance. Target now have  " .. target:GetRads() .. " rads.")
-            target:Notify(client:Name().." has added radiation to you. Your rad resistance provides " .. resistance .. "% resistance.")
+			client:Notify(client:Name().. "has taken " ..radstoadd.. " rads with " ..resistance.. "% rad resistance. Target now has  " .. target:GetRads() .. " rads.")
         end
 	end
 })
