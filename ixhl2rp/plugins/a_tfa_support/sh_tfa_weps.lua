@@ -770,6 +770,33 @@ PLUGIN.GunData["tfa_trail_carbine"] = {
 	}
 }
 
+PLUGIN.GunData["aus_w_44magnum"] = {
+	BlackList = false,
+	Name = "Zeus' Bolt",
+	ID = "zeusbolt",
+	conditionDrainFactor = 1,
+	Desc = "An old, battle-scarred Revolver with twenty-seven notches etched into its frame. It has a Bull masterfully enscribed into the handle of the weapon, and a thunderbolt running along its barrel. Beneath its artistic etches along the frame, was the phrase ''Tonitrua moriuntur, et pueri sob.''",
+	Slot = "secondary",
+	Model = "models/illusion/fwp/w_44magnum.mdl",
+	Width = 2,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 1,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	strengthReq = 3,
+	Prim = {
+		Ammo = "44magnumammo",
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
 --=== 12.7 ===--
 PLUGIN.GunData["aus_w_127pistol"] = {
 	BlackList = false,

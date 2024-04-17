@@ -63,6 +63,7 @@ PLUGIN.items.junk.rare = {
 	"distresspulser",
 	"kitmodelrobots",
 	"microscope",
+	"fusioncore",
 
 }
 
