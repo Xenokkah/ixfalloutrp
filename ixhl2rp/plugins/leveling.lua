@@ -84,7 +84,7 @@ ix.command.Add("CharRewardXP", {
         local currentlevel = target:GetLevel()
         local currentskillpoints = target:GetSkillPoints()
 
-        if (currentlevel == 20) then
+        if (currentlevel == 5) then
             return "Character is max level."
         end 
 
@@ -94,8 +94,12 @@ ix.command.Add("CharRewardXP", {
         if (target:GetXP() >= target:GetXPToNextLevel()) then 
             target:SetLevel(currentlevel + 1)
 
-            if (target:GetLevel() == 20) then
-                target:SetXPToNextLevel(0)
+            if (target:GetLevel() == 5) then
+                target:SetXP (target:GetXP() - target:GetXPToNextLevel())
+                target:SetXPToNextLevel(target:GetXPToNextLevel() * 1.20)
+                target:SetXPToNextLevel(math.floor(target:GetXPToNextLevel()))
+                target:SetSkillPoints(target:GetSkillPoints() + 5)
+    
                 client:Notify(target:GetName() .. " has gained " .. points .. " XP and has reached the maximum Level of " .. target:GetLevel() .. "!")
                 target:GetPlayer():NewVegasNotify("You receive " .. points .. " XP, and reach the maximum " .. target:GetLevel().. "! No more XP can be gained." ,"messageNeutral", 8)
                 return
@@ -103,10 +107,8 @@ ix.command.Add("CharRewardXP", {
 
 
             target:SetXP (target:GetXP() - target:GetXPToNextLevel())
-
             target:SetXPToNextLevel(target:GetXPToNextLevel() * 1.20)
             target:SetXPToNextLevel(math.floor(target:GetXPToNextLevel()))
-
             target:SetSkillPoints(target:GetSkillPoints() + 5)
 
             

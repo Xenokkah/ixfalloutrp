@@ -1629,6 +1629,34 @@ PLUGIN.GunData["aus_w_laserrifle"] = {
 	}
 }
 
+PLUGIN.GunData["tfa_laser_rifle"] = {
+	BlackList = false,
+	ID = "laserrifleunique",
+	Name = " Far East Beast",
+	conditionDrainFactor = 1.15,
+	Desc = "The gold standard of laser weaponry, the AER-9 is lightweight and hits hard and accurate - but tends to be a bit finicky, needing repairs often.\n This version is a modified version used by the elite Shi Guard, sporting some changes made by the reclusive research group that make it easier to handle in close quarters and a slightly focused beam." ,
+	Slot = "primary",
+	Model = "models/fallout/weapons/w_laserrifleunique.mdl",
+	Width = 3,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 2,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	strengthReq = 4,
+	Prim = {
+		Ammo = "mfcammo",
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
 PLUGIN.GunData["aus_w_tribeam"] = {
 	BlackList = false,
 	ID = "tribeamlaserrifle",

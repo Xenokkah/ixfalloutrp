@@ -1,15 +1,16 @@
-RECIPE.name = "Antifreeze"
+RECIPE.name = "Fusion Core"
 RECIPE.description = "Break some wasteland junk down into components."
-RECIPE.model = "models/mosi/fallout4/props/junk/antifreeze.mdl"
+RECIPE.model = "models/models/fallout4/fusion_core.mdl"
 RECIPE.category = "Scrap Junk"
 RECIPE.requirements = {
-	["antifreeze"] = 1,
+	["fusioncore"] = 1,
 }
 
 RECIPE.results = {
-	["antiseptic"] = 1,
-    ["plastic"] = 1,
-	["acid"] = 1
+	["nuclearmaterial"] = 2,
+    ["lead"] = 1,
+    ["plastic"] = 2,
+    ["steel"] = 2,
 }
 
 

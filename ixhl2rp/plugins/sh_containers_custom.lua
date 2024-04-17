@@ -41,7 +41,7 @@ ix.container.Register("models/props_wasteland/controlroom_storagecloset001b.mdl"
 	height = 10,
 })
 
-ix.container.Register("models/props_fallout/cabinet.mdl", {
+ix.container.Register("models/props_wasteland/controlroom_filecabinet001a.mdl", {
 	name = "File Cabinet",
 	description = "A metal filing cabinet.",
 	width = 5,
@@ -62,28 +62,28 @@ ix.container.Register("models/props_lab/filecabinet02.mdl", {
 	height = 3
 })
 
-ix.container.Register("models/maxib123/fridgedirty.mdl", {
+ix.container.Register("models/props_c17/furniturefridge001a.mdl", {
 	name = "Refrigerator",
 	description = "A metal box for keeping food in.",
 	width = 6,
 	height = 8,
 })
 
-ix.container.Register("models/models/fallout4/player_home_fridge.mdl", {
+ix.container.Register("models/props_wasteland/kitchen_fridge001a.mdl", {
 	name = "Large Refrigerator",
 	description = "A large metal box for storing even more food in.",
 	width = 6,
 	height = 8,
 })
 
-ix.container.Register("models/maxib123/trashcan.mdl", {
+ix.container.Register("models/props_junk/trashbin01a.mdl", {
 	name = "Trash Bin",
 	description = "What do you expect to find in here?",
 	width =4,
 	height =6,
 })
 
-ix.container.Register("models/llama/dumpster.mdl", {
+ix.container.Register("models/props_junk/trashdumpster01a.mdl", {
 	name = "Dumpster",
 	description = "A dumpster meant to stow away trash. It emanates an unpleasant smell.",
 	width = 14,
@@ -143,7 +143,7 @@ ix.container.Register("models/maxib123/floorsafe.mdl", {
 	height = 3
 })
 
-ix.container.Register("models/models/fallout4/prewar_suitcase.mdl", {
+ix.container.Register("models/maxib123/suitcase.mdl", {
 	name = "Suitcase",
 	description = "A leather-covered traveling case.",
 	width = 3,
