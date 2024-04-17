@@ -170,3 +170,52 @@ ix.container.Register("models/maxib123/medkit.mdl", {
 	width = 2,
 	height = 2,
 })
+
+ix.container.Register("models/vex/seventysix/vending/nukacolamachine.mdl", {
+    name = "Busted Nuka Cola Machine",
+    description = "An Out-Of-Order Nuka Cola Machine.",
+    width = 6,
+    height = 6,
+})
+
+ix.container.Register("models/models/fallout4/steamer_trunk.mdl", {
+    name = "Decayed Trunk",
+    description = "An old trunk with rusted clips.",
+    width = 5,
+    height = 5,
+})
+
+ix.container.Register("models/models/fallout4/safe_standing.mdl", {
+    name = "Heavy Metal Safe",
+    description = "A reinforced safe with a complicated lock.",
+    width = 4,
+    height = 4,
+})
+
+ix.container.Register("models/mosi/fallout4/ammo/5mm.mdl", {
+    name = "Ammunition Can",
+    description = "A metallic container fit for safely storing munitions.",
+    width = 3,
+    height = 3,
+})
+
+ix.container.Register("models/props_fallout/cabinet01.mdl", {
+    name = "Clothing Wardrobe",
+    description = "An old, wooden wardrobe.",
+    width = 4,
+    height = 6,
+})
+
+ix.container.Register("models/props_fallout/trunk01.mdl", {
+    name = "Lockbox",
+    description = "A small, metallic lockbox",
+    width = 4,
+    height = 3,
+})
+
+ix.container.Register("models/fallout3/clutter/toolbox.mdl", {
+    name = "Toolbox",
+    description = "A small, metallic toolbox",
+    width = 3,
+    height = 3,
+})
