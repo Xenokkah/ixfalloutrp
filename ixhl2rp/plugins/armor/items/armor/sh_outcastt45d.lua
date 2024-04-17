@@ -16,6 +16,7 @@ ITEM.weight = 2
 ITEM.dT = 19
 ITEM.eT = 16
 ITEM.dR = 20
+ITEM.noUpgrade = true
 ITEM.attribBoosts = {
 	["strength"] = 2,
 	["agility"] = -2

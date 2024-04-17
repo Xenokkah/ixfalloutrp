@@ -7,6 +7,7 @@ ITEM.height = 1
 ITEM.category = "Medical"
 ITEM.price = "4000"
 ITEM.flag = "1"
+ITEM.heal = 5
 ITEM.quantity = 1
 ITEM.sound = "fosounds/fix/npc_human_using_stimpak.mp3"
 ITEM.weight = 0.05
@@ -20,6 +21,7 @@ ITEM.functions.use = {
 		ix.chat.Send(item.player, "iteminternal", "uses their "..item.name..".", false)
 
 		quantity = quantity - 1
+		item.player:AdjustHealth("heal", item.heal)
 
 		if (quantity >= 1) then
 			item:SetData("quantity", quantity)

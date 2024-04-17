@@ -16,6 +16,7 @@ ITEM.dT = 14
 ITEM.eT = 6
 ITEM.dR = 5
 ITEM.radResist = -20
+ITEM.noUpgrade = true
 ITEM.newSkin = 0
 ITEM.weightClass = 3
 ITEM.bodyGroups = {

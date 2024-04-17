@@ -16,6 +16,7 @@ ITEM.weight = 2
 ITEM.dT = 22
 ITEM.eT = 18
 ITEM.dR = 25
+ITEM.noUpgrade = true
 ITEM.radResist = 10
 ITEM.attribBoosts = {
 	["strength"] = 2,

@@ -773,9 +773,10 @@ ix.command.Add("CharGetCritChance", {
     description = "Get character's current Critical Hit chance %.",
     adminOnly = true,
     arguments = {ix.type.character},
-    OnRun = function(self, client, target, value)
-        target:GetCharcritchance()
-        client:Notify("Crit Chance % of " .. target:GetName() .. " is " .. value)
+    OnRun = function(self, client, target)
+
+        chance = target:GetCharcritchance()
+        client:Notify("Crit Chance % of " .. target:GetName() .. " is " .. chance)
     end
 })
 

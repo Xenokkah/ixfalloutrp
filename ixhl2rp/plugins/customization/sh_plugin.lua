@@ -52,18 +52,18 @@ if(SERVER) then
 			itemInfo.weapon = true
 			
 			--durability stuff
-			itemInfo.dura = item:GetData("durability", 100)
+			itemInfo.dura = item:GetData("condition", 100)
 		end
 		
 		if(item.isArmor) then
 			itemInfo.armor = true
 			
-			itemInfo.dura = item:GetData("durability", 100)
+
 			itemInfo.dt = customData.dt or item.dT
 			itemInfo.maxdt = customData.maxdt or item.maxDt
 			itemInfo.et = customData.et or item.eT
 			itemInfo.maxet = customdata.maxet or item.maxEt
-			itemInfo.dr = customdata.dr or item.dr
+			itemInfo.dr = customData.dr or item.dr
 
 
 
@@ -133,7 +133,7 @@ if(SERVER) then
 		end*/
 		
 		if(customData.dura) then
-			item:SetData("durability", customData.dura)
+			item:SetData("condition", customData.dura)
 		end
 
 		if(customData.quantity) then
@@ -315,7 +315,7 @@ else
 		
 		if(item.weapon) then
 			local duraL = vgui.Create("DLabel", scroll)
-			duraL:SetText(" Durability:")
+			duraL:SetText(" Condition:")
 			duraL:Dock(TOP)		
 			
 			duraC = vgui.Create("DTextEntry", scroll)
@@ -370,31 +370,23 @@ else
 			magC:Dock(TOP)
 		end
 		
-		if (item.armor) then
-			local duraL = vgui.Create("DLabel", scroll)
-			duraL:SetText(" Durability:")
-			duraL:Dock(TOP)		
-			
-			duraC = vgui.Create("DTextEntry", scroll)
-			duraC:SetText(dura or 100)
-			duraC:Dock(TOP)
-
-
+		if (item.armor) then			
+		
 			-- Seperator for Anomaly Protection
 			local aSep = vgui.Create("DLabel", scroll)
-			aSep:SetText("Anomaly Protections")
+			aSep:SetText("Protections")
 			aSep:Dock(TOP)		
 			
 
-			-- Impact
+			-- DT
 
-			local impactL = vgui.Create("DLabel", scroll)
-			impactL:SetText( " Impact")
-			impactL:Dock(TOP)
+			local dtL = vgui.Create("DLabel", scroll)
+			dtL:SetText( " Damage Treshold")
+			dtL:Dock(TOP)
 
-			impactC = vgui.Create("DTextEntry", scroll)
-			impactC:SetText(impact or 0)
-			impactC:Dock(TOP)
+			dtC = vgui.Create("DTextEntry", scroll)
+			dtC:SetText(impact or 0)
+			dtC:Dock(TOP)
 
 
 			-- Electrical
@@ -474,7 +466,7 @@ else
 			end
 
 			if item.armor then	
-				customData[2].impact = impactC:GetValue()
+				customData[2].impact = dtC:GetValue()
 				customData[2].shock = shockC:GetValue()
 				customData[2].burn = burnC:GetValue()
 				customData[2].chemical = chemicalC:GetValue()

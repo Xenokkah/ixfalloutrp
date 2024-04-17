@@ -16,6 +16,7 @@ ITEM.weight = 2
 ITEM.weight = 2
 ITEM.dT = 14
 ITEM.eT = 6
+ITEM.noUpgrade = true
 ITEM.skillBoosts = {
 	["survival"] = 5
 }

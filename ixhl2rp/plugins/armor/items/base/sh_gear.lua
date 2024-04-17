@@ -776,12 +776,10 @@ function ITEM:GetDescription()
 		end
 	end
 
-	if (self.description) then
-		str = (str .. "\n \nDurability: " .. math.floor(self:GetData("durability", 100)) .. "%")
-	end 
+	
 
 	if (self.entity) then
-		return (self.description .. "\n \nDurability: " .. math.floor(self:GetData("durability", 100)) .. "%")
+		return (str)
 	else
         return (str)
 	end

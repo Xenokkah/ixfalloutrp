@@ -683,6 +683,35 @@ PLUGIN.GunData["tfa_cowboy_repeater"] = {
 	}
 }
 
+PLUGIN.GunData["aus_w_cowboyrepeater"] = {
+	BlackList = false,
+	ID = "cowboyrepeaterunique",
+	Name = "Tenson's Tenshooter",
+	conditionDrainFactor = 0.8,
+	Desc = "A lever action rifle firing .357 Magnum, a common fixture around homesteads, to both defend against opportunistic bandits and aggressive pests.\n This one has been upgraded with an extended tube magazine and a medium range scope, making it more awkward to use close-up but easier to line up shots at range.",
+	Model = "models/halokiller38/fallout/weapons/rifles/cowboyrepeaterunique.mdl",
+	Width = 3,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 1,
+	Weight = 4,
+	Price = 2000,
+	condition = 100,
+	strengthReq = 3,
+	
+	Prim = {
+		ClipSize = 10,
+		Ammo = "357magnumammo",
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
 
 --=== .44 Magnum ===--
 PLUGIN.GunData["aus_w_44magnum"] = {
@@ -769,6 +798,93 @@ PLUGIN.GunData["aus_w_127pistol"] = {
 	Sec = {
 	}
 }
+
+--=== 45-70 Govt ===--
+PLUGIN.GunData["tfa_hunting_revolver"] = {
+	BlackList = false,
+	Name = "Hunting Revolver",
+	ID = "huntingrevolver",
+	conditionDrainFactor = 1,
+	Desc = "A 5-shot revolver chambering the massive 45-70 Government round. Its high power and fixed scope make it ideal for handgun hunting at a range, but also more awkward to use very close up.",
+	Slot = "secondary",
+	Model = "models/weapons/tfa_fallout/w_fallout_hunting_revolver.mdl",
+	Width = 3,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 1,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	strengthReq = 6,
+	Prim = {
+		Ammo = "4570ammo",
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
+PLUGIN.GunData["tfa_ranger_sequoia"] = {
+	BlackList = false,
+	Name = "Ranger Sequoia",
+	ID = "rangersequoia",
+	conditionDrainFactor = 1,
+	Desc = "A 5-shot revolver chambering the massive 45-70 Government round. This hard-hitting, precisely machined, and lovingly engraved piece is the badge of office of long-serving Republic rangers who've served for at least 20 years. Puts down damn near anything in skilled hands.",
+	Slot = "secondary",
+	Model = "models/halokiller38/fallout/weapons/pistols/rangersequoia.mdl",
+	Width = 3,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 1,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	strengthReq = 6,
+	Prim = {
+		Ammo = "4570ammo",
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
+PLUGIN.GunData["tfa_ranger_sequoia"] = {
+	BlackList = false,
+	Name = "Brush Gun",
+	ID = "brushgun",
+	conditionDrainFactor = 1,
+	Desc = "A chunky six-shot rifle meant for taking down very large game. Sees use by Veteran NCR Rangers or rich mercenaries, most commonly.",
+	Slot = "primary",
+	Model = "models/halokiller38/fallout/weapons/pistols/rangersequoia.mdl",
+	Width = 3,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 1,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	strengthReq = 6,
+	Prim = {
+		Ammo = "4570ammo",
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
+
 
 
 
@@ -1038,7 +1154,7 @@ PLUGIN.GunData["tfa_single_shotgun"] = {
 	conditionDrainFactor = 1,
 	Desc = "An break action, single-shot shotgun using the smaller 20 Gauge shell. Tends to be used by homesteaders as a tool against critters or thieves on a strict budget." ,
 	Slot = "primary",
-	Model = "models/illusion/fwp/w_caravanshotgun.mdl",
+	Model = "models/weapons/tfa_fallout/w_fallout_single_shotgun.mdl",
 	Width = 4,
 	iconCam = {
 		pos = Vector(2.75, 191.95, 56.09),
@@ -1722,7 +1838,7 @@ PLUGIN.GunData["tfa_recharger_rifle"] = {
 	conditionDrainFactor = 1.50,
 	Desc = "The Recharger Rifle is the first of a line of self-charging rifles. Though having theoretically infinite ammo, it cannot be quickly reloaded and sports a low wattage for a commercially made laser weapon." ,
 	Slot = "primary",
-	Model = "models/fallout/fonv/rechargerrifle/c_fallout_recharger_rifle.mdl",
+	Model = "models/halokiller38/fallout/weapons/energy weapons/rechargerrifle.mdl",
 	Width = 3,
 	iconCam = {
 		pos = Vector(2.75, 191.95, 56.09),

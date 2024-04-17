@@ -96,6 +96,15 @@ PLUGIN.AmmoData["127mmammo" ] = {
 	Height = 1
 }
 
+PLUGIN.AmmoData["4570ammo" ] = {
+	Name = "45-70 Government Rounds",
+	Amount = 20,
+	Price = 2000,
+	Model = "models/visualitygaming/fallout/ammo/127mm.mdl",
+	Width = 2,
+	Height = 1
+}
+
 PLUGIN.AmmoData[ "556ammo" ] = {
 	Name = "5.56 Rounds",
 	Amount = 30,

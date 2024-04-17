@@ -144,29 +144,33 @@ ITEM.functions.Upgrade = {
                 local items = inv:GetItems()
 
                 for k, v in pairs(items) do
-                    if v.isBodyArmor and item.isArmorUpg then
-                        table.insert(targets, {
-                            name = L(v.name),
-                            data = {v:GetID()},
-                        })
-                    elseif v.isHelmet and item.isHelmetUpg then
-                        table.insert(targets, {
-                            name = L(v.name),
-                            data = {v:GetID()},
-                        })
-                    elseif v.isGasmask and item.isGasmaskUpg then
-						table.insert(targets, {
-                            name = L(v.name),
-                            data = {v:GetID()},
-                        })
-                    elseif v.isMisc and item.isMiscUpg then
-						table.insert(targets, {
-                            name = L(v.name),
-                            data = {v:GetID()},
-                        })
-					else
-						continue
-					end
+
+                    if not v.noUpgrade then 
+                        if v.isBodyArmor and item.isArmorUpg then
+                            table.insert(targets, {
+                                name = L(v.name),
+                                data = {v:GetID()},
+                            })
+                        elseif v.isHelmet and item.isHelmetUpg then
+                            table.insert(targets, {
+                                name = L(v.name),
+                                data = {v:GetID()},
+                            })
+                        elseif v.isGasmask and item.isGasmaskUpg then
+                            table.insert(targets, {
+                                name = L(v.name),
+                                data = {v:GetID()},
+                            })
+                        elseif v.isMisc and item.isMiscUpg then
+                            table.insert(targets, {
+                                name = L(v.name),
+                                data = {v:GetID()},
+                            })
+                        else
+                            continue
+                        end
+
+                    end 
 				end
 			end
 		end
