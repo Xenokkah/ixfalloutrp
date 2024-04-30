@@ -15,6 +15,7 @@ ITEM.noBusiness = true
 ITEM.dT = 15
 ITEM.eT = 10
 ITEM.dR = 8
+ITEM.weight = 2
 ITEM.newSkin = 0
 ITEM.weightClass = 3
 ITEM.bodyGroups = {

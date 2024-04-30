@@ -4,7 +4,7 @@ ITEM.replacements = {
 	{"group004", "group050"}
 }
 ITEM.description = "A jumpsuit used by mechanics."
-ITEM.longdesc = "An sturdy jumpsuit used by technicians and mechanics all around, both before and after the war. Intended to be easily cleaned from spills and comfortable, which it excels at, though in combat it lacks quite badly."
+ITEM.longdesc = "An sturdy jumpsuit used by technicians and mechanics all around, both before and after the war. Intended to be easily cleaned from spills and comfortable, which it excels at, though in combat it lacks quite badly.\nRepair +3"
 ITEM.width = 2
 ITEM.height = 1
 ITEM.price = 230000

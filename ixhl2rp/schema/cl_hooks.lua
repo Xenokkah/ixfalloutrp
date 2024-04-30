@@ -72,3 +72,20 @@ netstream.Hook("Frequency", function(oldFrequency)
 	end)
 end)
 
+
+netstream.Hook("qurReq", function(time, title, subTitle)
+	if (title:sub(1, 1) == "@") then
+		title = L(title:sub(2))
+	end
+
+	if (subTitle:sub(1, 1) == "@") then
+		subTitle = L(subTitle:sub(2))
+	end
+
+	Derma_Query(subTitle, title, "Yes", function()
+		netstream.Start("qurReq", time, true)
+	end, "No", function()
+		netstream.Start("qurReq", time, false)
+	end)
+end)
+

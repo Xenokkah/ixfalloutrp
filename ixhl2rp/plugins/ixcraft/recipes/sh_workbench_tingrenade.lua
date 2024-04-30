@@ -1,6 +1,6 @@
 RECIPE.name = "Tin Can Grenade"
 RECIPE.description = "Assemble a makeshift thrown explosive."
-RECIPE.model = "models/mosi/fallout4/props/junk/tincan03.mdl"
+RECIPE.model = "models/weapons/darky_m/rust/w_beancan.mdl"
 RECIPE.category = "Explosives"
 RECIPE.requirements = {
 	["adhesive"] = 1,

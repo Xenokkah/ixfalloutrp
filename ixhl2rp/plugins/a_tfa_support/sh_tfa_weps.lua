@@ -770,7 +770,7 @@ PLUGIN.GunData["tfa_trail_carbine"] = {
 	}
 }
 
-PLUGIN.GunData["aus_w_44magnum"] = {
+PLUGIN.GunData["tfa_44mm_pistol"] = {
 	BlackList = false,
 	Name = "Zeus' Bolt",
 	ID = "zeusbolt",
@@ -819,6 +819,36 @@ PLUGIN.GunData["aus_w_127pistol"] = {
 	strengthReq = 6,
 	Prim = {
 		Ammo = "127mmammo",
+		ClipSize = 7
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
+PLUGIN.GunData["aus_w_servicerifle"] = {
+	BlackList = false,
+	Name = "Checkpoint Carbine",
+	ID = "127mmpistol",
+	conditionDrainFactor = 1,
+	Desc = "A heavy-caliber rifle used at border checkpoints, and during US-wide riots before the war, at checkpoints in cities. The rifle works best at close or medium range, its heavy round used to punch through and destroy engine blocks in runaway vehicles.",
+	Slot = "primary",
+	Model = "models/illusion/fwp/w_servicerifle.mdl",
+	Width = 3,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 2,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	strengthReq = 6,
+	Prim = {
+		Ammo = "127mmammo",
+		ClipSize = 10
 	},
 	
 	--Sec == Secondary
@@ -945,14 +975,14 @@ PLUGIN.GunData["aus_w_varmintrifle"] = {
 	}
 }
 
-PLUGIN.GunData["aus_w_servicerifle"] = {
+PLUGIN.GunData["tfa_service_rifle"] = {
 	BlackList = false,
 	Name = "Service Rifle",
 	ID = "servicerifle",
 	conditionDrainFactor = 0.7,
 	Desc = "A symbol of the Republic, this workhorse delivers steady firepower in a very mechanically simple, durable package, especially with multiple going off at once.",
 	Slot = "primary",
-	Model = "models/illusion/fwp/w_servicerifle.mdl",
+	Model = "models/weapons/tfa_fallout/w_fallout_service_rifle.mdl",
 	Width = 3,
 	iconCam = {
 		pos = Vector(2.75, 191.95, 56.09),
@@ -1178,7 +1208,7 @@ PLUGIN.GunData["tfa_single_shotgun"] = {
 	BlackList = false,
 	ID = "singleshotgun",
 	Name = "Single Shotgun",
-	conditionDrainFactor = 1,
+	conditionDrainFactor = 0.5,
 	Desc = "An break action, single-shot shotgun using the smaller 20 Gauge shell. Tends to be used by homesteaders as a tool against critters or thieves on a strict budget." ,
 	Slot = "primary",
 	Model = "models/weapons/tfa_fallout/w_fallout_single_shotgun.mdl",
@@ -1207,7 +1237,7 @@ PLUGIN.GunData["aus_w_caravanshotgun"] = {
 	BlackList = false,
 	ID = "caravanshotgun",
 	Name = "Caravan Shotgun",
-	conditionDrainFactor = 1,
+	conditionDrainFactor = 0.5,
 	Desc = "An under-over double barreled shotgun generaly used by trade caravan guards, bartenders, and farmers. Effective, and simple. Loads 20 Gauge buckshot." ,
 	Slot = "primary",
 	Model = "models/illusion/fwp/w_caravanshotgun.mdl",
@@ -1235,7 +1265,7 @@ PLUGIN.GunData["tfa_lever_action_shotgun"] = {
 	BlackList = false,
 	ID = "leveractionshotgun",
 	Name = "Lever Action Shotgun",
-	conditionDrainFactor = 1,
+	conditionDrainFactor = 0.5,
 	Desc = "An chunky but compact lever action shotgun that loads and dispenses 20 Gauge buckshot. Relatively easy to handle when you get used to it and dependable, it makes a fine addition to any loadout." ,
 	Slot = "primary",
 	Model = "models/weapons/tfa_fallout/w_fallout_lever_action_shotgun.mdl",
@@ -1263,7 +1293,7 @@ PLUGIN.GunData["tfa_sawedoff_shotgun"] = {
 	BlackList = false,
 	Name = "Sawnoff Shotgun",
 	ID = "sawnoffshotgun",
-	conditionDrainFactor = 1,
+	conditionDrainFactor = 0.5,
 	Desc = "A double barrel 12 gauge shotgun, cut down to about half length. The result is very concealable and even a solid backup weapon, but has horrible accuracy beyond very close range." ,
 	Slot = "secondary",
 	Model = "models/weapons/tfa_fallout/w_fallout_sawedoff_shotgun.mdl",
@@ -1291,7 +1321,7 @@ PLUGIN.GunData["aus_w_huntingshotgun"] = {
 	BlackList = false,
 	Name = "Hunting Shotgun",
 	ID = "huntingshotgun",
-	conditionDrainFactor = 1,
+	conditionDrainFactor = 0.5,
 	Desc = "A pump action shotgun favored by hunters or other individuals that prefer to be up close and personal." ,
 	Slot = "primary",
 	Model = "models/illusion/fwp/w_huntingshotgun.mdl",
@@ -1315,14 +1345,14 @@ PLUGIN.GunData["aus_w_huntingshotgun"] = {
 	}
 }
 
-PLUGIN.GunData["aus_w_combatshotgundrum"] = {
+PLUGIN.GunData["aus_w_combatshotgun"] = {
 	BlackList = false,
 	Name = "Combat Shotgun",
 	ID = "combatshotgun",
-	conditionDrainFactor = 1,
-	Desc = "A drum-fed, quick-firing shotgun often employed by guards of more well-funded organizations." ,
+	conditionDrainFactor = 0.5,
+	Desc = "A mag fed, quick-firing shotgun often employed by guards of more well-funded organizations." ,
 	Slot = "primary",
-	Model = "models/halokiller38/fallout/weapons/shotguns/combatshotgun.mdl",
+	Model = "models/illusion/fwp/w_combatshotgun.mdl",
 	Width = 3,
 	iconCam = {
 		pos = Vector(2.75, 191.95, 56.09),
@@ -1343,8 +1373,67 @@ PLUGIN.GunData["aus_w_combatshotgundrum"] = {
 	}
 }
 
+PLUGIN.GunData["tfa_riot_shotgun"] = {
+	BlackList = false,
+	Name = "Automatic Shotgun",
+	ID = "automaticshotgun",
+	conditionDrainFactor = 0.5,
+	Desc = "An automatic shotgun with a generous drum magazine, a true street sweeper, seen by heavy assault units in certain factions or very fortunate mercs." ,
+	Slot = "primary",
+	Model = "models/weapons/tfa_fallout/w_fallout_riot_shotgun.mdl",
+	Width = 3,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 2,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	strengthReq = 6,
+	Prim = {
+		Ammo = "12gaugeammo",
+		ClipSize = 20,
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
 
 --=== 5mm ===--
+
+PLUGIN.GunData["tfa_ins2_p90"] = {
+	BlackList = false,
+	Name = "5mm SMG",
+	ID = "5mmsmg",
+	conditionDrainFactor = 1,
+	Desc = "A compact submachine gun that saw some use among police forces before the war, its 5mm round able to pierce a lot of conventional body armors." ,
+	Slot = "secondary",
+	Model = "models/weapons/tfa_ins2/w_p90.mdl",
+	Width = 2,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 2,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	strengthReq = 4,
+	Prim = {
+		Ammo = "5mmammo",
+		ClipSize = 35,
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
 PLUGIN.GunData["aus_w_assaultcarbine"] = {
 	BlackList = false,
 	Name = "Assault Carbine",
@@ -1945,7 +2034,7 @@ PLUGIN.GunData["aus_w_rcw"] = {
 	Weight = 3,
 	Price = 2000,
 	condition = 100,
-	strengthReq = 5,
+	strengthReq = 4,
 	Prim = {
 		Ammo = "ecpammo",
 		ClipSize = 35

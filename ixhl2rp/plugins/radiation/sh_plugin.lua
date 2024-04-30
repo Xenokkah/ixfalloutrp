@@ -34,6 +34,7 @@ end
 
 function playerMeta:addRadiation(amount)
 	local curRadiation = self:GetCharacter():GetRads()
+	if self:GetCharacter():GetRadImmune() == true then amount = 0 end
 	self:setRadiation(math.Clamp(math.min(curRadiation) + amount, 0, 1000))
 end
 

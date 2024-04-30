@@ -1,19 +1,18 @@
 ITEM.name = "Maize Seeds"
-ITEM.description = "Some seeds."
+ITEM.description = "Seeds for growing Maize."
 ITEM.longdesc = "Some seeds for home-growing some Maize."
-ITEM.model = "models/props_lab/box01a.mdl"
+ITEM.model = "models/mosi/fnv/props/junk/seedbag.mdl"
 ITEM.width = 1
 ITEM.height = 1
-ITEM.category = "Medical"
-ITEM.price = "4000"
-ITEM.flag = "1"
+ITEM.category = "Seeds"
+ITEM.price = "10"
 ITEM.quantity = 1
-ITEM.sound = "fosounds/fix/npc_human_using_jet.mp3"
+ITEM.sound = "player/footsteps/gravel1.wav"
 ITEM.weight = 0.05
 ITEM.duration = 160
 
 ITEM.functions.use = {
-	name = "Use",
+	name = "Plant",
 	icon = "icon16/heart.png",
 	OnRun = function(item)
 		local plant = ents.Create( "ix_plant_farm_maize" )
@@ -31,18 +30,15 @@ ITEM.functions.use = {
 
 function ITEM:GetDescription()
 	if (!self.entity or !IsValid(self.entity)) then
-		local quant = self:GetData("quantity", self.quantity)
-		local str = self.longdesc.."\n \nThere's only "..quant.." uses left."
-
-		return str
+		return self.description
 	else
-		return self.desc
+		return self.description
 	end
 end
 
 if (CLIENT) then
 	function ITEM:PaintOver(item, w, h)
 
-		draw.SimpleText(item:GetData("quantity", item.quantity).."/"..item.quantity, "DermaDefault", 3, h - 1, color_white, TEXT_ALIGN_LEFT, TEXT_ALIGN_BOTTOM, 1, color_black)
+		draw.SimpleText("Maize", "DermaDefault", 3, h - 1, color_white, TEXT_ALIGN_LEFT, TEXT_ALIGN_BOTTOM, 1, color_black)
 	end
 end

@@ -4,7 +4,7 @@ ITEM.replacements = {
 	{"group004", "group007"}
 }
 ITEM.description = "A plain white coat used by medical professionals of the Followers of the Apocalypse."
-ITEM.longdesc = "Few things are as iconic of a medical professional as a billowing white coat, worn by those practicing or pretending to practice. While slightly toughened against wasteland threats in a pinch, one still needs to rely on the generosity of those around them to guarantee safety. The cross icon marks this as specifically being issued to doctors aligned with the Followers aid group.\n +1 INT"
+ITEM.longdesc = "Few things are as iconic of a medical professional as a billowing white coat, worn by those practicing or pretending to practice. While slightly toughened against wasteland threats in a pinch, one still needs to rely on the generosity of those around them to guarantee safety. The cross icon marks this as specifically being issued to doctors aligned with the Followers aid group.\n +5 Science and Medicine"
 ITEM.width = 2
 ITEM.height = 1
 ITEM.price = 230000

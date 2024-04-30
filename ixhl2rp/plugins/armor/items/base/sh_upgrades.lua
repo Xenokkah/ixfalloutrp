@@ -64,18 +64,7 @@ local function attachment(item, data, combine)
         
         mods[item.slot] = {item.uniqueID, item.name}
         target:SetData("mod", mods)
-        local itemweight = item.weight or 0
-        local targetweight = target:GetData("weight",target.weight)
-		local weightreduc = 0
-		
-		if item.weightreduc then
-			weightreduc = item.weightreduc
-		end
-		
-		local totweight = ((itemweight + targetweight) - weightreduc)
-		
-        target:SetData("weight", totweight)
-
+        
         if item.dT then
             local oldMax = target:GetData("maxDt", 0)
             target:SetData("maxDt", oldMax + item.dT)
@@ -107,7 +96,7 @@ local function attachment(item, data, combine)
 
         if item.weightDebuff  then
             target:SetData("weightClass", target:GetData("weightClass") + item.weightDebuff)
-            if target.weightClass > 4 then target.weightClass = 4 end
+            if target.weightClass > 6 then target.weightClass = 6 end
         end 
         
 		client:EmitSound("cw/holster4.wav")

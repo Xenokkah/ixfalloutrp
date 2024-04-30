@@ -13,7 +13,7 @@ ITEM.functions.fill = {
 	OnRun = function(item)
 		curplayer = item.player:GetCharacter()
 		inv = curplayer:GetInventory()
-		inv:Add("waterdirty", 1)
+		inv:Add("waterclean", 1)
 		return true
 
 	end,

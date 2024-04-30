@@ -5,7 +5,7 @@ RECIPE.category = "Armor"
 RECIPE.requirements = {
 	["metalupgrade2"] = 2,
 	["steel"] = 4,
-	["leather2"] = 2,
+	["leatherupgrade2"] = 2,
 	["adhesive"] = 4,
 }
 

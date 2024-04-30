@@ -29,29 +29,18 @@ function ENT:Use(activator)
         local target = activator:GetCharacter()
 
         if (self:GetVar("bHarvestable") == false) then 
-            activator:NewVegasNotify("Not enough water has been pumped to fill a bottle yet. The process takes roughly an hour.", "messageNeutral", 5)
+            activator:NewVegasNotify("Not enough water has been pumped to fill a bottle yet. The process takes roughly 15 minutes.", "messageNeutral", 5)
             return
         end 
 
-        if (target:GetInventory():HasItem("emptybottle")) then
-            target:GetInventory():HasItem("emptybottle"):Remove()
-            target:GetInventory():Add("waterclean", 1)
-            activator:NewVegasNotify("You fill a bottle with refreshing, clean water.", "messageNeutral", 4)
-
-            self:SetVar("bHarvestable", false)
-            timer.Simple(3600, function() 
-                self:SetVar("bHarvestable", true)
-            end)
-
-        else
-            activator:NewVegasNotify("You need an empty bottle to fill with water.", "messageNeutral", 4)
-        end
+        target:GetInventory():Add("waterclean", 1)
+        activator:NewVegasNotify("You take a bottle with refreshing, clean water.", "messageNeutral", 4)
+        self:SetVar("bHarvestable", false)
+        timer.Simple(900, function() 
+            self:SetVar("bHarvestable", true)
+        end)
 
     
-   
-      
-        
-
 
     end 
 end

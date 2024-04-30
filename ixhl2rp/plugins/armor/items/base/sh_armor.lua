@@ -98,17 +98,6 @@ end,
 							item:SetData("mod", mods)
 						end
 						
-						local itemweight = item:GetData("weight",0)
-                        local targetweight = targetitem.weight
-						local weightreduc = 0
-						
-						if targetitem.weightreduc then
-							weightreduc = targetitem.weightreduc
-						end
-						
-                        local totweight = itemweight - targetweight + weightreduc
-                        item:SetData("weight", totweight)
-
 						if targetitem.dT then
 							local oldMax = item.maxDt
 							item:SetData("maxDt", item:GetData("maxDt") - targetitem.dT)
@@ -141,7 +130,7 @@ end,
 						end 
 
 
-						if item:GetData("weightClass") <= 4 then
+						if item:GetData("weightClass") <= 6 then
 							item:SetData("weightClass", item:GetData("weightClass") - targetitem.weightDebuff )
 						end 
 						
@@ -398,6 +387,8 @@ ITEM:Hook("drop", function(item)
 			character:RemoveSkillBoost("lightarmor", "evasion")
 			character:RemoveSkillBoost("mediumarmor", "evasion")
 			character:RemoveSkillBoost("heavyarmor", "evasion")
+			character:RemoveSkillBoost("veryheavyarmor", "evasion")
+			character:RemoveSkillBoost("superheavyarmor", "evasion")
 		end 
 		
 		
@@ -463,6 +454,8 @@ ITEM.functions.EquipUn = { -- sorry, for name order.
 			character:RemoveSkillBoost("lightarmor", "evasion")
 			character:RemoveSkillBoost("mediumarmor", "evasion")
 			character:RemoveSkillBoost("heavyarmor", "evasion")
+			character:RemoveSkillBoost("veryheavyarmor", "evasion")
+			character:RemoveSkillBoost("superheavyarmor", "evasion")
 		end 
 		
 		return false
@@ -489,7 +482,7 @@ ITEM.functions.Equip = {
 			
 			if item:GetData("weightClass") == 2 and strengthlevel < 2 then client:NewVegasNotify("You need a Strength of at least 2 to equip this armor.", "messageSad", 8) return false end
 			if item:GetData("weightClass") == 3 and strengthlevel < 5 then client:NewVegasNotify("You need a Strength of at least 5 to equip this armor.", "messageSad", 8)  return false end
-			if item:GetData("weightClass") == 4 and strengthlevel < 8 then client:NewVegasNotify("You need a Strength of at least 8 to equip this armor.", "messageSad", 8) return false end
+			if item:GetData("weightClass") > 3 and strengthlevel < 8 then client:NewVegasNotify("You need a Strength of at least 8 to equip this armor.", "messageSad", 8) return false end
 		end 
 		
 		for _, v in pairs(items) do
@@ -544,8 +537,10 @@ ITEM.functions.Equip = {
 
 		if(item:GetData("weightClass")) then
 			if item:GetData("weightClass") == 2 then character:AddSkillBoost("lightarmor", "evasion", -5) end
-			if item:GetData("weightClass") == 3 then character:AddSkillBoost("lightarmor", "evasion", -10) end
-			if item:GetData("weightClass") == 4 then character:AddSkillBoost("lightarmor", "evasion", -15) end
+			if item:GetData("weightClass") == 3 then character:AddSkillBoost("mediumarmor", "evasion", -10) end
+			if item:GetData("weightClass") == 4 then character:AddSkillBoost("heavyarmor", "evasion", -15) end
+			if item:GetData("weightClass") == 5 then character:AddSkillBoost("veryheavyarmor", "evasion", -20) end
+			if item:GetData("weightClass") == 6 then character:AddSkillBoost("superheavyarmor", "evasion", -25) end
 		end 
 		
 		if (type(item.OnGetReplacement) == "function") then
