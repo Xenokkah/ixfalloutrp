@@ -18,6 +18,10 @@ ITEM.eT = 4
 ITEM.dR = 12
 ITEM.newSkin = 0
 ITEM.weightClass = 3
+ITEM.attribBoosts = {
+	["agility"] = -1
+}
+
 ITEM.bodyGroups = {
 	["outfit"] = 1,
 }
