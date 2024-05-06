@@ -12,6 +12,7 @@ ITEM.flag = "A"
 ITEM.isArmor = true
 ITEM.isBodyArmor = true
 ITEM.noBusiness = true
+ITEM.noUpgrade = true
 ITEM.weight = 2
 ITEM.dT = 22
 ITEM.eT = 18
