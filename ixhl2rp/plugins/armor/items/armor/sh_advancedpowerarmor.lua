@@ -15,6 +15,7 @@ ITEM.dT = 28
 ITEM.eT = 24
 ITEM.dR = 35
 ITEM.radResist = 20
+ITEM.isPowerArmor = true
 ITEM.attribBoosts = {
 	["strength"] = 1
 }

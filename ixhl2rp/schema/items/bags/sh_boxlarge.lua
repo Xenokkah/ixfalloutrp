@@ -1,0 +1,11 @@
+ITEM.name = "Medium Parcel"
+ITEM.description = "A medium-sized box capable of holding a couple things."
+ITEM.width = 2
+ITEM.height = 1
+ITEM.invWidth = 2
+ITEM.invHeight = 2
+ITEM.flag = "1"
+ITEM.price = 1000
+ITEM.model = "models/props_junk/cardboard_box003a.mdl"
+ITEM.weaponCategory = "back"
+ITEM.exRender = true

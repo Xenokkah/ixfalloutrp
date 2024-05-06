@@ -1,17 +1,13 @@
-RECIPE.name = "Caravan Lunch"
-RECIPE.description = "Exchange some machine parts for some food."
-RECIPE.model = "models/mosi/fnv/props/food/lunchbox_meal.mdl"
+RECIPE.name = "Tin Can Grenade"
+RECIPE.description = "Exchange a working alarm clock for a cheap but useful grenade."
+RECIPE.model = "models/weapons/darky_m/rust/w_beancan.mdl"
 RECIPE.category = "Junkers"
 RECIPE.requirements = {
-	["steel"] = 3,
-	["screws"] = 2,
-	["gears"] = 2,
-
-	
+	["alarmclock"] = 1	
 }
 
 RECIPE.results = {
-	["caravanlunch"] = 1
+	["prewarmoney"] = 1
 }
 
 

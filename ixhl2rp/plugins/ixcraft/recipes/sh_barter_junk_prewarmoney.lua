@@ -1,17 +1,13 @@
-RECIPE.name = "Caravan Lunch"
-RECIPE.description = "Exchange some machine parts for some food."
-RECIPE.model = "models/mosi/fnv/props/food/lunchbox_meal.mdl"
+RECIPE.name = "Pre-War Money"
+RECIPE.description = "Exchange a replacement fuse for pre-war money good for buying from old machines with."
+RECIPE.model = "models/mosi/fallout4/props/junk/prewarmoney.mdl"
 RECIPE.category = "Junkers"
 RECIPE.requirements = {
-	["steel"] = 3,
-	["screws"] = 2,
-	["gears"] = 2,
-
-	
+	["fuse"] = 1	
 }
 
 RECIPE.results = {
-	["caravanlunch"] = 1
+	["prewarmoney"] = 1
 }
 
 

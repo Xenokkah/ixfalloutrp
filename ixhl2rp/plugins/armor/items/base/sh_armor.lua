@@ -484,6 +484,9 @@ ITEM.functions.Equip = {
 			if item:GetData("weightClass") == 3 and strengthlevel < 5 then client:NewVegasNotify("You need a Strength of at least 5 to equip this armor.", "messageSad", 8)  return false end
 			if item:GetData("weightClass") > 3 and strengthlevel < 8 then client:NewVegasNotify("You need a Strength of at least 8 to equip this armor.", "messageSad", 8) return false end
 		end 
+
+
+		if item.isPowerArmor and not character:HasFeat(patraining) then client:NewVegasNotify("You need Power Armor Training to equip this armor.", "factionBrotherhood", 5) return false end
 		
 		for _, v in pairs(items) do
 			if (v.id != item.id) then

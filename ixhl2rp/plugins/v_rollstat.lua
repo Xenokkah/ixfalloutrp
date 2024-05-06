@@ -59,12 +59,19 @@ for k, v in pairs(ix.attributes.list) do
             local add = att 
             local char = client:GetCharacter()
             local modifier = modifier or 0
-            
+
+             -- If rolled number between 0-100 is less than crit chance, it is a critical hit
+            local critical
+            local critchance = char:GetCharcritchance() or 0
+            local iscrit = math.random(1, 100)
+            if critchance >= iscrit then critical = true else critical = false end
+                
             ix.chat.Send(client, "rollStat", tostring(value), nil, nil, {
                 attr = attr,
                 additive=add,
                 initialroll = value,
-                mod = modifier
+                mod = modifier,
+                crit = critical
     
             })
     
@@ -218,7 +225,8 @@ ix.command.Add("Lockpick", {
             attr = attr,
             additive=add,
             initialroll = value,
-            mod = modifier
+            mod = modifier,
+            crit = critical
         })
 
        ix.log.Add(client, "rollStat", value, attr, add, modifier)
@@ -248,7 +256,8 @@ ix.command.Add("Survival", {
             attr = attr,
             additive=add,
             initialroll = value,
-            mod = modifier
+            mod = modifier,
+            crit = critical
         })
 
        ix.log.Add(client, "rollStat", value, attr, add, modifier)
@@ -279,7 +288,8 @@ ix.command.Add("Speech", {
             attr = attr,
             additive=add,
             initialroll = value,
-            mod = modifier
+            mod = modifier,
+            crit = critical
         })
 
        ix.log.Add(client, "rollStat", value, attr, add, modifier)
@@ -307,7 +317,8 @@ ix.command.Add("Barter", {
             attr = attr,
             additive=add,
             initialroll = value,
-            mod = modifier
+            mod = modifier,
+            crit = critical
         })
 
        ix.log.Add(client, "rollStat", value, attr, add, modifier)
@@ -336,7 +347,8 @@ ix.command.Add("Science", {
             attr = attr,
             additive=add,
             initialroll = value,
-            mod = modifier
+            mod = modifier,
+            crit = critical
         })
 
        ix.log.Add(client, "rollStat", value, attr, add, modifier)
@@ -364,7 +376,8 @@ ix.command.Add("Medicine", {
             attr = attr,
             additive=add,
             initialroll = value,
-            mod = modifier
+            mod = modifier,
+            crit = critical
         })
 
        ix.log.Add(client, "rollStat", value, attr, add, modifier)
@@ -392,7 +405,8 @@ ix.command.Add("Repair", {
             attr = attr,
             additive=add,
             initialroll = value,
-            mod = modifier
+            mod = modifier,
+            crit = critical
         })
 
        ix.log.Add(client, "rollStat", value, attr, add, modifier)
@@ -451,7 +465,8 @@ ix.command.Add("Evasion", {
             attr = attr,
             additive=add,
             initialroll = value,
-            mod = modifier
+            mod = modifier,
+            crit = critical
         })
 
        ix.log.Add(client, "rollStat", value, attr, add, modifier)

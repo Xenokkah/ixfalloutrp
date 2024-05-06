@@ -9,6 +9,7 @@ ITEM.isArmor = true
 ITEM.dT = 8
 ITEM.eT = 6
 ITEM.radResist = 5
+ITEM.isPowerArmor = true
 ITEM.attribBoosts = {
 	["charisma"] = -1
 }

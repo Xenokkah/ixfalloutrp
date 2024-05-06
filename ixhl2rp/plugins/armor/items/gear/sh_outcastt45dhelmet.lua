@@ -2,6 +2,7 @@ ITEM.name = "Outcast Paladin's T-45d Power Helmet"
 ITEM.description = "A heavily worn T-45d helmet."
 ITEM.longdesc = "The finely-crafted helmet of the T-45 Power Armor set. When connected to a powered suit, it can display useful information on its HUD such as a compass, low light optics, and features a bright headlamp.\nThis particular helmet is painted black and red and rust pockmarks its surface. Its protections have degraded, but thankfully its filtration systems are still functional."
 ITEM.model = "models/fallout/apparel/power_armor_helmet.mdl"
+ITEM.isPowerArmor = true
 ITEM.price = 15000
 ITEM.isGasmask = true
 ITEM.isHelmet = true

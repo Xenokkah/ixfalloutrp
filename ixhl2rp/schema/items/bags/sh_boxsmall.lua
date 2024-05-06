@@ -1,0 +1,11 @@
+ITEM.name = "Small Parcel"
+ITEM.description = "A small box capable of holding a small object or two."
+ITEM.width = 1
+ITEM.height = 1
+ITEM.invWidth = 1
+ITEM.invHeight = 2
+ITEM.flag = "1"
+ITEM.price = 1000
+ITEM.model = "models/props_lab/box01a.mdl"
+ITEM.weaponCategory = "back"
+ITEM.exRender = true

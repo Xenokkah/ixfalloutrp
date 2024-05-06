@@ -7,4 +7,4 @@ ITEM.isGasmask = false
 ITEM.isHelmet = true
 ITEM.isArmor = true
 ITEM.dT = 3
-ITEM.eT = 2
+ITEM.eT = 3

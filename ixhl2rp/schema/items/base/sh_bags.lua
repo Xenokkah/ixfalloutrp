@@ -284,34 +284,6 @@ ITEM.functions.Clone = {
 	end
 }
 
-if (CLIENT) then
-	function ITEM:PaintOver(item, width, height)
-		/*
-		local panel = ix.gui["inv" .. item:GetData("id", "")]
-
-		if (!IsValid(panel)) then
-			return
-		end
-
-		if (vgui.GetHoveredPanel() == self) then
-			panel:SetHighlighted(true)
-		else
-			panel:SetHighlighted(false)
-		end
-		*/
-
-		if (item:GetData("equip")) then
-			surface.SetDrawColor(110, 255, 110, 255)
-			--surface.DrawRect(w - 14, h - 14, 8, 8)
-		else
-			surface.SetDrawColor(255, 110, 110, 255)
-		end
-
-		surface.SetMaterial(item.equipIcon)
-		surface.DrawTexturedRect(width-23,height-23,19,19)
-	end
-end
-
 function ITEM:RemovePart(client)
 	local char = client:GetCharacter()
 

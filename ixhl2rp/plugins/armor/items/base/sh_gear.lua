@@ -449,6 +449,8 @@ ITEM.functions.Equip = {
 		local client = item.player
 		local character = client:GetCharacter()
 		local items = character:GetInventory():GetItems()
+
+		if item.isPowerArmor and not character:HasFeat(patraining) then client:NewVegasNotify("You need Power Armor Training to equip this.", "factionBrotherhood", 5) return false end
 		
 		for _, v in pairs(items) do
 			if (v.id != item.id) then

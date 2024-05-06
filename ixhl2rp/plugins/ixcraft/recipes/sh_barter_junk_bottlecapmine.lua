@@ -1,22 +1,18 @@
-RECIPE.name = "Caravan Lunch"
-RECIPE.description = "Exchange some machine parts for some food."
-RECIPE.model = "models/mosi/fnv/props/food/lunchbox_meal.mdl"
+RECIPE.name = "Bottlecap Mine"
+RECIPE.description = "Exchange a useful machine part often used for auto-docs, for a potent explosive mine."
+RECIPE.model = "models/mosi/fallout4/props/junk/tincan03.mdl"
 RECIPE.category = "Junkers"
 RECIPE.requirements = {
-	["steel"] = 3,
-	["screws"] = 2,
-	["gears"] = 2,
-
-	
+	["biometricscanner"] = 1	
 }
 
 RECIPE.results = {
-	["caravanlunch"] = 1
+	["bottlecapmine"] = 2,
 }
 
 
 RECIPE:PostHook("OnCanSee", function(recipeTable, client)
-	if (client:GetCharacter():GetSkill("barter", 0) < 10) then 
+	if (client:GetCharacter():GetSkill("barter", 0) < 30) then 
 		return false
 	end 
 

@@ -23,7 +23,7 @@ if (SERVER) then
         self:SetBodygroup(1,1)
         self:SetNetVar("TimerName", "Growtimer" .. math.random(0, 999))
       
-        timer.Create( self:GetNetVar("TimerName"), 900, 1, function()  self:SetNetVar("bHarvestable", true) self:SetBodygroup(1,0) end )
+        timer.Create( self:GetNetVar("TimerName"), 5400, 1, function()  self:SetNetVar("bHarvestable", true) self:SetBodygroup(1,0) end )
 
         self:SetCollisionGroup(COLLISION_GROUP_PASSABLE_DOOR)
         local phys = self:GetPhysicsObject()
@@ -72,7 +72,7 @@ function ENT:Use(activator)
                     if (target:GetInventory():HasItem("waterclean")) then 
                         target:GetInventory():HasItem("waterclean"):Remove()
                         activator:NewVegasNotify("You water the plant with some pure water.", "messageNeutral", 3)
-                        timer.Adjust(self:GetNetVar("TimerName"), timer.TimeLeft(self:GetNetVar("TimerName")) - 150)
+                        timer.Adjust(self:GetNetVar("TimerName"), timer.TimeLeft(self:GetNetVar("TimerName")) - 600)
                         self:SetNetVar("Watered", Watered + 1)
 
                     else
