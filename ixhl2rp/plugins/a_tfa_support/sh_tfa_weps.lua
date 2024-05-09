@@ -913,7 +913,7 @@ PLUGIN.GunData["tfa_ranger_sequoia"] = {
 	}
 }
 
-PLUGIN.GunData["tfa_ranger_sequoia"] = {
+PLUGIN.GunData["tfa_brush_gun"] = {
 	BlackList = false,
 	Name = "Brush Gun",
 	ID = "brushgun",
