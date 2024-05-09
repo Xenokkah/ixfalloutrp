@@ -1,6 +1,6 @@
 ITEM.name = "Case of Surgical Tools"
 ITEM.description = "A set of surgical tools in a marked metal box."
-ITEM.longdesc = "A set containing a few sets of surgical tools, still wrapped in sterile packaging.\nUsed to treat long term injuries by experienced doctors, curing or alleviating them."
+ITEM.longdesc = "A metal case containing a few sets of surgical tools, still wrapped in sterile packaging.\nUsed to treat long term injuries by experienced doctors, curing or alleviating them."
 ITEM.model = "models/mccarran/medbay/firstaidkit01.mdl"
 ITEM.width = 1
 ITEM.height = 1
