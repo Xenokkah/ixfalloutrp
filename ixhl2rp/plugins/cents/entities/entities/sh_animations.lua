@@ -126,7 +126,7 @@ function ENT:Crouch(bInstant)
     end
 end
 
-function ENT:AttackAnimStart(seq)
+function ENT:AttackAnimStart(hold, seq)
     local sequence = self:LookupSequence(self.AttackAnim)
 
     if (seq) then
@@ -135,11 +135,12 @@ function ENT:AttackAnimStart(seq)
 
     self:ResetSequence(sequence)
 
-    self:OnAttack()
+    if (hold == false) then 
+        timer.Simple(self:SequenceDuration(sequence), function()
+            if IsValid(self) then
+                self:SetAnim()
+            end
+        end)
+    end 
 
-    timer.Simple(self:SequenceDuration(sequence), function()
-        if IsValid(self) then
-            self:SetAnim()
-        end
-    end)
 end

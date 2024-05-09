@@ -14,6 +14,8 @@ ix.util.Include("sh_centchat.lua")
 ix.util.Include("sh_centproperties.lua")
 ix.util.Include("sv_plugin.lua")
 
+PLUGIN.savedEnts = PLUGIN.savedEnts or {}
+
 CAMI.RegisterPrivilege({
 	Name = "Helix - Manage CEnts",
     MinAccess = "superadmin"

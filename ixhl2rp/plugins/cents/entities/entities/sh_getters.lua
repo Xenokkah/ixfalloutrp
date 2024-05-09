@@ -23,12 +23,17 @@ function ENT:Description()
 end
 
 function ENT:GetCombatHealth()
-    return self:GetNetVar("hp", self.HP or 40)
+    return self:GetNetVar("hp", self.HP or 50)
 end
 
 function ENT:GetCombatHealthMax()
-    return self:GetNetVar("maxhp", self.maxHP or 40)
+    return self:GetNetVar("maxhp", self.maxHP or 50)
 end
+
+function ENT:GetAP()
+    return self:GetNetVar("ap", self.AP or 50)
+end
+
 
 function ENT:InCombat()
     return self:GetNetVar("inFNFFCombat", false)

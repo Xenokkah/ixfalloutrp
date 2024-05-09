@@ -39,6 +39,8 @@ function FNFF_CE:HUDPaint()
             local inObserver
             local textWidth, textHeight = surface.GetTextSize(text)
             local barWidth = math.Clamp(textWidth, 0, textWidth)
+            local hp = v:GetCombatHealth()
+            local maxhp = v:GetCombatHealthMax()
 
             -- we can assume that if we're using cheap blur, we'd want to save some fps here
             if (!ix.option.Get("cheapBlur", false)) then
@@ -54,13 +56,9 @@ function FNFF_CE:HUDPaint()
                 end
             end
 
-            surface.SetDrawColor(0, 0, 0, nameAlpha)
-            surface.DrawRect(x - textWidth / 2, y - nameSize - barHeight / 2, textWidth, barHeight, Color(0, 0, 0, 255))
-            surface.SetDrawColor(46, 247, 39, nameAlpha)
-            surface.DrawRect( x - barWidth / 2, y - nameSize - barHeight / 2, barWidth, barHeight, Color(46, 247, 39, 255))
-
             local nameColor = v:IsTurn() and Color(51, 240, 60) or Color(230, 100, 100)
             ix.util.DrawText(text, x, y - nameSize * 2, ColorAlpha(nameColor, nameAlpha), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, nil, nameAlpha)
+            ix.util.DrawText(hp .. "/" .. maxhp, x, y - nameSize * 1, ColorAlpha(nameColor, nameAlpha), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, nil, nameAlpha)
         end
     end 
 end

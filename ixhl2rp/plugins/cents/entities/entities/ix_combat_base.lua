@@ -90,59 +90,162 @@ function ENT:PhysicsSetup()
 end
 
 function ENT:Think()
-    self:CustomThink()
+	--self:CustomThink()
 
-    if (SERVER) then
-        if !self.loco then return end
+	if (CLIENT) then
+		--self:SetNextClientThink( CurTime() + 0.025 )
+	end
 
-        if self:IsPlayerHolding() then
-            if self.desiredPos then
-                self.nudged = true
-            end
-        else
-            local physObj = self:GetPhysicsObject()
+	if (SERVER) then
 
-            if (IsValid(physObj) and !physObj:IsAsleep()) then
-                physObj:Sleep()
-            end
+		--self:NextThink( CurTime() + 0.025 )
 
-            if (self.nudged and self.desiredPos) then
-                self:SetPos(self.desiredPos)
-                self.desiredPos = nil
-                self:SetNetVar("desiredPos", nil)
-                self.nudged = nil
 
-                self:ResetAnim()
-            end
+		if (self.loco) then
 
-            if !self.desiredPos then
-                self.loco:SetVelocity(Vector(0, 0, 0))
-            elseif (self.desiredPos and !self.loco:IsOnGround()) then
-                self:SetPos(self.desiredPos)
-                self.desiredPos = nil
-                self:SetNetVar("desiredPos", nil)
+			if (self:IsPlayerHolding()) then
 
-                self:ResetAnim()
-            end
-        end
+				--if held with physgun while moving, will teleport to end when hold ends
 
-        if self.desiredPos then
-            self.loco:Approach(self.desiredPos, 1)
+				if (self.desiredPos) then 
 
-            local stuck = self.loco:IsStuck()
+					self.nudged = true
 
-            if (self:GetRangeSquaredTo(self.desiredPos) < 128 or stuck) then
-                self.loco:SetVelocity(Vector(0, 0, 0))
+				end
 
-                self:SetPos(self.desiredPos)
+			else
 
-                self.desiredPos = nil
-                self:SetNetVar("desiredPos", nil)
+				local physObj = self:GetPhysicsObject()
 
-                self:ResetAnim()
-            end
-        end
-    end
+				
+
+				if (IsValid(physObj) and !physObj:IsAsleep()) then
+
+					physObj:Sleep()
+
+				end
+
+				
+
+				--if held with physgun while moving, will teleport to end when hold ends
+
+				if (self.nudged and self.desiredPos) then
+
+					self:SetPos(self.desiredPos)
+
+					self.desiredPos = nil
+
+					self.nudged = nil
+
+					
+
+					self:ResetAnim()
+
+				end
+
+				
+
+				if (!self.desiredPos) then
+
+					if self:GetVelocity():LengthSqr() > 0 then
+
+						self.loco:SetVelocity(Vector(0,0,0))
+
+					end
+
+				end
+				
+				if (self.desiredPos and !self.loco:IsOnGround()) then --basically they drift off into the sunset if you dont do this
+
+					self:SetPos(self.desiredPos)
+
+					self.desiredPos = nil
+
+					
+
+					self:ResetAnim()
+
+				end
+
+			end
+
+			
+
+			if (self.desiredPos) then
+
+				self.loco:Approach(self.desiredPos, 1)
+
+
+				local stuck = self.loco:IsStuck()
+				--128
+				if (self:GetRangeSquaredTo(self.desiredPos) < 32 or stuck) then
+
+					self.loco:SetVelocity(Vector(0,0,0))
+
+					self:SetPos(self.desiredPos)
+
+					self.desiredPos = nil
+
+					self:ResetAnim()
+
+				end
+
+			end
+
+
+
+			if (IsValid(self.follow) and !self.desiredPos and !(self.follow and self.follow:InVehicle())) then
+
+				local followPos = self.follow:GetPos() + self.follow:GetRight() * -50
+
+			
+
+				local range = self:GetRangeSquaredTo(followPos)
+
+			
+
+				if (range > 32768 and !stuck) then
+
+					self:MovementStart(followPos)
+
+				
+
+					self.desiredPos2 = followPos
+					--256
+				elseif ((self.desiredPos2 and range < 64) or stuck) then
+
+					self.loco:SetVelocity(Vector(0,0,0))
+
+
+
+					self:SetPos(followPos)
+
+					
+
+					self.desiredPos2 = nil
+
+					
+
+					self:ResetAnim()
+
+				end
+
+				
+
+				if (self.desiredPos2) then
+
+					self.loco:Approach(followPos, 1)
+
+				end
+
+			end
+
+		end
+
+	end
+
+
+	return true 
 end
 
 function ENT:CustomThink()
