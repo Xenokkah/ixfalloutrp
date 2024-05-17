@@ -10,7 +10,7 @@ ITEM.flag = "1"
 ITEM.quantity = 1
 ITEM.sound = "fosounds/fix/npc_human_using_jet.mp3"
 ITEM.weight = 0.05
-ITEM.duration = 500
+ITEM.duration = 8
 
 ITEM.functions.use = {
 	name = "Smoke",
@@ -21,20 +21,26 @@ ITEM.functions.use = {
 		ix.chat.Send(item.player, "iteminternal", "smokes a "..item.name..".", false)
 
 		curplayer = item.player:GetCharacter()
-		itemname = item.name
+		item.name = item.name
 		duration = item.duration
 		curplayer:BuffStat("cigarette", "endurance", 1)
 		curplayer:BuffStat("cigarette", "charisma", 1)
 		curplayer:BuffStat("cigarette", "intelligence", 1)
+		curplayer:SetData("usingCigarette", true)
 
-		timer.Simple(duration, function() 
+		timer.Create(item.name, item.duration, 1, function()  
 			curplayer:RemoveBuff("cigarette", "charisma")
 			curplayer:RemoveBuff("cigarette", "endurance")
 			curplayer:RemoveBuff("cigarette", "intelligence")
-			curplayer:GetPlayer():NewVegasNotify(itemname .. " has worn off.", "messageNeutral", 8)
+			curplayer:GetPlayer():NewVegasNotify(item.name .. " has worn off.", "messageNeutral", 8)
 			curplayer:GetPlayer():EmitSound("cwfallout3/ui/medical/wear_off.wav" or "items/battery_pickup.wav")
+			curplayer:SetData("usingCigarette", false)
 		end)
 
+			timer.Pause(item.name)
+			local drugtable = curplayer:GetData("timertable") or {}
+			table.insert(drugtable, item.name)
+			curplayer:SetData("timertable", drugtable)
 
 			quantity = quantity - 1
 			if (quantity >= 1) then
@@ -46,7 +52,13 @@ ITEM.functions.use = {
 		end,
 
 	OnCanRun = function(item)
-		return (!IsValid(item.entity))
+		curplayer = item.player:GetCharacter()
+		
+		if (curplayer:GetData("usingCigarette")) then 
+			return false
+		else 
+			return (!IsValid(item.entity))
+		end 
 	end
 }
 

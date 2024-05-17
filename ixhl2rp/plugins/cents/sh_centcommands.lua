@@ -20,8 +20,10 @@ local function StringMatch(a, b)
 end
 local function FindCent(identifier)
     for _, v in ipairs(ents.GetAll()) do
-            if IsValid(v) and StringMatch(v.name, identifier) then 
-                return v 
+            if IsValid(v) and v.combatEntity then 
+				if StringMatch(v:Name(), identifier) then
+					return v 
+				end
             end
     end
 end
@@ -87,6 +89,26 @@ ix.command.Add("CEntYell", {
     end
 })
 
+ix.command.Add("CEntScream", {
+    arguments = ix.type.text,
+    alias = {"CEntY"},
+    OnRun = function(self, client, text)
+        local privilege = CAMI.PlayerHasAccess(client, "Helix - Manage CEnts", nil)
+
+        local entity = client:GetEyeTrace().Entity
+
+        if privilege then
+            if (IsValid(entity) and entity.combatEntity) then
+                ix.chat.Send(entity, "cent_s", text)
+            else
+                return "You are not looking at a valid entity!"
+            end
+        else
+            return "You are not allowed to do this!"
+        end
+    end
+})
+
 ix.command.Add("CEntMe", {
     arguments = ix.type.text,
     OnRun = function(self, client, text)
@@ -97,6 +119,63 @@ ix.command.Add("CEntMe", {
         if privilege then
             if (IsValid(entity) and entity.combatEntity) then
                 ix.chat.Send(entity, "cent_me", text)
+            else
+                return "You are not looking at a valid entity!"
+            end
+        else
+            return "You are not allowed to do this!"
+        end
+    end
+})
+
+ix.command.Add("CEntMeClose", {
+    arguments = ix.type.text,
+    OnRun = function(self, client, text)
+        local privilege = CAMI.PlayerHasAccess(client, "Helix - Manage CEnts", nil)
+
+        local entity = client:GetEyeTrace().Entity
+
+        if privilege then
+            if (IsValid(entity) and entity.combatEntity) then
+                ix.chat.Send(entity, "cent_meclose", text)
+            else
+                return "You are not looking at a valid entity!"
+            end
+        else
+            return "You are not allowed to do this!"
+        end
+    end
+})
+
+ix.command.Add("CEntMeFar", {
+    arguments = ix.type.text,
+    OnRun = function(self, client, text)
+        local privilege = CAMI.PlayerHasAccess(client, "Helix - Manage CEnts", nil)
+
+        local entity = client:GetEyeTrace().Entity
+
+        if privilege then
+            if (IsValid(entity) and entity.combatEntity) then
+                ix.chat.Send(entity, "cent_mefar", text)
+            else
+                return "You are not looking at a valid entity!"
+            end
+        else
+            return "You are not allowed to do this!"
+        end
+    end
+})
+
+ix.command.Add("CEntMeFarFar", {
+    arguments = ix.type.text,
+    OnRun = function(self, client, text)
+        local privilege = CAMI.PlayerHasAccess(client, "Helix - Manage CEnts", nil)
+
+        local entity = client:GetEyeTrace().Entity
+
+        if privilege then
+            if (IsValid(entity) and entity.combatEntity) then
+                ix.chat.Send(entity, "cent_mefarfar", text)
             else
                 return "You are not looking at a valid entity!"
             end
@@ -283,6 +362,14 @@ ix.command.Add("CEntclone", {
 
 			clone:SetCombatHealth(entity:GetCombatHealth())
 			clone:SetCombatHealthMax(entity:GetCombatHealthMax())
+
+			clone:SetAP(entity:GetAP())
+			clone:SetAttackBoost(entity:GetAttackBoost())
+			clone:SetDodgeBoost(entity:GetDodgeBoost())
+
+			clone:SetDT(entity:GetDT())
+			clone:SetET(entity:GetET())
+			clone:SetDR(entity:GetDR())
 
 
 
@@ -551,4 +638,211 @@ ix.command.Add("CEnthp", {
 
 	end
 
+})
+
+ix.command.Add("CEntap", {
+	adminOnly = true,
+	syntax = "<int ap>",
+	OnRun = function(self, client, arguments)
+		local entity = client:GetEyeTrace().Entity
+		if (IsValid(entity) and entity.combatEntity) then
+
+			entity:SetAP(arguments[1])
+			client:Notify("Set AP of CEnt " .. entity:Name() .. " to " .. arguments[1])
+		else
+			client:Notify("You must be looking at a combat entity.")
+
+		end
+	end
+})
+
+ix.command.Add("CEntattack", {
+	adminOnly = true,
+	syntax = "<int attack>",
+	OnRun = function(self, client, arguments)
+		local entity = client:GetEyeTrace().Entity
+		if (IsValid(entity) and entity.combatEntity) then
+
+			entity:SetAttackBoost(arguments[1])
+			client:Notify("Set Attack boost of CEnt " .. entity:Name() .. " to " .. entity:GetAttackBoost())
+		else
+			client:Notify("You must be looking at a combat entity.")
+
+		end
+	end
+})
+
+ix.command.Add("CEntdodge", {
+	adminOnly = true,
+	syntax = "<int dodge>",
+	OnRun = function(self, client, arguments)
+		local entity = client:GetEyeTrace().Entity
+		if (IsValid(entity) and entity.combatEntity) then
+
+			entity:SetDodgeBoost(arguments[1])
+			client:Notify("Set Dodge boost of CEnt " .. entity:Name() .. " to " .. entity:GetDodgeBoost())
+		else
+			client:Notify("You must be looking at a combat entity.")
+
+		end
+	end
+})
+
+ix.command.Add("CEntdt", {
+	adminOnly = true,
+	syntax = "<int dt>",
+	OnRun = function(self, client, arguments)
+		local entity = client:GetEyeTrace().Entity
+		if (IsValid(entity) and entity.combatEntity) then
+
+			entity:SetDT(arguments[1])
+			client:Notify("Set DT of CEnt " .. entity:Name() .. " to " .. entity:GetDT())
+		else
+			client:Notify("You must be looking at a combat entity.")
+
+		end
+	end
+})
+
+ix.command.Add("CEntet", {
+	adminOnly = true,
+	syntax = "<int et>",
+	OnRun = function(self, client, arguments)
+		local entity = client:GetEyeTrace().Entity
+		if (IsValid(entity) and entity.combatEntity) then
+
+			entity:SetET(arguments[1])
+			client:Notify("Set ET of CEnt " .. entity:Name() .. " to " .. entity:GetET())
+		else
+			client:Notify("You must be looking at a combat entity.")
+
+		end
+	end
+})
+
+ix.command.Add("CEntdr", {
+	adminOnly = true,
+	syntax = "<int dr>",
+	OnRun = function(self, client, arguments)
+		local entity = client:GetEyeTrace().Entity
+		if (IsValid(entity) and entity.combatEntity) then
+
+			entity:SetDR(arguments[1])
+			client:Notify("Set DR of CEnt " .. entity:Name() .. " to " .. entity:GetDR())
+		else
+			client:Notify("You must be looking at a combat entity.")
+
+		end
+	end
+})
+
+ix.command.Add("CentDamage", {
+    description = "Inflict damage on a CENT.",
+    adminOnly = true,
+    arguments = {ix.type.string, ix.type.number, bit.bor(ix.type.number, ix.type.optional)},
+    OnRun = function(self, client, damtype, damage, ap)
+
+		local entity = client:GetEyeTrace().Entity
+
+		if not (IsValid(entity) and entity.combatEntity) then
+			return "You must be looking at a combat entity."
+		end
+
+		local target = entity
+        local char = entity
+        local player = entity
+
+        -- Get player armor and health stats
+        local dt = player:GetDT()
+        local et = player:GetET()
+        local dr = player:GetDR()
+        local hp = player:GetCombatHealthMax()
+       
+       
+
+        -- Format entries so that they're ready to work with - lowercase damtype, chop off any decimal points
+        local damtype = string.lower(damtype)
+        local damage = damage - (damage % 1)
+        if (ap) then local ap = ap - (ap % 1) else ap = 0 end
+    
+        -- Ballistic weapons, blasts, and melee
+        if damtype == "physical" then
+
+            -- Subtract DR percentage from damage. Will always be at least 1 point of damage blocked if you have any DR.
+            dt = dt - ap 
+            if dt < 0 then dt = 0 end
+
+            if dr ~= 0 then 
+                local reduction = damage * (dr / 100)
+                damage = math.ceil(damage - reduction)
+                if damage < 0 then damage = 0 end
+            end 
+
+            local minimumdamage = math.ceil(damage * 0.15)
+
+            if dt ~= 0 then 
+                damage = damage - dt
+                if damage < 0 then damage = 0 end
+            end 
+
+            if damage < minimumdamage then
+                damage = minimumdamage
+                client:Notify(target:Name() .. " has taken " .. damage .. " minimum physical damage!")
+                player:SetCombatHealth(player:GetCombatHealth() - damage)
+            else 
+                client:Notify(target:Name() .. " has taken " .. damage .. " physical damage, piercing their armor.")
+                player:SetCombatHealth(player:GetCombatHealth() - damage)
+            end 
+
+        -- Laser, Plasma, Fire 
+        elseif damtype == "energy" then
+
+            -- Subtract AP value from ET value. Since you can't have negative protection, if below 0, make 0.
+            et = et - ap 
+            if et < 0 then et = 0 end
+
+            if dr ~= 0 then 
+                local reduction = damage * (dr / 100)
+                damage = math.ceil(damage - reduction)
+                if damage < 0 then damage = 0 end
+            end 
+
+            local minimumdamage = math.ceil(damage * 0.15)
+
+            if et ~= 0 then 
+                damage = damage - et
+                if damage < 0 then damage = 0 end
+            end 
+
+            if damage < minimumdamage then
+                damage = minimumdamage
+                client:Notify(target:Name() .. " has taken " .. damage .. " minimum energy damage!")
+                player:SetCombatHealth(player:GetCombatHealth() - damage)
+            else 
+                client:Notify(target:Name() .. " has taken " .. damage .. " energy damage, piercing their armor.")
+                player:SetCombatHealth(player:GetCombatHealth() - damage)
+
+            end 
+        
+        -- Bleeding damage. Bypasses armor
+        elseif damtype == "bleed" then
+            client:Notify(target:Name() .. " has taken " .. damage .. " bleed damage!")
+            player:SetCombatHealth(player:GetCombatHealth() - damage)
+        
+        -- Poison damage. Bypasses armor
+        elseif damtype == "poison" then
+            client:Notify(target:Name() .. " has taken " .. damage .. " poison damage!")
+            player:SetCombatHealth(player:GetCombatHealth() - damage)
+
+        -- Some other form of damage as necessary. Bypasses armor
+        elseif damtype == "direct" then
+            client:Notify(target:Name() .. " has taken " .. damage .. " damage!")
+            player:SetCombatHealth(player:GetCombatHealth() - damage)
+        else 
+            return "Invalid damage type. Accepted options: Physical, Energy, Bleed, Poison, Direct"
+        end 
+
+		if player:GetCombatHealth() <= 0 then player:Die() end
+
+    end
 })

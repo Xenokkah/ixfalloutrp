@@ -10,7 +10,7 @@ ITEM.flag = "1"
 ITEM.quantity = 1
 ITEM.sound = "fosounds/fix/npc_human_eating_mentats.mp3"
 ITEM.weight = 0.05
-ITEM.duration = 350
+ITEM.duration = 6
 
 ITEM.functions.use = {
 	name = "Use",
@@ -21,19 +21,27 @@ ITEM.functions.use = {
 		ix.chat.Send(item.player, "iteminternal", "takes some "..item.name..".", false)
 
 		curplayer = item.player:GetCharacter()
-		itemname = item.name
+		item.name = item.name
 		duration = item.duration
 		curplayer:BuffStat("mentats", "perception", 2)
 		curplayer:BuffStat("mentats", "intelligence", 2)
 		curplayer:BuffStat("mentats", "charisma", 1)
+		curplayer:SetData("usingMentats", true)
 
-		timer.Simple(duration, function() 
+		timer.Create(item.name, item.duration, 1, function() 
 			curplayer:RemoveBuff("mentats", "perception")
 			curplayer:RemoveBuff("mentats", "intelligence")
 			curplayer:RemoveBuff("mentats", "charisma")
-			curplayer:GetPlayer():NewVegasNotify(itemname .. " has worn off.", "messageNeutral", 8)
+			curplayer:GetPlayer():NewVegasNotify(item.name .. " has worn off.", "messageNeutral", 8)
 			curplayer:GetPlayer():EmitSound("cwfallout3/ui/medical/wear_off.wav" or "items/battery_pickup.wav")
+			curplayer:SetData("usingMentats", false)
 		end)
+
+			timer.Pause(item.name)
+			local drugtable = curplayer:GetData("timertable") or {}
+			table.insert(drugtable, item.name)
+			curplayer:SetData("timertable", drugtable)
+
 
 
 			quantity = quantity - 1
@@ -46,7 +54,13 @@ ITEM.functions.use = {
 		end,
 
 	OnCanRun = function(item)
-		return (!IsValid(item.entity))
+		curplayer = item.player:GetCharacter()
+		
+		if (curplayer:GetData("usingMentats")) then 
+			return false
+		else 
+			return (!IsValid(item.entity))
+		end 
 	end
 }
 

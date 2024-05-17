@@ -537,6 +537,36 @@ PLUGIN.GunData["tfa_10mm_pistol"] = {
 	}
 }
 
+PLUGIN.GunData["aus_w_10mmpistol"] = {
+	BlackList = false,
+	ID = "10mmpistoluaf",
+	Name = "10mm UAF Custom Compact",
+	conditionDrainFactor = 0.8,
+	Desc = "The N99 10mm Pistol is a rugged, durable, and reliable pistol, serving as the United States Army's service pistol before the war. Its distinct brick-shaped profile hints at its simplified internals that make cleaning a cinch. This one has been custom-ordered by the Unamerican Activities Force and is fitted with a more curved, compact profile for use as a concealed or backup sidearm.",
+	Slot = "secondary",
+	Model = "models/illusion/fwp/w_10mmpistol.mdl",
+	Width = 1,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 1,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	strengthReq = 2,
+	
+	Prim = {
+		Ammo = "10mmammo",
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
+
 PLUGIN.GunData["tfaat_10mm_smg"] = {
 	BlackList = false,
 	Name = "10mm Submachine Gun",
@@ -1499,6 +1529,35 @@ PLUGIN.GunData["aus_w_huntingrifle"] = {
 	Desc = "A bolt action hunting rifle used for taking down big game, but also employed by many militaries or gangs due to its ease of use and stopping power." ,
 	Slot = "primary",
 	Model = "models/illusion/fwp/w_huntingrifle.mdl",
+	Width = 4,
+	iconCam = {
+		pos = Vector(2.75, 191.95, 56.09),
+		ang = Angle(16.18, -90.88, 0),
+		fov = 9.31
+	},
+	Height = 1,
+	Weight = 3,
+	Price = 2000,
+	condition = 100,
+	strengthReq = 6,
+	Prim = {
+		Ammo = "308ammo",
+	},
+	
+	--Sec == Secondary
+	Sec = {
+	}
+}
+
+--=== .308 ===--
+PLUGIN.GunData["tfa_hunting_rifle_s"] = {
+	BlackList = false,
+	ID = "huntingriflescoped",
+	Name = "Hunting Rifle",
+	conditionDrainFactor = 0.9,
+	Desc = "A bolt action hunting rifle used for taking down big game, but also employed by many militaries or gangs due to its ease of use and stopping power. This one has been fitted with a scope to further enhance its long distance capability." ,
+	Slot = "primary",
+	Model = "models/halokiller38/fallout/weapons/rifles/huntingriflescoped.mdl",
 	Width = 4,
 	iconCam = {
 		pos = Vector(2.75, 191.95, 56.09),

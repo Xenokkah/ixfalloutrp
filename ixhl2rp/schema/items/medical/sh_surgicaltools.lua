@@ -9,7 +9,7 @@ ITEM.price = "4000"
 ITEM.flag = "1"
 ITEM.quantity = 2
 ITEM.weight = 0.05
-ITEM.duration = 350
+ITEM.duration = 9000
 
 ITEM.functions.use = {
 	name = "Use",

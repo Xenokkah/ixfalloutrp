@@ -1,8 +1,8 @@
-ITEM.name = "Medium Parcel"
-ITEM.description = "A medium-sized box capable of holding a couple things."
+ITEM.name = "Large Parcel"
+ITEM.description = "A large box capable of holding a number of things."
 ITEM.width = 2
-ITEM.height = 1
-ITEM.invWidth = 2
+ITEM.height = 2
+ITEM.invWidth = 4
 ITEM.invHeight = 2
 ITEM.flag = "1"
 ITEM.price = 1000

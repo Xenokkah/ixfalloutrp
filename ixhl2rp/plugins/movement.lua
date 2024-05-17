@@ -33,6 +33,53 @@ ix.command.Add( "Movement", {
     end
 } )
 
+ix.command.Add( "rangefinder", {
+    description = "Get range of the place you're looking. ",
+    OnRun = function( self, client )
+        local char = client:GetCharacter()
+    
+        local startPos = client:GetPos()
+        local endPos = client:GetEyeTrace().HitPos
+        local target = client:GetEyeTrace().Entity
+        local distance = endPos:Distance(startPos)
+
+        distance =  distance - (distance % 1)
+        distance = (distance / 39.3701) 
+        distance =  distance - (distance % 1)
+
+        local apcost = math.ceil(distance / 10)
+
+        local str = ""
+
+        if IsValid(target) and target.combatEntity then 
+            str = "Target: " .. target:Name() .. "\n"
+        end 
+
+        str = str .. "Distance to point: " .. distance .. "m"
+        local range
+        
+        if distance < 10 then range = "Short"
+        elseif distance > 9 and distance < 29 then range = "Medium"
+        elseif distance > 29 and distance < 49 then range = "Long"
+        elseif distance > 49 and distance < 89 then range = "Very Long"
+        elseif distance > 89 then range = "Extreme"
+        end 
+
+        str = str .. "\nRange: " .. range
+        str = str .. "\nMovement Cost: " .. apcost
+
+        
+
+        return str
+
+
+
+
+          
+
+    end
+} )
+
 if (SERVER) then
     ix.log.AddType("moveStart", function(client)
         return string.format("%s has begun moving.", client:Name())

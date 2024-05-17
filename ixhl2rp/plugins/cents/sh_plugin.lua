@@ -29,6 +29,8 @@ function math.ToSU( num )
     return num * 52.49
 end
 
+
+
 if (CLIENT) then
     function PLUGIN:GetCharacterName(speaker, chatType)
         if speaker.combatEntity then

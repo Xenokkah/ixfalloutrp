@@ -73,6 +73,157 @@ PLUGIN.AttachData[ "20gaugeammo_alt" ] = {
 	Slot = 2
 }
 
+PLUGIN.AttachData[ "9mmammo_alt" ] = {
+	Name = "9mm Overpressure",
+	Desc = "You shouldn't be seeing this.",
+	Price = 2000,
+	Model = "models/Items/BoxSRounds.mdl",
+	Width = 1,
+	Height = 1,
+	Slot = 2
+}
+
+PLUGIN.AttachData[ "45autoammo_alt" ] = {
+	Name = ".45 Hydra-Shok",
+	Desc = "You shouldn't be seeing this.",
+	Price = 2000,
+	Model = "models/Items/BoxSRounds.mdl",
+	Width = 1,
+	Height = 1,
+	Slot = 2
+}
+
+PLUGIN.AttachData[ "10mmammo_alt" ] = {
+	Name = "10mm Jacketed Hollowpoint",
+	Desc = "You shouldn't be seeing this.",
+	Price = 2000,
+	Model = "models/Items/BoxSRounds.mdl",
+	Width = 1,
+	Height = 1,
+	Slot = 2
+}
+
+PLUGIN.AttachData[ "357magnumammo_alt" ] = {
+	Name = ".357 Jacketed Flatpoints",
+	Desc = "You shouldn't be seeing this.",
+	Price = 2000,
+	Model = "models/Items/BoxSRounds.mdl",
+	Width = 1,
+	Height = 1,
+	Slot = 2
+}
+
+PLUGIN.AttachData[ "357magnumammo_alt" ] = {
+	Name = ".44 Semi Wadcutter Rounds",
+	Desc = "You shouldn't be seeing this.",
+	Price = 2000,
+	Model = "models/Items/BoxSRounds.mdl",
+	Width = 1,
+	Height = 1,
+	Slot = 2
+}
+
+PLUGIN.AttachData[ "127mmammo_alt" ] = {
+	Name = "12.7mm Jacketed Hollowpoint Rounds",
+	Desc = "You shouldn't be seeing this.",
+	Price = 2000,
+	Model = "models/Items/BoxSRounds.mdl",
+	Width = 1,
+	Height = 1,
+	Slot = 2
+}
+
+PLUGIN.AttachData[ "4570ammo_alt" ] = {
+	Name = ".45-70 Government Semi Wadcutter Rounds",
+	Desc = "You shouldn't be seeing this.",
+	Price = 2000,
+	Model = "models/Items/BoxSRounds.mdl",
+	Width = 1,
+	Height = 1,
+	Slot = 2
+}
+
+PLUGIN.AttachData[ "556ammo_alt" ] = {
+	Name = "5.56 Armor Piercing Rounds",
+	Desc = "You shouldn't be seeing this.",
+	Price = 2000,
+	Model = "models/Items/BoxSRounds.mdl",
+	Width = 1,
+	Height = 1,
+	Slot = 2
+}
+
+PLUGIN.AttachData[ "5mmammo_alt" ] = {
+	Name = "5mm Armor Piercing Rounds",
+	Desc = "You shouldn't be seeing this.",
+	Price = 2000,
+	Model = "models/Items/BoxSRounds.mdl",
+	Width = 1,
+	Height = 1,
+	Slot = 2
+}
+
+PLUGIN.AttachData[ "308ammo_alt" ] = {
+	Name = ".308 Armor Piercing Rounds",
+	Desc = "You shouldn't be seeing this.",
+	Price = 2000,
+	Model = "models/Items/BoxSRounds.mdl",
+	Width = 1,
+	Height = 1,
+	Slot = 2
+}
+
+PLUGIN.AttachData[ "50mgammo_alt" ] = {
+	Name = ".50 MG Armor Piercing Rounds",
+	Desc = "You shouldn't be seeing this.",
+	Price = 2000,
+	Model = "models/Items/BoxSRounds.mdl",
+	Width = 1,
+	Height = 1,
+	Slot = 2
+}
+
+PLUGIN.AttachData["laserriflefocusoptics" ] = {
+	Name = "Laser Rifle Focus Optics",
+	Desc = "Focus optics for an AER-9 Laser Rifle.\n+3 Damage\nUpgrade is irreversible",
+	Price = 2000,
+	Model = "models/mosi/fallout4/props/junk/modcrate.mdl",
+	Width = 1,
+	Height = 1,
+	Slot = 3
+}
+
+PLUGIN.AttachData["laserpistolfocusoptics" ] = {
+	Name = "Laser Pistol Focus Optics",
+	Desc = "Focus optics for an AEP-7 Laser Rifle.\n+3 Damage\nUpgrade is irreversible",
+	Price = 2000,
+	Model = "models/mosi/fallout4/props/junk/modcrate.mdl",
+	Width = 1,
+	Height = 1,
+	Slot = 3
+}
+
+PLUGIN.AttachData["plasmapistolaccelerator" ] = {
+	Name = "Plasma Pistol Magnetic Accelerator",
+	Desc = "A magnetic accelerator for a Plasma Pistol, which makes a notoriously slow projectile require less lead time.\n+3 Modifier To All Ranges\nUpgrade is irreversible",
+	Price = 2000,
+	Model = "models/mosi/fallout4/props/junk/modcrate.mdl",
+	Width = 1,
+	Height = 1,
+	Slot = 3
+}
+
+PLUGIN.AttachData["plasmarifleaccelerator" ] = {
+	Name = "Plasma Rifle Magnetic Accelerator",
+	Desc = "A magnetic accelerator for a Plasma Rifle, which makes a notoriously slow projectile require less lead time.\n+3 Modifier To All Ranges\nUpgrade is irreversible",
+	Price = 2000,
+	Model = "models/mosi/fallout4/props/junk/modcrate.mdl",
+	Width = 1,
+	Height = 1,
+	Slot = 3
+}
+
+
 
 
 

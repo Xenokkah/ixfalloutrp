@@ -3,7 +3,7 @@ local PLUGIN = PLUGIN
 ENT.Type = "nextbot"
 ENT.Base = "ix_combat_base"
 ENT.PrintName = "Feral Ghoul"
-ENT.Category = "Helix - Combat (Example)"
+ENT.Category = "Helix - Combat Entities"
 ENT.Spawnable = true
 ENT.AdminOnly = true
 

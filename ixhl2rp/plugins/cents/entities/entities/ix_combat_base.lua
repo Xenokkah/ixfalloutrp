@@ -337,7 +337,7 @@ function ENT:Die(attacker)
                 physObj:ApplyForceCenter(posDifference * math.random(-5000, -8000) + Vector(0, 0, 300))
             end
 
-            ragdoll:EmitSound(table.Random(self.dieSounds) or "", 100)
+            --ragdoll:EmitSound(table.Random(self.dieSounds) or "", 100)
         end
 
         if !IsValid(ragdoll:GetPhysicsObject()) then
@@ -426,6 +426,85 @@ function ENT:EquipWeapon(weaponItem, modelPath)
 
     self:SetNetVar("weapon", weaponItem)
 end
+
+function ENT:getSaveData()
+	local saveData = {}
+
+	saveData.name = self:Name() or "Name Corrupted"
+
+	saveData.desc = self:Desc() or "Desc Corrupted"
+
+	--saveData.hp = self:getHP()
+
+	--saveData.hpMax = self:getMaxHP()
+
+	--saveData.mp = self:getMP()
+
+	--saveData.mpMax = self:getMaxMP()
+
+	--saveData.attribs = self.attribs
+
+	--saveData.actions = self.actions
+
+	--saveData.dmg = self.dmg
+
+	--saveData.res = self:GetNetVar("res")
+
+	--saveData.amp = self:GetNetVar("amp")
+
+	if self.curbonegun then
+
+		saveData.gunmodel = self.curbonegun
+		
+	end
+
+	saveData.model = self:GetModel()
+
+	saveData.mat = self:GetMaterial()
+
+	saveData.anim = self:GetSequence()
+
+	saveData.color = self:GetColor()
+
+	saveData.skin = self:GetSkin()
+
+	
+
+	saveData.bodygroups = {
+
+		self:GetBodygroup(1),
+
+		self:GetBodygroup(2),
+
+		self:GetBodygroup(3),
+
+		self:GetBodygroup(4),
+
+		self:GetBodygroup(5),
+
+		self:GetBodygroup(6),
+
+		self:GetBodygroup(7),
+
+		self:GetBodygroup(8),
+
+		self:GetBodygroup(9),
+
+		self:GetBodygroup(10),
+
+		self:GetBodygroup(11),
+
+		self:GetBodygroup(12),
+
+	}
+
+	
+
+	return saveData
+
+end
+
+
 
 
 if (CLIENT) then

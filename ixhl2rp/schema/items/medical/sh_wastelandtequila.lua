@@ -10,7 +10,7 @@ ITEM.flag = "1"
 ITEM.quantity = 1
 ITEM.sound = "fosounds/fix/npc_humandrinking_soda_01.mp3"
 ITEM.weight = 0.05
-ITEM.duration = 350
+ITEM.duration = 9000
 
 ITEM.functions.use = {
 	name = "Use",
@@ -24,7 +24,7 @@ ITEM.functions.use = {
 		item.player:NewVegasNotify("You feel bubbly and bold. +2 Strength, +1 Charisma, -2 Intelligence. You are cured of all Poisons!", "messageNeutral", 8)
 
 		curplayer = item.player:GetCharacter()
-		itemname = item.name
+		item.name = item.name
 		duration = item.duration
 
 		curplayer:BuffStat("wastelandtequila", "strength", 2)
@@ -32,15 +32,19 @@ ITEM.functions.use = {
 		curplayer:BuffStat("wastelandtequila", "intelligence", -2)
 
 
-		timer.Simple(duration, function() 
+		timer.Create(item.name, item.duration, 1, function() 
 		curplayer:RemoveBuff("wastelandtequila", "strength")
 		curplayer:RemoveBuff("wastelandtequila", "charisma")
 		curplayer:RemoveBuff("wastelandtequila", "intelligence")
-			curplayer:GetPlayer():NewVegasNotify(itemname .. " has worn off.", "messageNeutral", 8)
+			curplayer:GetPlayer():NewVegasNotify(item.name .. " has worn off.", "messageNeutral", 8)
 			curplayer:GetPlayer():EmitSound("cwfallout3/ui/medical/wear_off.wav" or "items/battery_pickup.wav")
 		end)
 
-
+			timer.Pause(item.name)
+			local drugtable = curplayer:GetData("timertable") or {}
+			table.insert(drugtable, item.name)
+			curplayer:SetData("timertable", drugtable)
+			
 			quantity = quantity - 1
 			if (quantity >= 1) then
 				item:SetData("quantity", quantity)
@@ -51,13 +55,7 @@ ITEM.functions.use = {
 		end,
 
 	OnCanRun = function(item)
-		curplayer = item.player:GetCharacter()
-		
-		if (curplayer:GetData("usingWastelandtequila")) then 
-			return false
-		else 
-			return (!IsValid(item.entity))
-		end 
+		return (!IsValid(item.entity))
 	end
 }
 

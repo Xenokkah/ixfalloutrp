@@ -10,7 +10,7 @@ ITEM.flag = "1"
 ITEM.quantity = 1
 ITEM.sound = "fosounds/fix/npc_human_using_stimpak.mp3"
 ITEM.weight = 0.05
-ITEM.duration = 350
+ITEM.duration = 9000
 
 ITEM.functions.use = {
 	name = "Use",

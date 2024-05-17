@@ -10,7 +10,7 @@ ITEM.flag = "1"
 ITEM.quantity = 1
 ITEM.sound = "fosounds/fix/npc_human_using_stimpak.mp3"
 ITEM.weight = 0.05
-ITEM.duration = 450
+ITEM.duration = 4
 ITEM.heal = 65
 
 ITEM.functions.use = {
@@ -22,20 +22,26 @@ ITEM.functions.use = {
 		ix.chat.Send(item.player, "iteminternal", "injects their "..item.name..".", false)
 		item.player:GetCharacter():GetInventory():Add("dirtysyringe", 1)
 
-		curplayer = item.player:GetCharacter()
-		duration = ITEM.duration
-		itemname = ITEM.name
+		local curplayer = item.player:GetCharacter()
+		local itemname = item.name
+		local duration = item.duration
+
 		item.player:AdjustHealth("heal", item.heal)
 		item.player:NewVegasNotify("Restored " .. item.heal .. " health.", "messageNeutral", 4)
 		curplayer:BuffStat("stimpaksickness", "endurance", -1)
 		curplayer:BuffStat("stimpaksickness", "agility", -1)
 
-		timer.Simple(duration, function() 
+		timer.Create(item.name, item.duration, 1, function() 
 			curplayer:RemoveBuff("stimpaksickness", "endurance")
 			curplayer:RemoveBuff("stimpaksickness", "agility")
-			curplayer:GetPlayer():NewVegasNotify(itemname .. " has worn off.", "messageNeutral", 8)
+			curplayer:GetPlayer():NewVegasNotify(item.name .. " has worn off.", "messageNeutral", 8)
 			curplayer:GetPlayer():EmitSound("cwfallout3/ui/medical/wear_off.wav" or "items/battery_pickup.wav")
 		end)
+
+			timer.Pause(item.name)
+			local drugtable = curplayer:GetData("timertable") or {}
+			table.insert(drugtable, item.name)
+			curplayer:SetData("timertable", drugtable)
 
 
 			quantity = quantity - 1
@@ -46,11 +52,13 @@ ITEM.functions.use = {
 
 			return true
 		end,
+	
 
 	OnCanRun = function(item)
 		return (!IsValid(item.entity))
 	end
 }
+
 
 
 function ITEM:GetDescription()

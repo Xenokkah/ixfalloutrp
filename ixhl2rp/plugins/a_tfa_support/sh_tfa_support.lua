@@ -37,7 +37,7 @@ ix.util.Include("sh_tfa_ammo.lua")
 if CLIENT then
 	function PLUGIN:PopulateItemTooltip( tooltip, item )
 		if item.Attachments and not table.IsEmpty( item.Attachments ) then
-			local text = "Alternate Ammo: "
+			local text = "Mods and Alt Ammo:"
 			local mods = item:GetData( "mods", {} )
 			local already = {}
 
@@ -157,6 +157,8 @@ function PLUGIN:InitializedPlugins()
 
 		if dat.conditionDrainFactor then
 			ITEM.conditionDrainFactor = dat.conditionDrainFactor
+			ITEM.conditionDrainFactorSpecialAmmo = dat.conditionDrainFactor + 0.25
+			ITEM.conditionDrainFactorNormalAmmo = dat.conditionDrainFactor
 		end 
 
 		if dat.strengthReq then
@@ -236,18 +238,21 @@ function PLUGIN:InitializedPlugins()
 					local mods = item:GetData( "mods", {} )
 		
 
-					if not table.IsEmpty(data) then
+					if mods[2] then
 						client:GiveAmmo(weapon:Clip1(), game.GetAmmoName(weapon:GetPrimaryAmmoType()))
 						weapon:SetClip1(0)
 						mods[2] = nil
 						item:SetData( "mods", mods )
 						item:Unequip(client, true)
+						item.conditionDrainFactor = item.conditionDrainFactorNormalAmmo
+
 					else
 						client:GiveAmmo(weapon:Clip1(), game.GetAmmoName(weapon:GetPrimaryAmmoType()))
 						weapon:SetClip1(0)
 						mods[2] = game.GetAmmoName(weapon:GetPrimaryAmmoType()) .. "_alt"
 						item:SetData( "mods", mods )
 						item:Unequip(client, true)
+						item.conditionDrainFactor = item.conditionDrainFactorSpecialAmmo
 					end 
 						
 					client:NewVegasNotify("You switch ammo types.", "messageNeutral", 5)

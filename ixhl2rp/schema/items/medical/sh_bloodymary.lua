@@ -10,7 +10,7 @@ ITEM.flag = "1"
 ITEM.quantity = 1
 ITEM.sound = "fosounds/fix/npc_human_using_psycho_01.mp3"
 ITEM.weight = 0.05
-ITEM.duration = 350
+ITEM.duration = 5
 
 ITEM.functions.use = {
 	name = "Use",
@@ -23,23 +23,30 @@ ITEM.functions.use = {
 		item.player:NewVegasNotify("You feel uncomfortably energized. +25% Dmg, -3 Accuracy, -5 HP", "messageNeutral", 8)
 
 		curplayer = item.player:GetCharacter()
-		itemname = item.name
+		item.name = item.name
 		duration = item.duration
 	        item.player:AdjustHealth("hurt", 5)
                 curplayer:AddSkillBoost("unarmed", -6)
                 curplayer:AddSkillBoost("guns", -6)
                 curplayer:AddSkillBoost("melee", -6)
                 curplayer:AddSkillBoost("energyweapons", -6)
+				curplayer:SetData("usingPsycho", true)
 
 
-		timer.Simple(duration, function() 
+			timer.Create(item.name, item.duration, 1, function()  
 		        curplayer:RemoveSkillBoost("bloodymary", "guns")
 		        curplayer:RemoveSkillBoost("bloodymary", "unarmed")
 		        curplayer:RemoveSkillBoost("bloodymary", "energyweapons")
 		        curplayer:RemoveSkillBoost("bloodymary", "melee")
-			curplayer:GetPlayer():NewVegasNotify(itemname .. " has worn off.", "messageNeutral", 8)
+			curplayer:GetPlayer():NewVegasNotify(item.name .. " has worn off.", "messageNeutral", 8)
 			curplayer:GetPlayer():EmitSound("cwfallout3/ui/medical/wear_off.wav" or "items/battery_pickup.wav")
+			curplayer:SetData("usingPsycho", false)
 		end)
+
+			timer.Pause(item.name)
+			local drugtable = curplayer:GetData("timertable") or {}
+			table.insert(drugtable, item.name)
+			curplayer:SetData("timertable", drugtable)
 
 
 			quantity = quantity - 1
@@ -54,7 +61,7 @@ ITEM.functions.use = {
 	OnCanRun = function(item)
 		curplayer = item.player:GetCharacter()
 		
-		if (curplayer:GetData("usingBloodymary")) then 
+		if (curplayer:GetData("usingBuffout")) then 
 			return false
 		else 
 			return (!IsValid(item.entity))

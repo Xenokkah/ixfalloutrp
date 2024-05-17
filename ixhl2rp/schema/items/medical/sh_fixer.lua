@@ -10,7 +10,7 @@ ITEM.flag = "1"
 ITEM.quantity = 1
 ITEM.sound = "fosounds/fix/npc_human_eating_mentats.mp3"
 ITEM.weight = 0.05
-ITEM.duration = 300
+ITEM.duration = 9000
 
 ITEM.functions.use = {
 	name = "Use",
@@ -30,13 +30,13 @@ ITEM.functions.use = {
 
 		
 		curplayer = item.player:GetCharacter()
-		itemname = item.name
+		item.name = item.name
 		duration = item.duration
 
 		item.player:NewVegasNotify("All stat buffs and debuffs removed, but your vision blurs slightly and your arms tremble.", "messageNeutral", 7)
 
 		timer.Simple(duration, function() 
-			curplayer:GetPlayer():NewVegasNotify(itemname .. " has worn off.", "messageNeutral", 8)
+			curplayer:GetPlayer():NewVegasNotify(item.name .. " has worn off.", "messageNeutral", 8)
 			curplayer:GetPlayer():EmitSound("cwfallout3/ui/medical/wear_off.wav" or "items/battery_pickup.wav")
 		end)
 

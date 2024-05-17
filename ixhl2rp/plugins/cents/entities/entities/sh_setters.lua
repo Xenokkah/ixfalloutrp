@@ -18,6 +18,30 @@ function ENT:SetCombatHealthMax(value)
     return self:SetNetVar("maxhp", value)
 end
 
+function ENT:SetAP(value)
+    return self:SetNetVar("ap", value)
+end
+
+function ENT:SetAttackBoost(value)
+    return self:SetNetVar("attack", value)
+end
+
+function ENT:SetDodgeBoost(value)
+    return self:SetNetVar("dodge", value)
+end
+
+function ENT:SetDT(value)
+    return self:SetNetVar("dt", value)
+end
+
+function ENT:SetET(value)
+    return self:SetNetVar("et", value)
+end
+
+function ENT:SetDR(value)
+    return self:SetNetVar("dr", value)
+end
+
 function ENT:SetWeapon(value)
     return self:EquipWeapon(value, self:GetNetVar("weaponModel", "models/Items/AR2_Grenade.mdl"))
 end
@@ -26,14 +50,3 @@ function ENT:SetCEntWeaponModel(value)
     return self:EquipWeapon(self:GetNetVar("weapon", false), value)
 end
 
-function ENT:SetAttributes(tbl)
-    return self:SetNetVar("attributes", tbl)
-end
-
-function ENT:SetSkills(tbl)
-    return self:SetNetVar("skills", tbl)
-end
-
-function ENT:SetSP(tbl)
-    return self:SetNetVar("sp", tbl)
-end

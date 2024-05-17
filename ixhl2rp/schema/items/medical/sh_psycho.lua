@@ -10,7 +10,7 @@ ITEM.flag = "1"
 ITEM.quantity = 1
 ITEM.sound = "fosounds/fix/npc_human_using_psycho_01.mp3"
 ITEM.weight = 0.05
-ITEM.duration = 350
+ITEM.duration = 8
 
 ITEM.functions.use = {
 	name = "Use",
@@ -22,14 +22,22 @@ ITEM.functions.use = {
 		item.player:GetCharacter():GetInventory():Add("dirtysyringe", 1)
 
 		curplayer = item.player:GetCharacter()
-		itemname = item.name
+		item.name = item.name
 		duration = item.duration
+		curplayer:SetData("usingPsycho", true)
 		
 
-		timer.Simple(duration, function() 
-			curplayer:GetPlayer():NewVegasNotify(itemname .. " has worn off.", "messageNeutral", 8)
+		timer.Create(item.name, item.duration, 1, function() 
+			curplayer:GetPlayer():NewVegasNotify(item.name .. " has worn off.", "messageNeutral", 8)
 			curplayer:GetPlayer():EmitSound("cwfallout3/ui/medical/wear_off.wav" or "items/battery_pickup.wav")
+			curplayer:SetData("usingPsycho", false)
 		end)
+
+		timer.Pause(item.name)
+		local drugtable = curplayer:GetData("timertable") or {}
+		table.insert(drugtable, item.name)
+		curplayer:SetData("timertable", drugtable)
+
 
 		quantity = quantity - 1
 		if (quantity >= 1) then
@@ -41,7 +49,11 @@ ITEM.functions.use = {
 	end,
 
 	OnCanRun = function(item)
-		return (!IsValid(item.entity))
+		if (curplayer:GetData("usingPsycho")) then 
+			return false
+		else 
+			return (!IsValid(item.entity))
+		end 
 	end
 }
 

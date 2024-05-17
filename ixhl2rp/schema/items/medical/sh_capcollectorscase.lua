@@ -9,7 +9,7 @@ ITEM.price = "4000"
 ITEM.flag = "1"
 ITEM.quantity = 0
 ITEM.weight = 0.05
-ITEM.duration = 350
+ITEM.duration = 9000
 
 ITEM.functions.addcap = {
 	name = "Add Star Caps",

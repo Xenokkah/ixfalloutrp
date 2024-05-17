@@ -198,7 +198,7 @@ function ITEM:RemoveOutfit(client)
 	end
 
 
-	self.player:GetCharacter():SetData("groups", bgroups)
+	character:SetData("groups", bgroups)
 
 	if (self.attribBoosts) then
 		for k, _ in pairs(self.attribBoosts) do
@@ -686,11 +686,11 @@ function ITEM:OnRemoved()
 end
 
 function ITEM:OnEquipped()
-	self.player:EmitSound("stalkersound/inv_slot.mp3")
+
 end
 
 function ITEM:OnUnequipped()
-	self.player:EmitSound("stalkersound/inv_slot.mp3")
+
 end
 
 ITEM.functions.Inspect = {

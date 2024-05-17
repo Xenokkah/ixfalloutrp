@@ -10,7 +10,7 @@ ITEM.flag = "1"
 ITEM.quantity = 1
 ITEM.sound = "fosounds/fix/npc_human_using_jet.mp3"
 ITEM.weight = 0.05
-ITEM.duration = 900
+ITEM.duration = 5
 
 ITEM.functions.use = {
 	name = "Use",
@@ -22,30 +22,29 @@ ITEM.functions.use = {
 
 		item.player:NewVegasNotify("Your heart rate spikes and your pupils dialate. +2 AP, +10 Evasion", "messageNeutral", 8)
 
-		curplayer = item.player:GetCharacter()
-		itemname = item.name
-		duration = item.duration
-                curplayer:SetCharapboost(curplayer:GetCharapboost() + 2)
-		curplayer:AddSkillBoost("evasion", 10)
+		local curplayer = item.player:GetCharacter()
+		local itemname = item.name
+		local duration = item.duration
+        curplayer:SetCharapboost(curplayer:GetCharapboost() + 2)
+		curplayer:AddSkillBoost("rocket", "evasion", 10)
 		curplayer:SetData("usingRocket", true)
 
 
-		timer.Simple(duration, function() 
+		timer.Create(item.name, item.duration, 1, function() 
 		        curplayer:RemoveSkillBoost("rocket", "evasion")
 			curplayer:SetCharapboost(curplayer:GetCharapboost() - 2)
-			curplayer:GetPlayer():NewVegasNotify(itemname .. " has worn off.", "messageNeutral", 8)
+			curplayer:GetPlayer():NewVegasNotify(item.name .. " has worn off.", "messageNeutral", 8)
 			curplayer:GetPlayer():EmitSound("cwfallout3/ui/medical/wear_off.wav" or "items/battery_pickup.wav")
 			curplayer:SetData("usingRocket", false)
 		end)
 
 
-			quantity = quantity - 1
-			if (quantity >= 1) then
-				item:SetData("quantity", quantity)
-				return false
-			end
+		timer.Pause(item.name)
+		local drugtable = curplayer:GetData("timertable") or {}
+		table.insert(drugtable, item.name)
+		curplayer:SetData("timertable", drugtable)
 
-			return true
+		return true
 		end,
 
 	OnCanRun = function(item)

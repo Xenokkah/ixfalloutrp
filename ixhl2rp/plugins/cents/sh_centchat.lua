@@ -37,13 +37,15 @@ do
         font = "ixChatFont", 
         deadCanChat = true
     })
-
+   
     ix.chat.Register("cent_s", {
-        format = "%s shouts \"%s\"",
-        color = Color(255, 0, 0),
-        CanHear = ix.config.Get("chatRange", 280) * 3,
-        font = "ixChatFontScream",
-        deadCanChat = true
+        format = "%s screams \"%s\"",
+        GetColor = function(speaker, text)
+            return Color(200, 20, 20)
+        end,
+        CanHear = ix.config.Get("chatRange", 280) * 4,
+        deadCanChat = true,
+        font = "ixChatFont", 
     })
 
     ix.chat.Register("cent_me", {
@@ -56,6 +58,51 @@ do
         CanHear = ix.config.Get("chatRange", 280) * 2,
         deadCanChat = true
     })
+
+    ix.chat.Register("cent_meclose", {
+        format = "**%s %s",
+        GetColor = function(speaker, text)
+            local color = ix.chat.classes.ic.GetColor(speaker, text)
+    
+            return Color(color.r - 35, color.g - 35, color.b - 35)
+        end,
+        CanHear = ix.config.Get("chatRange", 280) * 0.25,
+        font = "ixChatFontItalics",
+        filter = "actions",
+        deadCanChat = true
+    })
+
+    ix.chat.Register("cent_mefar", {
+        format = "**%s %s",
+        GetColor = function(speaker, text)
+            local color = ix.chat.classes.ic.GetColor(speaker, text)
+    
+            return Color(color.r + 35, color.g + 35, color.b + 35)
+        end,
+        CanHear = ix.config.Get("chatRange", 280) * 2,
+        font = "ixChatFontItalics",
+        filter = "actions",
+        deadCanChat = true
+    })
+
+    ix.chat.Register("cent_mefarfar", {
+        format = "**%s %s",
+        GetColor = function(speaker, text)
+            local color = ix.chat.classes.ic.GetColor(speaker, text)
+    
+            return Color(color.r + 45, color.g + 45, color.b + 45)
+        end,
+        CanHear = ix.config.Get("chatRange", 280) * 4,
+        font = "ixChatFontItalics",
+        filter = "actions",
+        deadCanChat = true
+    })
+    
+
+
+
+
+
 end
 
 function PLUGIN:CanAutoFormatMessage(speaker, chatType, text)

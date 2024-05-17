@@ -10,7 +10,7 @@ ITEM.flag = "1"
 ITEM.quantity = 1
 ITEM.sound = "fosounds/fix/npc_human_using_stimpak.mp3"
 ITEM.weight = 0.05
-ITEM.duration = 450
+ITEM.duration = 4
 ITEM.heal = 65
 
 
@@ -32,12 +32,17 @@ ITEM.functions.use = {
 		curplayer:BuffStat("stimpaksickness", "endurance", -1)
 		curplayer:BuffStat("stimpaksickness", "agility", -1)
 
-		timer.Simple(duration, function() 
+		timer.Create(item.name, item.duration, 1, function() 
 			curplayer:RemoveBuff("stimpaksickness", "endurance")
 			curplayer:RemoveBuff("stimpaksickness", "agility")
-			curplayer:GetPlayer():NewVegasNotify(itemname .. " has worn off.", "messageNeutral", 8)
+			curplayer:GetPlayer():NewVegasNotify(item.name .. " has worn off.", "messageNeutral", 8)
 			curplayer:GetPlayer():EmitSound("cwfallout3/ui/medical/wear_off.wav" or "items/battery_pickup.wav")
 		end)
+
+			timer.Pause(item.name)
+			local drugtable = curplayer:GetData("timertable") or {}
+			table.insert(drugtable, item.name)
+			curplayer:SetData("timertable", drugtable)
 
 
 			quantity = quantity - 1

@@ -10,7 +10,7 @@ ITEM.flag = "1"
 ITEM.quantity = 1
 ITEM.sound = "fosounds/fix/npc_human_using_stimpak.mp3"
 ITEM.weight = 0.05
-ITEM.duration = 350
+ITEM.duration = 8
 
 ITEM.functions.use = {
 	name = "Use",
@@ -30,13 +30,18 @@ ITEM.functions.use = {
 			return false
 		end
 
-		timer.Simple(duration, function() 
+		timer.Create(item.name, item.duration, 1, function()  
 			curplayer:SetChardrboost(curplayer:GetChardrboost() - 25)
-			curplayer:GetPlayer():NewVegasNotify(itemname .. " has worn off.", "messageNeutral", 8)
+			curplayer:GetPlayer():NewVegasNotify(item.name .. " has worn off.", "messageNeutral", 8)
 			curplayer:GetPlayer():EmitSound("cwfallout3/ui/medical/wear_off.wav" or "items/battery_pickup.wav")
 			curplayer:SetData("usingMedX", false)
 
 		end)
+
+		timer.Pause(item.name)
+		local drugtable = curplayer:GetData("timertable") or {}
+		table.insert(drugtable, item.name)
+		curplayer:SetData("timertable", drugtable)
 
 		return true
 

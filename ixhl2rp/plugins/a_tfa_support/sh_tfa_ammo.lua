@@ -31,6 +31,15 @@ PLUGIN.AmmoData[ "9mmammo" ] = {
 	Height = 1
 }
 
+PLUGIN.AmmoData[ "9mmammo_alt" ] = {
+	Name = "9mm Overpressure Rounds",
+	Amount = 30,
+	Price = 2000,
+	Model = "models/visualitygaming/fallout/ammo/9mm.mdl",
+	Width = 1,
+	Height = 1
+}
+
 PLUGIN.AmmoData[ "22lrammo" ] = {
 	Name = "22lr Rounds",
 	Amount = 30,
@@ -58,6 +67,15 @@ PLUGIN.AmmoData[ "45autoammo" ] = {
 	Height = 1
 }
 
+PLUGIN.AmmoData[ "45autoammo_alt" ] = {
+	Name = ".45 Hydra-Shok Rounds",
+	Amount = 30,
+	Price = 2000,
+	Model = "models/mosi/fallout4/ammo/45.mdl",
+	Width = 1,
+	Height = 1
+}
+
 PLUGIN.AmmoData[ "10mmammo" ] = {
 	Name = "10mm Rounds",
 	Amount = 30,
@@ -65,12 +83,28 @@ PLUGIN.AmmoData[ "10mmammo" ] = {
 	Model = "models/mosi/fallout4/ammo/10mm.mdl",
 	Width = 1,
 	Height = 1
+}
 
-	
+PLUGIN.AmmoData[ "10mmammo_alt" ] = {
+	Name = "10mm Jacketed Hollowpoint Rounds",
+	Amount = 30,
+	Price = 2000,
+	Model = "models/mosi/fallout4/ammo/10mm.mdl",
+	Width = 1,
+	Height = 1
 }
 
 PLUGIN.AmmoData[ "357magnumammo" ] = {
 	Name = ".357 Magnum Rounds",
+	Amount = 30,
+	Price = 2000,
+	Model = "models/mosi/fallout4/ammo/38.mdl",
+	Width = 1,
+	Height = 1
+}
+
+PLUGIN.AmmoData[ "357magnumammo_alt" ] = {
+	Name = ".357 Jacketed Flatpoint Rounds",
 	Amount = 30,
 	Price = 2000,
 	Model = "models/mosi/fallout4/ammo/38.mdl",
@@ -87,8 +121,26 @@ PLUGIN.AmmoData[ "44magnumammo" ] = {
 	Height = 1
 }
 
+PLUGIN.AmmoData[ "44magnumammo_alt" ] = {
+	Name = ".44 Semi Wadcutter Rounds",
+	Amount = 20,
+	Price = 2000,
+	Model = "models/mosi/fallout4/ammo/44.mdl",
+	Width = 1,
+	Height = 1
+}
+
 PLUGIN.AmmoData["127mmammo" ] = {
 	Name = "12.7mm Rounds",
+	Amount = 20,
+	Price = 2000,
+	Model = "models/illusion/fwp/127ammobox.mdl",
+	Width = 1,
+	Height = 1
+}
+
+PLUGIN.AmmoData["127mmammo_alt" ] = {
+	Name = "12.7mm Jacketed Hollowpoint Rounds",
 	Amount = 20,
 	Price = 2000,
 	Model = "models/illusion/fwp/127ammobox.mdl",
@@ -105,6 +157,15 @@ PLUGIN.AmmoData["4570ammo" ] = {
 	Height = 1
 }
 
+PLUGIN.AmmoData["4570ammo_alt" ] = {
+	Name = "45-70 Government Semi Wadcutter Rounds",
+	Amount = 20,
+	Price = 2000,
+	Model = "models/visualitygaming/fallout/ammo/127mm.mdl",
+	Width = 2,
+	Height = 1
+}
+
 PLUGIN.AmmoData[ "556ammo" ] = {
 	Name = "5.56 Rounds",
 	Amount = 30,
@@ -114,6 +175,14 @@ PLUGIN.AmmoData[ "556ammo" ] = {
 	Height = 1
 }
 
+PLUGIN.AmmoData[ "556ammo_alt" ] = {
+	Name = "5.56 Armor Piercing Rounds",
+	Amount = 30,
+	Price = 2000,
+	Model = "models/mosi/fallout4/ammo/556.mdl",
+	Width = 2,
+	Height = 1
+}
 
 PLUGIN.AmmoData["20gaugeammo" ] = {
 	Name = "20 Gauge Buckshot",
@@ -162,6 +231,15 @@ PLUGIN.AmmoData["5mmammo" ] = {
 	Height = 1
 }
 
+PLUGIN.AmmoData["5mmammo_alt" ] = {
+	Name = "5mm Armor Piercing Rounds",
+	Amount = 30,
+	Price = 2000,
+	Model = "models/mosi/fallout4/ammo/wildcat.mdl",
+	Width = 2,
+	Height = 1
+}
+
 PLUGIN.AmmoData["5mmboxammo" ] = {
 	Name = "5mm Belt Box",
 	Amount = 120,
@@ -180,8 +258,26 @@ PLUGIN.AmmoData["308ammo" ] = {
 	Height = 1
 }
 
+PLUGIN.AmmoData["308ammo_alt" ] = {
+	Name = ".308 Armor Piercing Rounds",
+	Amount = 20,
+	Price = 2000,
+	Model = "models/mosi/fallout4/ammo/308.mdl",
+	Width = 2,
+	Height = 1
+}
+
 PLUGIN.AmmoData["50mgammo" ] = {
 	Name = ".50MG Rounds",
+	Amount = 10,
+	Price = 2000,
+	Model = "models/mosi/fallout4/ammo/50.mdl",
+	Width = 2,
+	Height = 1
+}
+
+PLUGIN.AmmoData["50mgammo_alt" ] = {
+	Name = ".50MG Armor Piercing Rounds",
 	Amount = 10,
 	Price = 2000,
 	Model = "models/mosi/fallout4/ammo/50.mdl",

@@ -41,6 +41,12 @@ function FNFF_CE:HUDPaint()
             local barWidth = math.Clamp(textWidth, 0, textWidth)
             local hp = v:GetCombatHealth()
             local maxhp = v:GetCombatHealthMax()
+            local ap = v:GetAP()
+            local attack = v:GetAttackBoost()
+            local dodge = v:GetDodgeBoost()
+            local dt = v:GetDT()
+            local et = v:GetET()
+            local dr = v:GetDR()
 
             -- we can assume that if we're using cheap blur, we'd want to save some fps here
             if (!ix.option.Get("cheapBlur", false)) then
@@ -57,8 +63,10 @@ function FNFF_CE:HUDPaint()
             end
 
             local nameColor = v:IsTurn() and Color(51, 240, 60) or Color(230, 100, 100)
-            ix.util.DrawText(text, x, y - nameSize * 2, ColorAlpha(nameColor, nameAlpha), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, nil, nameAlpha)
-            ix.util.DrawText(hp .. "/" .. maxhp, x, y - nameSize * 1, ColorAlpha(nameColor, nameAlpha), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, nil, nameAlpha)
+            ix.util.DrawText(text, x, y - nameSize * 4, ColorAlpha(nameColor, nameAlpha), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, nil, nameAlpha)
+            ix.util.DrawText(hp .. "/" .. maxhp, x, y - nameSize * 3, ColorAlpha(nameColor, nameAlpha), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, nil, nameAlpha)
+            ix.util.DrawText("AP:".. ap .. "  Dodge:" .. dodge .. "  Attack:" .. attack, x, y - nameSize * 2, ColorAlpha(nameColor, nameAlpha), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, nil, nameAlpha)
+            ix.util.DrawText("DT:".. dt .. "  ET:" .. et .. "  DR:" .. dr .. "%", x, y - nameSize * 1, ColorAlpha(nameColor, nameAlpha), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, nil, nameAlpha)
         end
     end 
 end

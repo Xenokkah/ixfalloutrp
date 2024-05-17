@@ -1,0 +1,10 @@
+ITEM.name = "Combat Helmet, Reinforced MK II"
+ITEM.description = "A very high-spec armored helmet."
+ITEM.longdesc = "A pre-war helmet that offers a very high level of protection for the head and face."
+ITEM.model = "models/fallout/apparel/mark1combathelmet.mdl"
+ITEM.price = 15000
+ITEM.isGasmask = false
+ITEM.isHelmet = true
+ITEM.isArmor = true
+ITEM.dT = 5
+ITEM.eT = 3

@@ -10,7 +10,7 @@ ITEM.flag = "1"
 ITEM.quantity = 1
 ITEM.sound = "fosounds/fix/npc_human_eating_mentats.mp3"
 ITEM.weight = 0.05
-ITEM.duration = 100
+ITEM.duration = 7
 
 ITEM.functions.use = {
 	name = "Use",
@@ -23,19 +23,24 @@ ITEM.functions.use = {
 		item.player:NewVegasNotify("You practically feel your mind expanding, and your senses in tune with other's. +2 INT, +2 PER, +4 CHR", "messageNeutral", 8)
 
 		curplayer = item.player:GetCharacter()
-		itemname = item.name
+		item.name = item.name
 		duration = item.duration
 		curplayer:BuffStat("partytimementats", "perception", 2)
 		curplayer:BuffStat("partytimementats", "intelligence", 2)
 		curplayer:BuffStat("partytimementats", "charisma", 4)
 
-		timer.Simple(duration, function() 
+		timer.Create(item.name, item.duration, 1, function()
 			curplayer:RemoveBuff("partytimementats", "perception")
 			curplayer:RemoveBuff("partytimementats", "intelligence")
 			curplayer:RemoveBuff("partytimementats", "charisma")
-			curplayer:GetPlayer():NewVegasNotify(itemname .. " has worn off.", "messageNeutral", 8)
+			curplayer:GetPlayer():NewVegasNotify(item.name .. " has worn off.", "messageNeutral", 8)
 			curplayer:GetPlayer():EmitSound("cwfallout3/ui/medical/wear_off.wav" or "items/battery_pickup.wav")
 		end)
+
+			timer.Pause(item.name)
+			local drugtable = curplayer:GetData("timertable") or {}
+			table.insert(drugtable, item.name)
+			curplayer:SetData("timertable", drugtable)
 
 
 			quantity = quantity - 1

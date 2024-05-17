@@ -10,7 +10,7 @@ ITEM.flag = "1"
 ITEM.quantity = 1
 ITEM.sound = "fosounds/fix/npc_human_using_stimpak.mp3"
 ITEM.weight = 0.05
-ITEM.duration = 400
+ITEM.duration = 9000
 
 ITEM.functions.use = {
 	name = "Use",
@@ -22,7 +22,7 @@ ITEM.functions.use = {
 
 
 		curplayer = item.player:GetCharacter()
-		itemname = item.name
+		item.name = item.name
 		duration = item.duration
 		item.player:addRadiation(-150)
 

@@ -31,7 +31,27 @@ function ENT:GetCombatHealthMax()
 end
 
 function ENT:GetAP()
-    return self:GetNetVar("ap", self.AP or 50)
+    return self:GetNetVar("ap", self.AP or 10)
+end
+
+function ENT:GetAttackBoost()
+    return self:GetNetVar("attack", self.Attack or 5)
+end
+
+function ENT:GetDodgeBoost()
+    return self:GetNetVar("dodge", self.Dodge or 5)
+end
+
+function ENT:GetDT()
+    return self:GetNetVar("dt", self.DT or 0)
+end
+
+function ENT:GetET()
+    return self:GetNetVar("et", self.ET or 0)
+end
+
+function ENT:GetDR()
+    return self:GetNetVar("dr", self.DR or 0)
 end
 
 

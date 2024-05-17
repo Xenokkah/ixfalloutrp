@@ -518,6 +518,8 @@ ix.command.Add("Damage", {
         local damtype = string.lower(damtype)
         local damage = damage - (damage % 1)
         if (ap) then local ap = ap - (ap % 1) else ap = 0 end
+
+        dr = dr - ap
     
         -- Ballistic weapons, blasts, and melee
         if damtype == "physical" then

@@ -10,7 +10,7 @@ ITEM.flag = "1"
 ITEM.quantity = 1
 ITEM.sound = "fosounds/fix/npc_human_using_stimpak.mp3"
 ITEM.weight = 0.05
-ITEM.duration = 550
+ITEM.duration = 7
 
 ITEM.functions.use = {
 	name = "Use",
@@ -21,17 +21,24 @@ ITEM.functions.use = {
 		ix.chat.Send(item.player, "iteminternal", "takes some "..item.name..".", false)
 
 		curplayer = item.player:GetCharacter()
-		itemname = item.name
+		item.name = item.name
 		duration = item.duration
 		
 		curplayer:SetCharradresistboost(curplayer:GetCharradresistboost() + 25)
 		curplayer:SetData("usingRadX", true)
-		timer.Simple(duration, function() 
+
+		timer.Create(item.name, item.duration, 1, function() 
 			curplayer:SetCharradresistboost(curplayer:GetCharradresistboost() - 25)
-			curplayer:GetPlayer():NewVegasNotify(itemname .. " has worn off.", "messageNeutral", 8)
+			curplayer:GetPlayer():NewVegasNotify(item.name .. " has worn off.", "messageNeutral", 8)
 			curplayer:GetPlayer():EmitSound("cwfallout3/ui/medical/wear_off.wav" or "items/battery_pickup.wav")
 			curplayer:SetData("usingRadX", false)
 		end)
+
+		timer.Pause(item.name)
+		local drugtable = curplayer:GetData("timertable") or {}
+		table.insert(drugtable, item.name)
+		curplayer:SetData("timertable", drugtable)
+
 
 		quantity = quantity - 1
 		if (quantity >= 1) then

@@ -37,6 +37,10 @@ do
 			return true
 		end
 
+		if (char.combatEntity) then
+			return true
+		end
+
 		local other = ix.char.loaded[id]
 
 		if (other) then
@@ -89,6 +93,12 @@ if (CLIENT) then
 	end
 
 	function PLUGIN:GetCharacterName(client, chatType)
+
+		if client.combatEntity then
+			return client:Name()
+		end
+
+
 		if (client != LocalPlayer()) then
 			local character = client:GetCharacter()
 			local ourCharacter = LocalPlayer():GetCharacter()

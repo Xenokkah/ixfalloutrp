@@ -11,7 +11,7 @@ ITEM.quantity = 1
 ITEM.heal = 35
 ITEM.sound = "fosounds/fix/npc_human_using_psycho_01.mp3"
 ITEM.weight = 0.05
-ITEM.duration = 900
+ITEM.duration = 9000
 
 
 ITEM.functions.use = {
@@ -25,15 +25,22 @@ ITEM.functions.use = {
 		item.player:NewVegasNotify("You feel numb. +5 HP, +30 Temporary HP", "messageNeutral", 8)
 
 		curplayer = item.player:GetCharacter()
-		itemname = item.name
+		item.name = item.name
 		duration = item.duration
 		item.player:AdjustHealth("heal", item.heal)
+		curplayer:SetData("usingHydra", true)
 
-		timer.Simple(duration, function() 
+		timer.Create(item.name, item.duration, 1, function() 
 	        item.player:AdjustHealth("hurt", 30)
-			curplayer:GetPlayer():NewVegasNotify(itemname .. " has worn off.", "messageNeutral", 8)
+			curplayer:GetPlayer():NewVegasNotify(item.name .. " has worn off.", "messageNeutral", 8)
 			curplayer:GetPlayer():EmitSound("cwfallout3/ui/medical/wear_off.wav" or "items/battery_pickup.wav")
+			curplayer:SetData("usingHydra", false)
 		end)
+
+		timer.Pause(item.name)
+		local drugtable = curplayer:GetData("timertable") or {}
+		table.insert(drugtable, item.name)
+		curplayer:SetData("timertable", drugtable)
 
 
 			quantity = quantity - 1
@@ -43,7 +50,20 @@ ITEM.functions.use = {
 			end
 
 			return true
+		end,
+
+		OnCanRun = function(item)
+			curplayer = item.player:GetCharacter()
+		
+		if (curplayer:GetData("usingHydra")) then 
+			return false
+		else 
+			return (!IsValid(item.entity))
+		end 
 		end
+
+		
+		
 }
 
 
